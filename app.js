@@ -31,6 +31,39 @@ const els = {
 
 const normalize = value => String(value || '').trim().toLowerCase();
 
+const FLAG_MAP = {
+  ARA: "🇸🇦",
+  CHI: "🇨🇳",
+  CRO: "🇭🇷",
+  CZE: "🇨🇿",
+  DAN: "🇩🇰",
+  DUT: "🇳🇱",
+  ENG: "🇬🇧",
+  FIN: "🇫🇮",
+  FRA: "🇫🇷",
+  GER: "🇩🇪",
+  GRE: "🇬🇷",
+  HUN: "🇭🇺",
+  ITA: "🇮🇹",
+  JPN: "🇯🇵",
+  KOR: "🇰🇷",
+  NOR: "🇳🇴",
+  POL: "🇵🇱",
+  POR: "🇵🇹",
+  "POR-PT": "🇵🇹",
+  "POR-BR": "🇧🇷",
+  ROM: "🇷🇴",
+  RUS: "🇷🇺",
+  SPA: "🇪🇸",
+  SWE: "🇸🇪",
+  TUR: "🇹🇷"
+};
+
+function renderLangBadge(code, type = "text") {
+  const flag = FLAG_MAP[code] || "🌐";
+  return `<span class="badge lang-badge ${type === "audio" ? "audio-lang" : "text-lang"}"><span class="lang-flag" aria-hidden="true">${flag}</span><span class="lang-code">${escapeHtml(code)}</span></span>`;
+}
+
 function escapeHtml(value='') {
   return String(value).replace(/[&<>"']/g, ch => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
@@ -170,8 +203,8 @@ function openDmca() {
 }
 
 function openModal(game) {
-  const textLangs = (game.languages?.text || []).map(x => `<span class="badge lang-badge text-lang">${escapeHtml(x)}</span>`).join('');
-  const audioLangs = (game.languages?.audio || []).map(x => `<span class="badge lang-badge audio-lang">${escapeHtml(x)}</span>`).join('');
+  const textLangs = (game.languages?.text || []).map(x => renderLangBadge(x, "text")).join('');
+  const audioLangs = (game.languages?.audio || []).map(x => renderLangBadge(x, "audio")).join('');
 
   const cover = game.cover
     ? `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`
