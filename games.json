@@ -195,6 +195,38 @@
       "purchaseUrl": "https://fuckingfast.net/fpsez6inwu0k",
       "dlcUrl": "",
       "languageSource": "PlayStation Italy metadata for PPSA10737"
+    },
+    {
+      "title": "TEKKEN 8 — Gold Edition",
+      "titleId": "PPSA10595",
+      "version": "02.006.001",
+      "firmware": "4.xx",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-22",
+      "cover": "https://cdn11.bigcommerce.com/s-xs1cevxe43/images/stencil/1280x1280/attribute_rule_images/15840_source_1696464575.jpg",
+      "languages": {
+        "text": [
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "POL",
+          "RUS",
+          "SPA"
+        ],
+        "audio": [
+          "ENG"
+        ]
+      },
+      "notes": "Gold Edition.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/tekken-8/",
+      "dlcAvailable": false,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": "PlayStation Italy TEKKEN 8 metadata"
     }
   ]
 }
