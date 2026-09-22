@@ -162,6 +162,39 @@
       "purchaseUrl": "https://fuckingfast.net/9e7zwdqj4ola",
       "dlcUrl": "",
       "languageSource": "PlayStation Italy metadata for PPSA08338"
+    },
+    {
+      "title": "Little Nightmares: Enhanced Edition - Complete Edition",
+      "titleId": "PPSA10737",
+      "version": "01.004.000",
+      "firmware": "",
+      "size": "3.88 GB",
+      "status": "released",
+      "date": "2026-09-22",
+      "cover": "https://cdn.media.amplience.net/i/frasersdev/75791169_o.jpg?v=20251022150042",
+      "languages": {
+        "text": [
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "POL",
+          "RUS",
+          "SPA",
+          "SWE"
+        ],
+        "audio": [
+          "ENG"
+        ]
+      },
+      "notes": "Enhanced Complete Edition. Includes Little Nightmares and the Secrets of the Maw Expansion Pass.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP0700-PPSA10737_00-LITTLEDELUXEED00",
+      "dlcAvailable": true,
+      "purchaseUrl": "https://fuckingfast.net/fpsez6inwu0k",
+      "dlcUrl": "",
+      "languageSource": "PlayStation Italy metadata for PPSA10737"
     }
   ]
 }
