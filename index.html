@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260922-2018" />
+  <link rel="stylesheet" href="styles.css?v=20260922-2234" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -46,6 +46,7 @@
     <nav class="topnav" aria-label="Primary">
       <a href="#library">Library</a>
       <a href="#about">About</a>
+      <a href="builder.html">Builder</a>
       <button class="nav-link-button" id="dmcaOpen" type="button">DMCA</button>
     </nav>
   </header>
@@ -116,18 +117,34 @@
       </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about tool-showcase">
       <div>
-        <div class="eyebrow">ABOUT ZER0GAME</div>
-        <h2>Built for speed, clarity and clean release tracking.</h2>
+        <div class="eyebrow">ZER0DAY TOOL</div>
+        <h2>PS5 exFAT PKG Builder</h2>
       </div>
-      <p>
-        Build and manage your PS5 FPKG workflow with our
-        <a class="builder-link" href="https://github.com/zerodaysofficial/ps5-exfat-pkg-builder-v1" target="_blank" rel="noopener noreferrer">
-          PS5 exFAT PKG Builder
+
+      <div class="tool-showcase-content">
+        <p>
+          Our companion tool for PS5 FPKG workflows: import package formats, inspect metadata,
+          manage exFAT content, apply compatibility fixes and prepare packages from one streamlined interface.
+        </p>
+
+        <div class="tool-mini-tags" aria-label="Builder highlights">
+          <span>exFAT / PFS import</span>
+          <span>Metadata preview</span>
+          <span>PlayGo fix</span>
+          <span>Backport engine</span>
+        </div>
+
+        <a class="builder-cta" href="builder.html">
+          <span class="builder-cta-icon">⚡</span>
+          <span>
+            <strong>EXPLORE THE BUILDER</strong>
+            <small>Features, compatibility and GitHub access</small>
+          </span>
+          <span class="builder-cta-arrow">→</span>
         </a>
-        — the companion tool behind the ZER0GAME ecosystem.
-      </p>
+      </div>
     </section>
   </main>
 
