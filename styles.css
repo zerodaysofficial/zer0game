@@ -773,3 +773,37 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     margin:0;
   }
 }
+
+
+/* Mobile cards: no inner cover gap, artwork fills the card frame. */
+@media(max-width:680px){
+  .cover{
+    padding:0 !important;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .cover-wrap.cover-loaded{
+    background:#0a0d14;
+  }
+
+  .cover-wrap.cover-loaded::before{
+    opacity:.22;
+  }
+
+  /* Opened game: keep the full cover visible and large, never crop it. */
+  .modal-art{
+    padding:0 !important;
+  }
+
+  .modal-art img{
+    width:100% !important;
+    height:auto !important;
+    max-width:100% !important;
+    max-height:none !important;
+    object-fit:contain !important;
+    object-position:center !important;
+    padding:0 !important;
+    margin:0 auto !important;
+  }
+}
