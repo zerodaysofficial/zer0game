@@ -239,8 +239,43 @@
       "date": "2026-09-22",
       "cover": "https://m.media-amazon.com/images/I/8163O-hji%2BS._SL1348_.jpg",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "RUS",
+          "CRO",
+          "CZE",
+          "DAN",
+          "DUT",
+          "ENG",
+          "FIN",
+          "FRA",
+          "GER",
+          "GRE",
+          "HUN",
+          "ITA",
+          "NOR",
+          "POL",
+          "POR-PT",
+          "ROM",
+          "SPA",
+          "SWE",
+          "TUR"
+        ],
+        "audio": [
+          "RUS",
+          "ARA",
+          "DAN",
+          "DUT",
+          "ENG",
+          "FIN",
+          "FRA",
+          "GER",
+          "ITA",
+          "NOR",
+          "POL",
+          "POR-PT",
+          "SPA",
+          "SWE"
+        ]
       },
       "notes": "Deluxe Edition. Works only up to firmware 11.60.",
       "releaseUrl": "",
@@ -248,7 +283,7 @@
       "dlcAvailable": false,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": ""
+      "languageSource": "User-provided package language metadata"
     }
   ]
 }
