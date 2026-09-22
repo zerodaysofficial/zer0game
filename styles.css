@@ -2010,3 +2010,22 @@ footer{
   .tool-showcase{display:block}
   .tool-showcase-content{margin-top:28px}
 }
+
+/* Language flags in all game modals */
+.lang-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.lang-flag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  line-height:1;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.25));
+}
+.lang-code{
+  font-weight:800;
+  letter-spacing:.03em;
+}
