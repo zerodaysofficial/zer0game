@@ -113,6 +113,55 @@
       "purchaseUrl": "https://fuckingfast.net/8mcnzu2nppnz",
       "dlcUrl": "https://fuckingfast.net/q7mwgsmtorgc",
       "languageSource": "PPSA02433 public PS Store metadata"
+    },
+    {
+      "title": "Marvel's Spider-Man 2",
+      "titleId": "PPSA08338",
+      "version": "",
+      "firmware": "",
+      "size": "101 GB",
+      "status": "released",
+      "date": "2026-09-22",
+      "cover": "https://gametek.tn/774-large_default/marvel-s-spider-man-2-ps5.jpg",
+      "languages": {
+        "text": [
+          "ARA",
+          "CZE",
+          "DAN",
+          "DUT",
+          "ENG",
+          "FIN",
+          "FRA",
+          "GER",
+          "GRE",
+          "HUN",
+          "ITA",
+          "NOR",
+          "POL",
+          "POR-PT",
+          "RUS",
+          "SPA",
+          "SWE"
+        ],
+        "audio": [
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "POL",
+          "POR-PT",
+          "RUS",
+          "SPA"
+        ]
+      },
+      "notes": "Includes a Debug Menu. Activate it with: Touchpad + Options.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/marvels-spider-man-2/",
+      "dlcAvailable": false,
+      "purchaseUrl": "https://fuckingfast.net/9e7zwdqj4ola",
+      "dlcUrl": "",
+      "languageSource": "PlayStation Italy metadata for PPSA08338"
     }
   ]
 }
