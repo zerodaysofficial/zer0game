@@ -723,3 +723,22 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     backdrop-filter:blur(12px);
   }
 }
+
+
+/* Desktop cards: artwork fills the whole cover frame, no inner spacing.
+   Mobile remains unchanged. */
+@media(min-width:681px){
+  .cover{
+    padding:0;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .cover-wrap.cover-loaded{
+    background:#0a0d14;
+  }
+
+  .cover-wrap.cover-loaded::before{
+    opacity:.22;
+  }
+}
