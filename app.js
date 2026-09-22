@@ -96,7 +96,12 @@ function filteredGames() {
 
 function badge(text) {
   const el = document.createElement('span');
+  const key = normalize(text);
   el.className = 'badge';
+  if (key.startsWith('fw ')) el.classList.add('badge-fw');
+  if (key === 'dlc') el.classList.add('badge-dlc');
+  if (key === 'ita audio') el.classList.add('badge-audio');
+  if (key === 'ita text') el.classList.add('badge-text');
   el.textContent = text;
   return el;
 }
@@ -165,8 +170,8 @@ function openDmca() {
 }
 
 function openModal(game) {
-  const textLangs = (game.languages?.text || []).map(x => `<span class="badge">${escapeHtml(x)}</span>`).join('');
-  const audioLangs = (game.languages?.audio || []).map(x => `<span class="badge">${escapeHtml(x)}</span>`).join('');
+  const textLangs = (game.languages?.text || []).map(x => `<span class="badge lang-badge text-lang">${escapeHtml(x)}</span>`).join('');
+  const audioLangs = (game.languages?.audio || []).map(x => `<span class="badge lang-badge audio-lang">${escapeHtml(x)}</span>`).join('');
 
   const cover = game.cover
     ? `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`
