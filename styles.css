@@ -1076,3 +1076,35 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     font-size:22px;
   }
 }
+
+/* Centered header socials */
+.topbar{
+  position:relative;
+}
+
+.topbar-social{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+}
+
+.topbar-social .social-support{
+  margin-top:0;
+}
+
+@media(max-width:680px){
+  .topbar-social{
+    left:50%;
+  }
+
+  .topbar-social .social-icon{
+    width:40px;
+    height:40px;
+  }
+
+  .topbar-social .support-pointer{
+    font-size:19px;
+  }
+}
