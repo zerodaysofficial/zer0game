@@ -25,7 +25,8 @@
       },
       "notes": "Catalog entry ready. Add a cover and authorized release information when available.",
       "releaseUrl": "",
-      "infoUrl": ""
+      "infoUrl": "",
+      "languageSource": "Package assets inspected; public storefront listings vary by region"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
@@ -37,12 +38,36 @@
       "date": "2026-09-21",
       "cover": "",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "CHI",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA"
+        ],
+        "audio": [
+          "CHI",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
+          "RUS",
+          "SPA"
+        ]
       },
       "notes": "Metadata placeholder.",
       "releaseUrl": "",
-      "infoUrl": ""
+      "infoUrl": "",
+      "languageSource": "PPSA07411 public PS Store metadata"
     },
     {
       "title": "Crash Bandicoot 4: It's About Time",
@@ -54,15 +79,30 @@
       "date": "2026-09-22",
       "cover": "https://images.pushsquare.com/28c0ac119a161/crash-bandicoot-4-its-about-time-cover.cover_large.jpg",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "POL",
+          "RUS",
+          "SPA"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "SPA"
+        ]
       },
       "notes": "FPKG catalog entry. DLC available.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/crash-bandicoot-4-its-about-time/",
       "dlcAvailable": true,
       "purchaseUrl": "",
-      "dlcUrl": ""
+      "dlcUrl": "",
+      "languageSource": "PPSA02433 public PS Store metadata"
     }
   ]
 }
