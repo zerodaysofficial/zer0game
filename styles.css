@@ -264,7 +264,9 @@ main{width:min(1440px,calc(100% - 40px));margin:0 auto}
   z-index:1;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
+  object-position:center;
+  padding:7px;
   transition:transform .45s ease,filter .3s ease;
 }
 .cover-wrap.cover-loaded .cover{filter:saturate(1.04) contrast(1.02)}
@@ -381,20 +383,77 @@ footer{
 footer p{max-width:620px;text-align:right;line-height:1.6}
 
 .game-modal{
+  --modal-angle:0deg;
+  position:relative;
+  isolation:isolate;
   width:min(980px,calc(100% - 28px));
   max-height:90vh;
   padding:0;
-  border:1px solid rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.08);
   border-radius:26px;
   color:#fff;
   background:#0b0e15;
-  box-shadow:0 40px 120px rgba(0,0,0,.65);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.65),
+    0 0 42px rgba(90,91,255,.12);
   overflow:hidden;
+}
+.game-modal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  border-radius:inherit;
+  padding:2px;
+  background:
+    conic-gradient(
+      from var(--modal-angle),
+      transparent 0deg,
+      transparent 42deg,
+      #37f6ff 72deg,
+      #7c5cff 110deg,
+      #bc63ff 142deg,
+      transparent 176deg,
+      transparent 360deg
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:modalNeonOrbit 4.5s linear infinite;
+}
+.game-modal::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  border-radius:inherit;
+  box-shadow:
+    inset 0 0 18px rgba(55,246,255,.06),
+    inset 0 0 28px rgba(124,92,255,.05);
+}
+.game-modal[open]{
+  animation:modalEnter .26s cubic-bezier(.2,.8,.2,1);
+}
+@property --modal-angle{
+  syntax:"<angle>";
+  inherits:false;
+  initial-value:0deg;
+}
+@keyframes modalNeonOrbit{
+  to{--modal-angle:360deg}
+}
+@keyframes modalEnter{
+  from{opacity:0;transform:translateY(10px) scale(.975)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 .game-modal::backdrop{background:rgba(0,0,0,.76);backdrop-filter:blur(12px)}
 .modal-close{
   position:absolute;
-  z-index:4;
+  z-index:7;
   top:16px;right:16px;
   width:38px;height:38px;
   border:1px solid var(--line);
@@ -424,7 +483,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   background-image:var(--modal-cover);
   background-size:cover;
   background-position:center;
-  filter:blur(28px) brightness(.42) saturate(1.2);
+  filter:blur(30px) brightness(.34) saturate(1.28);
   transform:scale(1.13);
 }
 .modal-art img{
@@ -432,8 +491,10 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   z-index:1;
   width:100%;
   height:100%;
-  object-fit:cover;
-  box-shadow:0 0 60px rgba(0,0,0,.4);
+  object-fit:contain;
+  object-position:center;
+  padding:14px;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.42));
 }
 .modal-info{padding:46px 42px;overflow:auto}
 .modal-info .eyebrow{margin-bottom:10px}
@@ -563,4 +624,8 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 .cover-wrap.cover-loaded .cover-fallback{
   display:none !important;
+}
+
+@media(max-width:680px){
+  .modal-art img{padding:10px}
 }
