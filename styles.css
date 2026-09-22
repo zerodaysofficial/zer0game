@@ -276,12 +276,6 @@ main{width:min(1440px,calc(100% - 40px));margin:0 auto}
   justify-content:flex-end;
   padding:22px;
 }
-.fallback-kicker{
-  color:#8a95aa;
-  letter-spacing:.17em;
-  font-size:9px;
-  font-weight:800;
-}
 .card-overlay{
   position:absolute;inset:0;
   z-index:2;
@@ -524,4 +518,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   .cover-wrap{border-radius:16px}
   .card-body{padding-top:10px}
   .game-title{font-size:12px}
+}
+.cover-wrap.cover-loaded .cover-fallback{
+  display:none !important;
 }
