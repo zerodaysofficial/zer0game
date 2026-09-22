@@ -228,6 +228,27 @@
       "dlcUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar",
       "languageSource": "PlayStation Italy TEKKEN 8 metadata",
       "sizeLabel": "Size compressed"
+    },
+    {
+      "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
+      "titleId": "PPSA01474",
+      "version": "01.005.003",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-22",
+      "cover": "",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Deluxe Edition.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/ratchet-and-clank-rift-apart/",
+      "dlcAvailable": false,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": ""
     }
   ]
 }
