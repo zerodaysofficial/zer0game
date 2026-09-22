@@ -9,24 +9,34 @@
       "size": "",
       "status": "soon",
       "date": "2026-09-22",
-      "cover": "",
+      "cover": "https://www.gpasplus.com/11010139-large_default/assassin-s-creed-shadows-jeu-ps5.jpg",
       "languages": {
         "text": [
-          "ITA",
+          "ARA",
           "ENG",
-          "SPA",
-          "ARA"
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA"
         ],
         "audio": [
-          "ITA",
           "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
           "SPA"
         ]
       },
-      "notes": "Catalog entry ready. Add a cover and authorized release information when available.",
+      "notes": "FPKG catalog entry. Language set combines public PS5 metadata with package assets already inspected.",
       "releaseUrl": "",
-      "infoUrl": "",
-      "languageSource": "Package assets inspected; public storefront listings vary by region"
+      "infoUrl": "https://www.playstation.com/it-it/games/assassins-creed-shadows/",
+      "languageSource": "PlayStation Italy metadata + inspected package assets"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
@@ -36,7 +46,7 @@
       "size": "",
       "status": "soon",
       "date": "2026-09-21",
-      "cover": "",
+      "cover": "https://bf1af2.akinoncloudcdn.com/products/2024/09/07/50291/54903e20-a0b2-4b15-9058-c42a2790a064_size3840_cropCenter.jpg",
       "languages": {
         "text": [
           "ARA",
@@ -64,9 +74,9 @@
           "SPA"
         ]
       },
-      "notes": "Metadata placeholder.",
+      "notes": "Gold Edition. FPKG catalog entry.",
       "releaseUrl": "",
-      "infoUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/resident-evil-4-remake/",
       "languageSource": "PPSA07411 public PS Store metadata"
     },
     {
