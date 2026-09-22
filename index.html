@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260922-1612" />
+  <link rel="stylesheet" href="styles.css?v=20260922-1948" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -27,6 +27,7 @@
     <nav class="topnav" aria-label="Primary">
       <a href="#library">Library</a>
       <a href="#about">About</a>
+      <button class="nav-link-button" id="dmcaOpen" type="button">DMCA</button>
       <a href="https://github.com/zerodaysofficial/zer0game" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
@@ -113,8 +114,82 @@
       <span class="brand-mark">Z0</span>
       <span class="brand-copy"><strong>ZER0GAME</strong><small>by zer0day</small></span>
     </div>
-    <p>Metadata and compatibility information only. Use release links only for content you are authorized to distribute.</p>
+    <p>
+      Metadata and compatibility information only. Use release links only for content you are authorized to access.
+      <button class="footer-dmca" id="dmcaOpenFooter" type="button">Copyright / DMCA</button>
+    </p>
   </footer>
+
+  <dialog id="dmcaModal" class="dmca-modal">
+    <button class="modal-close dmca-close" id="dmcaClose" aria-label="Close">×</button>
+    <div class="dmca-shell">
+      <div class="dmca-eyebrow">COPYRIGHT / DMCA</div>
+      <h2>Copyright &amp; Takedown Notice</h2>
+      <p class="dmca-lead">
+        ZER0GAME is a catalog and index. It does not store game files on GitHub Pages.
+        Some entries may point to third-party services that are operated independently from this website.
+      </p>
+
+      <div class="dmca-grid">
+        <section>
+          <h3>Community content</h3>
+          <p>
+            Entries may reference community-created dumps, demos, test builds or other material shared by third parties.
+            These are not presented as official releases from the original developer or publisher unless explicitly stated.
+          </p>
+        </section>
+
+        <section>
+          <h3>Testing &amp; evaluation</h3>
+          <p>
+            Information on this site is intended for testing, compatibility research, preservation and evaluation.
+            Users are responsible for making sure they have the legal right to access or use any linked content.
+          </p>
+        </section>
+
+        <section>
+          <h3>Modified consoles</h3>
+          <p>
+            Some content may require a modified or jailbroken console to test. Any modification of hardware or software
+            is performed voluntarily and at the user's own risk.
+          </p>
+        </section>
+
+        <section>
+          <h3>Third-party links</h3>
+          <p>
+            External links are provided for convenience. ZER0GAME does not control third-party hosts and does not claim
+            ownership of files stored on those services.
+          </p>
+        </section>
+
+        <section>
+          <h3>Support original creators</h3>
+          <p>
+            We encourage users to purchase games and related content from official stores, developers and publishers
+            whenever possible to support the people who created them.
+          </p>
+        </section>
+
+        <section>
+          <h3>Takedown requests</h3>
+          <p>
+            If you believe a link or listing on this site infringes your copyright, send a clear takedown request identifying
+            the copyrighted work, the exact page or link in question, and a way to contact you.
+          </p>
+        </section>
+      </div>
+
+      <div class="dmca-contact">
+        <span>Copyright contact</span>
+        <a href="mailto:zer0daysofficial@proton.me">zer0daysofficial@proton.me</a>
+      </div>
+
+      <p class="dmca-small">
+        ZER0GAME intends to review properly submitted copyright notices and remove or update links when appropriate.
+      </p>
+    </div>
+  </dialog>
 
   <dialog id="gameModal" class="game-modal">
     <button class="modal-close" id="modalClose" aria-label="Close">×</button>
@@ -139,6 +214,6 @@
     </article>
   </template>
 
-  <script src="app.js?v=20260922-1500" defer></script>
+  <script src="app.js?v=20260922-1948" defer></script>
 </body>
 </html>
