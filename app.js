@@ -193,7 +193,7 @@ function openModal(game) {
         <div class="detail-grid">
           <div class="detail"><span>Version</span><strong>${escapeHtml(game.version || '—')}</strong></div>
           <div class="detail"><span>Firmware</span><strong>${escapeHtml(game.firmware || '—')}</strong></div>
-          <div class="detail"><span>Size</span><strong>${escapeHtml(game.size || '—')}</strong></div>
+          <div class="detail"><span>${escapeHtml(game.sizeLabel || 'Size')}</span><strong>${escapeHtml(game.size || '—')}</strong></div>
           <div class="detail"><span>Date</span><strong>${escapeHtml(game.date || '—')}</strong></div>
         </div>
 
