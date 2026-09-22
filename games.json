@@ -1,0 +1,56 @@
+{
+  "updated": "2026-09-22",
+  "games": [
+    {
+      "title": "Assassin's Creed Shadows",
+      "titleId": "PPSA20396",
+      "version": "01.019.076",
+      "firmware": "4+",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-22",
+      "cover": "",
+      "languages": {
+        "text": ["ITA", "ENG", "SPA", "ARA"],
+        "audio": ["ITA", "ENG", "SPA"]
+      },
+      "notes": "Catalog entry ready. Add a cover and authorized release information when available.",
+      "releaseUrl": "",
+      "infoUrl": ""
+    },
+    {
+      "title": "Resident Evil 4 — Gold Edition",
+      "titleId": "PPSA07411",
+      "version": "",
+      "firmware": "4+",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-21",
+      "cover": "",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Metadata placeholder.",
+      "releaseUrl": "",
+      "infoUrl": ""
+    },
+    {
+      "title": "Crash Bandicoot",
+      "titleId": "PPSA02433",
+      "version": "",
+      "firmware": "4+",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-21",
+      "cover": "",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Metadata placeholder.",
+      "releaseUrl": "",
+      "infoUrl": ""
+    }
+  ]
+}
