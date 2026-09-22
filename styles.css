@@ -1111,14 +1111,16 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 
 .support-label{
   display:block;
-  margin-bottom:6px;
+  margin-bottom:8px;
   text-align:center;
-  color:#9c8fff;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:.24em;
+  color:#b7a9ff;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  text-shadow:0 0 14px rgba(124,92,255,.35);
+  text-shadow:
+    0 0 10px rgba(124,92,255,.55),
+    0 0 22px rgba(124,92,255,.35);
 }
 
 .topbar-social{
