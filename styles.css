@@ -942,3 +942,137 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     gap:6px;
   }
 }
+
+/* Homepage social icons */
+.social-support{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top:24px;
+}
+
+.support-pointer{
+  display:inline-block;
+  font-size:24px;
+  transform-origin:70% 70%;
+  animation:pointerNudge 1.15s ease-in-out infinite;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.16));
+}
+
+.social-icon{
+  position:relative;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:15px;
+  background:rgba(13,16,24,.86);
+  backdrop-filter:blur(14px);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+  overflow:hidden;
+}
+
+.social-icon::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.24) 50%,transparent 65%);
+  transform:translateX(-90%) rotate(8deg);
+  animation:socialShine 3.3s ease-in-out infinite;
+}
+
+.social-icon:hover{
+  transform:translateY(-4px) scale(1.06);
+}
+
+.social-kofi{
+  border-color:rgba(41,183,235,.42);
+  box-shadow:0 0 20px rgba(41,183,235,.12);
+  animation:kofiPulse 2.5s ease-in-out infinite;
+}
+
+.social-kofi:hover{
+  border-color:rgba(41,183,235,.9);
+  background:rgba(41,183,235,.11);
+  box-shadow:
+    0 0 22px rgba(41,183,235,.36),
+    0 10px 30px rgba(0,0,0,.28);
+}
+
+.social-kofi svg{
+  width:29px;
+  height:29px;
+  fill:#fff;
+  stroke:none;
+  z-index:1;
+}
+
+.social-kofi .kofi-heart{
+  fill:#ff5e5b;
+}
+
+.social-x{
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 0 18px rgba(255,255,255,.06);
+  animation:xFloat 2.8s ease-in-out infinite;
+}
+
+.social-x span{
+  position:relative;
+  z-index:1;
+  font-size:27px;
+  font-weight:800;
+  line-height:1;
+}
+
+.social-x:hover{
+  border-color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.08);
+  box-shadow:
+    0 0 20px rgba(255,255,255,.18),
+    0 10px 30px rgba(0,0,0,.28);
+}
+
+@keyframes pointerNudge{
+  0%,100%{transform:translateX(0) rotate(0)}
+  50%{transform:translateX(6px) rotate(5deg)}
+}
+
+@keyframes kofiPulse{
+  0%,100%{transform:translateY(0);box-shadow:0 0 20px rgba(41,183,235,.12)}
+  50%{transform:translateY(-2px);box-shadow:0 0 28px rgba(41,183,235,.28)}
+}
+
+@keyframes xFloat{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-3px) rotate(2deg)}
+}
+
+@keyframes socialShine{
+  0%,72%,100%{transform:translateX(-90%) rotate(8deg)}
+  86%{transform:translateX(90%) rotate(8deg)}
+}
+
+@media(max-width:680px){
+  .social-support{
+    margin-top:20px;
+    gap:10px;
+  }
+
+  .social-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+  }
+
+  .support-pointer{
+    font-size:22px;
+  }
+}
