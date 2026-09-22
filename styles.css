@@ -282,13 +282,6 @@ main{width:min(1440px,calc(100% - 40px));margin:0 auto}
   font-size:9px;
   font-weight:800;
 }
-.fallback-title{
-  margin-top:8px;
-  font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(18px,2vw,28px);
-  line-height:1;
-  letter-spacing:-.04em;
-}
 .card-overlay{
   position:absolute;inset:0;
   z-index:2;
