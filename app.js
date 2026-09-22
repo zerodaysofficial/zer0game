@@ -126,17 +126,17 @@ function render() {
       cover.alt = `${game.title} cover`;
       cover.referrerPolicy = 'no-referrer';
       cover.addEventListener('load', () => {
-        fallback.hidden = true;
+        if (fallback) fallback.hidden = true;
         coverWrap.classList.add('cover-loaded');
       });
       cover.addEventListener('error', () => {
         cover.hidden = true;
-        fallback.hidden = false;
+        if (fallback) fallback.hidden = false;
         coverWrap.classList.remove('cover-loaded');
       });
     } else {
       cover.hidden = true;
-      fallback.hidden = false;
+      if (fallback) fallback.hidden = false;
     }
 
     if (game.firmware) badges.appendChild(badge(`FW ${game.firmware}`));
