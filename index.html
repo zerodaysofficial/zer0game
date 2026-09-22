@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070910" />
+  <meta name="description" content="ZER0GAME — PS5 FPKG Library" />
+  <title>ZER0GAME — PS5 FPKG Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ZER0GAME home">
+      <span class="brand-mark">Z0</span>
+      <span class="brand-copy">
+        <strong>ZER0GAME</strong>
+        <small>PS5 FPKG LIBRARY</small>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Primary">
+      <a href="#library">Library</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/zerodaysofficial/zer0game" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">CURATED PS5 FPKG CATALOG</div>
+      <h1>Your library.<br><span>Zero clutter.</span></h1>
+      <p class="hero-copy">
+        Browse releases by title, Title ID, firmware and language from one clean, fast interface.
+      </p>
+
+      <div class="search-shell">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg>
+        <input id="searchInput" type="search" placeholder="Search title or PPSA..." autocomplete="off" />
+        <kbd>/</kbd>
+      </div>
+
+      <div class="hero-meta">
+        <span><strong id="totalCount">0</strong> titles</span>
+        <span><strong id="releasedCount">0</strong> released</span>
+        <span>Updated <strong id="updatedAt">—</strong></span>
+      </div>
+    </section>
+
+    <section id="library" class="library">
+      <div class="toolbar">
+        <div class="filter-group" id="statusFilters" aria-label="Status filters">
+          <button class="chip active" data-status="all">All</button>
+          <button class="chip" data-status="released">Released</button>
+          <button class="chip" data-status="soon">Soon</button>
+        </div>
+
+        <div class="toolbar-right">
+          <label class="select-wrap">
+            <span>FW</span>
+            <select id="firmwareFilter">
+              <option value="all">All firmware</option>
+            </select>
+          </label>
+
+          <label class="select-wrap">
+            <span>Language</span>
+            <select id="languageFilter">
+              <option value="all">All languages</option>
+            </select>
+          </label>
+
+          <label class="select-wrap">
+            <span>Sort</span>
+            <select id="sortFilter">
+              <option value="newest">Newest</option>
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div id="activeSummary" class="active-summary"></div>
+      <div id="gameGrid" class="game-grid" aria-live="polite"></div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-icon">0</div>
+        <h2>No games found</h2>
+        <p>Try a different search or filter.</p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <div class="eyebrow">ABOUT ZER0GAME</div>
+        <h2>Built for speed, clarity and clean release tracking.</h2>
+      </div>
+      <p>
+        ZER0GAME is a lightweight static catalog hosted on GitHub Pages. Game data lives in a single JSON file,
+        so adding or updating an entry is fast and does not require a database.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <span class="brand-mark">Z0</span>
+      <span class="brand-copy"><strong>ZER0GAME</strong><small>by zer0day</small></span>
+    </div>
+    <p>Metadata and compatibility information only. Use release links only for content you are authorized to distribute.</p>
+  </footer>
+
+  <dialog id="gameModal" class="game-modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <template id="gameCardTemplate">
+    <article class="game-card">
+      <button class="card-open" type="button">
+        <div class="cover-wrap">
+          <img class="cover" alt="" loading="lazy" />
+          <div class="cover-fallback">
+            <span class="fallback-kicker">ZER0GAME</span>
+            <strong class="fallback-title"></strong>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="status-badge"></div>
+        </div>
+        <div class="card-body">
+          <h3 class="game-title"></h3>
+          <div class="game-id"></div>
+          <div class="badges"></div>
+        </div>
+      </button>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
