@@ -233,7 +233,7 @@
       "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
       "titleId": "PPSA01474",
       "version": "01.005.003",
-      "firmware": "",
+      "firmware": "4.xx",
       "size": "",
       "status": "soon",
       "date": "2026-09-22",
@@ -242,7 +242,7 @@
         "text": [],
         "audio": []
       },
-      "notes": "Deluxe Edition.",
+      "notes": "Deluxe Edition. Works only up to firmware 11.60.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01474_00-RIFTDIGITALDELUX",
       "dlcAvailable": false,
