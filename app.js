@@ -109,7 +109,6 @@ function render() {
     const coverWrap = node.querySelector('.cover-wrap');
     const cover = node.querySelector('.cover');
     const fallback = node.querySelector('.cover-fallback');
-    const fallbackTitle = node.querySelector('.fallback-title');
     const status = node.querySelector('.status-badge');
     const title = node.querySelector('.game-title');
     const id = node.querySelector('.game-id');
@@ -117,7 +116,6 @@ function render() {
 
     title.textContent = game.title;
     id.textContent = [game.titleId, game.version].filter(Boolean).join(' • ');
-    fallbackTitle.textContent = game.title;
     status.textContent = normalize(game.status) === 'released' ? 'RELEASED' : 'SOON';
     status.classList.add(normalize(game.status) === 'released' ? 'released' : 'soon');
 
