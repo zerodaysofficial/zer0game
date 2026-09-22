@@ -106,6 +106,7 @@ function render() {
     const node = els.template.content.cloneNode(true);
     const card = node.querySelector('.game-card');
     const open = node.querySelector('.card-open');
+    const coverWrap = node.querySelector('.cover-wrap');
     const cover = node.querySelector('.cover');
     const fallback = node.querySelector('.cover-fallback');
     const fallbackTitle = node.querySelector('.fallback-title');
@@ -121,16 +122,27 @@ function render() {
     status.classList.add(normalize(game.status) === 'released' ? 'released' : 'soon');
 
     if (game.cover) {
+      coverWrap.style.setProperty('--cover-image', `url("${game.cover.replace(/"/g, '%22')}")`);
+      coverWrap.classList.add('has-cover');
       cover.src = game.cover;
       cover.alt = `${game.title} cover`;
-      cover.addEventListener('load', () => { fallback.hidden = true; });
-      cover.addEventListener('error', () => { cover.hidden = true; fallback.hidden = false; });
+      cover.referrerPolicy = 'no-referrer';
+      cover.addEventListener('load', () => {
+        fallback.hidden = true;
+        coverWrap.classList.add('cover-loaded');
+      });
+      cover.addEventListener('error', () => {
+        cover.hidden = true;
+        fallback.hidden = false;
+        coverWrap.classList.remove('cover-loaded');
+      });
     } else {
       cover.hidden = true;
       fallback.hidden = false;
     }
 
     if (game.firmware) badges.appendChild(badge(`FW ${game.firmware}`));
+    if (game.dlcAvailable) badges.appendChild(badge('DLC'));
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
@@ -155,12 +167,13 @@ function openModal(game) {
     : '';
 
   const actions = [];
-  if (game.releaseUrl) actions.push(`<a class="action primary" href="${escapeHtml(game.releaseUrl)}" target="_blank" rel="noopener">Release</a>`);
+  if (game.purchaseUrl) actions.push(`<a class="action primary" href="${escapeHtml(game.purchaseUrl)}" target="_blank" rel="noopener">Buy game</a>`);
+  if (game.dlcUrl) actions.push(`<a class="action dlc-action" href="${escapeHtml(game.dlcUrl)}" target="_blank" rel="noopener">Buy DLC</a>`);
   if (game.infoUrl) actions.push(`<a class="action" href="${escapeHtml(game.infoUrl)}" target="_blank" rel="noopener">Official info</a>`);
 
   els.modalContent.innerHTML = `
     <div class="modal-layout">
-      <div class="modal-art">${cover}</div>
+      <div class="modal-art" ${game.cover ? `style="--modal-cover:url('${escapeHtml(game.cover).replace(/'/g, '%27')}')"` : ''}>${cover}</div>
       <div class="modal-info">
         <div class="eyebrow">${normalize(game.status) === 'released' ? 'RELEASED' : 'COMING SOON'}</div>
         <h2>${escapeHtml(game.title)}</h2>
