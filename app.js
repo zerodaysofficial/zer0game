@@ -22,7 +22,11 @@ const els = {
   template: document.querySelector('#gameCardTemplate'),
   modal: document.querySelector('#gameModal'),
   modalContent: document.querySelector('#modalContent'),
-  modalClose: document.querySelector('#modalClose')
+  modalClose: document.querySelector('#modalClose'),
+  dmcaModal: document.querySelector('#dmcaModal'),
+  dmcaOpen: document.querySelector('#dmcaOpen'),
+  dmcaOpenFooter: document.querySelector('#dmcaOpenFooter'),
+  dmcaClose: document.querySelector('#dmcaClose')
 };
 
 const normalize = value => String(value || '').trim().toLowerCase();
@@ -156,6 +160,10 @@ function render() {
   els.summary.textContent = pieces.join(' • ');
 }
 
+function openDmca() {
+  if (els.dmcaModal) els.dmcaModal.showModal();
+}
+
 function openModal(game) {
   const textLangs = (game.languages?.text || []).map(x => `<span class="badge">${escapeHtml(x)}</span>`).join('');
   const audioLangs = (game.languages?.audio || []).map(x => `<span class="badge">${escapeHtml(x)}</span>`).join('');
@@ -241,9 +249,21 @@ document.addEventListener('keydown', e => {
     els.search.focus();
   }
   if (e.key === 'Escape' && els.modal.open) els.modal.close();
+  if (e.key === 'Escape' && els.dmcaModal?.open) els.dmcaModal.close();
 });
 
 els.modalClose.addEventListener('click', () => els.modal.close());
+
+if (els.dmcaOpen) els.dmcaOpen.addEventListener('click', openDmca);
+if (els.dmcaOpenFooter) els.dmcaOpenFooter.addEventListener('click', openDmca);
+if (els.dmcaClose) els.dmcaClose.addEventListener('click', () => els.dmcaModal.close());
+if (els.dmcaModal) {
+  els.dmcaModal.addEventListener('click', e => {
+    const rect = els.dmcaModal.getBoundingClientRect();
+    const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+    if (!inside) els.dmcaModal.close();
+  });
+}
 els.modal.addEventListener('click', e => {
   const rect = els.modal.getBoundingClientRect();
   const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
