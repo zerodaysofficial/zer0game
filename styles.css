@@ -629,3 +629,97 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 @media(max-width:680px){
   .modal-art img{padding:10px}
 }
+
+
+/* Mobile modal: large full cover + scrollable content + always reachable actions */
+@media(max-width:680px){
+  .game-modal{
+    width:calc(100% - 12px);
+    max-height:calc(100dvh - 12px);
+    margin:auto;
+    border-radius:22px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    overscroll-behavior:contain;
+  }
+
+  .game-modal::before,
+  .game-modal::after{
+    position:fixed;
+  }
+
+  .modal-layout{
+    display:block;
+    min-height:0;
+  }
+
+  .modal-art{
+    min-height:0;
+    aspect-ratio:auto;
+    width:100%;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#080b12;
+  }
+
+  .modal-art::before{
+    opacity:.5;
+  }
+
+  .modal-art img{
+    width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    object-position:center;
+    padding:0;
+    margin:0;
+  }
+
+  .modal-info{
+    padding:28px 20px 34px;
+    overflow:visible;
+  }
+
+  .modal-info h2{
+    font-size:clamp(36px,10vw,52px);
+    line-height:.98;
+  }
+
+  .detail-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .lang-block{
+    margin-top:22px;
+  }
+
+  .modal-actions{
+    position:sticky;
+    bottom:0;
+    z-index:8;
+    margin:28px -20px -34px;
+    padding:14px 20px calc(14px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(11,14,21,.72),rgba(11,14,21,.98) 35%);
+    backdrop-filter:blur(16px);
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  .modal-actions .action{
+    flex:1 1 150px;
+    min-height:50px;
+  }
+
+  .modal-close{
+    position:fixed;
+    top:calc(14px + env(safe-area-inset-top));
+    right:14px;
+    width:46px;
+    height:46px;
+    background:rgba(7,9,14,.9);
+    backdrop-filter:blur(12px);
+  }
+}
