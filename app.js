@@ -165,8 +165,8 @@ function openModal(game) {
     : '';
 
   const actions = [];
-  if (game.purchaseUrl) actions.push(`<a class="action primary" href="${escapeHtml(game.purchaseUrl)}" target="_blank" rel="noopener">Buy game</a>`);
-  if (game.dlcUrl) actions.push(`<a class="action dlc-action" href="${escapeHtml(game.dlcUrl)}" target="_blank" rel="noopener">Buy DLC</a>`);
+  if (game.purchaseUrl) actions.push(`<a class="action primary" href="${escapeHtml(game.purchaseUrl)}" target="_blank" rel="noopener">DOWNLOAD GAME</a>`);
+  if (game.dlcUrl) actions.push(`<a class="action dlc-action" href="${escapeHtml(game.dlcUrl)}" target="_blank" rel="noopener">DOWNLOAD DLC</a>`);
   if (game.infoUrl) actions.push(`<a class="action" href="${escapeHtml(game.infoUrl)}" target="_blank" rel="noopener">Official info</a>`);
 
   els.modalContent.innerHTML = `
