@@ -57,9 +57,12 @@
         "text": [],
         "audio": []
       },
-      "notes": "DLC available. Direct download links are not included; use only authorized distribution links.",
+      "notes": "FPKG catalog entry. DLC available.",
       "releaseUrl": "",
-      "infoUrl": "https://www.playstation.com/it-it/games/crash-bandicoot-4-its-about-time/"
+      "infoUrl": "https://www.playstation.com/it-it/games/crash-bandicoot-4-its-about-time/",
+      "dlcAvailable": true,
+      "purchaseUrl": "",
+      "dlcUrl": ""
     }
   ]
 }
