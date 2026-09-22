@@ -807,3 +807,138 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     margin:0 auto !important;
   }
 }
+
+/* DMCA modal */
+.nav-link-button,
+.footer-dmca{
+  padding:0;
+  border:0;
+  color:inherit;
+  background:transparent;
+  cursor:pointer;
+}
+.nav-link-button{
+  font-size:13px;
+}
+.nav-link-button:hover,
+.footer-dmca:hover{
+  color:#fff;
+}
+.footer-dmca{
+  margin-left:8px;
+  color:#9c8fff;
+  font-size:11px;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.dmca-modal{
+  width:min(920px,calc(100% - 28px));
+  max-height:88vh;
+  padding:0;
+  border:1px solid rgba(124,92,255,.28);
+  border-radius:26px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 0 0,rgba(124,92,255,.18),transparent 30%),
+    radial-gradient(circle at 100% 0,rgba(32,214,255,.12),transparent 28%),
+    #0b0e15;
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.68),
+    0 0 42px rgba(124,92,255,.14);
+  overflow:auto;
+}
+.dmca-modal::backdrop{
+  background:rgba(0,0,0,.8);
+  backdrop-filter:blur(12px);
+}
+.dmca-shell{
+  padding:44px;
+}
+.dmca-eyebrow{
+  color:#9c8fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.2em;
+}
+.dmca-shell h2{
+  margin:10px 0 14px;
+  font:700 clamp(34px,5vw,54px)/1 "Space Grotesk",sans-serif;
+  letter-spacing:-.045em;
+}
+.dmca-lead{
+  max-width:760px;
+  margin:0;
+  color:#b2bccd;
+  line-height:1.75;
+  font-size:14px;
+}
+.dmca-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:30px;
+}
+.dmca-grid section{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(15,19,29,.78);
+}
+.dmca-grid h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:13px;
+}
+.dmca-grid p{
+  margin:0;
+  color:#96a2b6;
+  line-height:1.65;
+  font-size:12px;
+}
+.dmca-contact{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:18px;
+  padding:16px 18px;
+  border:1px solid rgba(63,224,159,.2);
+  border-radius:14px;
+  background:rgba(63,224,159,.055);
+}
+.dmca-contact span{
+  color:#92a0b5;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+.dmca-contact a{
+  color:#7ff0c0;
+  font-weight:700;
+}
+.dmca-small{
+  margin:14px 0 0;
+  color:#667186;
+  line-height:1.6;
+  font-size:11px;
+}
+
+@media(max-width:680px){
+  .dmca-modal{
+    width:calc(100% - 12px);
+    max-height:calc(100dvh - 12px);
+    border-radius:22px;
+  }
+  .dmca-shell{
+    padding:30px 18px 24px;
+  }
+  .dmca-grid{
+    grid-template-columns:1fr;
+  }
+  .dmca-contact{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+  }
+}
