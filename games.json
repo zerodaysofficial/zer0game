@@ -289,6 +289,50 @@
       "purchaseUrl": "",
       "dlcUrl": "",
       "languageSource": "User-provided package language metadata"
+    },
+    {
+      "title": "Resident Evil Requiem — Deluxe Edition",
+      "titleId": "PPSA31246",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "released",
+      "date": "2026-09-23",
+      "cover": "https://www.sportsdirect.com/images/imgzoom/75/75056669_xxl.jpg",
+      "languages": {
+        "text": [
+          "ARA",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "GER"
+        ],
+        "audio": [
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "GER"
+        ]
+      },
+      "notes": "Deluxe Edition. Base game + Deluxe content / all DLC in one compressed package. PS5 Pro Enhanced.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA31246_00-REREQUIEMDX00000",
+      "dlcAvailable": true,
+      "purchaseUrl": "https://datanodes.to/zzurgb230iai/PPSA31246-Compressed.7z",
+      "dlcUrl": "",
+      "downloadLabel": "DOWNLOAD GAME + ALL DLC",
+      "languageSource": "PlayStation Italy metadata for PPSA31246"
     }
   ]
 }
