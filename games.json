@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
@@ -44,7 +44,7 @@
       "version": "",
       "firmware": "4+",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2026-09-21",
       "cover": "https://bf1af2.akinoncloudcdn.com/products/2024/09/07/50291/54903e20-a0b2-4b15-9058-c42a2790a064_size3840_cropCenter.jpg",
       "languages": {
@@ -74,10 +74,13 @@
           "SPA"
         ]
       },
-      "notes": "Gold Edition. FPKG catalog entry.",
+      "notes": "Gold Edition. Base game + DLC.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/resident-evil-4-remake/",
-      "languageSource": "PPSA07411 public PS Store metadata"
+      "languageSource": "PPSA07411 public PS Store metadata",
+      "purchaseUrl": "https://fuckingfast.net/d8ves6hb6jyd",
+      "dlcUrl": "https://fuckingfast.net/d8ves6hb6jyd",
+      "dlcAvailable": true
     },
     {
       "title": "Crash Bandicoot 4: It's About Time",
