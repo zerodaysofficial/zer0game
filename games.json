@@ -42,7 +42,7 @@
       "title": "Resident Evil 4 — Gold Edition",
       "titleId": "PPSA07411",
       "version": "1.590",
-      "firmware": "7.00 — backport 4.xx–6.50",
+      "firmware": "7.00",
       "size": "",
       "status": "released",
       "date": "2026-09-21",
@@ -75,7 +75,7 @@
           "SPA"
         ]
       },
-      "notes": "Gold Edition. Base game + DLC in one package. PS VR2 supported. PS5 Pro Enhanced. Minimum firmware 7.00; backport available for 4.xx–6.50.",
+      "notes": "Gold Edition. Base game + DLC in one package. PS VR2 supported. PS5 Pro Enhanced.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/resident-evil-4-remake/",
       "languageSource": "User-provided PPSA07411 release metadata",
