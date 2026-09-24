@@ -334,6 +334,65 @@
       "dlcUrl": "",
       "downloadLabel": "DOWNLOAD GAME + ALL DLC",
       "languageSource": "PlayStation Italy metadata for PPSA31246"
+    },
+    {
+      "title": "Ghost of Yōtei — Complete Edition",
+      "titleId": "PPSA26344",
+      "version": "",
+      "firmware": "4.xx+",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-24",
+      "cover": "",
+      "languages": {
+        "text": [
+          "ARA",
+          "CZE",
+          "CHI-S",
+          "CHI-T",
+          "KOR",
+          "CRO",
+          "DAN",
+          "FIN",
+          "FRA",
+          "JPN",
+          "GRE",
+          "ENG",
+          "ITA",
+          "NOR",
+          "DUT",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "SWE",
+          "GER",
+          "THA",
+          "TUR",
+          "HUN"
+        ],
+        "audio": [
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "GER"
+        ]
+      },
+      "notes": "Complete Edition. FW 4.xx+. DLC installation is required for the game to work. Pro Features fix.",
+      "infoUrl": "https://store.playstation.com/it-it/product/UP9000-PPSA26344_00-GHOST2CE00000000",
+      "dlcAvailable": true,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": "PlayStation Store metadata for PPSA26344"
     }
   ]
 }
