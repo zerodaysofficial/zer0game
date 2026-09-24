@@ -187,13 +187,6 @@ function render() {
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
     open.addEventListener('click', () => {
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (reduceMotion) {
-        openModal(game);
-        return;
-      }
-
       if (card.classList.contains('card-launching')) return;
 
       card.classList.add('card-launching');
@@ -203,7 +196,7 @@ function render() {
         card.classList.remove('card-launching');
         open.disabled = false;
         openModal(game);
-      }, 560);
+      }, 920);
     });
     card.dataset.titleId = game.titleId || '';
     els.grid.appendChild(node);
