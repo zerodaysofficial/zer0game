@@ -2030,97 +2030,140 @@ footer{
   letter-spacing:.03em;
 }
 
-
-/* 3D Taz-style game-card click animation */
+/* 3D Taz-style game-card click animation — strong version */
 .game-card{
-  perspective:1100px;
+  perspective:1400px;
+  transform-style:preserve-3d;
 }
 
 .card-open{
   position:relative;
   transform-style:preserve-3d;
-  transform-origin:50% 50%;
-  will-change:transform,filter;
-}
-
-.card-open::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:8;
-  pointer-events:none;
-  border-radius:inherit;
-  opacity:0;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(255,255,255,.30) 0 8%,rgba(24,220,255,.20) 24%,rgba(139,92,255,.16) 44%,rgba(255,79,216,.12) 58%,transparent 72%);
-  mix-blend-mode:screen;
+  transform-origin:center;
 }
 
 .game-card.card-launching{
-  z-index:6;
+  position:relative;
+  z-index:50;
   overflow:visible;
 }
 
-.game-card.card-launching .card-open{
-  animation:tazCardSpin3D .56s cubic-bezier(.18,.78,.24,1) both;
-}
-
-.game-card.card-launching .card-open::after{
-  animation:tazFlash .56s ease-out both;
-}
-
-.game-card.card-launching .cover{
-  animation:tazCoverPunch .56s ease-out both;
-}
-
 .game-card.card-launching .cover-wrap{
+  z-index:20;
+  transform-origin:50% 50%;
+  backface-visibility:visible;
+  animation:tazCoverTumble .92s cubic-bezier(.16,.84,.24,1) both !important;
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.18),
-    0 0 34px rgba(24,220,255,.38),
-    0 0 58px rgba(139,92,255,.28),
-    0 0 76px rgba(255,79,216,.16);
+    0 0 0 2px rgba(255,255,255,.24),
+    0 0 34px rgba(24,220,255,.60),
+    0 0 70px rgba(139,92,255,.46),
+    0 0 105px rgba(255,79,216,.28) !important;
 }
 
-@keyframes tazCardSpin3D{
+.game-card.card-launching .card-body{
+  animation:tazBodyDip .92s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.game-card.card-launching::before,
+.game-card.card-launching::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:42%;
+  width:88%;
+  aspect-ratio:1;
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%,-50%) scale(.2);
+  opacity:0;
+  z-index:10;
+}
+
+.game-card.card-launching::before{
+  border:3px solid rgba(24,220,255,.80);
+  box-shadow:
+    0 0 24px rgba(24,220,255,.75),
+    inset 0 0 24px rgba(139,92,255,.35);
+  animation:tazRing .92s ease-out both;
+}
+
+.game-card.card-launching::after{
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0 10%,
+      rgba(24,220,255,.68) 13%,
+      transparent 17% 31%,
+      rgba(139,92,255,.74) 35%,
+      transparent 39% 55%,
+      rgba(255,79,216,.66) 59%,
+      transparent 64% 80%,
+      rgba(53,242,194,.62) 84%,
+      transparent 89%
+    );
+  filter:blur(4px);
+  animation:tazSwirl .92s cubic-bezier(.18,.76,.22,1) both;
+}
+
+@keyframes tazCoverTumble{
   0%{
-    transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    transform:translateZ(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
     filter:brightness(1) saturate(1);
   }
-  18%{
-    transform:rotateX(-8deg) rotateY(105deg) rotateZ(-4deg) scale(1.055);
-    filter:brightness(1.10) saturate(1.14);
+  15%{
+    transform:translateZ(90px) rotateX(-14deg) rotateY(95deg) rotateZ(-20deg) scale(1.10);
+    filter:brightness(1.22) saturate(1.24);
   }
-  42%{
-    transform:rotateX(7deg) rotateY(300deg) rotateZ(5deg) scale(.93);
-    filter:brightness(1.16) saturate(1.22);
+  35%{
+    transform:translateZ(150px) rotateX(16deg) rotateY(255deg) rotateZ(24deg) scale(.92);
+    filter:brightness(1.30) saturate(1.35);
   }
-  68%{
-    transform:rotateX(-4deg) rotateY(585deg) rotateZ(-3deg) scale(1.035);
-    filter:brightness(1.12) saturate(1.18);
+  58%{
+    transform:translateZ(120px) rotateX(-12deg) rotateY(470deg) rotateZ(-28deg) scale(1.12);
+    filter:brightness(1.25) saturate(1.30);
+  }
+  80%{
+    transform:translateZ(65px) rotateX(8deg) rotateY(650deg) rotateZ(12deg) scale(.98);
+    filter:brightness(1.14) saturate(1.18);
   }
   100%{
-    transform:rotateX(0deg) rotateY(720deg) rotateZ(0deg) scale(1);
+    transform:translateZ(0) rotateX(0deg) rotateY(720deg) rotateZ(360deg) scale(1);
     filter:brightness(1) saturate(1);
   }
 }
 
-@keyframes tazFlash{
-  0%{opacity:0;transform:scale(.74)}
-  22%{opacity:.95;transform:scale(1)}
-  62%{opacity:.34;transform:scale(1.06)}
-  100%{opacity:0;transform:scale(1.12)}
+@keyframes tazBodyDip{
+  0%,100%{transform:translateY(0) scale(1);opacity:1}
+  38%{transform:translateY(10px) scale(.96);opacity:.48}
+  70%{transform:translateY(-3px) scale(1.02);opacity:.90}
 }
 
-@keyframes tazCoverPunch{
-  0%,100%{transform:scale(1)}
-  28%{transform:scale(1.08)}
-  64%{transform:scale(.98)}
+@keyframes tazRing{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.25)}
+  22%{opacity:.95}
+  70%{opacity:.44}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.55)}
 }
 
+@keyframes tazSwirl{
+  0%{opacity:0;transform:translate(-50%,-50%) rotate(0deg) scale(.35)}
+  20%{opacity:.88}
+  72%{opacity:.46}
+  100%{opacity:0;transform:translate(-50%,-50%) rotate(720deg) scale(1.34)}
+}
+
+/* Accessibility: reduced-motion users still get clear click feedback without the spin. */
 @media(prefers-reduced-motion:reduce){
-  .game-card.card-launching .card-open,
-  .game-card.card-launching .card-open::after,
-  .game-card.card-launching .cover{
+  .game-card.card-launching .cover-wrap{
+    animation:tazReducedPulse .35s ease-out both !important;
+  }
+  .game-card.card-launching::before,
+  .game-card.card-launching::after,
+  .game-card.card-launching .card-body{
     animation:none !important;
   }
+}
+@keyframes tazReducedPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06);filter:brightness(1.18)}
 }
