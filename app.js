@@ -186,7 +186,25 @@ function render() {
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
-    open.addEventListener('click', () => openModal(game));
+    open.addEventListener('click', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+        openModal(game);
+        return;
+      }
+
+      if (card.classList.contains('card-launching')) return;
+
+      card.classList.add('card-launching');
+      open.disabled = true;
+
+      window.setTimeout(() => {
+        card.classList.remove('card-launching');
+        open.disabled = false;
+        openModal(game);
+      }, 560);
+    });
     card.dataset.titleId = game.titleId || '';
     els.grid.appendChild(node);
   }
