@@ -1,13 +1,13 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
-      "titleId": "PPSA20396",
+      "titleId": "PPSA20397",
       "version": "01.019.076",
-      "firmware": "4+",
-      "size": "",
-      "status": "soon",
+      "firmware": "4.xx+",
+      "size": "103.35 GB",
+      "status": "released",
       "date": "2026-09-22",
       "cover": "https://www.gpasplus.com/11010139-large_default/assassin-s-creed-shadows-jeu-ps5.jpg",
       "languages": {
@@ -33,10 +33,11 @@
           "SPA"
         ]
       },
-      "notes": "FPKG catalog entry. Language set combines public PS5 metadata with package assets already inspected.",
+      "notes": "FPKG catalog entry. EU title ID PPSA20397.",
       "releaseUrl": "",
-      "infoUrl": "https://www.playstation.com/it-it/games/assassins-creed-shadows/",
-      "languageSource": "PlayStation Italy metadata + inspected package assets"
+      "infoUrl": "https://store.playstation.com/en-gb/product/EP0001-PPSA20397_00-GAME000000000000",
+      "languageSource": "PlayStation / PPSA20397 metadata",
+      "purchaseUrl": "https://vik1ngfile.site/f/3HXAVFI9N7"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
