@@ -2029,3 +2029,98 @@ footer{
   font-weight:800;
   letter-spacing:.03em;
 }
+
+
+/* 3D Taz-style game-card click animation */
+.game-card{
+  perspective:1100px;
+}
+
+.card-open{
+  position:relative;
+  transform-style:preserve-3d;
+  transform-origin:50% 50%;
+  will-change:transform,filter;
+}
+
+.card-open::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:8;
+  pointer-events:none;
+  border-radius:inherit;
+  opacity:0;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.30) 0 8%,rgba(24,220,255,.20) 24%,rgba(139,92,255,.16) 44%,rgba(255,79,216,.12) 58%,transparent 72%);
+  mix-blend-mode:screen;
+}
+
+.game-card.card-launching{
+  z-index:6;
+  overflow:visible;
+}
+
+.game-card.card-launching .card-open{
+  animation:tazCardSpin3D .56s cubic-bezier(.18,.78,.24,1) both;
+}
+
+.game-card.card-launching .card-open::after{
+  animation:tazFlash .56s ease-out both;
+}
+
+.game-card.card-launching .cover{
+  animation:tazCoverPunch .56s ease-out both;
+}
+
+.game-card.card-launching .cover-wrap{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.18),
+    0 0 34px rgba(24,220,255,.38),
+    0 0 58px rgba(139,92,255,.28),
+    0 0 76px rgba(255,79,216,.16);
+}
+
+@keyframes tazCardSpin3D{
+  0%{
+    transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    filter:brightness(1) saturate(1);
+  }
+  18%{
+    transform:rotateX(-8deg) rotateY(105deg) rotateZ(-4deg) scale(1.055);
+    filter:brightness(1.10) saturate(1.14);
+  }
+  42%{
+    transform:rotateX(7deg) rotateY(300deg) rotateZ(5deg) scale(.93);
+    filter:brightness(1.16) saturate(1.22);
+  }
+  68%{
+    transform:rotateX(-4deg) rotateY(585deg) rotateZ(-3deg) scale(1.035);
+    filter:brightness(1.12) saturate(1.18);
+  }
+  100%{
+    transform:rotateX(0deg) rotateY(720deg) rotateZ(0deg) scale(1);
+    filter:brightness(1) saturate(1);
+  }
+}
+
+@keyframes tazFlash{
+  0%{opacity:0;transform:scale(.74)}
+  22%{opacity:.95;transform:scale(1)}
+  62%{opacity:.34;transform:scale(1.06)}
+  100%{opacity:0;transform:scale(1.12)}
+}
+
+@keyframes tazCoverPunch{
+  0%,100%{transform:scale(1)}
+  28%{transform:scale(1.08)}
+  64%{transform:scale(.98)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .game-card.card-launching .card-open,
+  .game-card.card-launching .card-open::after,
+  .game-card.card-launching .cover{
+    animation:none !important;
+  }
+}
