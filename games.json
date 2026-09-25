@@ -616,6 +616,50 @@
         "Adventure",
         "Open World"
       ]
+    },
+    {
+      "title": "The Last of Us Part II Remastered",
+      "titleId": "PPSA15508",
+      "version": "2.001.010",
+      "firmware": "4.xx–11.60",
+      "size": "",
+      "status": "released",
+      "date": "2024-01-19",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1717/658fe4422c7ce0403bfcf840df609447fd7e2dd7df342c56.png",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "SPA",
+          "JPN",
+          "KOR",
+          "POL",
+          "CHI"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "SPA",
+          "JPN",
+          "POR-PT"
+        ]
+      },
+      "notes": "EU release. FPKG. No multiplayer. Firmware 4.xx+; works only up to 11.60. Age 16+. PS5 Pro Enhanced.",
+      "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6913829",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA15508_00-THELASTOFUSPART2",
+      "languageSource": "User-provided Rutracker screenshot for PPSA15508",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
     }
   ]
 }
