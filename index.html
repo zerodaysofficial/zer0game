@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260925-genre1" />
+  <link rel="stylesheet" href="styles.css?v=20260925-type1" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -54,7 +54,16 @@
   <main>
     <section class="hero">
       <div class="eyebrow">CURATED PS5 FPKG CATALOG</div>
-      <h1>Your library.<br><span>Zero clutter.</span></h1>
+      <h1 class="hero-typewriter" aria-label="Your library. Zero clutter.">
+        <span class="type-line type-line-one">
+          <span id="heroTypeLine1" class="type-slot" aria-hidden="true"></span>
+          <span id="heroCursor1" class="type-cursor" aria-hidden="true"></span>
+        </span>
+        <span class="type-line type-line-two">
+          <span id="heroTypeLine2" class="type-slot" aria-hidden="true"></span>
+          <span id="heroCursor2" class="type-cursor" aria-hidden="true"></span>
+        </span>
+      </h1>
       <p class="hero-copy">
         Browse releases by title, Title ID, firmware and language from one clean, fast interface.
       </p>
@@ -260,6 +269,6 @@
     </article>
   </template>
 
-  <script src="app.js?v=20260925-genre1" defer></script>
+  <script src="app.js?v=20260925-type1" defer></script>
 </body>
 </html>
