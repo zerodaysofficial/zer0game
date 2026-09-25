@@ -3,6 +3,7 @@ const state = {
   status: 'all',
   firmware: 'all',
   language: 'all',
+  category: 'all',
   sort: 'newest',
   search: ''
 };
@@ -13,6 +14,7 @@ const els = {
   search: document.querySelector('#searchInput'),
   firmware: document.querySelector('#firmwareFilter'),
   language: document.querySelector('#languageFilter'),
+  category: document.querySelector('#categoryFilter'),
   sort: document.querySelector('#sortFilter'),
   statusFilters: document.querySelector('#statusFilters'),
   summary: document.querySelector('#activeSummary'),
@@ -76,11 +78,18 @@ function allLanguages(game) {
   return [...new Set([...text, ...audio])];
 }
 
+function allGenres(game) {
+  return Array.isArray(game.genres) ? game.genres.filter(Boolean) : [];
+}
+
 function populateFilters() {
   const firmwares = [...new Set(state.games.map(g => g.firmware).filter(Boolean))]
     .sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
 
   const languages = [...new Set(state.games.flatMap(allLanguages))]
+    .sort((a,b) => a.localeCompare(b));
+
+  const categories = [...new Set(state.games.flatMap(allGenres))]
     .sort((a,b) => a.localeCompare(b));
 
   firmwares.forEach(fw => {
@@ -96,6 +105,13 @@ function populateFilters() {
     opt.textContent = lang;
     els.language.appendChild(opt);
   });
+
+  categories.forEach(category => {
+    const opt = document.createElement('option');
+    opt.value = category;
+    opt.textContent = category;
+    els.category.appendChild(opt);
+  });
 }
 
 function filteredGames() {
@@ -105,15 +121,17 @@ function filteredGames() {
       game.titleId,
       game.version,
       game.firmware,
-      ...(allLanguages(game))
+      ...(allLanguages(game)),
+      ...(allGenres(game))
     ].join(' '));
 
     const matchesSearch = !state.search || haystack.includes(normalize(state.search));
     const matchesStatus = state.status === 'all' || normalize(game.status) === state.status;
     const matchesFw = state.firmware === 'all' || game.firmware === state.firmware;
     const matchesLang = state.language === 'all' || allLanguages(game).includes(state.language);
+    const matchesCategory = state.category === 'all' || allGenres(game).includes(state.category);
 
-    return matchesSearch && matchesStatus && matchesFw && matchesLang;
+    return matchesSearch && matchesStatus && matchesFw && matchesLang && matchesCategory;
   });
 
   games.sort((a,b) => {
@@ -182,6 +200,11 @@ function render() {
     }
 
     if (game.firmware) badges.appendChild(badge(`FW ${game.firmware}`));
+    if (allGenres(game).length) {
+      const categoryBadge = badge(allGenres(game)[0]);
+      categoryBadge.classList.add('badge-category');
+      badges.appendChild(categoryBadge);
+    }
     if (game.dlcAvailable) badges.appendChild(badge('DLC'));
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
@@ -206,6 +229,7 @@ function render() {
   if (state.status !== 'all') pieces.push(state.status);
   if (state.firmware !== 'all') pieces.push(`FW ${state.firmware}`);
   if (state.language !== 'all') pieces.push(state.language);
+  if (state.category !== 'all') pieces.push(state.category);
   els.summary.textContent = pieces.join(' • ');
 }
 
@@ -216,6 +240,7 @@ function openDmca() {
 function openModal(game) {
   const textLangs = (game.languages?.text || []).map(x => renderLangBadge(x, "text")).join('');
   const audioLangs = (game.languages?.audio || []).map(x => renderLangBadge(x, "audio")).join('');
+  const genreBadges = allGenres(game).map(x => `<span class="badge genre-badge">${escapeHtml(x)}</span>`).join('');
 
   const cover = game.cover
     ? `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`
@@ -239,6 +264,11 @@ function openModal(game) {
           <div class="detail"><span>Firmware</span><strong>${escapeHtml(game.firmware || '—')}</strong></div>
           <div class="detail"><span>${escapeHtml(game.sizeLabel || 'Size')}</span><strong>${escapeHtml(game.size || '—')}</strong></div>
           <div class="detail"><span>Date</span><strong>${escapeHtml(game.date || '—')}</strong></div>
+        </div>
+
+        <div class="lang-block genre-block">
+          <h4>Categories</h4>
+          <div class="lang-list genre-list">${genreBadges || '<span class="badge">—</span>'}</div>
         </div>
 
         <div class="lang-block">
@@ -282,6 +312,7 @@ async function init() {
 els.search.addEventListener('input', e => { state.search = e.target.value; render(); });
 els.firmware.addEventListener('change', e => { state.firmware = e.target.value; render(); });
 els.language.addEventListener('change', e => { state.language = e.target.value; render(); });
+els.category.addEventListener('change', e => { state.category = e.target.value; render(); });
 els.sort.addEventListener('change', e => { state.sort = e.target.value; render(); });
 
 els.statusFilters.addEventListener('click', e => {
