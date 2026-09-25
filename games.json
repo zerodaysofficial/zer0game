@@ -529,10 +529,10 @@
     {
       "title": "Resident Evil 2 Remake — Deluxe Edition",
       "titleId": "PPSA04288",
-      "version": "01.000.003",
-      "firmware": "3.00–11.60",
+      "version": "1.000.003",
+      "firmware": "3.00–11.40",
       "size": "21.47 GB",
-      "status": "soon",
+      "status": "released",
       "date": "2026-09-25",
       "cover": "https://cdn.awsli.com.br/2500x2500/2719/2719500/produto/258329578/resident-evil-2-deluxe-edition-ps5-digital-f82158ff-v5rw0txjsw.jpg",
       "languages": {
@@ -551,7 +551,7 @@
           "THA"
         ],
         "audio": [
-          "RUS",
+          "ENG",
           "FRA",
           "GER",
           "ITA",
@@ -559,18 +559,19 @@
           "SPA"
         ]
       },
-      "notes": "Deluxe Edition. USA release. FPKG. No multiplayer. Firmware compatibility 3.00–11.60.",
-      "releaseUrl": "",
+      "notes": "Released 14/06/2022. US region. Licensed PS5 FPKG release. No local or online multiplayer. Age 18+. PS5 Pro Enhanced: No. PSSR 2.0: No. Firmware compatibility 3.00–11.40. Text localization available.",
+      "releaseUrl": "https://prosperopatches.com/PPSA04288",
       "infoUrl": "",
       "dlcAvailable": true,
-      "purchaseUrl": "",
+      "purchaseUrl": "https://tinyurl.com/3kjynkf3",
       "dlcUrl": "",
       "languageSource": "User-provided PPSA04288 release metadata",
       "genres": [
         "Horror",
-        "Action",
-        "Adventure"
-      ]
+        "Adventure",
+        "Action"
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Hogwarts Legacy — Deluxe Edition",
