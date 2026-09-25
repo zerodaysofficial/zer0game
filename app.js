@@ -350,4 +350,59 @@ els.modal.addEventListener('click', e => {
   if (!inside) els.modal.close();
 });
 
+
+function runHeroTypewriter() {
+  const line1 = document.querySelector('#heroTypeLine1');
+  const line2 = document.querySelector('#heroTypeLine2');
+  const cursor1 = document.querySelector('#heroCursor1');
+  const cursor2 = document.querySelector('#heroCursor2');
+  if (!line1 || !line2 || !cursor1 || !cursor2) return;
+
+  const first = 'Your library.';
+  const second = 'Zero clutter.';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const setCursor = active => {
+    cursor1.classList.toggle('active', active === 1);
+    cursor2.classList.toggle('active', active === 2);
+  };
+
+  if (reduced) {
+    line1.textContent = first;
+    line2.textContent = second;
+    setCursor(0);
+    return;
+  }
+
+  line1.textContent = '';
+  line2.textContent = '';
+  setCursor(1);
+
+  const sleep = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+
+  const typeText = async (element, text, baseDelay) => {
+    for (let i = 0; i < text.length; i++) {
+      element.textContent += text[i];
+      const ch = text[i];
+      const pause =
+        ch === '.' ? 190 :
+        ch === ' ' ? 34 :
+        baseDelay + ((i % 3) * 7);
+      await sleep(pause);
+    }
+  };
+
+  (async () => {
+    await sleep(420);
+    await typeText(line1, first, 58);
+    await sleep(330);
+    setCursor(2);
+    await typeText(line2, second, 62);
+    await sleep(1450);
+    setCursor(0);
+  })();
+}
+
+runHeroTypewriter();
+
 init();
