@@ -398,8 +398,8 @@
       "title": "Assassin's Creed Valhalla — Complete Edition",
       "titleId": "PPSA01532",
       "version": "01.070.000",
-      "firmware": "",
-      "size": "",
+      "firmware": "4.xx",
+      "size": "142 GB",
       "status": "released",
       "date": "2026-09-25",
       "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/0415/7ktnGZT3BqZipWINafzZPynz.jpg",
@@ -420,7 +420,7 @@
           "GER"
         ]
       },
-      "notes": "Complete Edition. Package language metadata supplied by the catalog maintainer.",
+      "notes": "Complete Edition. Backport 4.xx. Package language metadata supplied by the catalog maintainer.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0001-PPSA01490_00-EDITIONCOMPLETE0",
       "dlcAvailable": true,
