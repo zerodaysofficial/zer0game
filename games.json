@@ -37,7 +37,13 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-gb/product/EP0001-PPSA20397_00-GAME000000000000",
       "languageSource": "PlayStation / PPSA20397 metadata",
-      "purchaseUrl": "https://vik1ngfile.site/f/3HXAVFI9N7"
+      "purchaseUrl": "https://vik1ngfile.site/f/3HXAVFI9N7",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG",
+        "Open World"
+      ]
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
@@ -83,7 +89,12 @@
       "purchaseUrl": "https://fuckingfast.net/d8ves6hb6jyd",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "downloadLabel": "DOWNLOAD GAME + DLC"
+      "downloadLabel": "DOWNLOAD GAME + DLC",
+      "genres": [
+        "Horror",
+        "Action",
+        "Adventure"
+      ]
     },
     {
       "title": "Crash Bandicoot 4: It's About Time",
@@ -118,7 +129,12 @@
       "dlcAvailable": true,
       "purchaseUrl": "https://fuckingfast.net/8mcnzu2nppnz",
       "dlcUrl": "https://fuckingfast.net/q7mwgsmtorgc",
-      "languageSource": "PPSA02433 public PS Store metadata"
+      "languageSource": "PPSA02433 public PS Store metadata",
+      "genres": [
+        "Platformer",
+        "Action",
+        "Adventure"
+      ]
     },
     {
       "title": "Marvel's Spider-Man 2",
@@ -167,7 +183,12 @@
       "dlcAvailable": false,
       "purchaseUrl": "https://fuckingfast.net/9e7zwdqj4ola",
       "dlcUrl": "",
-      "languageSource": "PlayStation Italy metadata for PPSA08338"
+      "languageSource": "PlayStation Italy metadata for PPSA08338",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Open World"
+      ]
     },
     {
       "title": "Little Nightmares: Enhanced Edition - Complete Edition",
@@ -200,7 +221,12 @@
       "dlcAvailable": true,
       "purchaseUrl": "https://fuckingfast.net/fpsez6inwu0k",
       "dlcUrl": "",
-      "languageSource": "PlayStation Italy metadata for PPSA10737"
+      "languageSource": "PlayStation Italy metadata for PPSA10737",
+      "genres": [
+        "Horror",
+        "Puzzle",
+        "Adventure"
+      ]
     },
     {
       "title": "TEKKEN 8 — Gold Edition",
@@ -233,7 +259,10 @@
       "purchaseUrl": "https://datavaults.co/ua1jj7uif0zs",
       "dlcUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar",
       "languageSource": "PlayStation Italy TEKKEN 8 metadata",
-      "sizeLabel": "Size compressed"
+      "sizeLabel": "Size compressed",
+      "genres": [
+        "Fighting"
+      ]
     },
     {
       "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
@@ -289,7 +318,12 @@
       "dlcAvailable": false,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": "User-provided package language metadata"
+      "languageSource": "User-provided package language metadata",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Platformer"
+      ]
     },
     {
       "title": "Resident Evil Requiem — Deluxe Edition",
@@ -333,7 +367,12 @@
       "purchaseUrl": "https://datanodes.to/zzurgb230iai/PPSA31246-Compressed.7z",
       "dlcUrl": "",
       "downloadLabel": "DOWNLOAD GAME + ALL DLC",
-      "languageSource": "PlayStation Italy metadata for PPSA31246"
+      "languageSource": "PlayStation Italy metadata for PPSA31246",
+      "genres": [
+        "Horror",
+        "Action",
+        "Adventure"
+      ]
     },
     {
       "title": "Ghost of Yōtei — Digital Deluxe Edition + Pre-Order Bonus",
@@ -366,7 +405,12 @@
       "purchaseUrl": "https://tinyurl.com/hmzwn9vk",
       "dlcUrl": "https://tinyurl.com/2hkudy5k",
       "languageSource": "User-provided PPSA26344 package language metadata",
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Open World"
+      ]
     },
     {
       "title": "Assassin's Creed Valhalla — Complete Edition",
@@ -401,7 +445,13 @@
       "purchaseUrl": "https://tinyurl.com/y4jk87w2",
       "dlcUrl": "",
       "downloadLabel": "BASE + DLC",
-      "languageSource": "User-provided PPSA01532 package metadata"
+      "languageSource": "User-provided PPSA01532 package metadata",
+      "genres": [
+        "RPG",
+        "Action",
+        "Adventure",
+        "Open World"
+      ]
     },
     {
       "title": "EA SPORTS FC 25",
@@ -422,7 +472,10 @@
       "dlcAvailable": false,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": ""
+      "languageSource": "",
+      "genres": [
+        "Sports"
+      ]
     },
     {
       "title": "Resident Evil Village — Gold Edition",
@@ -462,7 +515,12 @@
       "dlcAvailable": true,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": "User-provided PPSA01556 release metadata"
+      "languageSource": "User-provided PPSA01556 release metadata",
+      "genres": [
+        "Horror",
+        "Action",
+        "Adventure"
+      ]
     },
     {
       "title": "Resident Evil 2 Remake — Deluxe Edition",
@@ -503,7 +561,12 @@
       "dlcAvailable": true,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": "User-provided PPSA04288 release metadata"
+      "languageSource": "User-provided PPSA04288 release metadata",
+      "genres": [
+        "Horror",
+        "Action",
+        "Adventure"
+      ]
     },
     {
       "title": "Hogwarts Legacy — Deluxe Edition",
@@ -541,7 +604,13 @@
       "dlcAvailable": true,
       "purchaseUrl": "",
       "dlcUrl": "",
-      "languageSource": "User-provided PPSA01603 release metadata"
+      "languageSource": "User-provided PPSA01603 release metadata",
+      "genres": [
+        "RPG",
+        "Action",
+        "Adventure",
+        "Open World"
+      ]
     }
   ]
 }
