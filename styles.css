@@ -2192,3 +2192,97 @@ footer{
     flex-wrap:wrap;
   }
 }
+
+
+/* Apple-inspired cinematic hero typewriter */
+.hero-typewriter{
+  min-height:1.92em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+
+.hero .hero-typewriter .type-line{
+  display:block;
+  position:relative;
+  min-height:.94em;
+  white-space:nowrap;
+  background:none;
+  color:inherit;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  filter:none;
+}
+
+.hero .hero-typewriter .type-slot{
+  display:inline;
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  filter:none;
+}
+
+.hero .hero-typewriter .type-line-one .type-slot{
+  color:#f7f8fb;
+  -webkit-text-fill-color:#f7f8fb;
+}
+
+.hero .hero-typewriter .type-line-two .type-slot{
+  background:linear-gradient(90deg,#ffffff 0%,#d9d3ff 32%,#9d8cff 60%,#63e3ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 25px rgba(99,227,255,.10));
+}
+
+.hero .hero-typewriter .type-cursor{
+  display:inline-block;
+  width:.045em;
+  min-width:3px;
+  height:.78em;
+  margin-left:.07em;
+  vertical-align:-.04em;
+  border-radius:999px;
+  background:#f8fbff;
+  color:#fff;
+  -webkit-text-fill-color:initial;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  box-shadow:0 0 14px rgba(255,255,255,.32),0 0 24px rgba(99,227,255,.15);
+  opacity:0;
+}
+
+.hero .hero-typewriter .type-cursor.active{
+  opacity:1;
+  animation:heroCursorBlink .82s steps(1,end) infinite;
+}
+
+@keyframes heroCursorBlink{
+  0%,48%{opacity:1}
+  49%,100%{opacity:0}
+}
+
+@media(max-width:680px){
+  .hero-typewriter{
+    min-height:1.98em;
+  }
+  .hero .hero-typewriter .type-line{
+    white-space:nowrap;
+  }
+}
+
+@media(max-width:390px){
+  .hero h1.hero-typewriter{
+    font-size:44px;
+    letter-spacing:-.06em;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero .hero-typewriter .type-cursor{
+    display:none;
+  }
+}
