@@ -402,6 +402,108 @@
       "dlcUrl": "",
       "downloadLabel": "BASE + DLC",
       "languageSource": "User-provided PPSA01532 package metadata"
+    },
+    {
+      "title": "EA SPORTS FC 25",
+      "titleId": "PPSA20049",
+      "version": "1.000.007",
+      "firmware": "4.xx–11.60",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-25",
+      "cover": "https://www.tiendasekono.com/media/catalog/product/6/6/6614_1_b9f7efedf1db48d19d4405798.jpg?bg-color=255%2C255%2C255&canvas=1080%3A1080&fit=bounds&height=1080&optimize=medium&width=1080",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Sports. Developed by EA Vancouver / EA Romania and published by Electronic Arts Inc. USA release. Full digital dump / FPKG. Backport 4.xx+. Works only up to firmware 11.60. Local multiplayer up to 4 players.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "dlcAvailable": false,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": ""
+    },
+    {
+      "title": "Resident Evil Village — Gold Edition",
+      "titleId": "PPSA01556",
+      "version": "01.210.000",
+      "firmware": "6.00–11.60 + Backport 4.xx–5.50",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-25",
+      "cover": "https://storage.googleapis.com/images.pricecharting.com/d439494b42eb15e3c0c1a751ce637ab63047c3315f5b88e8c8394fc48ec641f1/1600.jpg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "ARA",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
+          "SPA"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
+          "SPA"
+        ]
+      },
+      "notes": "Gold Edition. USA release. PS VR2 supported. PS5 Pro Enhanced. No multiplayer. Backport available for firmware 4.xx–5.50.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "dlcAvailable": true,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": "User-provided PPSA01556 release metadata"
+    },
+    {
+      "title": "Resident Evil 2 Remake — Deluxe Edition",
+      "titleId": "PPSA04288",
+      "version": "01.000.003",
+      "firmware": "3.00–11.60",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-25",
+      "cover": "https://cdn.awsli.com.br/2500x2500/2719/2719500/produto/258329578/resident-evil-2-deluxe-edition-ps5-digital-f82158ff-v5rw0txjsw.jpg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "ARA",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
+          "SPA",
+          "SPA-MX",
+          "THA"
+        ],
+        "audio": [
+          "RUS",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "SPA"
+        ]
+      },
+      "notes": "Deluxe Edition. USA release. FPKG. No multiplayer. Firmware compatibility 3.00–11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "dlcAvailable": true,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": "User-provided PPSA04288 release metadata"
     }
   ]
 }
