@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
@@ -393,6 +393,41 @@
       "purchaseUrl": "",
       "dlcUrl": "",
       "languageSource": "PlayStation Store metadata for PPSA26344"
+    },
+    {
+      "title": "Assassin's Creed Valhalla — Complete Edition",
+      "titleId": "PPSA01532",
+      "version": "01.070.000",
+      "firmware": "",
+      "size": "",
+      "status": "released",
+      "date": "2026-09-25",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/0415/7ktnGZT3BqZipWINafzZPynz.jpg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "SPA",
+          "POL"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER"
+        ]
+      },
+      "notes": "Complete Edition. Package language metadata supplied by the catalog maintainer.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP0001-PPSA01490_00-EDITIONCOMPLETE0",
+      "dlcAvailable": true,
+      "purchaseUrl": "https://store.playstation.com/it-it/product/EP0001-PPSA01490_00-EDITIONCOMPLETE0",
+      "dlcUrl": "",
+      "downloadLabel": "BUY ON PLAYSTATION",
+      "languageSource": "User-provided PPSA01532 package metadata"
     }
   ]
 }
