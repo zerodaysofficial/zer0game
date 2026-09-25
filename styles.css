@@ -2286,3 +2286,35 @@ footer{
     display:none;
   }
 }
+
+
+/* Typewriter reliability / replay */
+.hero-typewriter{
+  transition:opacity .42s ease,filter .42s ease,transform .42s ease;
+}
+
+.hero-typewriter.typewriter-running{
+  opacity:1;
+  filter:blur(0);
+  transform:translateY(0);
+}
+
+.hero-typewriter.typewriter-fade{
+  opacity:0;
+  filter:blur(5px);
+  transform:translateY(-3px);
+}
+
+.hero .hero-typewriter .type-slot{
+  min-width:.02em;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-typewriter{
+    transition:opacity .18s linear;
+  }
+  .hero-typewriter.typewriter-fade{
+    filter:none;
+    transform:none;
+  }
+}
