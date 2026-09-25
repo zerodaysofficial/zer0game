@@ -504,6 +504,44 @@
       "purchaseUrl": "",
       "dlcUrl": "",
       "languageSource": "User-provided PPSA04288 release metadata"
+    },
+    {
+      "title": "Hogwarts Legacy — Deluxe Edition",
+      "titleId": "PPSA01603",
+      "version": "01.013",
+      "firmware": "4.00–11.60",
+      "size": "103.42 GB",
+      "status": "soon",
+      "date": "2026-09-25",
+      "cover": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6518/6518307_sd.jpg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "GER",
+          "FRA",
+          "ITA",
+          "SPA",
+          "POL",
+          "POR-PT",
+          "JPN"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "GER",
+          "FRA",
+          "ITA",
+          "SPA"
+        ]
+      },
+      "notes": "Deluxe Edition. EUR release. All DLC. Digital dump with integrated patch and unlocked Deluxe content. FPKG. Backport 4.00+. Works only up to firmware 11.60. Russian voice-over by GamesVoice is available for female characters.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP1018-PPSA01603_00-HOGWARTSLGCYDELX",
+      "dlcAvailable": true,
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "languageSource": "User-provided PPSA01603 release metadata"
     }
   ]
 }
