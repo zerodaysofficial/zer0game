@@ -270,7 +270,7 @@
       "version": "01.005.003",
       "firmware": "4.xx — up to 11.60",
       "size": "39.59 GB",
-      "status": "soon",
+      "status": "released",
       "date": "2026-09-22",
       "cover": "https://m.media-amazon.com/images/I/8163O-hji%2BS._SL1348_.jpg",
       "languages": {
@@ -316,14 +316,15 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01474_00-RIFTDIGITALDELUX",
       "dlcAvailable": false,
-      "purchaseUrl": "",
+      "purchaseUrl": "https://tinyurl.com/2vzncnet",
       "dlcUrl": "",
       "languageSource": "User-provided package language metadata",
       "genres": [
         "Action",
         "Adventure",
         "Platformer"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Resident Evil Requiem — Deluxe Edition",
