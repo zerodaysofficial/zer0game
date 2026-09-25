@@ -268,7 +268,7 @@
       "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
       "titleId": "PPSA01474",
       "version": "01.005.003",
-      "firmware": "4.xx — up to 11.60",
+      "firmware": "4.xx–11.40",
       "size": "39.59 GB",
       "status": "released",
       "date": "2026-09-22",
@@ -312,17 +312,17 @@
           "SWE"
         ]
       },
-      "notes": "Deluxe Edition. Works only up to firmware 11.60.",
+      "notes": "EU release. FPKG. No multiplayer. Firmware 4.xx; works only up to 11.40. Interface and audio language follow the PS5 system language. Age 12+.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01474_00-RIFTDIGITALDELUX",
       "dlcAvailable": false,
       "purchaseUrl": "https://tinyurl.com/2vzncnet",
       "dlcUrl": "",
-      "languageSource": "User-provided package language metadata",
+      "languageSource": "User-provided PPSA01474 release metadata",
       "genres": [
         "Action",
-        "Adventure",
-        "Platformer"
+        "Platformer",
+        "Adventure"
       ],
       "downloadLabel": "BASE GAME"
     },
