@@ -2167,3 +2167,28 @@ footer{
   0%,100%{transform:scale(1)}
   50%{transform:scale(1.06);filter:brightness(1.18)}
 }
+
+/* Game category system */
+.badge-category,
+.genre-badge{
+  border-color:rgba(53,242,194,.36);
+  background:linear-gradient(135deg,rgba(53,242,194,.12),rgba(24,220,255,.10));
+  color:#baffef;
+  box-shadow:inset 0 0 16px rgba(53,242,194,.06);
+}
+
+.genre-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.genre-block{
+  margin-top:18px;
+}
+
+@media(max-width:900px){
+  .toolbar-right{
+    flex-wrap:wrap;
+  }
+}
