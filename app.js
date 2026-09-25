@@ -356,51 +356,79 @@ function runHeroTypewriter() {
   const line2 = document.querySelector('#heroTypeLine2');
   const cursor1 = document.querySelector('#heroCursor1');
   const cursor2 = document.querySelector('#heroCursor2');
-  if (!line1 || !line2 || !cursor1 || !cursor2) return;
+  const heading = document.querySelector('.hero-typewriter');
+  if (!line1 || !line2 || !cursor1 || !cursor2 || !heading) return;
 
   const first = 'Your library.';
   const second = 'Zero clutter.';
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let cycleToken = 0;
+
+  const sleep = ms => new Promise(resolve => window.setTimeout(resolve, ms));
 
   const setCursor = active => {
     cursor1.classList.toggle('active', active === 1);
     cursor2.classList.toggle('active', active === 2);
   };
 
-  if (reduced) {
-    line1.textContent = first;
-    line2.textContent = second;
-    setCursor(0);
-    return;
-  }
-
-  line1.textContent = '';
-  line2.textContent = '';
-  setCursor(1);
-
-  const sleep = ms => new Promise(resolve => window.setTimeout(resolve, ms));
-
-  const typeText = async (element, text, baseDelay) => {
+  const typeText = async (element, text, baseDelay, token) => {
     for (let i = 0; i < text.length; i++) {
+      if (token !== cycleToken) return false;
       element.textContent += text[i];
+
       const ch = text[i];
-      const pause =
-        ch === '.' ? 190 :
-        ch === ' ' ? 34 :
-        baseDelay + ((i % 3) * 7);
-      await sleep(pause);
+      const delay =
+        ch === '.' ? 210 :
+        ch === ' ' ? 60 :
+        baseDelay + ((i % 4) * 9);
+
+      await sleep(delay);
     }
+    return true;
   };
 
-  (async () => {
+  const playCycle = async () => {
+    const token = ++cycleToken;
+
+    heading.classList.remove('typewriter-fade');
+    heading.classList.add('typewriter-running');
+    line1.textContent = '';
+    line2.textContent = '';
+    setCursor(1);
+
     await sleep(420);
-    await typeText(line1, first, 58);
-    await sleep(330);
+    if (!(await typeText(line1, first, 72, token))) return;
+
+    await sleep(440);
+    if (token !== cycleToken) return;
     setCursor(2);
-    await typeText(line2, second, 62);
-    await sleep(1450);
+
+    if (!(await typeText(line2, second, 78, token))) return;
+
+    await sleep(2600);
+    if (token !== cycleToken) return;
     setCursor(0);
-  })();
+    heading.classList.add('typewriter-fade');
+
+    await sleep(520);
+    if (token !== cycleToken) return;
+    heading.classList.remove('typewriter-fade');
+
+    await sleep(520);
+    if (token !== cycleToken) return;
+    playCycle();
+  };
+
+  playCycle();
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      cycleToken++;
+      line1.textContent = first;
+      line2.textContent = second;
+      setCursor(0);
+      window.setTimeout(playCycle, 700);
+    }
+  });
 }
 
 runHeroTypewriter();
