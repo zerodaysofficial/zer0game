@@ -327,52 +327,55 @@
       "downloadLabel": "BASE GAME"
     },
     {
-      "title": "Resident Evil Requiem — Deluxe Edition",
-      "titleId": "PPSA31246",
-      "version": "",
-      "firmware": "4.xx–11.60",
+      "title": "Resident Evil Requiem",
+      "titleId": "PPSA30803",
+      "version": "1.200",
+      "firmware": "11.00 + Backport 4.xx–10.60",
       "size": "70 GB",
       "status": "released",
-      "date": "2026-09-23",
+      "date": "2026-09-25",
       "cover": "https://gamezone.no/Media/Cache/Images/9/8/WEB_Image_Resident_Evil_Requiem_Deluxe_Ed_PS5__re9_ocard_2d_ps5_pegi181805237616_plid_96208.jpeg",
       "languages": {
         "text": [
+          "RUS",
           "ARA",
-          "FRA",
-          "JPN",
           "ENG",
+          "FRA",
+          "GER",
           "ITA",
+          "JPN",
           "POL",
           "POR-BR",
-          "RUS",
           "SPA",
-          "SPA-MX",
-          "GER"
+          "SPA-MX"
         ],
         "audio": [
-          "FRA",
-          "JPN",
-          "ENG",
-          "ITA",
-          "POR-BR",
           "RUS",
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
           "SPA",
-          "SPA-MX",
-          "GER"
+          "SPA-MX"
         ]
       },
-      "notes": "Deluxe Edition. Base game + Deluxe content / all DLC in one compressed package. Compatible with firmware 4.xx–11.60. PS5 Pro Enhanced.",
+      "notes": "2026 release. US region. FPKG. No multiplayer. Age 18+. Original minimum firmware 11.00; integrated backport for 4.xx–10.60.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA31246_00-REREQUIEMDX00000",
-      "dlcAvailable": true,
-      "purchaseUrl": "https://datanodes.to/zzurgb230iai/PPSA31246-Compressed.7z",
+      "dlcAvailable": false,
+      "purchaseUrl": "https://tinyurl.com/uj77fcz5",
       "dlcUrl": "",
-      "downloadLabel": "DOWNLOAD GAME + ALL DLC",
-      "languageSource": "PlayStation Italy metadata for PPSA31246",
+      "downloadLabel": "BASE GAME",
+      "languageSource": "User-provided PPSA30803 release metadata",
       "genres": [
-        "Horror",
+        "Adventure",
         "Action",
-        "Adventure"
+        "Horror",
+        "Survival Horror"
       ]
     },
     {
