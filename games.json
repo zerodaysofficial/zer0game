@@ -850,6 +850,35 @@
         "Superhero",
         "Adventure"
       ]
+    },
+    {
+      "title": "Horizon Zero Dawn Remastered",
+      "titleId": "PPSA13427",
+      "version": "1.008.001",
+      "firmware": "",
+      "size": "86.14 GB",
+      "status": "soon",
+      "date": "2024",
+      "cover": "https://i2.imageban.ru/out/2026/09/22/db43f28e6db514d51f85ab9f809b2b63.png",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG"
+        ],
+        "audio": []
+      },
+      "notes": "EUR digital dump of Horizon Zero Dawn Remastered. FPKG. No multiplayer. Release year 2024. Developer: Guerrilla Games / Nixxes Software. Publisher and official localization: Sony Interactive Entertainment. Release tag provided as RUS+ENG; the supplied source does not specify the exact interface/audio split.",
+      "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6873912",
+      "infoUrl": "",
+      "languageSource": "User-provided Rutracker post for PPSA13427",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "RPG",
+        "Open World"
+      ]
     }
   ]
 }
