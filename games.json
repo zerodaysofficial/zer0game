@@ -667,7 +667,7 @@
       "version": "01.014.001",
       "firmware": "4.xx–11.60",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2024-04-26",
       "cover": "https://i.imgur.com/QOQTC4W.jpeg",
       "languages": {
@@ -713,7 +713,7 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/ja-jp/product/JP9000-PPSA13195_00-STELLARBLADE0000",
       "languageSource": "User-provided PPSA13195 release metadata; official JP PlayStation Store used to confirm title ID/region context",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/35bfea92",
       "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
@@ -721,7 +721,8 @@
         "RPG",
         "Hack and Slash",
         "Sci-Fi"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     }
   ]
 }
