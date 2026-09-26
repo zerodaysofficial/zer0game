@@ -749,7 +749,7 @@
       "version": "2.000",
       "firmware": "4.xx–9.00",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2022-09-02",
       "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/c3602f46ef014905acc046ad5d384292_Original.jpg",
       "languages": {
@@ -795,13 +795,14 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-us/product/UP9000-PPSA03396_00-THELASTOFUSPART1",
       "languageSource": "User-provided PPSA03396 release metadata",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/6df7a6bb",
       "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Action",
         "Adventure"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Marvel's Spider-Man Remastered",
