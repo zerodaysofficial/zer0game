@@ -857,7 +857,7 @@
       "version": "1.008.001",
       "firmware": "4.xx–11.40",
       "size": "86.14 GB",
-      "status": "soon",
+      "status": "released",
       "date": "2024",
       "cover": "https://i2.imageban.ru/out/2026/09/22/db43f28e6db514d51f85ab9f809b2b63.png",
       "languages": {
@@ -888,14 +888,15 @@
       "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6873912",
       "infoUrl": "",
       "languageSource": "User-provided Rutracker metadata for PPSA13427",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/86cd2220",
       "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Action",
         "RPG",
         "Open World"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Resident Evil 7 biohazard — Gold Edition",
