@@ -687,7 +687,7 @@
       "version": "3.000.005",
       "firmware": "4.xx–11.60",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2021-04-30",
       "cover": "https://kimostore.net/cdn/shop/products/returnal-game-ps5-english-edition-kimo-store-1.jpg?v=1715036655",
       "languages": {
@@ -733,14 +733,15 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01285_00-RETURNALGAME0001/",
       "languageSource": "User-provided PPSA01285 release metadata",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/a02b1237",
       "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Third-Person Shooter",
         "Bullet Hell",
         "Roguelite"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     }
   ]
 }
