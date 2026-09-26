@@ -855,7 +855,7 @@
       "title": "Horizon Zero Dawn Remastered",
       "titleId": "PPSA13427",
       "version": "1.008.001",
-      "firmware": "",
+      "firmware": "4.xx–11.40",
       "size": "86.14 GB",
       "status": "soon",
       "date": "2024",
@@ -863,14 +863,31 @@
       "languages": {
         "text": [
           "RUS",
-          "ENG"
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "GRE",
+          "DAN",
+          "DUT",
+          "NOR",
+          "FIN",
+          "SWE",
+          "CZE",
+          "HUN"
         ],
-        "audio": []
+        "audio": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA"
+        ]
       },
-      "notes": "EUR digital dump of Horizon Zero Dawn Remastered. FPKG. No multiplayer. Release year 2024. Developer: Guerrilla Games / Nixxes Software. Publisher and official localization: Sony Interactive Entertainment. Release tag provided as RUS+ENG; the supplied source does not specify the exact interface/audio split.",
+      "notes": "EUR digital dump of Horizon Zero Dawn Remastered. FPKG. No multiplayer. Hardcoded compatibility for firmware 4.xx+; works only up to 11.40. Tested by the releaser on PS5 FAT firmware 7.61 with Y2JB 2.0, Kstuff Lite 1.12 and ShadowMountPlus 1.7alpha13. Developer: Guerrilla Games / Nixxes Software. Publisher and official localization: Sony Interactive Entertainment.",
       "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6873912",
       "infoUrl": "",
-      "languageSource": "User-provided Rutracker post for PPSA13427",
+      "languageSource": "User-provided Rutracker metadata for PPSA13427",
       "purchaseUrl": "",
       "dlcUrl": "",
       "dlcAvailable": false,
