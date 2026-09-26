@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-26",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
@@ -659,6 +659,68 @@
       "genres": [
         "Action",
         "Adventure"
+      ]
+    },
+    {
+      "title": "Stellar Blade — Digital Deluxe Edition",
+      "titleId": "PPSA13195",
+      "version": "01.014.001",
+      "firmware": "4.xx–11.60",
+      "size": "",
+      "status": "soon",
+      "date": "2024-04-26",
+      "cover": "https://i.imgur.com/QOQTC4W.jpeg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "ARA",
+          "ITA",
+          "DUT",
+          "SWE",
+          "SPA",
+          "SPA-MX",
+          "THA",
+          "DAN",
+          "TUR",
+          "GER",
+          "NOR",
+          "FIN",
+          "FRA",
+          "POR-BR",
+          "POR-PT",
+          "POL",
+          "CHI-S",
+          "CHI-T",
+          "JPN",
+          "KOR"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "ITA",
+          "SPA",
+          "SPA-MX",
+          "GER",
+          "FRA",
+          "POR-BR",
+          "CHI",
+          "JPN",
+          "KOR"
+        ]
+      },
+      "notes": "JPN digital dump of the Digital Deluxe Edition. FPKG. No multiplayer. Age 17+ (CERO D). Hardcoded backport for 4.xx+; works only up to 11.60. DLC emulation included. Russian voice-over mod by Mechanics VoiceOver. Dump version from late 2025 / early 2026.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/ja-jp/product/JP9000-PPSA13195_00-STELLARBLADE0000",
+      "languageSource": "User-provided PPSA13195 release metadata; official JP PlayStation Store used to confirm title ID/region context",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "RPG",
+        "Hack and Slash",
+        "Sci-Fi"
       ]
     }
   ]
