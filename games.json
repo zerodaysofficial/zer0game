@@ -680,6 +680,67 @@
         "Sci-Fi"
       ],
       "downloadLabel": "BASE GAME"
+    },
+    {
+      "title": "Returnal",
+      "titleId": "PPSA01285",
+      "version": "3.000.005",
+      "firmware": "4.xx–11.60",
+      "size": "",
+      "status": "soon",
+      "date": "2021-04-30",
+      "cover": "https://kimostore.net/cdn/shop/products/returnal-game-ps5-english-edition-kimo-store-1.jpg?v=1715036655",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "ARA",
+          "ITA",
+          "DUT",
+          "SWE",
+          "SPA",
+          "SPA-MX",
+          "THA",
+          "DAN",
+          "TUR",
+          "GER",
+          "NOR",
+          "FIN",
+          "FRA",
+          "POR-BR",
+          "POR-PT",
+          "POL",
+          "CHI-S",
+          "CHI-T",
+          "JPN",
+          "KOR"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "ITA",
+          "SPA",
+          "SPA-MX",
+          "GER",
+          "FRA",
+          "POR-BR",
+          "CHI",
+          "JPN",
+          "KOR"
+        ]
+      },
+      "notes": "US digital dump. FPKG. No multiplayer in the provided release metadata. Age 0+. Hardcoded backport for 4.xx+; works only up to 11.60. Tested on PS5 FAT firmware 7.61 with Y2JB 2.0, kstuff-1.13-fpkg-dr-test4 and ShadowMountPlus 1.7alpha13.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01285_00-RETURNALGAME0001/",
+      "languageSource": "User-provided PPSA01285 release metadata",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Third-Person Shooter",
+        "Bullet Hell",
+        "Roguelite"
+      ]
     }
   ]
 }
