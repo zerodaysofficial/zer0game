@@ -742,6 +742,66 @@
         "Roguelite"
       ],
       "downloadLabel": "BASE GAME"
+    },
+    {
+      "title": "The Last of Us Part I",
+      "titleId": "PPSA03396",
+      "version": "2.000",
+      "firmware": "4.xx–9.00",
+      "size": "",
+      "status": "soon",
+      "date": "2022-09-02",
+      "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/c3602f46ef014905acc046ad5d384292_Original.jpg",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "ITA",
+          "SPA",
+          "CZE",
+          "DUT",
+          "GRE",
+          "FRA",
+          "GER",
+          "DAN",
+          "FIN",
+          "HUN",
+          "NOR",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "SPA-MX",
+          "SWE",
+          "TUR",
+          "CRO"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "ITA",
+          "SPA",
+          "GRE",
+          "FRA",
+          "GER",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "SPA-MX",
+          "TUR"
+        ]
+      },
+      "notes": "US release. Licensed release metadata supplied by the user. FPKG. No multiplayer. Age 18+. Original minimum firmware 9.00; integrated backport for 4.xx–9.00. Releaser-tested on PS5 firmware 6.00 with Y2JB 1.6, kstuff-1.12-dr-test8.elf and a53_ppr_install_fast_15.09.2026.elf.",
+      "description": "Experience the dramatic story of Joel and Ellie in The Last of Us Part I, rebuilt for PlayStation 5 with enhanced visuals, DualSense features, modernized gameplay, smoother controls and expanded accessibility options.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/en-us/product/UP9000-PPSA03396_00-THELASTOFUSPART1",
+      "languageSource": "User-provided PPSA03396 release metadata",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
     }
   ]
 }
