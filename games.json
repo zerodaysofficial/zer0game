@@ -810,7 +810,7 @@
       "version": "01.007.003",
       "firmware": "4.xx–11.40",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2020-11-12",
       "cover": "https://cdn.awsli.com.br/800x800/2871/2871689/produto/375337270/spider-man-remastered-ps5-pstwdsitez.jpg",
       "languages": {
@@ -841,7 +841,7 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-ie/product/EP9000-PPSA01470_00-MARVELSSPIDERMAN",
       "languageSource": "User-provided PPSA01470 release metadata",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/b000eb4a",
       "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
@@ -849,7 +849,8 @@
         "Open World",
         "Superhero",
         "Adventure"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Horizon Zero Dawn Remastered",
