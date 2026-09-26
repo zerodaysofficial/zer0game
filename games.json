@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
@@ -905,7 +905,7 @@
       "version": "01.004",
       "firmware": "4.xx–11.40",
       "size": "",
-      "status": "soon",
+      "status": "released",
       "date": "2022-06-13",
       "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/10b76326e74e475a80abcf57db63b17e_Original.jpg",
       "languages": {
@@ -935,17 +935,18 @@
           "SPA"
         ]
       },
-      "notes": "US digital dump with Russian voice-over modification by Team Raccoon and RG. MVO. FPKG. Gold Edition with all released add-on content and the fully working Not a Hero DLC. No multiplayer. Age 18+ / PEGI 18. Firmware 4.xx+; works only up to 11.40. Tested by the releaser on PS5 FAT firmware 7.61 with Y2JB 2.0, Kstuff Lite 1.12 and ShadowMountPlus 1.7alpha13.",
+      "notes": "US digital dump with Russian voice-over modification by Team Raccoon and RG. MVO. FPKG. Gold Edition with all released add-on content and the fully working Not a Hero DLC. No multiplayer. Age 18+ / PEGI 18. Firmware 4.xx+; works only up to 11.40. Tested by the releaser on PS5 FAT firmware 7.61 with Y2JB 2.0, Kstuff Lite 1.12 and ShadowMountPlus 1.7alpha13. Archive password: pspkg.com.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-us/product/UP0102-PPSA04404_00-BH7G000000000001/",
       "languageSource": "User-provided PPSA04404 release metadata; official US PlayStation Store confirms the Gold Edition and Not a Hero content",
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/90b2fcf6",
       "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
         "Survival Horror"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     }
   ]
 }
