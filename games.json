@@ -487,7 +487,7 @@
       "version": "01.210.000",
       "firmware": "6.00–11.60 + Backport 4.xx–5.50",
       "size": "29.16 GB",
-      "status": "soon",
+      "status": "released",
       "date": "2026-09-25",
       "cover": "https://storage.googleapis.com/images.pricecharting.com/d439494b42eb15e3c0c1a751ce637ab63047c3315f5b88e8c8394fc48ec641f1/1600.jpg",
       "languages": {
@@ -517,14 +517,15 @@
       "releaseUrl": "",
       "infoUrl": "",
       "dlcAvailable": true,
-      "purchaseUrl": "",
+      "purchaseUrl": "https://urlvanish.com/e70ece97",
       "dlcUrl": "",
       "languageSource": "User-provided PPSA01556 release metadata",
       "genres": [
         "Horror",
         "Action",
         "Adventure"
-      ]
+      ],
+      "downloadLabel": "BASE GAME"
     },
     {
       "title": "Resident Evil 2 Remake — Deluxe Edition",
