@@ -618,50 +618,6 @@
       ]
     },
     {
-      "title": "The Last of Us Part II Remastered",
-      "titleId": "PPSA15508",
-      "version": "2.001.010",
-      "firmware": "4.xx–11.60",
-      "size": "",
-      "status": "soon",
-      "date": "2024-01-19",
-      "cover": "https://www.yerevanmobile.am/media/catalog/product/cache/07720dad39bc68bc6b838050c0f2e34d/l/a/last_of_us252.jpg",
-      "languages": {
-        "text": [
-          "RUS",
-          "ENG",
-          "FRA",
-          "GER",
-          "ITA",
-          "SPA",
-          "JPN",
-          "KOR",
-          "POL",
-          "CHI"
-        ],
-        "audio": [
-          "RUS",
-          "ENG",
-          "FRA",
-          "GER",
-          "SPA",
-          "JPN",
-          "POR-PT"
-        ]
-      },
-      "notes": "EU release. FPKG. No multiplayer. Firmware 4.xx+; works only up to 11.60. Age 16+. PS5 Pro Enhanced.",
-      "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6913829",
-      "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA15508_00-THELASTOFUSPART2",
-      "languageSource": "User-provided Rutracker screenshot for PPSA15508",
-      "purchaseUrl": "",
-      "dlcUrl": "",
-      "dlcAvailable": false,
-      "genres": [
-        "Action",
-        "Adventure"
-      ]
-    },
-    {
       "title": "Stellar Blade — Digital Deluxe Edition",
       "titleId": "PPSA13195",
       "version": "01.014.001",
