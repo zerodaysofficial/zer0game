@@ -802,6 +802,53 @@
         "Action",
         "Adventure"
       ]
+    },
+    {
+      "title": "Marvel's Spider-Man Remastered",
+      "titleId": "PPSA01470",
+      "version": "01.007.003",
+      "firmware": "4.xx–11.40",
+      "size": "",
+      "status": "soon",
+      "date": "2020-11-12",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/5ayReKkz8RaBVuTvrxgA3rvh.png",
+      "languages": {
+        "text": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "GRE",
+          "DAN",
+          "DUT",
+          "NOR",
+          "FIN",
+          "SWE",
+          "CZE",
+          "HUN"
+        ],
+        "audio": [
+          "RUS",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA"
+        ]
+      },
+      "notes": "USA digital dump modified for European/USA languages. Remastered FPKG release. Hardcoded backport for 4.xx+; works only up to 11.40. Tested by the releaser on PS5 FAT firmware 7.61 with Y2JB 2.0, Kstuff Lite 1.12 and ShadowMountPlus 1.7alpha13. Age 16+ / PEGI 16.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/en-ie/product/EP9000-PPSA01470_00-MARVELSSPIDERMAN",
+      "languageSource": "User-provided PPSA01470 release metadata",
+      "purchaseUrl": "",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "Open World",
+        "Superhero",
+        "Adventure"
+      ]
     }
   ]
 }
