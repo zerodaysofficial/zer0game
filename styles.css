@@ -2318,3 +2318,139 @@ footer{
     transform:none;
   }
 }
+
+
+/* PS5 normalized case frame */
+.ps5-case-header{
+  position:absolute;
+  z-index:6;
+  top:5px;
+  left:5px;
+  right:5px;
+  height:13%;
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  padding:0 10px 0 12px;
+  background:linear-gradient(180deg,#ffffff 0%,#f8f8f8 72%,#ececec 100%);
+  color:#080b11;
+  border-bottom:1px solid rgba(0,0,0,.14);
+  box-shadow:0 2px 7px rgba(0,0,0,.13);
+  pointer-events:none;
+}
+.ps5-symbol{
+  display:inline-block;
+  margin-right:1px;
+  font:900 19px/1 Arial Black,Arial,sans-serif;
+  letter-spacing:-.18em;
+  transform:skew(-8deg) scaleX(.86);
+  transform-origin:left center;
+}
+.ps5-wordmark{
+  display:inline-block;
+  margin-left:8px;
+  font:800 28px/.9 Arial Black,Arial,sans-serif;
+  letter-spacing:-.12em;
+  transform:skew(-7deg) scaleX(1.2);
+  transform-origin:left center;
+}
+.ps5-reg{
+  margin-left:5px;
+  align-self:center;
+  font:700 7px/1 Arial,sans-serif;
+}
+
+.cover-wrap.ps5-case-card{
+  border:0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.34),transparent 7%,transparent 93%,rgba(255,255,255,.18)),
+    linear-gradient(180deg,#1774e6 0%,#0754bb 45%,#063f9c 100%);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.34),
+    0 0 0 1px rgba(61,149,255,.74),
+    inset 0 0 0 5px rgba(8,94,207,.98),
+    inset 0 0 15px rgba(255,255,255,.22);
+}
+.cover-wrap.ps5-case-card .cover{
+  width:100%;
+  height:100%;
+  padding:5px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:18px;
+}
+.cover-wrap.ps5-case-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  border-radius:inherit;
+  box-shadow:
+    inset 0 0 0 5px rgba(8,88,194,.96),
+    inset 2px 2px 5px rgba(255,255,255,.28),
+    inset -2px -2px 6px rgba(0,27,99,.36);
+}
+.cover-wrap.ps5-case-card .card-overlay{
+  z-index:2;
+}
+.cover-wrap.ps5-case-card .status-badge{
+  z-index:7;
+  top:auto;
+  bottom:13px;
+  left:13px;
+}
+.cover-wrap.ps5-case-card .ps5-case-header{
+  border-radius:13px 13px 0 0;
+}
+.card-open:hover .cover-wrap.ps5-case-card .cover{
+  transform:scale(1.018);
+}
+
+/* Same PS5 retail-case treatment in the large game modal. */
+.ps5-modal-case{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  width:calc(100% - 28px);
+  aspect-ratio:793/1000;
+  transform:translate(-50%,-50%);
+  overflow:hidden;
+  border-radius:18px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.38),transparent 6%,transparent 94%,rgba(255,255,255,.16)),
+    linear-gradient(180deg,#1774e6 0%,#0754bb 50%,#063f9c 100%);
+  box-shadow:
+    0 24px 48px rgba(0,0,0,.46),
+    0 0 0 1px rgba(61,149,255,.72),
+    inset 0 0 0 5px rgba(8,88,194,.98),
+    inset 0 0 16px rgba(255,255,255,.18);
+}
+.ps5-modal-case::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  border-radius:inherit;
+  box-shadow:
+    inset 0 0 0 5px rgba(8,88,194,.96),
+    inset 2px 2px 5px rgba(255,255,255,.28),
+    inset -2px -2px 6px rgba(0,27,99,.36);
+}
+.ps5-modal-case .ps5-case-header{
+  border-radius:13px 13px 0 0;
+}
+.modal-art .ps5-modal-case img{
+  position:absolute;
+  z-index:1;
+  inset:5px;
+  width:calc(100% - 10px);
+  height:calc(100% - 10px);
+  padding:0;
+  object-fit:cover;
+  object-position:center;
+  border-radius:13px;
+  filter:none;
+}
