@@ -1985,7 +1985,6 @@
         "Fighting"
       ],
       "ps5Frame": true,
-      "linkStatus": "pending-authorized-url",
       "fullSize": "200GB",
       "region": "EUR",
       "sourceCatalog": "Pippo exFAT",
@@ -1993,7 +1992,8 @@
       "creditsBackport": "DecKerr97",
       "creditsDlc": "DecKerr97",
       "fpkgSize": "93GB",
-      "compatibilityNote": "FPKG works up to firmware 11.60; use exFAT above that."
+      "compatibilityNote": "FPKG works up to firmware 11.60; use exFAT above that.",
+      "directUrl": "https://akirabox.to/vgKGxX256G8Q/file"
     }
   ]
 }
