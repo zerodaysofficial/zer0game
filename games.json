@@ -1059,7 +1059,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Vampire The Masquerade Bloodlines 2",
@@ -1082,7 +1083,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Forza Horizon 5",
@@ -1105,7 +1107,8 @@
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Tales of Xillia Remastered",
@@ -1128,7 +1131,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "No Sleep For Kaname Date From AI THE SOMNIUM FILES",
@@ -1151,7 +1155,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Days Gone Remastered",
@@ -1174,7 +1179,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Rise of The Ronin",
@@ -1197,7 +1203,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Battlefield 6",
@@ -1220,7 +1227,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "F1 25",
@@ -1243,7 +1251,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Marvels Avengers Definitive Edition",
@@ -1266,7 +1275,8 @@
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "God Of War Ragnarok",
@@ -1289,7 +1299,8 @@
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Monster Hunter Wilds Premium Edition",
@@ -1312,7 +1323,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Need for Speed Unbound",
@@ -1335,7 +1347,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "EA SPORTS FC 26",
@@ -1358,7 +1371,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "ASTRO BOT",
@@ -1381,7 +1395,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Black Myth Wukong Deluxe Edition",
@@ -1404,7 +1419,8 @@
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "Mafia The Old Country Deluxe Edition",
@@ -1427,7 +1443,8 @@
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     },
     {
       "title": "WWE 2K26",
@@ -1450,7 +1467,8 @@
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
-      "genres": []
+      "genres": [],
+      "ps5Frame": true
     }
   ]
 }
