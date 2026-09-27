@@ -948,13 +948,13 @@
       "downloadLabel": "BASE GAME"
     },
     {
-      "title": "STAR WARS Jedi: Survivor",
+      "title": "Star Wars Jedi Survivor Deluxe Edition",
       "titleId": "PPSA07783",
       "version": "01.013",
-      "firmware": "4.xx+",
-      "size": "",
+      "firmware": "4.xx BackPort",
+      "size": "140GB",
       "status": "released",
-      "date": "2023-04-28",
+      "date": "2026-09-27",
       "cover": "https://cdn.awsli.com.br/800x800/138/138431/produto/240031598/136-gi0efvoiwe.png",
       "languages": {
         "text": [
@@ -978,19 +978,20 @@
           "SPA"
         ]
       },
-      "notes": "USA release modified for EUR language support. FPKG catalog entry. User-provided 4.xx backport metadata.",
+      "notes": "USA to EUR Langs. FPKG. 4.xx BackPort. Files credit: High-Speed007. Backport credit: BestPig. DLC credit: Pippo & DUPLEX. FPKG works up to firmware 11.60.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/star-wars-jedi-survivor/",
       "languageSource": "Official PlayStation / user-provided release metadata",
       "purchaseUrl": "https://akirabox.to/Z9dzBPMAOmk1/file",
-      "downloadLabel": "BASE GAME",
+      "downloadLabel": "FPKG",
       "dlcUrl": "",
-      "dlcAvailable": false,
+      "dlcAvailable": true,
       "genres": [
         "Action",
         "Adventure",
         "Open World"
-      ]
+      ],
+      "ps5Frame": true
     },
     {
       "title": "FINAL FANTASY XVI",
