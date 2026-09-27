@@ -1,8 +1,372 @@
 {
-  "_comment": "Add only verified language data here. Key = PPSA title ID. Existing covers are never changed by the sync.",
-  "_example": {
+  "_comment": "Verified language metadata from official PlayStation Store pages. Composite keys are used when a title ID is duplicated. Existing covers are never changed by the sync.",
+  "PPSA15972": {
     "text": [
+      "ARA",
+      "KOR",
+      "FRA",
+      "JPN",
+      "ENG",
+      "ITA",
+      "SPA",
+      "GER"
+    ],
+    "audio": [
+      "JPN",
       "ENG"
+    ]
+  },
+  "PPSA22327": {
+    "text": [
+      "CZE",
+      "CHI-S",
+      "CHI-T",
+      "KOR",
+      "DAN",
+      "FIN",
+      "FRA",
+      "JPN",
+      "GRE",
+      "ENG",
+      "ITA",
+      "NOR",
+      "DUT",
+      "POL",
+      "POR-BR",
+      "POR-PT",
+      "RUS",
+      "SPA",
+      "SPA-MX",
+      "SWE",
+      "GER",
+      "TUR",
+      "HUN"
+    ],
+    "audio": [
+      "CHI",
+      "KOR",
+      "FRA",
+      "JPN",
+      "ENG",
+      "ITA",
+      "POR-BR",
+      "SPA",
+      "GER"
+    ]
+  },
+  "PPSA16951": {
+    "text": [
+      "CHI-S",
+      "CHI-T",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "RUS",
+      "SPA"
+    ],
+    "audio": [
+      "ENG",
+      "JPN"
+    ]
+  },
+  "PPSA24662|No Sleep For Kaname Date From AI THE SOMNIUM FILES": {
+    "text": [
+      "CHI-S",
+      "CHI-T",
+      "JPN",
+      "ENG"
+    ],
+    "audio": [
+      "JPN",
+      "ENG"
+    ]
+  },
+  "PPSA28180": {
+    "text": [
+      "ENG",
+      "FRA",
+      "POR-BR",
+      "SPA-MX"
+    ],
+    "audio": [
+      "ENG",
+      "FRA",
+      "POR-BR",
+      "SPA-MX"
+    ]
+  },
+  "PPSA04539": {
+    "text": [
+      "ENG",
+      "FRA",
+      "JPN",
+      "POR-BR",
+      "SPA-MX"
+    ],
+    "audio": [
+      "ENG",
+      "FRA",
+      "JPN",
+      "POR-BR",
+      "SPA-MX"
+    ]
+  },
+  "PPSA19534": {
+    "text": [
+      "CHI-S",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "POL",
+      "SPA"
+    ],
+    "audio": [
+      "CHI",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "POL",
+      "SPA"
+    ]
+  },
+  "PPSA24662|F1 25": {
+    "text": [
+      "CHI-S",
+      "DUT",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "POL",
+      "POR-BR",
+      "SPA"
+    ],
+    "audio": [
+      "CHI",
+      "DUT",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "POR-BR",
+      "SPA"
+    ]
+  },
+  "PPSA08330": {
+    "text": [
+      "ARA",
+      "CZE",
+      "CHI-S",
+      "CHI-T",
+      "KOR",
+      "CRO",
+      "FRA",
+      "JPN",
+      "GRE",
+      "ENG",
+      "ITA",
+      "DUT",
+      "POL",
+      "POR-BR",
+      "POR-PT",
+      "RUS",
+      "SPA-MX",
+      "GER",
+      "TUR",
+      "HUN"
+    ],
+    "audio": [
+      "FRA",
+      "ENG",
+      "POR-BR",
+      "SPA-MX"
+    ]
+  },
+  "PPSA07862": {
+    "text": [
+      "ARA",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "POL",
+      "POR-BR",
+      "RUS",
+      "SPA",
+      "SPA-MX",
+      "THA"
+    ],
+    "audio": [
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "POR-BR",
+      "RUS",
+      "SPA",
+      "SPA-MX"
+    ]
+  },
+  "PPSA01716": {
+    "text": [
+      "ARA",
+      "CHI-S",
+      "CHI-T",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "POL",
+      "POR-BR",
+      "SPA"
+    ],
+    "audio": [
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "POL",
+      "SPA"
+    ]
+  },
+  "PPSA27360": {
+    "text": [
+      "ARA",
+      "CHI-S",
+      "CHI-T",
+      "CZE",
+      "DAN",
+      "DUT",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "NOR",
+      "POL",
+      "POR-BR",
+      "POR-PT",
+      "RUS",
+      "SPA",
+      "SPA-MX",
+      "SWE",
+      "TUR"
+    ],
+    "audio": [
+      "ENG",
+      "FRA"
+    ]
+  },
+  "PPSA21564": {
+    "text": [
+      "ARA",
+      "CHI-S",
+      "CHI-T",
+      "CZE",
+      "DAN",
+      "DUT",
+      "ENG",
+      "FIN",
+      "FRA-CA",
+      "FRA",
+      "GER",
+      "GRE",
+      "HUN",
+      "IND",
+      "ITA",
+      "JPN",
+      "KOR",
+      "NOR",
+      "POL",
+      "POR-BR",
+      "POR-PT",
+      "ROM",
+      "RUS",
+      "SPA",
+      "SPA-MX",
+      "SWE",
+      "THA",
+      "TUR",
+      "UKR",
+      "VIE"
+    ],
+    "audio": []
+  },
+  "PPSA23226": {
+    "text": [
+      "CHI-S",
+      "CHI-T",
+      "CZE",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "POL",
+      "POR-BR",
+      "RUS",
+      "SPA",
+      "THA",
+      "TUR"
+    ],
+    "audio": [
+      "CHI",
+      "ENG"
+    ]
+  },
+  "PPSA14251": {
+    "text": [
+      "CHI-S",
+      "CHI-T",
+      "CZE",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "JPN",
+      "KOR",
+      "POL",
+      "POR-BR",
+      "RUS",
+      "SPA",
+      "SPA-MX",
+      "UKR"
+    ],
+    "audio": [
+      "CZE",
+      "ENG",
+      "FRA",
+      "GER",
+      "RUS",
+      "SPA"
+    ]
+  },
+  "PPSA34299": {
+    "text": [
+      "ARA",
+      "ENG",
+      "FRA",
+      "GER",
+      "ITA",
+      "SPA"
     ],
     "audio": [
       "ENG"
