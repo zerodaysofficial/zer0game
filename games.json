@@ -329,7 +329,7 @@
     },
     {
       "title": "Resident Evil Requiem",
-      "titleId": "PPSA30803",
+      "titleId": "PPSA31246",
       "version": "1.200",
       "firmware": "11.00 + Backport 4.xx–10.60",
       "size": "70 GB",
@@ -368,7 +368,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA31246_00-REREQUIEMDX00000",
       "dlcAvailable": false,
-      "purchaseUrl": "https://tinyurl.com/uj77fcz5",
       "dlcUrl": "",
       "downloadLabel": "BASE GAME",
       "languageSource": "User-provided PPSA30803 release metadata",
@@ -377,7 +376,9 @@
         "Action",
         "Horror",
         "Survival Horror"
-      ]
+      ],
+      "directUrl": "https://akirabox.to/EL73g7Bg939B/file",
+      "linkStatus": "direct-akia"
     },
     {
       "title": "Ghost of Yōtei — Digital Deluxe Edition + Pre-Order Bonus",
