@@ -36,6 +36,8 @@ const normalize = value => String(value || '').trim().toLowerCase();
 const FLAG_MAP = {
   ARA: "🇸🇦",
   CHI: "🇨🇳",
+  "CHI-S": "🇨🇳",
+  "CHI-T": "🇹🇼",
   CRO: "🇭🇷",
   CZE: "🇨🇿",
   DAN: "🇩🇰",
@@ -43,9 +45,11 @@ const FLAG_MAP = {
   ENG: "🇬🇧",
   FIN: "🇫🇮",
   FRA: "🇫🇷",
+  "FRA-CA": "🇨🇦",
   GER: "🇩🇪",
   GRE: "🇬🇷",
   HUN: "🇭🇺",
+  IND: "🇮🇩",
   ITA: "🇮🇹",
   JPN: "🇯🇵",
   KOR: "🇰🇷",
@@ -57,8 +61,11 @@ const FLAG_MAP = {
   ROM: "🇷🇴",
   RUS: "🇷🇺",
   SPA: "🇪🇸",
+  "SPA-MX": "🇲🇽",
   SWE: "🇸🇪",
-  TUR: "🇹🇷"
+  TUR: "🇹🇷",
+  UKR: "🇺🇦",
+  VIE: "🇻🇳"
 };
 
 function renderLangBadge(code, type = "text") {
