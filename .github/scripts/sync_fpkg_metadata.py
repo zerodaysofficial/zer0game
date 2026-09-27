@@ -9,6 +9,7 @@ from pathlib import Path
 SOURCE_URL = "https://raw.githubusercontent.com/Pippo26442999/.exFAT/main/exFAT.json"
 GAMES_PATH = Path("games.json")
 LANG_OVERRIDES_PATH = Path("language-overrides.json")
+PENDING_PATH = Path("fpkg-pending-direct.json")
 
 TITLE_ID_RE = re.compile(r"\b([A-Z]{4}\d{5})\b")
 VERSION_RE = re.compile(r"\bv(\d+(?:\.\d+)+)\b", re.I)
@@ -161,7 +162,7 @@ def language_override_for(overrides, title_id, title):
         return valid_languages(overrides.get(composite, {}))
     return valid_languages(overrides.get(title_id, {}))
 
-def build_new_game(item, title_id, overrides, direct_url, download_label):
+def build_new_game(item, title_id, overrides, direct_url="", download_label="FPKG"):
     title = clean(item.get("title"))
     language_override = language_override_for(overrides, title_id, title)
     source_image = clean(item.get("image"))
@@ -183,12 +184,16 @@ def build_new_game(item, title_id, overrides, direct_url, download_label):
         "releaseUrl": "",
         "infoUrl": "",
         "languageSource": "verified override" if (language_override["text"] or language_override["audio"]) else "",
-        "directUrl": direct_url,
         "downloadLabel": download_label,
         "dlcAvailable": False,
         "genres": [],
         "ps5Frame": True,
     }
+    if direct_url:
+        game["directUrl"] = direct_url
+        game["linkStatus"] = "direct-akia"
+    else:
+        game["linkStatus"] = "pending-direct-akia"
     return game
 
 def merge():
@@ -209,16 +214,15 @@ def merge():
     updated = 0
     skipped_no_akia = 0
     skipped_no_id = 0
+    pending = []
 
     for item in source:
         if not has_fpkg(item):
             continue
 
-        # Only direct Akirabox FPKG mirrors are eligible. Link Lock is never stored.
+        # Detect a direct Akirabox mirror when the source publishes one.
+        # Wrapped Link Lock URLs are never copied or decoded.
         direct_url, download_label = preferred_direct_akia(item)
-        if not direct_url:
-            skipped_no_akia += 1
-            continue
 
         title_id = title_id_from_tags(item)
         title = clean(item.get("title"))
@@ -226,13 +230,21 @@ def merge():
             skipped_no_id += 1
             continue
 
+        if not direct_url:
+            skipped_no_akia += 1
+            pending.append({
+                "title": title,
+                "titleId": title_id,
+                "status": "pending-direct-akia"
+            })
+
         candidates = by_id.get(title_id, [])
         current = next((g for g in candidates if clean(g.get("title")).casefold() == title.casefold()), None)
         if current is None and len(candidates) == 1:
             current = candidates[0]
 
         if current is None:
-            new_game = build_new_game(item, title_id, overrides, direct_url, download_label)
+            new_game = build_new_game(item, title_id, overrides, direct_url, download_label or "FPKG")
             games.append(new_game)
             by_id.setdefault(title_id, []).append(new_game)
             added += 1
@@ -245,9 +257,14 @@ def merge():
         current["firmware"] = firmware_from_item(item) or current.get("firmware", "")
         current["size"] = clean(item.get("fpkg_size")) or current.get("size", "")
         current["notes"] = source_notes(item) or current.get("notes", "")
-        current["directUrl"] = direct_url
-        current["downloadLabel"] = download_label
+        current["downloadLabel"] = download_label or current.get("downloadLabel", "FPKG")
         current.pop("purchaseUrl", None)
+
+        if direct_url:
+            current["directUrl"] = direct_url
+            current["linkStatus"] = "direct-akia"
+        else:
+            current["linkStatus"] = "pending-direct-akia"
 
         override = language_override_for(overrides, title_id, title)
         if override["text"] or override["audio"]:
@@ -267,6 +284,13 @@ def merge():
     dest["games"] = games
     dest["updated"] = datetime.now(timezone.utc).date().isoformat()
     GAMES_PATH.write_text(json.dumps(dest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    pending_doc = {
+        "updated": datetime.now(timezone.utc).isoformat(),
+        "count": len(pending),
+        "items": pending,
+    }
+    PENDING_PATH.write_text(json.dumps(pending_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     missing_languages = [
         {"title": g.get("title", ""), "titleId": g.get("titleId", "")}
