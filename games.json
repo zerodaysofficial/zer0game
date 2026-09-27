@@ -1048,13 +1048,25 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/DYNASTY_WARRIORS_ORIGINS.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "KOR",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "SPA",
+          "GER"
+        ],
+        "audio": [
+          "JPN",
+          "ENG"
+        ]
       },
       "notes": "JPN release. 4.xx BackPort. Files credit: DecKerr97. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1096,13 +1108,47 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Forza_Horizon_5.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CZE",
+          "CHI-S",
+          "CHI-T",
+          "KOR",
+          "DAN",
+          "FIN",
+          "FRA",
+          "JPN",
+          "GRE",
+          "ENG",
+          "ITA",
+          "NOR",
+          "DUT",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "SWE",
+          "GER",
+          "TUR",
+          "HUN"
+        ],
+        "audio": [
+          "CHI",
+          "KOR",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POR-BR",
+          "SPA",
+          "GER"
+        ]
       },
       "notes": "USA release. DLCs Merged. 4.xx BackPork. Files credit: High-Speed007. Backport credit: BestPig. DLC credit: High-Speed007.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
@@ -1120,13 +1166,27 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Tales_of_Xillia_Remastered.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "CHI-T",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "RUS",
+          "SPA"
+        ],
+        "audio": [
+          "ENG",
+          "JPN"
+        ]
       },
       "notes": "ASIA to EUR Langs. 4.xx BackPort. Files credit: Yue Lingfeng. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1144,13 +1204,21 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/No_Sleep_For_Kaname_Date_From_AI_THE_SOMNIUM_FILES.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "CHI-T",
+          "JPN",
+          "ENG"
+        ],
+        "audio": [
+          "JPN",
+          "ENG"
+        ]
       },
       "notes": "JPN release. 4.xx BackPort. Files credit: Yue Lingfeng & Lai Qi Xiao. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1168,13 +1236,23 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Days_Gone_Remastered.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ENG",
+          "FRA",
+          "POR-BR",
+          "SPA-MX"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "POR-BR",
+          "SPA-MX"
+        ]
       },
       "notes": "Region Bypass. 4.xx BackPork. Files credit: High-Speed007. Backport credit: BestPig & DecKerr97. DLC credit: Pippo (Lapy05575948 Tool).",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1192,13 +1270,25 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Rise_of_The_Ronin.jpg",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ENG",
+          "FRA",
+          "JPN",
+          "POR-BR",
+          "SPA-MX"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "JPN",
+          "POR-BR",
+          "SPA-MX"
+        ]
       },
       "notes": "USA to EUR Langs. 4.xx BackPort. Files credit: DUPLEX. Backport credit: zhwenx. DLC credit: DUPLEX.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1216,13 +1306,33 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Battlefield_6.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "SPA"
+        ],
+        "audio": [
+          "CHI",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "SPA"
+        ]
       },
       "notes": "USA release. 4.xx BackPort. Files credit: DUPLEX. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1240,13 +1350,34 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/F1_25.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "DUT",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
+          "SPA"
+        ],
+        "audio": [
+          "CHI",
+          "DUT",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
+          "SPA"
+        ]
       },
       "notes": "USA release. 4.xx BackPort. Files credit: DUPLEX. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1288,13 +1419,39 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/God_Of_War_Ragnarok.jpg",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "CZE",
+          "CHI-S",
+          "CHI-T",
+          "KOR",
+          "CRO",
+          "FRA",
+          "JPN",
+          "GRE",
+          "ENG",
+          "ITA",
+          "DUT",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "RUS",
+          "SPA-MX",
+          "GER",
+          "TUR",
+          "HUN"
+        ],
+        "audio": [
+          "FRA",
+          "ENG",
+          "POR-BR",
+          "SPA-MX"
+        ]
       },
       "notes": "EUR release. DLCs Merged. 4.xx BackPort. Files credit: DecKerr97. Backport credit: DecKerr97. DLC credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
@@ -1312,13 +1469,36 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Monster_Hunter_Wilds_Premium_Edition.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "THA"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX"
+        ]
       },
       "notes": "USA release. Progress Fix. 4.xx BackPort. Files credit: DecKerr97. Backport credit: DecKerr97. DLC credit: DUPLEX.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1336,13 +1516,34 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Need_for_Speed_Unbound.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "CHI-S",
+          "CHI-T",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "SPA"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "POL",
+          "SPA"
+        ]
       },
       "notes": "USA release. 4.xx BackPort. Files credit: dunaevnick. Backport credit: DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1360,13 +1561,38 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/FC26.jpg",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "CHI-S",
+          "CHI-T",
+          "CZE",
+          "DAN",
+          "DUT",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "NOR",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "SWE",
+          "TUR"
+        ],
+        "audio": [
+          "ENG",
+          "FRA"
+        ]
       },
       "notes": "USA release. 4.xx BackPort. Files credit: DUPLEX. Backport credit: ManwonHp.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "purchaseUrl": "https://akirabox.to/Zvqzl7qyO3aD/file",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
@@ -1384,13 +1610,44 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/ASTRO_BOT.avif",
       "languages": {
-        "text": [],
+        "text": [
+          "ARA",
+          "CHI-S",
+          "CHI-T",
+          "CZE",
+          "DAN",
+          "DUT",
+          "ENG",
+          "FIN",
+          "FRA-CA",
+          "FRA",
+          "GER",
+          "GRE",
+          "HUN",
+          "IND",
+          "ITA",
+          "JPN",
+          "KOR",
+          "NOR",
+          "POL",
+          "POR-BR",
+          "POR-PT",
+          "ROM",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "SWE",
+          "THA",
+          "TUR",
+          "UKR",
+          "VIE"
+        ],
         "audio": []
       },
       "notes": "USA release. 4.xx BackPort. Files credit: SiESPTA. Backport credit: ManwonHp. DLC credit: romhunter & Pippo.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1408,13 +1665,32 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Black_Myth_Wukong_Deluxe_Edition.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "CHI-T",
+          "CZE",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "THA",
+          "TUR"
+        ],
+        "audio": [
+          "CHI",
+          "ENG"
+        ]
       },
       "notes": "EUR release. DLCs Merged. 4.xx BackPort. Files credit: SiESPTA. Backport credit: ManwonHp. DLC credit: Pippo.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
@@ -1432,13 +1708,36 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Mafia_The_Old_Country_Deluxe_Edition.png",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "CHI-S",
+          "CHI-T",
+          "CZE",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "UKR"
+        ],
+        "audio": [
+          "CZE",
+          "ENG",
+          "FRA",
+          "GER",
+          "RUS",
+          "SPA"
+        ]
       },
       "notes": "USA release. 4.xx BackPort. Files credit: High-Speed007. Backport credit: DecKerr97. DLC credit: Pkykzhack.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
@@ -1456,13 +1755,22 @@
       "date": "2026-09-27",
       "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/WWE_2K26.avif",
       "languages": {
-        "text": [],
-        "audio": []
+        "text": [
+          "ARA",
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "SPA"
+        ],
+        "audio": [
+          "ENG"
+        ]
       },
       "notes": "USA release. DLCs Merged. 4.xx BackPort. Files credit: High-Speed007. Backport credit: DecKerr97. DLC credit: High-Speed007.",
       "releaseUrl": "",
       "infoUrl": "",
-      "languageSource": "Pippo exFAT catalog metadata",
+      "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
