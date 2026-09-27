@@ -947,6 +947,51 @@
         "Survival Horror"
       ],
       "downloadLabel": "BASE GAME"
+    },
+    {
+      "title": "STAR WARS Jedi: Survivor",
+      "titleId": "PPSA07783",
+      "version": "01.013",
+      "firmware": "4.xx+",
+      "size": "",
+      "status": "released",
+      "date": "2023-04-28",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202304/1016/1d5f3d24208b41ef8ccb1b841fab20c1bc1c26c4f00e19d6.jpg",
+      "languages": {
+        "text": [
+          "ENG",
+          "FRA",
+          "GER",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "SPA",
+          "CHI",
+          "CHI-S"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "JPN",
+          "POR-BR",
+          "SPA"
+        ]
+      },
+      "notes": "USA release modified for EUR language support. FPKG catalog entry. User-provided 4.xx backport metadata.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/star-wars-jedi-survivor/",
+      "languageSource": "Official PlayStation / user-provided release metadata",
+      "purchaseUrl": "https://akirabox.to/Z9dzBPMAOmk1/file",
+      "downloadLabel": "BASE GAME",
+      "dlcUrl": "",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Open World"
+      ]
     }
   ]
 }
