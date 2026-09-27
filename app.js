@@ -265,8 +265,9 @@ function openModal(game) {
     : '';
 
   const actions = [];
-  const gameDownloadUrl = game.directUrl || '';
-  const dlcDownloadUrl = game.dlcDirectUrl || '';
+  // Prefer the new direct fields, but keep legacy catalog links visible.
+  const gameDownloadUrl = game.directUrl || game.purchaseUrl || '';
+  const dlcDownloadUrl = game.dlcDirectUrl || game.dlcUrl || '';
   if (gameDownloadUrl) actions.push(`<a class="action game-download" href="${escapeHtml(gameDownloadUrl)}" target="_blank" rel="noopener noreferrer"><span class="download-dot"></span>${escapeHtml(game.downloadLabel || 'DOWNLOAD GAME')}</a>`);
   if (dlcDownloadUrl) actions.push(`<a class="action dlc-download" href="${escapeHtml(dlcDownloadUrl)}" target="_blank" rel="noopener noreferrer">DOWNLOAD DLC</a>`);
   if (game.infoUrl) actions.push(`<a class="action" href="${escapeHtml(game.infoUrl)}" target="_blank" rel="noopener">Official info</a>`);
