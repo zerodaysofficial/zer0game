@@ -67,7 +67,7 @@ function renderLangBadge(code, type = "text") {
 }
 
 function ps5CaseHeaderMarkup() {
-  return '<div class="ps5-case-header" aria-hidden="true"><span class="ps5-symbol">PS</span><span class="ps5-wordmark">5</span><span class="ps5-reg">®</span></div>';
+  return '<div class="ps5-case-header" aria-hidden="true"><img class="ps5-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/PlayStation_5_logo_and_wordmark.svg/960px-PlayStation_5_logo_and_wordmark.svg.png" alt=""></div>';
 }
 
 function escapeHtml(value='') {
