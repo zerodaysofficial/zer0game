@@ -1856,6 +1856,135 @@
       "ps5Frame": true,
       "directUrl": "https://akirabox.to/jJD3VD5PlGa5/file",
       "linkStatus": "direct-akia"
+    },
+    {
+      "title": "Horizon Forbidden West Complete Edition",
+      "titleId": "PPSA17905",
+      "version": "01.030",
+      "firmware": "4.xx BackPort",
+      "size": "126GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/HFWCE.webp",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "USA to EUR Langs. DLCs Merged. Standard 7.xx + 4.xx BackPort. Burning Shores EUR DLC Included. Files credit: High-Speed007. DLC credit: b0mba1992. Backport credit: BestPig. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "linkStatus": "pending-direct-akia"
+    },
+    {
+      "title": "Alan Wake 2 Deluxe Edition",
+      "titleId": "PPSA02572",
+      "version": "01.200.007",
+      "firmware": "4.xx BackPort",
+      "size": "93GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Alan_Wake_2_Deluxe_Edition.avif",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "EUR release. DLCs Merged. 4.xx BackPort. Files credit: SiESPTA. Backport credit: BestPig. DLC credit: Pkykzhack. FPKG credit: N1C_0n. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Horror"
+      ],
+      "ps5Frame": true,
+      "linkStatus": "pending-direct-akia"
+    },
+    {
+      "title": "Marvels Spider Man 2 Deluxe Edition",
+      "titleId": "PPSA03016",
+      "version": "01.004.003",
+      "firmware": "4.xx BackPort",
+      "size": "101GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Marvels_Spider Man_2_Deluxe_Edition.avif",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "USA to EUR Langs. DLCs Merged. 4.xx BackPort. Files credit: High-Speed007. DLC credit: High-Speed007. FPKG credit: N1C_0n. Backport credit: BestPig. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "linkStatus": "pending-direct-akia"
+    },
+    {
+      "title": "Mortal Kombat 1",
+      "titleId": "PPSA07570",
+      "version": "01.010.001",
+      "firmware": "4.xx BackPort",
+      "size": "141GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Mortal_Kombat_1.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "USA release. DLC Merged. Standard 9.xx + 4.xx BackPort. Khaos Reign DLC merged. Files credit: High-Speed007. DLC credit: Pkykzhack. Backport credit: BestPig. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Fighting"
+      ],
+      "ps5Frame": true,
+      "linkStatus": "pending-direct-akia"
+    },
+    {
+      "title": "Street Fighter 6 Years 1-3 Fighters Edition",
+      "titleId": "PPSA02633",
+      "version": "01.000.028",
+      "firmware": "4.xx BackPort",
+      "size": "93GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Street_Fighter_6_1_3_FE.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "EUR release. DLCs Merged. 4.xx BackPort. Files credit: DecKerr97. Backport credit: DecKerr97. DLC credit: DecKerr97. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Fighting"
+      ],
+      "ps5Frame": true,
+      "linkStatus": "pending-direct-akia"
     }
   ]
 }
