@@ -1805,6 +1805,30 @@
       ],
       "ps5Frame": true,
       "directUrl": "https://akirabox.to/l5YzMZQLYGyO/file"
+    },
+    {
+      "title": "PRAGMATA Deluxe Edition",
+      "titleId": "PPSA02530",
+      "version": "01.200",
+      "firmware": "4.xx BackPort",
+      "size": "31GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/PRAGMATA_DE.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "USA release. Standard 5.xx + 4.xx BackPort. Files credit: SiESPTA & DUPLEX. Backport credit: BestPig & rocknard & ManwonHp. DLC credit: SiESPTA & DUPLEX. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "languageSource": "",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [],
+      "ps5Frame": true,
+      "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file",
+      "linkStatus": "direct-akia"
     }
   ]
 }
