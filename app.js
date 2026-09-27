@@ -66,6 +66,10 @@ function renderLangBadge(code, type = "text") {
   return `<span class="badge lang-badge ${type === "audio" ? "audio-lang" : "text-lang"}"><span class="lang-flag" aria-hidden="true">${flag}</span><span class="lang-code">${escapeHtml(code)}</span></span>`;
 }
 
+function ps5CaseHeaderMarkup() {
+  return '<div class="ps5-case-header" aria-hidden="true"><span class="ps5-symbol">PS</span><span class="ps5-wordmark">5</span><span class="ps5-reg">®</span></div>';
+}
+
 function escapeHtml(value='') {
   return String(value).replace(/[&<>"']/g, ch => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
@@ -179,6 +183,11 @@ function render() {
     status.textContent = normalize(game.status) === 'released' ? 'RELEASED' : 'SOON';
     status.classList.add(normalize(game.status) === 'released' ? 'released' : 'soon');
 
+    if (game.ps5Frame) {
+      coverWrap.classList.add('ps5-case-card');
+      coverWrap.insertAdjacentHTML('afterbegin', ps5CaseHeaderMarkup());
+    }
+
     if (game.cover) {
       coverWrap.style.setProperty('--cover-image', `url("${game.cover.replace(/"/g, '%22')}")`);
       coverWrap.classList.add('has-cover');
@@ -243,7 +252,9 @@ function openModal(game) {
   const genreBadges = allGenres(game).map(x => `<span class="badge genre-badge">${escapeHtml(x)}</span>`).join('');
 
   const cover = game.cover
-    ? `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`
+    ? (game.ps5Frame
+      ? `<div class="ps5-modal-case">${ps5CaseHeaderMarkup()}<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover"></div>`
+      : `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`)
     : '';
 
   const actions = [];
