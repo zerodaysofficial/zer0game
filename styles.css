@@ -2462,3 +2462,79 @@ footer{
   object-fit:contain;
   filter:none;
 }
+
+
+/* Modal download visibility hardening — 2026-09-27 */
+.game-modal{
+  max-height:90dvh;
+}
+.modal-layout{
+  height:min(720px,90dvh);
+  min-height:0;
+}
+.modal-info{
+  min-height:0;
+  height:100%;
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.modal-scroll{
+  min-height:0;
+  flex:1 1 auto;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:46px 42px 24px;
+  scrollbar-gutter:stable;
+}
+.modal-actions{
+  flex:0 0 auto;
+  margin:0;
+  padding:14px 42px calc(14px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(11,14,21,.88),rgba(11,14,21,.99));
+  backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,255,255,.10);
+  box-shadow:0 -16px 34px rgba(0,0,0,.22);
+}
+.modal-actions .game-download{
+  min-width:190px;
+}
+@media(max-width:900px) and (min-width:681px){
+  .modal-scroll{padding:38px 30px 24px}
+  .modal-actions{padding-left:30px;padding-right:30px}
+}
+@media(max-width:680px){
+  .game-modal{
+    overflow:hidden;
+    max-height:calc(100dvh - 12px);
+  }
+  .modal-layout{
+    height:calc(100dvh - 12px);
+    max-height:calc(100dvh - 12px);
+    display:flex;
+    flex-direction:column;
+  }
+  .modal-art{
+    flex:0 0 auto;
+    max-height:38dvh;
+  }
+  .modal-info{
+    flex:1 1 auto;
+    min-height:0;
+    padding:0;
+  }
+  .modal-scroll{
+    padding:28px 20px 24px;
+  }
+  .modal-actions{
+    position:relative;
+    bottom:auto;
+    margin:0;
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+  }
+  .modal-actions .action{
+    flex:1 1 150px;
+    min-height:50px;
+  }
+}
