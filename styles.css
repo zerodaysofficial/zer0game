@@ -2538,3 +2538,102 @@ footer{
     min-height:50px;
   }
 }
+
+
+/* Library pagination */
+.pagination {
+  margin: 34px auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination[hidden] {
+  display: none;
+}
+
+.page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-nav,
+.page-number {
+  min-width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,.045);
+  color: #f7f9ff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.page-nav {
+  padding: 0 16px;
+}
+
+.page-nav:hover:not(:disabled),
+.page-number:hover {
+  transform: translateY(-2px);
+  border-color: rgba(101,163,255,.72);
+  background: rgba(77,128,255,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.22);
+}
+
+.page-number.active {
+  border-color: rgba(101,163,255,.95);
+  background: linear-gradient(135deg, rgba(74,124,255,.9), rgba(108,71,255,.82));
+  box-shadow: 0 8px 28px rgba(75,95,255,.3);
+}
+
+.page-nav:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.page-info {
+  min-width: 92px;
+  text-align: center;
+  color: rgba(235,240,255,.72);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.page-ellipsis {
+  width: 28px;
+  text-align: center;
+  color: rgba(235,240,255,.5);
+  font-weight: 800;
+}
+
+@media (max-width: 620px) {
+  .pagination {
+    gap: 7px;
+    margin-top: 26px;
+  }
+
+  .page-nav {
+    padding: 0 11px;
+    font-size: .75rem;
+  }
+
+  .page-nav,
+  .page-number {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .page-info {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 2px;
+  }
+}

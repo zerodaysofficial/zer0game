@@ -5,7 +5,9 @@ const state = {
   language: 'all',
   category: 'all',
   sort: 'newest',
-  search: ''
+  search: '',
+  page: 1,
+  pageSize: 21
 };
 
 const els = {
@@ -28,7 +30,12 @@ const els = {
   dmcaModal: document.querySelector('#dmcaModal'),
   dmcaOpen: document.querySelector('#dmcaOpen'),
   dmcaOpenFooter: document.querySelector('#dmcaOpenFooter'),
-  dmcaClose: document.querySelector('#dmcaClose')
+  dmcaClose: document.querySelector('#dmcaClose'),
+  pagination: document.querySelector('#pagination'),
+  prevPage: document.querySelector('#prevPage'),
+  nextPage: document.querySelector('#nextPage'),
+  pageNumbers: document.querySelector('#pageNumbers'),
+  pageInfo: document.querySelector('#pageInfo')
 };
 
 const normalize = value => String(value || '').trim().toLowerCase();
@@ -168,12 +175,73 @@ function badge(text) {
   return el;
 }
 
+function renderPagination(totalItems) {
+  if (!els.pagination || !els.prevPage || !els.nextPage || !els.pageNumbers || !els.pageInfo) return;
+
+  const totalPages = Math.max(1, Math.ceil(totalItems / state.pageSize));
+  state.page = Math.min(Math.max(1, state.page), totalPages);
+
+  els.pagination.hidden = totalItems === 0 || totalPages <= 1;
+  els.prevPage.disabled = state.page === 1;
+  els.nextPage.disabled = state.page === totalPages;
+  els.pageInfo.textContent = `Page ${state.page} of ${totalPages}`;
+  els.pageNumbers.innerHTML = '';
+
+  const pages = [];
+  if (totalPages <= 7) {
+    for (let page = 1; page <= totalPages; page++) pages.push(page);
+  } else {
+    pages.push(1);
+    const start = Math.max(2, state.page - 2);
+    const end = Math.min(totalPages - 1, state.page + 2);
+    if (start > 2) pages.push('ellipsis-start');
+    for (let page = start; page <= end; page++) pages.push(page);
+    if (end < totalPages - 1) pages.push('ellipsis-end');
+    pages.push(totalPages);
+  }
+
+  for (const value of pages) {
+    if (typeof value !== 'number') {
+      const dots = document.createElement('span');
+      dots.className = 'page-ellipsis';
+      dots.textContent = '…';
+      els.pageNumbers.appendChild(dots);
+      continue;
+    }
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'page-number';
+    button.textContent = String(value);
+    button.setAttribute('aria-label', `Go to page ${value}`);
+
+    if (value === state.page) {
+      button.classList.add('active');
+      button.setAttribute('aria-current', 'page');
+    }
+
+    button.addEventListener('click', () => {
+      if (state.page === value) return;
+      state.page = value;
+      render();
+      document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    els.pageNumbers.appendChild(button);
+  }
+}
+
 function render() {
   const games = filteredGames();
+  const totalPages = Math.max(1, Math.ceil(games.length / state.pageSize));
+  state.page = Math.min(Math.max(1, state.page), totalPages);
+  const startIndex = (state.page - 1) * state.pageSize;
+  const pageGames = games.slice(startIndex, startIndex + state.pageSize);
+
   els.grid.innerHTML = '';
   els.empty.hidden = games.length !== 0;
 
-  for (const game of games) {
+  for (const game of pageGames) {
     const node = els.template.content.cloneNode(true);
     const card = node.querySelector('.game-card');
     const open = node.querySelector('.card-open');
@@ -241,7 +309,10 @@ function render() {
     els.grid.appendChild(node);
   }
 
+  renderPagination(games.length);
+
   const pieces = [`${games.length} result${games.length === 1 ? '' : 's'}`];
+  if (games.length) pieces.push(`Page ${state.page} of ${totalPages}`);
   if (state.status !== 'all') pieces.push(state.status);
   if (state.firmware !== 'all') pieces.push(`FW ${state.firmware}`);
   if (state.language !== 'all') pieces.push(state.language);
@@ -332,16 +403,17 @@ async function init() {
   }
 }
 
-els.search.addEventListener('input', e => { state.search = e.target.value; render(); });
-els.firmware.addEventListener('change', e => { state.firmware = e.target.value; render(); });
-els.language.addEventListener('change', e => { state.language = e.target.value; render(); });
-els.category.addEventListener('change', e => { state.category = e.target.value; render(); });
-els.sort.addEventListener('change', e => { state.sort = e.target.value; render(); });
+els.search.addEventListener('input', e => { state.search = e.target.value; state.page = 1; render(); });
+els.firmware.addEventListener('change', e => { state.firmware = e.target.value; state.page = 1; render(); });
+els.language.addEventListener('change', e => { state.language = e.target.value; state.page = 1; render(); });
+els.category.addEventListener('change', e => { state.category = e.target.value; state.page = 1; render(); });
+els.sort.addEventListener('change', e => { state.sort = e.target.value; state.page = 1; render(); });
 
 els.statusFilters.addEventListener('click', e => {
   const button = e.target.closest('[data-status]');
   if (!button) return;
   state.status = button.dataset.status;
+  state.page = 1;
   els.statusFilters.querySelectorAll('.chip').forEach(x => x.classList.toggle('active', x === button));
   render();
 });
@@ -354,6 +426,25 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && els.modal.open) els.modal.close();
   if (e.key === 'Escape' && els.dmcaModal?.open) els.dmcaModal.close();
 });
+
+if (els.prevPage) {
+  els.prevPage.addEventListener('click', () => {
+    if (state.page <= 1) return;
+    state.page -= 1;
+    render();
+    document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+}
+
+if (els.nextPage) {
+  els.nextPage.addEventListener('click', () => {
+    const totalPages = Math.max(1, Math.ceil(filteredGames().length / state.pageSize));
+    if (state.page >= totalPages) return;
+    state.page += 1;
+    render();
+    document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+}
 
 els.modalClose.addEventListener('click', () => els.modal.close());
 
