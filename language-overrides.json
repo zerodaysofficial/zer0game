@@ -1,0 +1,11 @@
+{
+  "_comment": "Add only verified language data here. Key = PPSA title ID. Existing covers are never changed by the sync.",
+  "_example": {
+    "text": [
+      "ENG"
+    ],
+    "audio": [
+      "ENG"
+    ]
+  }
+}
