@@ -155,9 +155,15 @@ def valid_languages(value):
         "audio": [clean(x) for x in audio if clean(x)],
     }
 
+def language_override_for(overrides, title_id, title):
+    composite = f"{title_id}|{title}"
+    if composite in overrides:
+        return valid_languages(overrides.get(composite, {}))
+    return valid_languages(overrides.get(title_id, {}))
+
 def build_new_game(item, title_id, overrides, direct_url, download_label):
     title = clean(item.get("title"))
-    language_override = valid_languages(overrides.get(title_id, {}))
+    language_override = language_override_for(overrides, title_id, title)
     source_image = clean(item.get("image"))
 
     # No source download URL is copied into the destination catalog.
@@ -243,7 +249,7 @@ def merge():
         current["downloadLabel"] = download_label
         current.pop("purchaseUrl", None)
 
-        override = valid_languages(overrides.get(title_id, {}))
+        override = language_override_for(overrides, title_id, title)
         if override["text"] or override["audio"]:
             current["languages"] = override
             current["languageSource"] = "verified override"
