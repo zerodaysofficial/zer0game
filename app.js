@@ -275,33 +275,35 @@ function openModal(game) {
     <div class="modal-layout">
       <div class="modal-art" ${game.cover ? `style="--modal-cover:url('${escapeHtml(game.cover).replace(/'/g, '%27')}')"` : ''}>${cover}</div>
       <div class="modal-info">
-        <div class="eyebrow">${normalize(game.status) === 'released' ? 'RELEASED' : 'COMING SOON'}</div>
-        <h2>${escapeHtml(game.title)}</h2>
-        <div class="modal-sub">${escapeHtml(game.titleId || '')}</div>
+        <div class="modal-scroll">
+          <div class="eyebrow">${normalize(game.status) === 'released' ? 'RELEASED' : 'COMING SOON'}</div>
+          <h2>${escapeHtml(game.title)}</h2>
+          <div class="modal-sub">${escapeHtml(game.titleId || '')}</div>
 
-        <div class="detail-grid">
-          <div class="detail"><span>Version</span><strong>${escapeHtml(game.version || '—')}</strong></div>
-          <div class="detail"><span>Firmware</span><strong>${escapeHtml(game.firmware || '—')}</strong></div>
-          <div class="detail"><span>${escapeHtml(game.sizeLabel || 'Size')}</span><strong>${escapeHtml(game.size || '—')}</strong></div>
-          <div class="detail"><span>Date</span><strong>${escapeHtml(game.date || '—')}</strong></div>
+          <div class="detail-grid">
+            <div class="detail"><span>Version</span><strong>${escapeHtml(game.version || '—')}</strong></div>
+            <div class="detail"><span>Firmware</span><strong>${escapeHtml(game.firmware || '—')}</strong></div>
+            <div class="detail"><span>${escapeHtml(game.sizeLabel || 'Size')}</span><strong>${escapeHtml(game.size || '—')}</strong></div>
+            <div class="detail"><span>Date</span><strong>${escapeHtml(game.date || '—')}</strong></div>
+          </div>
+
+          <div class="lang-block genre-block">
+            <h4>Categories</h4>
+            <div class="lang-list genre-list">${genreBadges || '<span class="badge">—</span>'}</div>
+          </div>
+
+          <div class="lang-block">
+            <h4>Text languages</h4>
+            <div class="lang-list">${textLangs || '<span class="badge">—</span>'}</div>
+          </div>
+
+          <div class="lang-block">
+            <h4>Audio languages</h4>
+            <div class="lang-list">${audioLangs || '<span class="badge">—</span>'}</div>
+          </div>
+
+          ${game.notes ? `<div class="modal-notes">${escapeHtml(game.notes)}</div>` : ''}
         </div>
-
-        <div class="lang-block genre-block">
-          <h4>Categories</h4>
-          <div class="lang-list genre-list">${genreBadges || '<span class="badge">—</span>'}</div>
-        </div>
-
-        <div class="lang-block">
-          <h4>Text languages</h4>
-          <div class="lang-list">${textLangs || '<span class="badge">—</span>'}</div>
-        </div>
-
-        <div class="lang-block">
-          <h4>Audio languages</h4>
-          <div class="lang-list">${audioLangs || '<span class="badge">—</span>'}</div>
-        </div>
-
-        ${game.notes ? `<div class="modal-notes">${escapeHtml(game.notes)}</div>` : ''}
         ${actions.length ? `<div class="modal-actions">${actions.join('')}</div>` : ''}
       </div>
     </div>
