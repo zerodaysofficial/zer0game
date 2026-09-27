@@ -1985,7 +1985,15 @@
         "Fighting"
       ],
       "ps5Frame": true,
-      "linkStatus": "pending-direct-akia"
+      "linkStatus": "pending-authorized-url",
+      "fullSize": "200GB",
+      "region": "EUR",
+      "sourceCatalog": "Pippo exFAT",
+      "creditsFiles": "DecKerr97",
+      "creditsBackport": "DecKerr97",
+      "creditsDlc": "DecKerr97",
+      "fpkgSize": "93GB",
+      "compatibilityNote": "FPKG works up to firmware 11.60; use exFAT above that."
     }
   ]
 }
