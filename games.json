@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27",
+  "updated": "2026-09-28",
   "games": [
     {
       "title": "Assassin's Creed Shadows",
@@ -801,7 +801,8 @@
         "Adventure"
       ],
       "downloadLabel": "FPKG",
-      "ps5Frame": true
+      "ps5Frame": true,
+      "directUrl": "https://akirabox.to/0PdzyXPZ03eA/file"
     },
     {
       "title": "Marvel's Spider-Man Remastered",
