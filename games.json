@@ -744,13 +744,13 @@
       "downloadLabel": "BASE GAME"
     },
     {
-      "title": "The Last of Us Part I",
+      "title": "The Last of Us Part I Deluxe Edition",
       "titleId": "PPSA03396",
-      "version": "2.000",
-      "firmware": "4.xx–9.00",
-      "size": "",
+      "version": "02.000",
+      "firmware": "4.xx BackPort",
+      "size": "71GB",
       "status": "released",
-      "date": "2022-09-02",
+      "date": "2026-09-27",
       "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/c3602f46ef014905acc046ad5d384292_Original.jpg",
       "languages": {
         "text": [
@@ -790,19 +790,18 @@
           "TUR"
         ]
       },
-      "notes": "US release. Licensed release metadata supplied by the user. FPKG. No multiplayer. Age 18+. Original minimum firmware 9.00; integrated backport for 4.xx–9.00. Releaser-tested on PS5 firmware 6.00 with Y2JB 1.6, kstuff-1.12-dr-test8.elf and a53_ppr_install_fast_15.09.2026.elf.",
+      "notes": "USA to EUR Langs. FPKG. 4.xx BackPort. Files credit: High-Speed007. Backport credit: BestPig. DLC credit: Pippo & Pkykzhack. FPKG works up to firmware 11.60.",
       "description": "Experience the dramatic story of Joel and Ellie in The Last of Us Part I, rebuilt for PlayStation 5 with enhanced visuals, DualSense features, modernized gameplay, smoother controls and expanded accessibility options.",
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-us/product/UP9000-PPSA03396_00-THELASTOFUSPART1",
       "languageSource": "User-provided PPSA03396 release metadata",
-      "purchaseUrl": "https://urlvanish.com/6df7a6bb",
-      "dlcUrl": "",
-      "dlcAvailable": false,
+      "dlcAvailable": true,
       "genres": [
         "Action",
         "Adventure"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "FPKG",
+      "ps5Frame": true
     },
     {
       "title": "Marvel's Spider-Man Remastered",
@@ -1777,6 +1776,31 @@
       "genres": [],
       "ps5Frame": true,
       "directUrl": "https://akirabox.com/EL73g74YY39B/file"
+    },
+    {
+      "title": "The Last of Us Part II Remastered Deluxe Edition",
+      "titleId": "PPSA15508",
+      "version": "02.001.010",
+      "firmware": "4.xx BackPort",
+      "size": "97GB",
+      "status": "released",
+      "date": "2026-09-27",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/The_Last_of_Us_Part_II_DE.avif",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "EUR release. FPKG. 4.xx BackPort. Files credit: SiESPTA. Backport credit: BestPig & DecKerr97. DLC credit: Pippo & Pkykzhack. FPKG works up to firmware 11.60.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/the-last-of-us-part-ii-remastered/",
+      "languageSource": "",
+      "downloadLabel": "FPKG",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true
     }
   ]
 }
