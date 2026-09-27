@@ -982,7 +982,6 @@
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/star-wars-jedi-survivor/",
       "languageSource": "Official PlayStation / user-provided release metadata",
-      "purchaseUrl": "https://akirabox.to/Z9dzBPMAOmk1/file",
       "downloadLabel": "FPKG",
       "dlcUrl": "",
       "dlcAvailable": true,
@@ -991,7 +990,8 @@
         "Adventure",
         "Open World"
       ],
-      "ps5Frame": true
+      "ps5Frame": true,
+      "directUrl": "https://akirabox.to/Z9dzBPMAOmk1/file"
     },
     {
       "title": "FINAL FANTASY XVI",
@@ -1029,14 +1029,14 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0082-PPSA10665_00-FF16SIEE00000002",
       "languageSource": "Official PlayStation Store + user-provided release metadata",
-      "purchaseUrl": "https://akirabox.to/qPez44ENqzOY/file",
       "downloadLabel": "BASE GAME + DLC",
       "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
         "RPG"
-      ]
+      ],
+      "directUrl": "https://akirabox.to/qPez44ENqzOY/file"
     },
     {
       "title": "DYNASTY WARRIORS ORIGINS",
@@ -1593,12 +1593,12 @@
       "releaseUrl": "",
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
-      "purchaseUrl": "https://akirabox.to/Zvqzl7qyO3aD/file",
       "downloadLabel": "BASE GAME",
       "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
-      "ps5Frame": true
+      "ps5Frame": true,
+      "directUrl": "https://akirabox.to/Zvqzl7qyO3aD/file"
     },
     {
       "title": "ASTRO BOT",
