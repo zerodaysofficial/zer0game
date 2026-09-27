@@ -992,6 +992,51 @@
         "Adventure",
         "Open World"
       ]
+    },
+    {
+      "title": "FINAL FANTASY XVI",
+      "titleId": "PPSA10665",
+      "version": "01.003.004",
+      "firmware": "4.xx+",
+      "size": "",
+      "status": "released",
+      "date": "2023-06-22",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1007/M1j1kwGXMhbfA8OQo3r7wrMw.jpg",
+      "languages": {
+        "text": [
+          "ARA",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "GER"
+        ],
+        "audio": [
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "SPA-MX",
+          "GER"
+        ]
+      },
+      "notes": "EUR release. User-provided build metadata: v01.003.004, DLCs merged, 4.xx backport. Official PlayStation Store lists FINAL FANTASY XVI under PPSA10665 and shows the Complete Edition includes Echoes of the Fallen and The Rising Tide.",
+      "releaseUrl": "",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP0082-PPSA10665_00-FF16SIEE00000002",
+      "languageSource": "Official PlayStation Store + user-provided release metadata",
+      "purchaseUrl": "https://akirabox.to/qPez44ENqzOY/file",
+      "downloadLabel": "BASE GAME + DLC",
+      "dlcUrl": "",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "RPG"
+      ]
     }
   ]
 }
