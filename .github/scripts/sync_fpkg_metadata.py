@@ -16,10 +16,10 @@ FW_BACKPORT_RE = re.compile(r"(\d+\.xx)\s*backpor[kt]", re.I)
 FW_STANDARD_RE = re.compile(r"standard\s*\(?\s*(\d+\.xx)", re.I)
 FW_BEYOND_RE = re.compile(r"(\d+\.xx)\s*and\s*beyond", re.I)
 
-FPKG_LINK_FIELDS = (
-    "fpkg_akia",
-    "fpkg_standard_akia",
-    "fpkg_backport_akia",
+FPKG_AKIA_FIELDS = (
+    ("fpkg_backport_akia", "FPKG BACKPORT"),
+    ("fpkg_akia", "FPKG"),
+    ("fpkg_standard_akia", "FPKG STANDARD"),
 )
 
 def clean(value):
@@ -49,8 +49,28 @@ def has_fpkg(item):
             return True
     return False
 
-def has_fpkg_akia(item):
-    return any(clean(item.get(field)) for field in FPKG_LINK_FIELDS)
+def is_direct_akirabox(value):
+    value = clean(value)
+    if not value:
+        return False
+    try:
+        from urllib.parse import urlparse
+        host = (urlparse(value).hostname or "").lower()
+    except Exception:
+        return False
+    return (
+        host == "akirabox.com"
+        or host.endswith(".akirabox.com")
+        or host == "akirabox.to"
+        or host.endswith(".akirabox.to")
+    )
+
+def preferred_direct_akia(item):
+    for field, label in FPKG_AKIA_FIELDS:
+        value = clean(item.get(field))
+        if is_direct_akirabox(value):
+            return value, label
+    return "", ""
 
 def title_id_from_tags(item):
     tags = item.get("tags") if isinstance(item.get("tags"), list) else []
@@ -135,7 +155,7 @@ def valid_languages(value):
         "audio": [clean(x) for x in audio if clean(x)],
     }
 
-def build_new_game(item, title_id, overrides):
+def build_new_game(item, title_id, overrides, direct_url, download_label):
     title = clean(item.get("title"))
     language_override = valid_languages(overrides.get(title_id, {}))
     source_image = clean(item.get("image"))
@@ -157,7 +177,8 @@ def build_new_game(item, title_id, overrides):
         "releaseUrl": "",
         "infoUrl": "",
         "languageSource": "verified override" if (language_override["text"] or language_override["audio"]) else "",
-        "downloadLabel": "FPKG",
+        "directUrl": direct_url,
+        "downloadLabel": download_label,
         "dlcAvailable": False,
         "genres": [],
         "ps5Frame": True,
@@ -187,9 +208,9 @@ def merge():
         if not has_fpkg(item):
             continue
 
-        # Only FPKG records that have an Akia mirror are eligible.
-        # The Akia URL itself is deliberately NOT imported.
-        if not has_fpkg_akia(item):
+        # Only direct Akirabox FPKG mirrors are eligible. Link Lock is never stored.
+        direct_url, download_label = preferred_direct_akia(item)
+        if not direct_url:
             skipped_no_akia += 1
             continue
 
@@ -205,7 +226,7 @@ def merge():
             current = candidates[0]
 
         if current is None:
-            new_game = build_new_game(item, title_id, overrides)
+            new_game = build_new_game(item, title_id, overrides, direct_url, download_label)
             games.append(new_game)
             by_id.setdefault(title_id, []).append(new_game)
             added += 1
@@ -213,12 +234,14 @@ def merge():
 
         before = json.dumps(current, sort_keys=True, ensure_ascii=False)
 
-        # Update metadata only. Never touch cover or any existing URL field.
+        # Existing cover is intentionally never touched.
         current["version"] = version_from_item(item) or current.get("version", "")
         current["firmware"] = firmware_from_item(item) or current.get("firmware", "")
         current["size"] = clean(item.get("fpkg_size")) or current.get("size", "")
         current["notes"] = source_notes(item) or current.get("notes", "")
-        current["downloadLabel"] = "FPKG"
+        current["directUrl"] = direct_url
+        current["downloadLabel"] = download_label
+        current.pop("purchaseUrl", None)
 
         override = valid_languages(overrides.get(title_id, {}))
         if override["text"] or override["audio"]:
@@ -230,6 +253,10 @@ def merge():
         after = json.dumps(current, sort_keys=True, ensure_ascii=False)
         if before != after:
             updated += 1
+
+    serialized = json.dumps(games, ensure_ascii=False)
+    if "library-decrypt" in serialized or "link-lock-pippo" in serialized:
+        raise RuntimeError("Refusing to write games.json because Link Lock is present")
 
     dest["games"] = games
     dest["updated"] = datetime.now(timezone.utc).date().isoformat()
