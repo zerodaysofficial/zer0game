@@ -3022,3 +3022,266 @@ footer{
 @media(max-width:560px){
   .premium-card .meta-stack{max-width:70%}
 }
+
+/* === ZER0DAY COVER-FIRST CARD OVERRIDES v4 === */
+
+/* Larger cards, artwork-first layout */
+.game-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:26px;
+  align-items:start;
+}
+
+.premium-card{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  padding:18px 18px 20px;
+  border-radius:27px;
+  background:
+    radial-gradient(circle at 10% 6%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 25%),
+    radial-gradient(circle at 92% 88%,color-mix(in srgb,var(--accent2) 18%,transparent),transparent 28%),
+    linear-gradient(180deg,#0a1222 0%,#11172f 48%,#171437 100%);
+  border:1px solid color-mix(in srgb,var(--accent) 28%,rgba(255,255,255,.08));
+  box-shadow:0 20px 50px rgba(0,0,0,.34),0 0 24px color-mix(in srgb,var(--accent) 8%,transparent);
+}
+
+.premium-card .game-title{
+  min-height:auto;
+  margin:2px 4px 15px;
+  font:800 clamp(17px,1.7vw,22px)/1.1 "Space Grotesk",sans-serif;
+  letter-spacing:.01em;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.premium-card .card-open{
+  display:block;
+  width:100%;
+}
+
+.premium-card .cover-wrap{
+  aspect-ratio:3/4.18;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--accent) 25%,rgba(255,255,255,.08));
+  background:#07101d;
+  box-shadow:0 16px 34px rgba(0,0,0,.34);
+}
+
+.premium-card .cover-wrap.has-cover::before{
+  inset:-20px;
+  filter:blur(30px) saturate(1.15);
+  opacity:.30;
+  transform:scale(1.16);
+}
+
+.premium-card .cover{
+  width:100%;
+  height:100%;
+  padding:0;
+  object-fit:contain;
+  object-position:center;
+  background:#07101d;
+  transition:transform .28s ease,filter .28s ease;
+}
+
+.premium-card .card-open:hover .cover{
+  transform:scale(1.012);
+}
+
+.premium-card .card-overlay{
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0) 60%,
+    rgba(2,7,14,.30) 78%,
+    rgba(2,6,12,.72) 100%
+  );
+  opacity:1;
+}
+
+.premium-card .status-badge{
+  top:11px;
+  left:11px;
+  padding:6px 9px;
+  border-radius:9px;
+  font-size:8px;
+  backdrop-filter:blur(9px);
+}
+
+/* Cover only carries ID/version/region/size. Firmware stays below in badges. */
+.premium-card .cover-meta{
+  left:12px;
+  right:12px;
+  bottom:12px;
+  gap:10px;
+}
+
+.premium-card .meta-stack{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  max-width:68%;
+}
+
+.premium-card .meta-pill{
+  width:max-content;
+  max-width:100%;
+  padding:7px 10px;
+  border-radius:9px;
+  color:#f4f8ff;
+  background:rgba(3,9,17,.78);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font:700 10px/1 "Space Grotesk",sans-serif;
+  backdrop-filter:blur(8px);
+}
+
+.premium-card .meta-pill.card-titleid{
+  letter-spacing:.05em;
+}
+
+.premium-card .size-stack{
+  flex:0 0 88px;
+  gap:7px;
+}
+
+.premium-card .size-pill{
+  padding:10px 7px;
+  border-radius:11px;
+  color:#03191c;
+  background:linear-gradient(135deg,#32e6ff,#4be7be);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 0 16px rgba(38,207,232,.22);
+  font:800 10px/1.05 "Space Grotesk",sans-serif;
+}
+
+.premium-card .size-pill.secondary{
+  color:#eaf5ff;
+  background:rgba(5,13,24,.82);
+  border-color:rgba(93,157,255,.34);
+  box-shadow:none;
+}
+
+/* Metadata clearly separated from artwork */
+.premium-card .badges{
+  margin:14px 2px 0;
+  gap:8px;
+}
+
+.premium-card .badge{
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:9px;
+  color:#d9e9ff;
+  background:rgba(10,17,31,.76);
+  border:1px solid rgba(116,155,218,.22);
+}
+
+.premium-card .badges .badge:first-child{
+  color:#dff8ff;
+  background:linear-gradient(135deg,rgba(30,118,190,.30),rgba(97,68,177,.30));
+  border-color:color-mix(in srgb,var(--accent) 38%,rgba(255,255,255,.08));
+}
+
+.card-download-block{
+  margin-top:17px;
+}
+
+.download-section-label{
+  margin:0 0 10px 2px;
+  font-size:11px;
+  letter-spacing:.05em;
+}
+
+.quick-actions{
+  gap:10px;
+}
+
+.quick-download{
+  flex:1 1 112px;
+  min-width:112px;
+  min-height:47px;
+  border-radius:14px;
+  padding:0 16px;
+  font-size:11px;
+}
+
+.quick-akia{
+  color:#03181c;
+  background:linear-gradient(135deg,#25dff0,#42e0b1);
+  border-color:rgba(255,255,255,.48);
+}
+
+.quick-dlc{
+  color:#f6efff;
+  background:linear-gradient(135deg,rgba(116,79,233,.72),rgba(70,97,201,.72));
+  border-color:rgba(164,137,255,.42);
+}
+
+/* Tablet */
+@media(max-width:1180px){
+  .game-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+  }
+}
+
+/* Mobile: one large readable cover per row */
+@media(max-width:650px){
+  .game-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .premium-card{
+    max-width:500px;
+    padding:16px;
+    border-radius:24px;
+  }
+
+  .premium-card .game-title{
+    font-size:20px;
+    margin-bottom:14px;
+  }
+
+  .premium-card .cover-wrap{
+    aspect-ratio:3/4.2;
+    border-radius:20px;
+  }
+
+  .premium-card .cover-meta{
+    left:10px;
+    right:10px;
+    bottom:10px;
+  }
+
+  .premium-card .meta-stack{
+    max-width:68%;
+  }
+
+  .premium-card .meta-pill{
+    font-size:10px;
+    padding:8px 10px;
+  }
+
+  .premium-card .size-stack{
+    flex-basis:84px;
+  }
+
+  .premium-card .size-pill{
+    font-size:10px;
+    padding:10px 6px;
+  }
+
+  .premium-card .badge{
+    font-size:9px;
+    padding:7px 10px;
+  }
+
+  .quick-download{
+    min-height:50px;
+    font-size:12px;
+  }
+}
