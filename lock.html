@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#020811">
+  <title>ZER0DAY Access</title>
+  <style>
+    :root{
+      --cyan:#19e8ff;
+      --mint:#27f3c3;
+      --blue:#178dff;
+      --amber:#ffba1b;
+      --panel:rgba(3,12,22,.78);
+      --line:rgba(47,174,255,.55);
+      --muted:#8fa8c7;
+      --white:#f5fbff;
+      --danger:#ff6f86;
+    }
+    *{box-sizing:border-box}
+    html,body{min-height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--white);
+      overflow-x:hidden;
+      background:
+        radial-gradient(circle at 65% -12%,rgba(23,141,255,.45) 0 11%,transparent 29%),
+        radial-gradient(circle at 37% 0%,rgba(39,243,195,.28),transparent 28%),
+        radial-gradient(circle at 50% 78%,rgba(12,83,124,.28),transparent 38%),
+        linear-gradient(180deg,#020711 0%,#03101b 42%,#061827 100%);
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(115deg,transparent 15%,rgba(37,248,210,.08) 45%,transparent 61%),
+        linear-gradient(270deg,rgba(18,122,255,.06),transparent 34%);
+      mix-blend-mode:screen;
+    }
+
+    .world{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    .planet{
+      position:absolute;
+      width:min(78vw,1120px);
+      aspect-ratio:1;
+      left:50%;
+      top:-54%;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 28% 66%,rgba(32,255,205,.85),transparent 19%),
+        radial-gradient(circle at 72% 60%,rgba(29,149,255,.85),transparent 22%),
+        radial-gradient(circle at 50% 50%,#0b263a 0 42%,#06101d 62%,#020610 78%);
+      box-shadow:
+        0 0 18px rgba(33,236,255,.8),
+        0 0 80px rgba(23,141,255,.36),
+        inset -30px -30px 120px rgba(0,0,0,.72);
+      opacity:.92;
+    }
+    .planet:after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius:inherit;
+      border:2px solid rgba(83,238,255,.5);
+      filter:blur(2px);
+    }
+
+    .mountain{
+      position:absolute;
+      bottom:-2vh;
+      width:62vw;
+      height:43vh;
+      opacity:.76;
+      filter:drop-shadow(0 0 22px rgba(0,195,255,.12));
+    }
+    .mountain.left{
+      left:-9vw;
+      background:linear-gradient(135deg,#031019 8%,#092437 48%,#04101a 81%);
+      clip-path:polygon(0 100%,0 58%,10% 51%,16% 35%,23% 49%,30% 21%,38% 39%,45% 27%,55% 58%,62% 46%,74% 66%,86% 62%,100% 100%);
+    }
+    .mountain.right{
+      right:-10vw;
+      transform:scaleX(-1);
+      background:linear-gradient(135deg,#031019 8%,#0a2238 48%,#04101a 81%);
+      clip-path:polygon(0 100%,0 58%,10% 51%,16% 35%,23% 49%,30% 21%,38% 39%,45% 27%,55% 58%,62% 46%,74% 66%,86% 62%,100% 100%);
+    }
+    .fog{
+      position:absolute;
+      left:-10%;
+      right:-10%;
+      bottom:7vh;
+      height:24vh;
+      background:
+        radial-gradient(ellipse at 20% 60%,rgba(20,214,211,.23),transparent 45%),
+        radial-gradient(ellipse at 80% 50%,rgba(45,125,255,.18),transparent 44%),
+        linear-gradient(180deg,transparent,rgba(160,222,255,.08),transparent);
+      filter:blur(22px);
+    }
+    .water{
+      position:absolute;
+      left:0;right:0;bottom:0;
+      height:20vh;
+      background:
+        repeating-linear-gradient(0deg,rgba(58,181,255,.06) 0 1px,transparent 1px 9px),
+        linear-gradient(180deg,rgba(6,25,40,.05),rgba(2,9,17,.82));
+      opacity:.7;
+    }
+
+    main{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:36px 18px;
+      position:relative;
+      z-index:2;
+    }
+    .panel{
+      width:min(956px,94vw);
+      min-height:650px;
+      padding:42px 38px 26px;
+      border-radius:26px;
+      border:1px solid rgba(25,177,255,.77);
+      background:
+        linear-gradient(180deg,rgba(2,10,18,.87),rgba(3,14,24,.78)),
+        radial-gradient(circle at 16% 16%,rgba(39,243,195,.08),transparent 30%);
+      box-shadow:
+        0 28px 100px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.045),
+        0 0 34px rgba(0,133,255,.12);
+      backdrop-filter:blur(15px) saturate(125%);
+      -webkit-backdrop-filter:blur(15px) saturate(125%);
+      position:relative;
+      overflow:hidden;
+    }
+    .panel:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(120deg,transparent 12%,rgba(44,242,255,.04),transparent 45%);
+    }
+
+    .brand{text-align:center;position:relative}
+    .wordmark{
+      margin:0;
+      font-size:clamp(52px,8vw,92px);
+      line-height:.9;
+      font-weight:1000;
+      letter-spacing:-6px;
+      font-style:italic;
+      transform:skewX(-8deg);
+      text-transform:uppercase;
+      background:linear-gradient(96deg,#fff 7%,#eaf4ff 40%,#1ff0c2 55%,#16dce8 77%,#eefaff 98%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter:drop-shadow(0 4px 0 rgba(0,0,0,.42)) drop-shadow(0 0 12px rgba(22,230,255,.25));
+    }
+    .navline,.tagline{
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      flex-wrap:wrap;
+      text-transform:uppercase;
+      letter-spacing:.38em;
+      font-weight:700;
+      color:#92a8c8;
+    }
+    .navline{margin-top:20px;font-size:14px}
+    .tagline{margin-top:18px;font-size:12px;color:#a5bad8;letter-spacing:.26em}
+
+    .actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin:34px 0 27px;
+    }
+    .action{
+      min-height:150px;
+      border-radius:22px;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      padding:25px 28px;
+      text-decoration:none;
+      color:white;
+      position:relative;
+      overflow:hidden;
+      transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
+      isolation:isolate;
+    }
+    .action:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:linear-gradient(130deg,rgba(255,255,255,.08),transparent 52%);
+    }
+    .action:hover{transform:translateY(-3px);filter:brightness(1.08)}
+    .action.donate{
+      border:2px solid var(--amber);
+      background:linear-gradient(120deg,rgba(92,51,0,.45),rgba(15,13,10,.78));
+      box-shadow:0 0 20px rgba(255,176,0,.16),inset 0 0 25px rgba(255,176,0,.05);
+    }
+    .action.x{
+      border:2px solid #24b7ff;
+      background:linear-gradient(120deg,rgba(6,44,86,.55),rgba(5,14,27,.8));
+      box-shadow:0 0 20px rgba(0,153,255,.15),inset 0 0 25px rgba(0,153,255,.05);
+    }
+    .action .icon{
+      flex:0 0 86px;
+      height:86px;
+      display:grid;
+      place-items:center;
+      font-size:58px;
+      font-weight:900;
+      border-radius:24px;
+    }
+    .donate .icon{color:#ffc21e;text-shadow:0 0 20px rgba(255,187,0,.6)}
+    .x .icon{color:white;text-shadow:0 0 20px rgba(14,157,255,.55)}
+    .action-copy{min-width:0}
+    .action-title{
+      font-size:clamp(25px,3vw,38px);
+      font-weight:1000;
+      letter-spacing:.02em;
+      line-height:1;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .action-sub{
+      margin-top:12px;
+      color:#b8c8de;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .arrow{
+      margin-left:auto;
+      width:42px;height:42px;
+      border:1px solid currentColor;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      opacity:.92;
+    }
+
+    .lockzone{text-align:center;margin-top:6px}
+    .lockicon{
+      width:64px;height:64px;
+      margin:0 auto 12px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      font-size:35px;
+      color:#00171b;
+      background:linear-gradient(145deg,#2ff1c4,#1acde4);
+      box-shadow:0 0 23px rgba(29,232,218,.42);
+    }
+    .headline{
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
+    .mini{
+      margin-top:8px;
+      color:#7595c4;
+      letter-spacing:.27em;
+      font-size:12px;
+      text-transform:uppercase;
+    }
+
+    .form{
+      width:min(620px,100%);
+      margin:20px auto 0;
+    }
+    .field{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      height:72px;
+      padding:0 18px;
+      border:1px solid rgba(104,161,218,.58);
+      border-radius:16px;
+      background:rgba(4,14,26,.72);
+      box-shadow:inset 0 0 24px rgba(0,0,0,.16);
+    }
+    .field:focus-within{
+      border-color:#28d9ff;
+      box-shadow:0 0 0 3px rgba(31,212,255,.09),inset 0 0 24px rgba(0,0,0,.16);
+    }
+    .field svg{width:22px;height:22px;fill:none;stroke:#7ea3cf;stroke-width:2}
+    input{
+      flex:1;
+      min-width:0;
+      border:0;
+      outline:0;
+      color:white;
+      background:transparent;
+      font:inherit;
+      font-size:18px;
+    }
+    input::placeholder{color:#6d8bb5}
+    .eye{
+      border:0;
+      background:none;
+      color:#7ea3cf;
+      font-size:22px;
+      cursor:pointer;
+      padding:8px;
+    }
+
+    .unlock{
+      width:100%;
+      height:66px;
+      margin-top:16px;
+      border:0;
+      border-radius:15px;
+      font-weight:1000;
+      letter-spacing:.22em;
+      font-size:17px;
+      cursor:pointer;
+      color:#001619;
+      background:linear-gradient(100deg,#26f0bd,#11d8e6 55%,#13bdfb);
+      box-shadow:0 0 25px rgba(24,223,223,.2);
+      transition:transform .16s ease,filter .16s ease;
+    }
+    .unlock:hover{transform:translateY(-2px);filter:brightness(1.07)}
+    .unlock:active{transform:translateY(0)}
+    .message{
+      height:24px;
+      margin-top:11px;
+      font-size:13px;
+      letter-spacing:.08em;
+      color:#7f9ec6;
+    }
+    .message.err{color:var(--danger)}
+    .message.ok{color:#42f4c0}
+
+    .footer{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:38px;
+      flex-wrap:wrap;
+      border-top:1px solid rgba(75,133,185,.45);
+      margin-top:20px;
+      padding-top:20px;
+      color:#8aa4c9;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.22em;
+    }
+    .powered{
+      width:100%;
+      text-align:center;
+      margin-top:7px;
+      font-size:11px;
+      letter-spacing:.22em;
+      color:#526d91;
+    }
+    .powered b{color:#21e8c2}
+
+    @media(max-width:760px){
+      main{padding:16px 10px}
+      .panel{padding:28px 17px 20px;border-radius:20px}
+      .wordmark{letter-spacing:-3px}
+      .navline{gap:11px;letter-spacing:.22em;font-size:10px}
+      .tagline{font-size:9px;gap:10px;letter-spacing:.16em}
+      .actions{grid-template-columns:1fr;gap:14px;margin-top:26px}
+      .action{min-height:115px;padding:18px}
+      .action .icon{flex-basis:66px;height:66px;font-size:44px}
+      .action-title{font-size:28px}
+      .headline{font-size:16px;letter-spacing:.13em}
+      .mini{font-size:9px}
+      .footer{gap:16px;font-size:9px}
+    }
+  </style>
+</head>
+<body>
+  <div class="world" aria-hidden="true">
+    <div class="planet"></div>
+    <div class="mountain left"></div>
+    <div class="mountain right"></div>
+    <div class="fog"></div>
+    <div class="water"></div>
+  </div>
+
+  <main>
+    <section class="panel">
+      <header class="brand">
+        <h1 class="wordmark">ZER0DAY</h1>
+        <div class="navline"><span>Games</span><span>•</span><span>Updates</span><span>•</span><span>Community</span></div>
+        <div class="tagline"><span>Support the project</span><span>•</span><span>Follow for more</span><span>•</span><span>Unlock your access</span></div>
+      </header>
+
+      <div class="actions">
+        <a class="action donate" id="donateBtn" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="icon">💰</div>
+          <div class="action-copy">
+            <div class="action-title">Donate</div>
+            <div class="action-sub">Support the project</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+
+        <a class="action x" id="xBtn" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="icon">𝕏</div>
+          <div class="action-copy">
+            <div class="action-title">Follow on X</div>
+            <div class="action-sub">Stay updated</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+
+      <div class="lockzone">
+        <div class="lockicon">🔒</div>
+        <div class="headline">Enter password to unlock</div>
+        <div class="mini">Support • Follow • Get access</div>
+
+        <div class="form">
+          <div class="field">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            <input id="password" type="password" autocomplete="off" placeholder="Type password..." aria-label="Password">
+            <button class="eye" id="eyeBtn" type="button" aria-label="Show password">◉</button>
+          </div>
+          <button class="unlock" id="unlockBtn" type="button">UNLOCK →</button>
+          <div class="message" id="message"></div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>🎮 Games</span>
+        <span>👥 Community</span>
+        <span>⚡ Updates</span>
+        <div class="powered">Powered by <b>ZER0DAY</b></div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    /*
+      ZER0DAY LOCK CONFIG
+      Replace these two values when you give me your actual links.
+    */
+    const DONATE_URL = "";
+    const X_URL = "";
+
+    // SHA-256 of the access password. The plain-text password is not stored here.
+    const PASSWORD_SHA256 = "6fac255cd8b8a48872bc15838607a084823cf332edf7d5bda6323335eb608774";
+
+    const donateBtn = document.getElementById("donateBtn");
+    const xBtn = document.getElementById("xBtn");
+    const password = document.getElementById("password");
+    const unlockBtn = document.getElementById("unlockBtn");
+    const eyeBtn = document.getElementById("eyeBtn");
+    const message = document.getElementById("message");
+
+    if (DONATE_URL) donateBtn.href = DONATE_URL;
+    else donateBtn.addEventListener("click", e => { e.preventDefault(); showMessage("Donation link not configured yet.", "err"); });
+
+    if (X_URL) xBtn.href = X_URL;
+    else xBtn.addEventListener("click", e => { e.preventDefault(); showMessage("X profile not configured yet.", "err"); });
+
+    function showMessage(text, type = "") {
+      message.textContent = text;
+      message.className = "message" + (type ? " " + type : "");
+    }
+
+    function getTargetUrl() {
+      const params = new URLSearchParams(location.search);
+      const direct = params.get("to");
+      if (direct) {
+        try {
+          const u = new URL(direct, location.href);
+          if (u.protocol === "http:" || u.protocol === "https:") return u.href;
+        } catch {}
+      }
+
+      // Optional compact form: lock.html#BASE64_URL
+      if (location.hash.length > 1) {
+        try {
+          const decoded = atob(location.hash.slice(1));
+          const u = new URL(decoded);
+          if (u.protocol === "http:" || u.protocol === "https:") return u.href;
+        } catch {}
+      }
+      return "";
+    }
+
+    async function sha256(text) {
+      const bytes = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest("SHA-256", bytes);
+      return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function unlock() {
+      const value = password.value;
+      if (!value) {
+        showMessage("Enter the password.", "err");
+        password.focus();
+        return;
+      }
+
+      unlockBtn.disabled = true;
+      unlockBtn.textContent = "CHECKING…";
+
+      try {
+        const hash = await sha256(value);
+        if (hash !== PASSWORD_SHA256) {
+          showMessage("Wrong password.", "err");
+          password.select();
+          return;
+        }
+
+        const target = getTargetUrl();
+        showMessage("Access unlocked.", "ok");
+
+        if (target) {
+          unlockBtn.textContent = "OPENING…";
+          setTimeout(() => location.assign(target), 450);
+        } else {
+          unlockBtn.textContent = "UNLOCKED ✓";
+          showMessage("Access unlocked. No destination link was supplied.", "ok");
+        }
+      } finally {
+        if (unlockBtn.textContent !== "OPENING…" && unlockBtn.textContent !== "UNLOCKED ✓") {
+          unlockBtn.disabled = false;
+          unlockBtn.textContent = "UNLOCK →";
+        }
+      }
+    }
+
+    eyeBtn.addEventListener("click", () => {
+      password.type = password.type === "password" ? "text" : "password";
+      eyeBtn.setAttribute("aria-label", password.type === "password" ? "Show password" : "Hide password");
+    });
+    unlockBtn.addEventListener("click", unlock);
+    password.addEventListener("keydown", e => {
+      if (e.key === "Enter") unlock();
+    });
+  </script>
+</body>
+</html>
