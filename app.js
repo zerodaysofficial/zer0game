@@ -349,11 +349,11 @@ function render() {
       categoryBadge.classList.add('badge-category');
       badges.appendChild(categoryBadge);
     }
-    if (game.dlcAvailable) badges.appendChild(badge('DLC'));
+    if (game.dlcDirectUrl) badges.appendChild(badge('DLC'));
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
-    downloadLabel.textContent = normalize(game.firmware).includes('backport') ? 'FPKG BACKPORT:' : 'DOWNLOAD:';
+    downloadLabel.textContent = game.directUrl ? 'GAME DOWNLOAD:' : 'DOWNLOAD:';
 
     if (game.directUrl) {
       quickAkia.href = zer0dayLockUrl(game.directUrl);
@@ -362,6 +362,7 @@ function render() {
     }
 
     if (game.dlcDirectUrl) {
+      card.classList.add('has-separate-dlc');
       quickDlc.href = zer0dayLockUrl(game.dlcDirectUrl);
     } else {
       quickDlc.hidden = true;
