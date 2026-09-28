@@ -67,7 +67,7 @@
       "size": "63GB",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "",
+      "cover": "https://img-va.myshopline.com/image/store/1692612216760/db6963f0-3155-479a-8f04-4dcd935f6de5.jpg?h=1400&w=1400",
       "languages": {
         "text": [
           "ARA",
@@ -114,7 +114,7 @@
       "genres": [
         "Action"
       ],
-      "ps5Frame": true,
+      "ps5Frame": false,
       "region": "US (official PPSA01969 mapping)",
       "sourceCatalog": "User-provided release metadata",
       "fpkgSize": "63GB",
@@ -176,7 +176,7 @@
         "Action",
         "RPG"
       ],
-      "ps5Frame": true,
+      "ps5Frame": false,
       "region": "EUR",
       "sourceCatalog": "Pippo exFAT",
       "creditsBackport": "BestPig",
