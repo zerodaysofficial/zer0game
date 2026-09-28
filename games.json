@@ -5,7 +5,7 @@
       "title": "Resident Evil 3 Remake",
       "titleId": "PPSA03952",
       "version": "",
-      "firmware": "",
+      "firmware": "3.xx and beyond",
       "size": "",
       "status": "released",
       "date": "2026-09-28",
@@ -34,7 +34,7 @@
           "GER"
         ]
       },
-      "notes": "PS5 US release. Resident Evil 3 remake. Added without a download link.",
+      "notes": "PS5 US release. Resident Evil 3 remake. Added without a download link. FW REQUIRED: 3.xx and beyond. BackPort.",
       "infoUrl": "https://store.playstation.com/en-us/product/UP0102-PPSA03952_00-BH3ROFF000000001",
       "languageSource": "Official PlayStation Store PPSA03952 metadata",
       "dlcAvailable": false,
@@ -46,7 +46,7 @@
       "region": "US",
       "sourceCatalog": "Official PlayStation Store US",
       "directUrl": "https://1024terabox.com/s/1g1x5OsQSgoV4RDanHmAG-g",
-      "downloadLabel": "DOWNLOAD GAME",
+      "downloadLabel": "FPKG BACKPORT",
       "coverSource": "Pippo Library"
     },
     {
