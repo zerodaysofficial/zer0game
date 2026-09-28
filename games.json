@@ -2,6 +2,31 @@
   "updated": "2026-09-29",
   "games": [
     {
+      "title": "SILENT HILL: The Short Message",
+      "titleId": "PPSA10112",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-29",
+      "cover": "covers/PPSA10112.webp",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Coming soon.",
+      "releaseUrl": "",
+      "infoUrl": "",
+      "dlcAvailable": false,
+      "languageSource": "",
+      "genres": [
+        "Horror",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "coverSource": "User-provided cover"
+    },
+    {
       "title": "Resident Evil 3 Remake",
       "titleId": "PPSA03952",
       "version": "",
