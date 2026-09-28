@@ -100,8 +100,18 @@ function allGenres(game) {
   return Array.isArray(game.genres) ? game.genres.filter(Boolean) : [];
 }
 
+function canonicalFirmware(value) {
+  const raw = String(value || '').trim();
+  const key = raw.toLowerCase().replace(/\s+/g, ' ');
+
+  if (key === '2.xx and above' || key === '2.xx and beyond') return '2.xx+';
+  if (key === '4.xx backpork' || key === '4.xx backport') return '4.xx BackPort';
+
+  return raw;
+}
+
 function populateFilters() {
-  const firmwares = [...new Set(state.games.map(g => g.firmware).filter(Boolean))]
+  const firmwares = [...new Set(state.games.map(g => canonicalFirmware(g.firmware)).filter(Boolean))]
     .sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
 
   const languages = [...new Set(state.games.flatMap(allLanguages))]
@@ -145,7 +155,7 @@ function filteredGames() {
 
     const matchesSearch = !state.search || haystack.includes(normalize(state.search));
     const matchesStatus = state.status === 'all' || normalize(game.status) === state.status;
-    const matchesFw = state.firmware === 'all' || game.firmware === state.firmware;
+    const matchesFw = state.firmware === 'all' || canonicalFirmware(game.firmware) === state.firmware;
     const matchesLang = state.language === 'all' || allLanguages(game).includes(state.language);
     const matchesCategory = state.category === 'all' || allGenres(game).includes(state.category);
 
