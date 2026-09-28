@@ -259,23 +259,43 @@
   </dialog>
 
   <template id="gameCardTemplate">
-    <article class="game-card">
-      <button class="card-open" type="button">
+    <article class="game-card premium-card">
+      <h3 class="game-title"></h3>
+
+      <button class="card-open" type="button" aria-label="Open game details">
         <div class="cover-wrap">
           <img class="cover" alt="" loading="lazy" />
           <div class="cover-fallback" aria-hidden="true"></div>
           <div class="card-overlay"></div>
           <div class="status-badge"></div>
-        </div>
-        <div class="card-body">
-          <h3 class="game-title"></h3>
-          <div class="game-id"></div>
-          <div class="badges"></div>
+
+          <div class="cover-meta">
+            <div class="meta-stack">
+              <span class="meta-pill card-titleid"></span>
+              <span class="meta-pill card-version"></span>
+              <span class="meta-pill card-region"></span>
+              <span class="meta-pill card-firmware"></span>
+            </div>
+            <div class="size-stack">
+              <span class="size-pill card-fpkg-size"></span>
+              <span class="size-pill secondary card-full-size"></span>
+            </div>
+          </div>
         </div>
       </button>
+
+      <div class="badges"></div>
+
+      <div class="card-download-block">
+        <div class="download-section-label">FPKG BACKPORT:</div>
+        <div class="quick-actions">
+          <a class="quick-download quick-akia" href="#" aria-label="Download from Akia">AKIA</a>
+          <a class="quick-download quick-dlc" href="#" aria-label="Download DLC">DLC</a>
+        </div>
+      </div>
     </article>
   </template>
 
-  <script src="app.js?v=20260928-fwnorm1" defer></script>
+  <script src="app.js?v=20260928-premiumcards1" defer></script>
 </body>
 </html>
