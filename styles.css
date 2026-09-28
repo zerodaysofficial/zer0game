@@ -2848,15 +2848,15 @@ footer{
   pointer-events:none;
 }
 
-.meta-stack{
+ .meta-stack{
   flex:1 1 auto;
   min-width:0;
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:7px;
 }
 
-.meta-pill{
+ .meta-pill{
   display:block;
   max-width:100%;
   padding:8px 10px;
@@ -2865,15 +2865,15 @@ footer{
   white-space:nowrap;
   border-radius:9px;
   color:#f7fbff;
-  background:rgba(2,6,11,.83);
-  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg,rgba(4,12,21,.90),rgba(3,8,16,.82));
+  border:1px solid color-mix(in srgb,var(--accent) 28%,rgba(255,255,255,.10));
   box-shadow:0 5px 16px rgba(0,0,0,.22);
   font:700 10px/1 "Space Grotesk",sans-serif;
 }
 
-.card-firmware{
-  white-space:normal;
-  line-height:1.15;
+.meta-pill.card-titleid{
+  grid-column:1/-1;
+  letter-spacing:.05em;
 }
 
 .size-stack{
@@ -3001,4 +3001,24 @@ footer{
   .meta-pill{font-size:10px}
   .size-pill{font-size:10px}
   .quick-download{flex:1;min-width:120px}
+}
+
+
+/* ZER0DAY card differentiation: firmware stays outside artwork */
+.premium-card .badges .badge:first-child{
+  color:#dff8ff;
+  background:linear-gradient(135deg,rgba(24,102,173,.34),rgba(81,54,151,.34));
+  border-color:color-mix(in srgb,var(--accent) 48%,rgba(255,255,255,.10));
+}
+.premium-card .cover-meta{
+  bottom:13px;
+}
+.premium-card .meta-stack{
+  max-width:72%;
+}
+.premium-card .size-stack{
+  flex-basis:84px;
+}
+@media(max-width:560px){
+  .premium-card .meta-stack{max-width:70%}
 }
