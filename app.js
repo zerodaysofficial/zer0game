@@ -344,9 +344,9 @@ function openModal(game) {
       const bytes = new TextEncoder().encode(targetUrl);
       let binary = '';
       bytes.forEach(byte => { binary += String.fromCharCode(byte); });
-      return `lock.html#${btoa(binary)}`;
+      return `lock.html?v=exactmockup1#${btoa(binary)}`;
     } catch {
-      return `lock.html?to=${encodeURIComponent(targetUrl)}`;
+      return `lock.html?v=exactmockup1&to=${encodeURIComponent(targetUrl)}`;
     }
   };
 
