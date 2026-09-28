@@ -110,6 +110,34 @@ function canonicalFirmware(value) {
   return raw;
 }
 
+function zer0dayLockUrl(targetUrl) {
+  try {
+    const bytes = new TextEncoder().encode(targetUrl);
+    let binary = '';
+    bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+    return `lock.html?v=reactlock2#${btoa(binary)}`;
+  } catch {
+    return `lock.html?v=reactlock2&to=${encodeURIComponent(targetUrl)}`;
+  }
+}
+
+function cardTone(game) {
+  const genres = allGenres(game).map(normalize);
+  if (genres.includes('horror')) return 'tone-magenta';
+  if (genres.includes('sports')) return 'tone-emerald';
+  if (genres.includes('fighting')) return 'tone-crimson';
+  if (genres.includes('rpg')) return 'tone-violet';
+
+  const seed = [...String(game.title || '')].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  return ['tone-cyan','tone-violet','tone-indigo'][seed % 3];
+}
+
+function versionLabel(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  return /^v/i.test(raw) ? raw : `v${raw}`;
+}
+
 function populateFilters() {
   const firmwares = [...new Set(state.games.map(g => canonicalFirmware(g.firmware)).filter(Boolean))]
     .sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
@@ -260,11 +288,33 @@ function render() {
     const fallback = node.querySelector('.cover-fallback');
     const status = node.querySelector('.status-badge');
     const title = node.querySelector('.game-title');
-    const id = node.querySelector('.game-id');
     const badges = node.querySelector('.badges');
 
+    const titleId = node.querySelector('.card-titleid');
+    const version = node.querySelector('.card-version');
+    const region = node.querySelector('.card-region');
+    const firmware = node.querySelector('.card-firmware');
+    const fpkgSize = node.querySelector('.card-fpkg-size');
+    const fullSize = node.querySelector('.card-full-size');
+    const quickAkia = node.querySelector('.quick-akia');
+    const quickDlc = node.querySelector('.quick-dlc');
+
+    card.classList.add(cardTone(game));
     title.textContent = game.title;
-    id.textContent = [game.titleId, game.version].filter(Boolean).join(' • ');
+    titleId.textContent = game.titleId || 'TITLE ID —';
+    version.textContent = versionLabel(game.version) || 'VERSION —';
+    region.textContent = game.region || 'REGION —';
+    firmware.textContent = canonicalFirmware(game.firmware) || 'FW —';
+
+    const primarySize = game.fpkgSize || game.size || '';
+    fpkgSize.textContent = primarySize ? `${primarySize} FPKG` : 'SIZE —';
+
+    if (game.fullSize && game.fullSize !== primarySize) {
+      fullSize.textContent = game.fullSize;
+    } else {
+      fullSize.hidden = true;
+    }
+
     status.textContent = normalize(game.status) === 'released' ? 'RELEASED' : 'SOON';
     status.classList.add(normalize(game.status) === 'released' ? 'released' : 'soon');
 
@@ -293,7 +343,7 @@ function render() {
       if (fallback) fallback.hidden = false;
     }
 
-    if (game.firmware) badges.appendChild(badge(`FW ${game.firmware}`));
+    if (game.firmware) badges.appendChild(badge(`FW ${canonicalFirmware(game.firmware)}`));
     if (allGenres(game).length) {
       const categoryBadge = badge(allGenres(game)[0]);
       categoryBadge.classList.add('badge-category');
@@ -302,6 +352,18 @@ function render() {
     if (game.dlcAvailable) badges.appendChild(badge('DLC'));
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
+
+    if (game.directUrl) {
+      quickAkia.href = zer0dayLockUrl(game.directUrl);
+    } else {
+      quickAkia.hidden = true;
+    }
+
+    if (game.dlcDirectUrl) {
+      quickDlc.href = zer0dayLockUrl(game.dlcDirectUrl);
+    } else {
+      quickDlc.hidden = true;
+    }
 
     open.addEventListener('click', () => {
       if (card.classList.contains('card-launching')) return;
@@ -313,8 +375,9 @@ function render() {
         card.classList.remove('card-launching');
         open.disabled = false;
         openModal(game);
-      }, 920);
+      }, 360);
     });
+
     card.dataset.titleId = game.titleId || '';
     els.grid.appendChild(node);
   }
@@ -348,17 +411,6 @@ function openModal(game) {
   const actions = [];
   const gameDownloadUrl = game.directUrl || '';
   const dlcDownloadUrl = game.dlcDirectUrl || '';
-
-  const zer0dayLockUrl = (targetUrl) => {
-    try {
-      const bytes = new TextEncoder().encode(targetUrl);
-      let binary = '';
-      bytes.forEach(byte => { binary += String.fromCharCode(byte); });
-      return `lock.html?v=reactlock2#${btoa(binary)}`;
-    } catch {
-      return `lock.html?v=reactlock2&to=${encodeURIComponent(targetUrl)}`;
-    }
-  };
 
   if (gameDownloadUrl) actions.push(`<a class="action game-download" href="${escapeHtml(zer0dayLockUrl(gameDownloadUrl))}"><span class="download-dot"></span>${escapeHtml(game.downloadLabel || 'DOWNLOAD GAME')}</a>`);
   if (dlcDownloadUrl) actions.push(`<a class="action dlc-download" href="${escapeHtml(zer0dayLockUrl(dlcDownloadUrl))}">DOWNLOAD DLC</a>`);
