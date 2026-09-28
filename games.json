@@ -2,6 +2,51 @@
   "updated": "2026-09-28",
   "games": [
     {
+      "title": "Resident Evil 3 Remake",
+      "titleId": "PPSA03953",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "",
+      "languages": {
+        "text": [
+          "ARA",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POL",
+          "POR-BR",
+          "RUS",
+          "SPA",
+          "SPA-MX",
+          "GER",
+          "THA"
+        ],
+        "audio": [
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "SPA",
+          "GER"
+        ]
+      },
+      "notes": "PS5 EUR release. Resident Evil 3 remake. Added without a download link.",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA03953_00-BH3ROFF000000001",
+      "languageSource": "Official PlayStation Store PPSA03953 metadata",
+      "dlcAvailable": false,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "region": "EUR",
+      "sourceCatalog": "Official PlayStation Store"
+    },
+    {
       "title": "DEATH STRANDING 2: ON THE BEACH",
       "titleId": "PPSA02015",
       "version": "",
