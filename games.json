@@ -9,7 +9,7 @@
       "size": "",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0307/wIVJREWyBg8SyXvXYuBPG6je.png",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/RE3R.webp",
       "languages": {
         "text": [
           "ARA",
@@ -46,7 +46,8 @@
       "region": "US",
       "sourceCatalog": "Official PlayStation Store US",
       "directUrl": "https://1024terabox.com/s/1g1x5OsQSgoV4RDanHmAG-g",
-      "downloadLabel": "DOWNLOAD GAME"
+      "downloadLabel": "DOWNLOAD GAME",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "DEATH STRANDING 2: ON THE BEACH",
@@ -56,7 +57,7 @@
       "size": "86GB",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/de9f11555daa455139d109c07b854880740167e531c376ab.png",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/DS2.avif",
       "languages": {
         "text": [
           "ARA",
@@ -104,7 +105,8 @@
       "ps5Frame": true,
       "sourceCatalog": "User-provided release metadata",
       "fpkgSize": "86GB",
-      "directUrl": "https://akirabox.com/l5YzMZdBRGyO/file"
+      "directUrl": "https://akirabox.com/l5YzMZdBRGyO/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Death Stranding Director's Cut",
@@ -114,7 +116,7 @@
       "size": "63GB",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "https://img-va.myshopline.com/image/store/1692612216760/db6963f0-3155-479a-8f04-4dcd935f6de5.jpg?h=1400&w=1400",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Death_Stranding_Directors_Cut.jpg",
       "languages": {
         "text": [
           "ARA",
@@ -161,13 +163,14 @@
       "genres": [
         "Action"
       ],
-      "ps5Frame": false,
+      "ps5Frame": true,
       "region": "US (official PPSA01969 mapping)",
       "sourceCatalog": "User-provided release metadata",
       "fpkgSize": "63GB",
       "fullSize": "116GB",
       "compatibilityNote": "4.xx and beyond (BackPort)",
-      "directUrl": "https://akirabox.com/APVmaba9q3Xo/file"
+      "directUrl": "https://akirabox.com/APVmaba9q3Xo/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Demon's Souls — Digital Deluxe Edition",
@@ -177,7 +180,7 @@
       "size": "87GB",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "https://cdn11.bigcommerce.com/s-sp9oc95xrw/images/stencil/1280x1280/products/30437/93939/PROjuhy765DUCT_IMAGE__23022.1732258499.png?c=2%3Fimbypass%3Don",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Demons_Souls_DE.avif",
       "languages": {
         "text": [
           "ARA",
@@ -223,12 +226,13 @@
         "Action",
         "RPG"
       ],
-      "ps5Frame": false,
+      "ps5Frame": true,
       "region": "EUR",
       "sourceCatalog": "Pippo exFAT",
       "creditsBackport": "BestPig",
       "fpkgSize": "87GB",
-      "directUrl": "https://akirabox.to/0JgG75y6N3oY/file"
+      "directUrl": "https://akirabox.to/0JgG75y6N3oY/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Assassin's Creed Shadows",
@@ -238,7 +242,7 @@
       "size": "142.79 GB",
       "status": "released",
       "date": "2026-09-22",
-      "cover": "https://www.gpasplus.com/11010139-large_default/assassin-s-creed-shadows-jeu-ps5.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Assassins_Creed_Shadows.avif",
       "languages": {
         "text": [
           "ARA",
@@ -272,7 +276,9 @@
         "RPG",
         "Open World"
       ],
-      "directUrl": "https://vik1ngfile.site/f/3HXAVFI9N7"
+      "directUrl": "https://vik1ngfile.site/f/3HXAVFI9N7",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
@@ -332,7 +338,7 @@
       "size": "18.02 GB",
       "status": "released",
       "date": "2026-09-22",
-      "cover": "https://images.pushsquare.com/28c0ac119a161/crash-bandicoot-4-its-about-time-cover.cover_large.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Crash_Bandicoot_4_Its_About_Time.webp",
       "languages": {
         "text": [
           "ENG",
@@ -362,7 +368,9 @@
         "Adventure"
       ],
       "directUrl": "https://fuckingfast.net/8mcnzu2nppnz",
-      "dlcDirectUrl": "https://fuckingfast.net/q7mwgsmtorgc"
+      "dlcDirectUrl": "https://fuckingfast.net/q7mwgsmtorgc",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Marvel's Spider-Man 2",
@@ -425,7 +433,7 @@
       "size": "3.88 GB",
       "status": "released",
       "date": "2026-09-22",
-      "cover": "https://cdn.media.amplience.net/i/frasersdev/75791169_o.jpg?v=20251022150042",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Little_Nightmares_Enhanced_Edition.avif",
       "languages": {
         "text": [
           "ARA",
@@ -452,7 +460,9 @@
         "Puzzle",
         "Adventure"
       ],
-      "directUrl": "https://fuckingfast.net/fpsez6inwu0k"
+      "directUrl": "https://fuckingfast.net/fpsez6inwu0k",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "TEKKEN 8 — Gold Edition",
@@ -462,7 +472,7 @@
       "size": "93.54 GB",
       "status": "released",
       "date": "2026-09-22",
-      "cover": "https://cdn11.bigcommerce.com/s-xs1cevxe43/images/stencil/1280x1280/attribute_rule_images/15840_source_1696464575.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/TEKKEN_8.png",
       "languages": {
         "text": [
           "ARA",
@@ -488,7 +498,9 @@
         "Fighting"
       ],
       "directUrl": "https://datavaults.co/ua1jj7uif0zs",
-      "dlcDirectUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar"
+      "dlcDirectUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
@@ -498,7 +510,7 @@
       "size": "39.59 GB",
       "status": "released",
       "date": "2026-09-22",
-      "cover": "https://m.media-amazon.com/images/I/8163O-hji%2BS._SL1348_.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Ratchet_and_Clank_Rift_Apart.avif",
       "languages": {
         "text": [
           "RUS",
@@ -549,7 +561,9 @@
         "Adventure"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://akirabox.to/E9Qz9XKKb3OL/file"
+      "directUrl": "https://akirabox.to/E9Qz9XKKb3OL/file",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Resident Evil Requiem Deluxe Edition",
@@ -559,7 +573,7 @@
       "size": "70 GB",
       "status": "released",
       "date": "2026-09-25",
-      "cover": "https://gamezone.no/Media/Cache/Images/9/8/WEB_Image_Resident_Evil_Requiem_Deluxe_Ed_PS5__re9_ocard_2d_ps5_pegi181805237616_plid_96208.jpeg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Resident_Evil_Requiem_Deluxe_Edition.avif",
       "languages": {
         "text": [
           "RUS",
@@ -600,7 +614,9 @@
         "Horror",
         "Survival Horror"
       ],
-      "directUrl": "https://akirabox.to/EL73g7Bg939B/file"
+      "directUrl": "https://akirabox.to/EL73g7Bg939B/file",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Ghost of Yōtei — Digital Deluxe Edition + Pre-Order Bonus",
@@ -610,7 +626,7 @@
       "size": "110.33 GB",
       "status": "released",
       "date": "2026-09-25",
-      "cover": "https://centresouq.com/cdn/shop/files/64_7166538c-6093-4981-a2e6-d2111d650933.jpg?v=1760449417",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Ghost_of_Yotei_Deluxe_Edition.png",
       "languages": {
         "text": [
           "RUS",
@@ -638,7 +654,9 @@
         "Open World"
       ],
       "directUrl": "https://akirabox.to/BnkmWv2VrGR0/file",
-      "dlcDirectUrl": "https://tinyurl.com/2hkudy5k"
+      "dlcDirectUrl": "https://tinyurl.com/2hkudy5k",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Assassin's Creed Valhalla — Complete Edition",
@@ -648,7 +666,7 @@
       "size": "142 GB",
       "status": "released",
       "date": "2026-09-25",
-      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/0415/7ktnGZT3BqZipWINafzZPynz.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Assassins_Creed_Valhalla_Complete_Edition.webp",
       "languages": {
         "text": [
           "RUS",
@@ -679,7 +697,8 @@
         "Open World"
       ],
       "directUrl": "https://tinyurl.com/y4jk87w2",
-      "ps5Frame": true
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "EA SPORTS FC 25",
@@ -689,7 +708,7 @@
       "size": "52.45 GB",
       "status": "soon",
       "date": "2026-09-25",
-      "cover": "https://www.tiendasekono.com/media/catalog/product/6/6/6614_1_b9f7efedf1db48d19d4405798.jpg?bg-color=255%2C255%2C255&canvas=1080%3A1080&fit=bounds&height=1080&optimize=medium&width=1080",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/FC_25.png",
       "languages": {
         "text": [],
         "audio": []
@@ -701,7 +720,9 @@
       "languageSource": "",
       "genres": [
         "Sports"
-      ]
+      ],
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Resident Evil Village — Gold Edition",
@@ -711,7 +732,7 @@
       "size": "29.16 GB",
       "status": "released",
       "date": "2026-09-25",
-      "cover": "https://storage.googleapis.com/images.pricecharting.com/d439494b42eb15e3c0c1a751ce637ab63047c3315f5b88e8c8394fc48ec641f1/1600.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Resident_Evil_Village_Gold_Edition.avif",
       "languages": {
         "text": [
           "RUS",
@@ -746,7 +767,9 @@
         "Adventure"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://urlvanish.com/e70ece97"
+      "directUrl": "https://urlvanish.com/e70ece97",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Resident Evil 2 Remake — Deluxe Edition",
@@ -756,7 +779,7 @@
       "size": "21.47 GB",
       "status": "released",
       "date": "2026-09-25",
-      "cover": "https://cdn.awsli.com.br/2500x2500/2719/2719500/produto/258329578/resident-evil-2-deluxe-edition-ps5-digital-f82158ff-v5rw0txjsw.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/RE2R.avif",
       "languages": {
         "text": [
           "RUS",
@@ -792,7 +815,9 @@
         "Action"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://tinyurl.com/3kjynkf3"
+      "directUrl": "https://tinyurl.com/3kjynkf3",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Hogwarts Legacy — Deluxe Edition",
@@ -844,7 +869,7 @@
       "size": "",
       "status": "released",
       "date": "2024-04-26",
-      "cover": "https://i.imgur.com/QOQTC4W.jpeg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Stellar_Blade_CE.avif",
       "languages": {
         "text": [
           "RUS",
@@ -897,7 +922,8 @@
       ],
       "downloadLabel": "BASE GAME",
       "directUrl": "https://datanodes.to/r3vdvd68re4l/PPSA13195-Compressed.7z",
-      "ps5Frame": true
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Returnal",
@@ -907,7 +933,7 @@
       "size": "",
       "status": "released",
       "date": "2021-04-30",
-      "cover": "https://kimostore.net/cdn/shop/products/returnal-game-ps5-english-edition-kimo-store-1.jpg?v=1715036655",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Returnal.avif",
       "languages": {
         "text": [
           "RUS",
@@ -958,7 +984,9 @@
         "Roguelite"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://urlvanish.com/a02b1237"
+      "directUrl": "https://urlvanish.com/a02b1237",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "The Last of Us Part I Deluxe Edition",
@@ -968,7 +996,7 @@
       "size": "71GB",
       "status": "released",
       "date": "2026-09-27",
-      "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/c3602f46ef014905acc046ad5d384292_Original.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/The_Last_of_Us_Part_I.webp",
       "languages": {
         "text": [
           "RUS",
@@ -1019,7 +1047,8 @@
       ],
       "downloadLabel": "FPKG",
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/0PdzyXPZ03eA/file"
+      "directUrl": "https://akirabox.to/0PdzyXPZ03eA/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Marvel's Spider-Man Remastered",
@@ -1076,7 +1105,7 @@
       "size": "86.14 GB",
       "status": "released",
       "date": "2024",
-      "cover": "https://i2.imageban.ru/out/2026/09/22/db43f28e6db514d51f85ab9f809b2b63.png",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Horizon_Zero_Dawn_Remastered.avif",
       "languages": {
         "text": [
           "RUS",
@@ -1112,7 +1141,9 @@
         "Open World"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://urlvanish.com/86cd2220"
+      "directUrl": "https://urlvanish.com/86cd2220",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Resident Evil 7 biohazard — Gold Edition",
@@ -1122,7 +1153,7 @@
       "size": "",
       "status": "released",
       "date": "2022-06-13",
-      "cover": "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/10b76326e74e475a80abcf57db63b17e_Original.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/RE7_Gold_Edition.jpg",
       "languages": {
         "text": [
           "RUS",
@@ -1160,7 +1191,9 @@
         "Survival Horror"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://urlvanish.com/90b2fcf6"
+      "directUrl": "https://urlvanish.com/90b2fcf6",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Star Wars Jedi Survivor Deluxe Edition",
@@ -1170,7 +1203,7 @@
       "size": "140GB",
       "status": "released",
       "date": "2026-09-27",
-      "cover": "https://cdn.awsli.com.br/800x800/138/138431/produto/240031598/136-gi0efvoiwe.png",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Star_Wars_Jedi_Survivor_DE.avif",
       "languages": {
         "text": [
           "ENG",
@@ -1205,7 +1238,8 @@
         "Open World"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/Z9dzBPMAOmk1/file"
+      "directUrl": "https://akirabox.to/Z9dzBPMAOmk1/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "FINAL FANTASY XVI",
@@ -1215,7 +1249,7 @@
       "size": "",
       "status": "released",
       "date": "2023-06-22",
-      "cover": "https://brain-images-ssl.cdn.dixons.com/4/7/10248374/l_10248374.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Final_Fantasy_XVI_CE.avif",
       "languages": {
         "text": [
           "ARA",
@@ -1249,7 +1283,9 @@
         "Action",
         "RPG"
       ],
-      "directUrl": "https://akirabox.to/qPez44ENqzOY/file"
+      "directUrl": "https://akirabox.to/qPez44ENqzOY/file",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "DYNASTY WARRIORS ORIGINS",
@@ -1284,7 +1320,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/obj3j7QO1zDx/file"
+      "directUrl": "https://akirabox.com/obj3j7QO1zDx/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Vampire The Masquerade Bloodlines 2",
@@ -1307,7 +1344,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/Z9dzBPMAOmk1/file"
+      "directUrl": "https://akirabox.com/Z9dzBPMAOmk1/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Forza Horizon 5",
@@ -1364,7 +1402,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/vgKGxXP69G8Q/file"
+      "directUrl": "https://akirabox.com/vgKGxXP69G8Q/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Tales of Xillia Remastered",
@@ -1401,7 +1440,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/APVmabXll3Xo/file"
+      "directUrl": "https://akirabox.com/APVmabXll3Xo/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "No Sleep For Kaname Date From AI THE SOMNIUM FILES",
@@ -1432,7 +1472,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/9QWmpAr7L3EB/file"
+      "directUrl": "https://akirabox.com/9QWmpAr7L3EB/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Days Gone Remastered",
@@ -1465,7 +1506,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/Z9dzBPNvlmk1/file"
+      "directUrl": "https://akirabox.com/Z9dzBPNvlmk1/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Rise of The Ronin",
@@ -1500,7 +1542,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/2WVGrdKJk3kx/file"
+      "directUrl": "https://akirabox.com/2WVGrdKJk3kx/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Battlefield 6",
@@ -1543,7 +1586,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/E9Qz9XQjW3OL/file"
+      "directUrl": "https://akirabox.com/E9Qz9XQjW3OL/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "F1 25",
@@ -1587,7 +1631,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/dZxG5oQwP3Vj/file"
+      "directUrl": "https://akirabox.com/dZxG5oQwP3Vj/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Marvels Avengers Definitive Edition",
@@ -1610,7 +1655,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/RMKGJK5gLm1o/file"
+      "directUrl": "https://akirabox.com/RMKGJK5gLm1o/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "God Of War Ragnarok",
@@ -1659,7 +1705,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/vgKGxXy08G8Q/file"
+      "directUrl": "https://akirabox.com/vgKGxXy08G8Q/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Monster Hunter Wilds Premium Edition",
@@ -1705,7 +1752,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/l76mZrZA9man/file"
+      "directUrl": "https://akirabox.com/l76mZrZA9man/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Need for Speed Unbound",
@@ -1749,7 +1797,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/APVmab9Jq3Xo/file"
+      "directUrl": "https://akirabox.com/APVmab9Jq3Xo/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "EA SPORTS FC 26",
@@ -1797,7 +1846,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/Zvqzl7qyO3aD/file"
+      "directUrl": "https://akirabox.to/Zvqzl7qyO3aD/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "ASTRO BOT",
@@ -1851,7 +1901,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/Zvqzl7qyO3aD/file"
+      "directUrl": "https://akirabox.com/Zvqzl7qyO3aD/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Black Myth Wukong Deluxe Edition",
@@ -1893,7 +1944,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/EL73g7L4939B/file"
+      "directUrl": "https://akirabox.com/EL73g7L4939B/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Mafia The Old Country Deluxe Edition",
@@ -1939,7 +1991,8 @@
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/2WVGrdLQ93kx/file"
+      "directUrl": "https://akirabox.com/2WVGrdLQ93kx/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "WWE 2K26",
@@ -1971,7 +2024,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.com/EL73g74YY39B/file"
+      "directUrl": "https://akirabox.com/EL73g74YY39B/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "The Last of Us Part II Remastered Deluxe Edition",
@@ -1997,7 +2051,8 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/l5YzMZQLYGyO/file"
+      "directUrl": "https://akirabox.to/l5YzMZQLYGyO/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "PRAGMATA Deluxe Edition",
@@ -2020,7 +2075,8 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file"
+      "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "NBA 2K26",
@@ -2045,7 +2101,8 @@
         "Sports"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/jJD3VD5PlGa5/file"
+      "directUrl": "https://akirabox.to/jJD3VD5PlGa5/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Horizon Forbidden West Complete Edition",
@@ -2071,7 +2128,8 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/vgKGxXwAVG8Q/file"
+      "directUrl": "https://akirabox.to/vgKGxXwAVG8Q/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Alan Wake 2 Deluxe Edition",
@@ -2098,7 +2156,8 @@
         "Horror"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/9AqGQZPV8mMn/file"
+      "directUrl": "https://akirabox.to/9AqGQZPV8mMn/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Marvels Spider Man 2 Deluxe Edition",
@@ -2123,7 +2182,8 @@
         "Action",
         "Adventure"
       ],
-      "ps5Frame": true
+      "ps5Frame": true,
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Mortal Kombat 1",
@@ -2149,7 +2209,8 @@
       ],
       "ps5Frame": true,
       "fpkgSize": "141GB",
-      "directUrl": "https://akirabox.com/1RgzR9DkP3bp/file"
+      "directUrl": "https://akirabox.com/1RgzR9DkP3bp/file",
+      "coverSource": "Pippo Library"
     },
     {
       "title": "Street Fighter 6 Years 1-3 Fighters Edition",
@@ -2182,7 +2243,8 @@
       "creditsDlc": "DecKerr97",
       "fpkgSize": "93GB",
       "compatibilityNote": "FPKG works up to firmware 11.60; use exFAT above that.",
-      "directUrl": "https://akirabox.to/vgKGxX256G8Q/file"
+      "directUrl": "https://akirabox.to/vgKGxX256G8Q/file",
+      "coverSource": "Pippo Library"
     }
   ]
 }
