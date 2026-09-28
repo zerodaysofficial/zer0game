@@ -2,6 +2,68 @@
   "updated": "2026-09-28",
   "games": [
     {
+      "title": "Death Stranding Director's Cut",
+      "titleId": "PPSA01969",
+      "version": "01.005",
+      "firmware": "4.xx BackPort",
+      "size": "63GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "",
+      "languages": {
+        "text": [
+          "ARA",
+          "CHI-S",
+          "CHI-T",
+          "CZE",
+          "NLD",
+          "ENG",
+          "FRA",
+          "GER",
+          "GRE",
+          "HUN",
+          "ITA",
+          "JPN",
+          "KOR",
+          "POL",
+          "POR-BR",
+          "POR",
+          "RUS",
+          "SPA",
+          "SPA-LATAM",
+          "TUR"
+        ],
+        "audio": [
+          "ENG",
+          "FRA",
+          "GER",
+          "GRE",
+          "ITA",
+          "JPN",
+          "POL",
+          "POR-BR",
+          "POR",
+          "RUS",
+          "SPA",
+          "SPA-LATAM"
+        ]
+      },
+      "notes": "Director's Cut v01.005. All DLCs. 4.xx BackPort. User-provided release metadata labels this package EUR, but the official PlayStation listing maps PPSA01969 to the US product; EU official Title ID is PPSA01968.",
+      "infoUrl": "https://store.playstation.com/en-us/product/UP9000-PPSA01969_00-DEATHSTRANDINGUS/",
+      "languageSource": "Official PlayStation Store PPSA01969 metadata",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Action"
+      ],
+      "ps5Frame": true,
+      "region": "US (official PPSA01969 mapping)",
+      "sourceCatalog": "User-provided release metadata",
+      "fpkgSize": "63GB",
+      "fullSize": "116GB",
+      "compatibilityNote": "4.xx and beyond (BackPort)"
+    },
+    {
       "title": "Demon's Souls — Digital Deluxe Edition",
       "titleId": "PPSA01341",
       "version": "01.005",
