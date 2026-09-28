@@ -293,7 +293,6 @@ function render() {
     const titleId = node.querySelector('.card-titleid');
     const version = node.querySelector('.card-version');
     const region = node.querySelector('.card-region');
-    const firmware = node.querySelector('.card-firmware');
     const fpkgSize = node.querySelector('.card-fpkg-size');
     const fullSize = node.querySelector('.card-full-size');
     const quickAkia = node.querySelector('.quick-akia');
@@ -306,7 +305,6 @@ function render() {
     titleId.textContent = game.titleId || 'TITLE ID —';
     version.textContent = versionLabel(game.version) || 'VERSION —';
     region.textContent = game.region || 'REGION —';
-    firmware.textContent = canonicalFirmware(game.firmware) || 'FW —';
 
     const primarySize = game.fpkgSize || game.size || '';
     fpkgSize.textContent = primarySize ? `${primarySize} FPKG` : 'SIZE —';
