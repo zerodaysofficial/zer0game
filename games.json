@@ -2,6 +2,64 @@
   "updated": "2026-09-28",
   "games": [
     {
+      "title": "DEATH STRANDING 2: ON THE BEACH",
+      "titleId": "PPSA02015",
+      "version": "",
+      "firmware": "",
+      "size": "86GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/de9f11555daa455139d109c07b854880740167e531c376ab.png",
+      "languages": {
+        "text": [
+          "ARA",
+          "CZE",
+          "CHI-S",
+          "CHI-T",
+          "KOR",
+          "FRA",
+          "JPN",
+          "GRE",
+          "ENG",
+          "ITA",
+          "NLD",
+          "POL",
+          "POR-BR",
+          "POR",
+          "RUS",
+          "SPA",
+          "SPA-LATAM",
+          "GER"
+        ],
+        "audio": [
+          "CHI",
+          "FRA",
+          "JPN",
+          "ENG",
+          "ITA",
+          "POL",
+          "POR-BR",
+          "POR",
+          "RUS",
+          "SPA",
+          "SPA-LATAM",
+          "GER"
+        ]
+      },
+      "notes": "PS5 release. User-provided package size 86GB.",
+      "infoUrl": "https://store.playstation.com/it-it/product/JP9000-PPSA02015_00-DS2OTB0000000001",
+      "languageSource": "Official PlayStation Store PPSA02015 metadata",
+      "downloadLabel": "DOWNLOAD GAME",
+      "dlcAvailable": false,
+      "genres": [
+        "Action"
+      ],
+      "ps5Frame": true,
+      "sourceCatalog": "User-provided release metadata",
+      "fpkgSize": "86GB",
+      "directUrl": "https://akirabox.com/l5YzMZdBRGyO/file"
+    },
+    {
       "title": "Death Stranding Director's Cut",
       "titleId": "PPSA01969",
       "version": "01.005",
@@ -62,7 +120,7 @@
       "fpkgSize": "63GB",
       "fullSize": "116GB",
       "compatibilityNote": "4.xx and beyond (BackPort)",
-      "directUrl": "https://akirabox.com/0PdzyQ1wkzeA/file"
+      "directUrl": "https://akirabox.com/APVmaba9q3Xo/file"
     },
     {
       "title": "Demon's Souls — Digital Deluxe Edition",
