@@ -3285,3 +3285,194 @@ footer{
     font-size:12px;
   }
 }
+
+/* === ZER0DAY LARGE SHOWCASE CARDS v5 === */
+
+.game-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:30px;
+  align-items:start;
+}
+
+.premium-card{
+  max-width:460px;
+  padding:20px 20px 22px;
+  border-radius:30px;
+}
+
+.premium-card .game-title{
+  margin:4px 8px 18px;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font:800 clamp(18px,1.5vw,23px)/1.16 "Space Grotesk",sans-serif;
+  letter-spacing:.025em;
+}
+
+.premium-card .cover-wrap{
+  aspect-ratio:0.79;
+  border-radius:24px;
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.38),
+    0 0 0 1px color-mix(in srgb,var(--accent) 14%,transparent);
+}
+
+.premium-card .cover{
+  object-fit:contain;
+  object-position:center;
+  background:
+    radial-gradient(circle at 50% 25%,rgba(255,255,255,.035),transparent 35%),
+    #08111f;
+}
+
+.premium-card .card-overlay{
+  background:linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 63%,
+    rgba(3,8,16,.22) 77%,
+    rgba(3,7,14,.72) 100%
+  );
+}
+
+.premium-card .cover-meta{
+  left:14px;
+  right:14px;
+  bottom:14px;
+}
+
+.premium-card .meta-stack{
+  max-width:66%;
+  gap:8px;
+}
+
+.premium-card .meta-pill{
+  padding:8px 11px;
+  border-radius:10px;
+  font-size:10px;
+}
+
+.premium-card .size-stack{
+  flex-basis:94px;
+  gap:8px;
+}
+
+.premium-card .size-pill{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  border-radius:11px;
+}
+
+.premium-card .badges{
+  margin-top:16px;
+  gap:8px;
+}
+
+.premium-card .badge{
+  padding:8px 11px;
+  font-size:9px;
+}
+
+.card-download-block{
+  margin-top:20px;
+  padding-top:17px;
+  border-top:1px solid rgba(255,255,255,.075);
+}
+
+.download-section-label{
+  margin:0 0 12px 2px;
+  color:#f7f9ff;
+  font-size:12px;
+  letter-spacing:.07em;
+}
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.premium-card.has-separate-dlc .quick-actions{
+  grid-template-columns:1fr 1fr;
+}
+
+.quick-download{
+  width:100%;
+  min-width:0;
+  min-height:52px;
+  padding:0 18px;
+  border-radius:15px;
+  font-size:12px;
+}
+
+.quick-akia{
+  color:#04171a;
+  background:linear-gradient(135deg,#31e3f2,#47dfb8);
+  box-shadow:0 10px 22px rgba(25,204,210,.13);
+}
+
+.quick-dlc{
+  color:#fbf8ff;
+  background:linear-gradient(135deg,#6c55e8,#3e69c8);
+  border-color:rgba(161,145,255,.46);
+}
+
+/* Keep hidden DLC controls truly absent from layout. */
+.quick-dlc[hidden]{
+  display:none!important;
+}
+
+@media(max-width:1180px){
+  .game-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:24px;
+  }
+  .premium-card{max-width:500px}
+}
+
+@media(max-width:680px){
+  .game-grid{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .premium-card{
+    max-width:540px;
+    padding:17px;
+    border-radius:25px;
+  }
+
+  .premium-card .game-title{
+    min-height:auto;
+    margin:3px 6px 15px;
+    font-size:20px;
+  }
+
+  .premium-card .cover-wrap{
+    aspect-ratio:0.78;
+    border-radius:21px;
+  }
+
+  .premium-card .cover-meta{
+    left:10px;
+    right:10px;
+    bottom:10px;
+  }
+
+  .premium-card .meta-stack{
+    max-width:67%;
+  }
+
+  .premium-card .meta-pill,
+  .premium-card .size-pill{
+    font-size:10px;
+  }
+
+  .premium-card.has-separate-dlc .quick-actions{
+    grid-template-columns:1fr 1fr;
+  }
+}
