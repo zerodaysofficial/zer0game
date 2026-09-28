@@ -408,7 +408,6 @@
       "notes": "Digital Deluxe Edition + Pre-Order Bonus. Backport 4.xx. Additional interface languages are supported, but were not specified in the provided metadata.",
       "infoUrl": "https://store.playstation.com/it-it/product/UP9000-PPSA26344_00-GHOST2CE00000000",
       "dlcAvailable": true,
-      "purchaseUrl": "https://tinyurl.com/hmzwn9vk",
       "dlcUrl": "https://tinyurl.com/2hkudy5k",
       "languageSource": "User-provided PPSA26344 package language metadata",
       "downloadLabel": "BASE GAME",
@@ -416,7 +415,8 @@
         "Action",
         "Adventure",
         "Open World"
-      ]
+      ],
+      "directUrl": "https://akirabox.to/BnkmWv2VrGR0/file"
     },
     {
       "title": "Assassin's Creed Valhalla — Complete Edition",
