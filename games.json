@@ -3,7 +3,7 @@
   "games": [
     {
       "title": "Resident Evil 3 Remake",
-      "titleId": "PPSA03953",
+      "titleId": "PPSA03952",
       "version": "",
       "firmware": "",
       "size": "",
@@ -34,17 +34,17 @@
           "GER"
         ]
       },
-      "notes": "PS5 EUR release. Resident Evil 3 remake. Added without a download link.",
-      "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA03953_00-BH3ROFF000000001",
-      "languageSource": "Official PlayStation Store PPSA03953 metadata",
+      "notes": "PS5 US release. Resident Evil 3 remake. Added without a download link.",
+      "infoUrl": "https://store.playstation.com/en-us/product/UP0102-PPSA03952_00-BH3ROFF000000001",
+      "languageSource": "Official PlayStation Store PPSA03952 metadata",
       "dlcAvailable": false,
       "genres": [
         "Action",
         "Adventure"
       ],
       "ps5Frame": true,
-      "region": "EUR",
-      "sourceCatalog": "Official PlayStation Store"
+      "region": "US",
+      "sourceCatalog": "Official PlayStation Store US"
     },
     {
       "title": "DEATH STRANDING 2: ON THE BEACH",
