@@ -298,6 +298,8 @@ function render() {
     const fullSize = node.querySelector('.card-full-size');
     const quickAkia = node.querySelector('.quick-akia');
     const quickDlc = node.querySelector('.quick-dlc');
+    const downloadBlock = node.querySelector('.card-download-block');
+    const downloadLabel = node.querySelector('.download-section-label');
 
     card.classList.add(cardTone(game));
     title.textContent = game.title;
@@ -353,6 +355,8 @@ function render() {
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
+    downloadLabel.textContent = normalize(game.firmware).includes('backport') ? 'FPKG BACKPORT:' : 'DOWNLOAD:';
+
     if (game.directUrl) {
       quickAkia.href = zer0dayLockUrl(game.directUrl);
     } else {
@@ -363,6 +367,10 @@ function render() {
       quickDlc.href = zer0dayLockUrl(game.dlcDirectUrl);
     } else {
       quickDlc.hidden = true;
+    }
+
+    if (!game.directUrl && !game.dlcDirectUrl) {
+      downloadBlock.hidden = true;
     }
 
     open.addEventListener('click', () => {
