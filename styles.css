@@ -3476,3 +3476,65 @@ footer{
     grid-template-columns:1fr 1fr;
   }
 }
+
+/* === ZER0DAY PHYSICAL PS5 COVER FRAME v6 === */
+
+.premium-card .ps5-case-card{
+  background:#fff;
+}
+
+.premium-card .ps5-case-card .cover{
+  object-fit:contain;
+  object-position:center;
+  padding-top:54px;
+  background:#fff;
+}
+
+.premium-card .ps5-case-header{
+  height:54px;
+  padding:7px 13px 6px;
+  background:#fff;
+  border-bottom:1px solid #cfd7e2;
+  box-shadow:0 1px 0 rgba(0,0,0,.04);
+}
+
+.premium-card .ps5-logo-img{
+  display:block;
+  width:auto;
+  max-width:128px;
+  max-height:36px;
+  object-fit:contain;
+}
+
+.premium-card .ps5-case-card .status-badge{
+  top:64px;
+}
+
+.modal-art .ps5-case-header,
+.ps5-modal-case .ps5-case-header{
+  height:54px;
+  padding:7px 13px 6px;
+  background:#fff;
+  border-bottom:1px solid #cfd7e2;
+}
+
+.ps5-modal-case img{
+  padding-top:54px;
+  background:#fff;
+}
+
+@media(max-width:680px){
+  .premium-card .ps5-case-card .cover{
+    padding-top:50px;
+  }
+  .premium-card .ps5-case-header{
+    height:50px;
+  }
+  .premium-card .ps5-logo-img{
+    max-width:118px;
+    max-height:33px;
+  }
+  .premium-card .ps5-case-card .status-badge{
+    top:60px;
+  }
+}
