@@ -121,6 +121,28 @@ function zer0dayLockUrl(targetUrl) {
   }
 }
 
+function downloadSourceLabel(url) {
+  const value = String(url || '').trim().toLowerCase();
+  if (!value) return 'DOWNLOAD';
+
+  if (value.includes('1024terabox.com') || value.includes('terabox.com')) return 'TERABOX';
+  if (value.includes('akirabox.com') || value.includes('akirabox.to')) return 'AKIA';
+  if (value.includes('vik1ngfile.site')) return 'VIKI';
+  if (value.includes('fuckingfast.net')) return 'FUCKINGFAST';
+  if (value.includes('datavaults.co')) return 'DATAVAULTS';
+  if (value.includes('datanodes.to')) return 'DATANODES';
+  if (value.includes('tinyurl.com')) return 'SHORT LINK';
+  if (value.includes('urlvanish.com')) return 'SHORT LINK';
+
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '');
+    if (host) return host.split('.')[0].toUpperCase();
+  } catch (_) {}
+
+  return 'DOWNLOAD';
+}
+
+
 function cardTone(game) {
   const genres = allGenres(game).map(normalize);
   if (genres.includes('horror')) return 'tone-magenta';
@@ -356,6 +378,9 @@ function render() {
     downloadLabel.textContent = game.directUrl ? 'GAME DOWNLOAD:' : 'DOWNLOAD:';
 
     if (game.directUrl) {
+      const source = downloadSourceLabel(game.directUrl);
+      quickAkia.textContent = source;
+      quickAkia.setAttribute('aria-label', `Download game from ${source}`);
       quickAkia.href = zer0dayLockUrl(game.directUrl);
     } else {
       quickAkia.hidden = true;
@@ -363,6 +388,9 @@ function render() {
 
     if (game.dlcDirectUrl) {
       card.classList.add('has-separate-dlc');
+      const dlcSource = downloadSourceLabel(game.dlcDirectUrl);
+      quickDlc.textContent = `DLC · ${dlcSource}`;
+      quickDlc.setAttribute('aria-label', `Download DLC from ${dlcSource}`);
       quickDlc.href = zer0dayLockUrl(game.dlcDirectUrl);
     } else {
       quickDlc.hidden = true;
