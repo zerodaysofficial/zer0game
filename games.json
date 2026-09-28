@@ -2,6 +2,67 @@
   "updated": "2026-09-28",
   "games": [
     {
+      "title": "Demon's Souls — Digital Deluxe Edition",
+      "titleId": "PPSA01341",
+      "version": "01.005",
+      "firmware": "4.xx BackPort",
+      "size": "87GB",
+      "status": "released",
+      "date": "2026-09-28",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2814/GGyEnCkIXoyiVlN9sRHkzUPo.png",
+      "languages": {
+        "text": [
+          "ARA",
+          "DAN",
+          "FIN",
+          "FRA",
+          "ENG",
+          "ITA",
+          "NLD",
+          "NOR",
+          "POL",
+          "POR",
+          "RUS",
+          "SPA",
+          "SWE",
+          "GER",
+          "TUR"
+        ],
+        "audio": [
+          "ARA",
+          "DAN",
+          "FIN",
+          "FRA",
+          "ENG",
+          "ITA",
+          "NLD",
+          "NOR",
+          "POL",
+          "POR",
+          "RUS",
+          "SPA",
+          "SWE",
+          "GER",
+          "TUR"
+        ]
+      },
+      "notes": "Digital Deluxe Edition. EUR release. v01.005. 4.xx BackPort by BestPig. Source catalog: Pippo exFAT.",
+      "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01341_00-DEMONSSOULSDX000/",
+      "languageSource": "PlayStation Store EU metadata",
+      "downloadLabel": "FPKG BACKPORT",
+      "dlcAvailable": true,
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "ps5Frame": true,
+      "region": "EUR",
+      "sourceCatalog": "Pippo exFAT",
+      "creditsBackport": "BestPig",
+      "fpkgSize": "87GB",
+      "directUrl": "https://akirabox.to/0JgG75y6N3oY/file"
+    },
+    {
       "title": "Assassin's Creed Shadows",
       "titleId": "PPSA20397",
       "version": "01.019.076",
