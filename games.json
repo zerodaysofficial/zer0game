@@ -42,7 +42,7 @@
         "Action",
         "Adventure"
       ],
-      "ps5Frame": false,
+      "ps5Frame": true,
       "region": "US",
       "sourceCatalog": "Official PlayStation Store US",
       "directUrl": "https://1024terabox.com/s/1g1x5OsQSgoV4RDanHmAG-g",
@@ -678,7 +678,8 @@
         "Adventure",
         "Open World"
       ],
-      "directUrl": "https://tinyurl.com/y4jk87w2"
+      "directUrl": "https://tinyurl.com/y4jk87w2",
+      "ps5Frame": true
     },
     {
       "title": "EA SPORTS FC 25",
@@ -895,7 +896,8 @@
         "Sci-Fi"
       ],
       "downloadLabel": "BASE GAME",
-      "directUrl": "https://datanodes.to/r3vdvd68re4l/PPSA13195-Compressed.7z"
+      "directUrl": "https://datanodes.to/r3vdvd68re4l/PPSA13195-Compressed.7z",
+      "ps5Frame": true
     },
     {
       "title": "Returnal",
