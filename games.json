@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "games": [
     {
       "title": "Resident Evil 3 Remake",
@@ -9,7 +9,7 @@
       "size": "",
       "status": "released",
       "date": "2026-09-28",
-      "cover": "",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0307/wIVJREWyBg8SyXvXYuBPG6je.png",
       "languages": {
         "text": [
           "ARA",
@@ -42,9 +42,11 @@
         "Action",
         "Adventure"
       ],
-      "ps5Frame": true,
+      "ps5Frame": false,
       "region": "US",
-      "sourceCatalog": "Official PlayStation Store US"
+      "sourceCatalog": "Official PlayStation Store US",
+      "directUrl": "https://1024terabox.com/s/1g1x5OsQSgoV4RDanHmAG-g",
+      "downloadLabel": "DOWNLOAD GAME"
     },
     {
       "title": "DEATH STRANDING 2: ON THE BEACH",
