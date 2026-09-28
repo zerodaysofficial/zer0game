@@ -37,13 +37,13 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-gb/product/EP0001-PPSA20397_00-GAME000000000000",
       "languageSource": "PlayStation / PPSA20397 metadata",
-      "purchaseUrl": "https://vik1ngfile.site/f/3HXAVFI9N7",
       "genres": [
         "Action",
         "Adventure",
         "RPG",
         "Open World"
-      ]
+      ],
+      "directUrl": "https://vik1ngfile.site/f/3HXAVFI9N7"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
@@ -86,15 +86,14 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-gb/product/EP0102-PPSA07412_00-RE4GOLDEDITION00",
       "languageSource": "User-provided EU PPSA07412 release metadata",
-      "purchaseUrl": "https://fuckingfast.net/d8ves6hb6jyd",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "downloadLabel": "DOWNLOAD GAME + DLC",
       "genres": [
         "Horror",
         "Action",
         "Adventure"
-      ]
+      ],
+      "directUrl": "https://fuckingfast.net/d8ves6hb6jyd"
     },
     {
       "title": "Crash Bandicoot 4: It's About Time",
@@ -127,14 +126,14 @@
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/crash-bandicoot-4-its-about-time/",
       "dlcAvailable": true,
-      "purchaseUrl": "https://fuckingfast.net/8mcnzu2nppnz",
-      "dlcUrl": "https://fuckingfast.net/q7mwgsmtorgc",
       "languageSource": "PPSA02433 public PS Store metadata",
       "genres": [
         "Platformer",
         "Action",
         "Adventure"
-      ]
+      ],
+      "directUrl": "https://fuckingfast.net/8mcnzu2nppnz",
+      "dlcDirectUrl": "https://fuckingfast.net/q7mwgsmtorgc"
     },
     {
       "title": "Marvel's Spider-Man 2",
@@ -181,14 +180,13 @@
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/marvels-spider-man-2/",
       "dlcAvailable": false,
-      "purchaseUrl": "https://fuckingfast.net/9e7zwdqj4ola",
-      "dlcUrl": "",
       "languageSource": "PlayStation Italy metadata for PPSA08338",
       "genres": [
         "Action",
         "Adventure",
         "Open World"
-      ]
+      ],
+      "directUrl": "https://fuckingfast.net/9e7zwdqj4ola"
     },
     {
       "title": "Little Nightmares: Enhanced Edition - Complete Edition",
@@ -219,14 +217,13 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0700-PPSA10737_00-LITTLEDELUXEED00",
       "dlcAvailable": true,
-      "purchaseUrl": "https://fuckingfast.net/fpsez6inwu0k",
-      "dlcUrl": "",
       "languageSource": "PlayStation Italy metadata for PPSA10737",
       "genres": [
         "Horror",
         "Puzzle",
         "Adventure"
-      ]
+      ],
+      "directUrl": "https://fuckingfast.net/fpsez6inwu0k"
     },
     {
       "title": "TEKKEN 8 — Gold Edition",
@@ -256,13 +253,13 @@
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/tekken-8/",
       "dlcAvailable": true,
-      "purchaseUrl": "https://datavaults.co/ua1jj7uif0zs",
-      "dlcUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar",
       "languageSource": "PlayStation Italy TEKKEN 8 metadata",
       "sizeLabel": "Size compressed",
       "genres": [
         "Fighting"
-      ]
+      ],
+      "directUrl": "https://datavaults.co/ua1jj7uif0zs",
+      "dlcDirectUrl": "https://datanodes.to/u8kktgjd1sry/All_23DLCs_High-Speed007.rar"
     },
     {
       "title": "Ratchet & Clank: Rift Apart — Deluxe Edition",
@@ -316,8 +313,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01474_00-RIFTDIGITALDELUX",
       "dlcAvailable": false,
-      "purchaseUrl": "https://tinyurl.com/2vzncnet",
-      "dlcUrl": "",
       "languageSource": "User-provided PPSA01474 release metadata",
       "genres": [
         "Action",
@@ -368,7 +363,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0102-PPSA31246_00-REREQUIEMDX00000",
       "dlcAvailable": false,
-      "dlcUrl": "",
       "downloadLabel": "BASE GAME",
       "languageSource": "User-provided PPSA30803 release metadata",
       "genres": [
@@ -377,8 +371,7 @@
         "Horror",
         "Survival Horror"
       ],
-      "directUrl": "https://akirabox.to/EL73g7Bg939B/file",
-      "linkStatus": "direct-akia"
+      "directUrl": "https://akirabox.to/EL73g7Bg939B/file"
     },
     {
       "title": "Ghost of Yōtei — Digital Deluxe Edition + Pre-Order Bonus",
@@ -408,7 +401,6 @@
       "notes": "Digital Deluxe Edition + Pre-Order Bonus. Backport 4.xx. Additional interface languages are supported, but were not specified in the provided metadata.",
       "infoUrl": "https://store.playstation.com/it-it/product/UP9000-PPSA26344_00-GHOST2CE00000000",
       "dlcAvailable": true,
-      "dlcUrl": "https://tinyurl.com/2hkudy5k",
       "languageSource": "User-provided PPSA26344 package language metadata",
       "downloadLabel": "BASE GAME",
       "genres": [
@@ -416,7 +408,8 @@
         "Adventure",
         "Open World"
       ],
-      "directUrl": "https://akirabox.to/BnkmWv2VrGR0/file"
+      "directUrl": "https://akirabox.to/BnkmWv2VrGR0/file",
+      "dlcDirectUrl": "https://tinyurl.com/2hkudy5k"
     },
     {
       "title": "Assassin's Creed Valhalla — Complete Edition",
@@ -448,8 +441,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP0001-PPSA01490_00-EDITIONCOMPLETE0",
       "dlcAvailable": true,
-      "purchaseUrl": "https://tinyurl.com/y4jk87w2",
-      "dlcUrl": "",
       "downloadLabel": "BASE + DLC",
       "languageSource": "User-provided PPSA01532 package metadata",
       "genres": [
@@ -457,7 +448,8 @@
         "Action",
         "Adventure",
         "Open World"
-      ]
+      ],
+      "directUrl": "https://tinyurl.com/y4jk87w2"
     },
     {
       "title": "EA SPORTS FC 25",
@@ -476,8 +468,6 @@
       "releaseUrl": "",
       "infoUrl": "",
       "dlcAvailable": false,
-      "purchaseUrl": "",
-      "dlcUrl": "",
       "languageSource": "",
       "genres": [
         "Sports"
@@ -519,15 +509,14 @@
       "releaseUrl": "",
       "infoUrl": "",
       "dlcAvailable": true,
-      "purchaseUrl": "https://urlvanish.com/e70ece97",
-      "dlcUrl": "",
       "languageSource": "User-provided PPSA01556 release metadata",
       "genres": [
         "Horror",
         "Action",
         "Adventure"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://urlvanish.com/e70ece97"
     },
     {
       "title": "Resident Evil 2 Remake — Deluxe Edition",
@@ -566,15 +555,14 @@
       "releaseUrl": "https://prosperopatches.com/PPSA04288",
       "infoUrl": "",
       "dlcAvailable": true,
-      "purchaseUrl": "https://tinyurl.com/3kjynkf3",
-      "dlcUrl": "",
       "languageSource": "User-provided PPSA04288 release metadata",
       "genres": [
         "Horror",
         "Adventure",
         "Action"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://tinyurl.com/3kjynkf3"
     },
     {
       "title": "Hogwarts Legacy — Deluxe Edition",
@@ -610,8 +598,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP1018-PPSA01603_00-HOGWARTSLGCYDELX",
       "dlcAvailable": true,
-      "purchaseUrl": "",
-      "dlcUrl": "",
       "languageSource": "User-provided PPSA01603 release metadata",
       "genres": [
         "RPG",
@@ -672,8 +658,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/ja-jp/product/JP9000-PPSA13195_00-STELLARBLADE0000",
       "languageSource": "User-provided PPSA13195 release metadata; official JP PlayStation Store used to confirm title ID/region context",
-      "purchaseUrl": "https://datanodes.to/r3vdvd68re4l/PPSA13195-Compressed.7z",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
@@ -681,7 +665,8 @@
         "Hack and Slash",
         "Sci-Fi"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://datanodes.to/r3vdvd68re4l/PPSA13195-Compressed.7z"
     },
     {
       "title": "Returnal",
@@ -735,15 +720,14 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/it-it/product/EP9000-PPSA01285_00-RETURNALGAME0001/",
       "languageSource": "User-provided PPSA01285 release metadata",
-      "purchaseUrl": "https://urlvanish.com/a02b1237",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Third-Person Shooter",
         "Bullet Hell",
         "Roguelite"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://urlvanish.com/a02b1237"
     },
     {
       "title": "The Last of Us Part I Deluxe Edition",
@@ -843,8 +827,6 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-ie/product/EP9000-PPSA01470_00-MARVELSSPIDERMAN",
       "languageSource": "User-provided PPSA01470 release metadata",
-      "purchaseUrl": "https://urlvanish.com/b000eb4a",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Action",
@@ -852,7 +834,8 @@
         "Superhero",
         "Adventure"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://urlvanish.com/b000eb4a"
     },
     {
       "title": "Horizon Zero Dawn Remastered",
@@ -891,15 +874,14 @@
       "releaseUrl": "https://rutracker.org/forum/viewtopic.php?t=6873912",
       "infoUrl": "",
       "languageSource": "User-provided Rutracker metadata for PPSA13427",
-      "purchaseUrl": "https://urlvanish.com/86cd2220",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [
         "Action",
         "RPG",
         "Open World"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://urlvanish.com/86cd2220"
     },
     {
       "title": "Resident Evil 7 biohazard — Gold Edition",
@@ -941,14 +923,13 @@
       "releaseUrl": "",
       "infoUrl": "https://store.playstation.com/en-us/product/UP0102-PPSA04404_00-BH7G000000000001/",
       "languageSource": "User-provided PPSA04404 release metadata; official US PlayStation Store confirms the Gold Edition and Not a Hero content",
-      "purchaseUrl": "https://urlvanish.com/90b2fcf6",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
         "Survival Horror"
       ],
-      "downloadLabel": "BASE GAME"
+      "downloadLabel": "BASE GAME",
+      "directUrl": "https://urlvanish.com/90b2fcf6"
     },
     {
       "title": "Star Wars Jedi Survivor Deluxe Edition",
@@ -986,7 +967,6 @@
       "infoUrl": "https://www.playstation.com/it-it/games/star-wars-jedi-survivor/",
       "languageSource": "Official PlayStation / user-provided release metadata",
       "downloadLabel": "FPKG",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
@@ -1033,7 +1013,6 @@
       "infoUrl": "https://store.playstation.com/it-it/product/EP0082-PPSA10665_00-FF16SIEE00000002",
       "languageSource": "Official PlayStation Store + user-provided release metadata",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [
         "Action",
@@ -1071,7 +1050,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1095,7 +1073,6 @@
       "infoUrl": "",
       "languageSource": "Pippo exFAT catalog metadata",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1153,7 +1130,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
@@ -1191,7 +1167,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1223,7 +1198,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1257,7 +1231,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1293,7 +1266,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1337,7 +1309,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1382,7 +1353,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1406,7 +1376,6 @@
       "infoUrl": "",
       "languageSource": "Pippo exFAT catalog metadata",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
@@ -1456,7 +1425,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
@@ -1503,7 +1471,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1548,7 +1515,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1597,7 +1563,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1652,7 +1617,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1695,7 +1659,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
@@ -1742,7 +1705,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME",
-      "dlcUrl": "",
       "dlcAvailable": false,
       "genres": [],
       "ps5Frame": true,
@@ -1775,7 +1737,6 @@
       "infoUrl": "",
       "languageSource": "PlayStation Store (verified)",
       "downloadLabel": "BASE GAME + DLC",
-      "dlcUrl": "",
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
@@ -1828,8 +1789,7 @@
       "dlcAvailable": true,
       "genres": [],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file",
-      "linkStatus": "direct-akia"
+      "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file"
     },
     {
       "title": "NBA 2K26",
@@ -1854,8 +1814,7 @@
         "Sports"
       ],
       "ps5Frame": true,
-      "directUrl": "https://akirabox.to/jJD3VD5PlGa5/file",
-      "linkStatus": "direct-akia"
+      "directUrl": "https://akirabox.to/jJD3VD5PlGa5/file"
     },
     {
       "title": "Horizon Forbidden West Complete Edition",
@@ -1880,8 +1839,7 @@
         "Action",
         "Adventure"
       ],
-      "ps5Frame": true,
-      "linkStatus": "pending-direct-akia"
+      "ps5Frame": true
     },
     {
       "title": "Alan Wake 2 Deluxe Edition",
@@ -1908,7 +1866,6 @@
         "Horror"
       ],
       "ps5Frame": true,
-      "linkStatus": "direct-akia",
       "directUrl": "https://akirabox.to/9AqGQZPV8mMn/file"
     },
     {
@@ -1934,8 +1891,7 @@
         "Action",
         "Adventure"
       ],
-      "ps5Frame": true,
-      "linkStatus": "pending-direct-akia"
+      "ps5Frame": true
     },
     {
       "title": "Mortal Kombat 1",
@@ -1959,8 +1915,7 @@
       "genres": [
         "Fighting"
       ],
-      "ps5Frame": true,
-      "linkStatus": "pending-direct-akia"
+      "ps5Frame": true
     },
     {
       "title": "Street Fighter 6 Years 1-3 Fighters Edition",
