@@ -2447,7 +2447,7 @@ footer{
   width:calc(100% - 10px);
   height:calc(86% - 5px);
   padding:0;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
   border-radius:0 0 14px 14px;
   filter:none;
@@ -3593,7 +3593,7 @@ footer{
   height:calc(100% - 58px);
   padding:0;
   margin:0;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
   border-radius:0 0 17px 17px;
   background:#0b0d12;
@@ -3670,7 +3670,7 @@ footer{
   width:calc(100% - 10px);
   height:calc(100% - 58px);
   padding:0;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
 }
 
