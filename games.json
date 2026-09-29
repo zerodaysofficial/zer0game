@@ -61,7 +61,7 @@
       "size": "",
       "status": "released",
       "date": "2026-09-30",
-      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2216/6d18d35a8bdbc6614a47b5e2d661e9f959afabb8af7011f9.jpg",
+      "cover": "https://store-images.s-microsoft.com/image/apps.8071.14287567326939893.1fdb2217-3463-49e6-b44c-c16587b03bc8.d8033845-8141-4dc4-b49e-2a8e6749235d?h=265&q=90&w=177",
       "languages": {
         "text": [],
         "audio": []
@@ -76,8 +76,9 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "coverSource": "Official PlayStation artwork",
-      "directUrl": "https://akirabox.to/2WVGrdePB3kx/file"
+      "coverSource": "Xbox Store cover artwork",
+      "directUrl": "https://akirabox.to/2WVGrdePB3kx/file",
+      "coverFit": "cover"
     },
     {
       "title": "Marvel’s Wolverine",
