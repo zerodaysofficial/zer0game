@@ -3693,3 +3693,14 @@ footer{
     top:61px;
   }
 }
+
+/* Fit 007 First Light artwork into the nearly square case window. */
+.premium-card .cover-wrap.ps5-case-card.cover-fit-cover .cover{
+  object-fit:cover;
+  object-position:center 43%;
+  background:#07101d;
+}
+.modal-art .ps5-modal-case.cover-fit-cover img:not(.ps5-logo-img){
+  object-fit:cover;
+  object-position:center 43%;
+}
