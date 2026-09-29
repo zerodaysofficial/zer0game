@@ -2,6 +2,31 @@
   "updated": "2026-09-29",
   "games": [
     {
+      "title": "Marvel’s Wolverine",
+      "titleId": "",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-29",
+      "cover": "https://blog.playstation.com/uploads/2025/09/05a8d23ca19068015341a5fc2a248615a84ebb1b.png",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Marvel’s Wolverine. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/en-ca/games/marvels-wolverine/",
+      "dlcAvailable": false,
+      "languageSource": "",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "coverSource": "Official PlayStation cover art"
+    },
+    {
       "title": "SILENT HILL: The Short Message",
       "titleId": "PPSA10112",
       "version": "",

@@ -324,7 +324,8 @@ function render() {
 
     card.classList.add(cardTone(game));
     title.textContent = game.title;
-    titleId.textContent = game.titleId || 'TITLE ID —';
+    titleId.textContent = game.titleId || '';
+    titleId.hidden = !game.titleId;
     version.textContent = versionLabel(game.version) || 'VERSION —';
     region.textContent = game.region || 'REGION —';
 
