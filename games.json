@@ -86,12 +86,12 @@
       "size": "",
       "status": "soon",
       "date": "2026-09-29",
-      "cover": "https://i8.imageban.ru/out/2026/09/29/0c65a419adbd5c33b1cbbc42afa4c717.png",
+      "cover": "covers/marvel_wolverine_digital_deluxe.svg",
       "languages": {
         "text": [],
         "audio": []
       },
-      "notes": "Marvel’s Wolverine. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "notes": "Marvel’s Wolverine. Digital Deluxe Edition cover. Added without a PPSA / Title ID. FPKG availability: coming soon.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/en-ca/games/marvels-wolverine/",
       "dlcAvailable": false,
@@ -101,7 +101,7 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "coverSource": "User-provided ImageBan cover"
+      "coverSource": "User-provided Digital Deluxe Edition cover"
     },
     {
       "title": "SILENT HILL: The Short Message",
