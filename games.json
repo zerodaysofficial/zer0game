@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "games": [
     {
       "title": "Assassin's Creed Black Flag Resynced",
@@ -54,19 +54,19 @@
       "coverSource": "Official PlayStation artwork"
     },
     {
-      "title": "007 First Light",
+      "title": "007 First Light Deluxe Edition",
       "titleId": "",
-      "version": "",
-      "firmware": "",
+      "version": "01.018",
+      "firmware": "BP 4.xx",
       "size": "",
-      "status": "soon",
-      "date": "2026-09-29",
+      "status": "released",
+      "date": "2026-09-30",
       "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2216/6d18d35a8bdbc6614a47b5e2d661e9f959afabb8af7011f9.jpg",
       "languages": {
         "text": [],
         "audio": []
       },
-      "notes": "007 First Light. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "notes": "Deluxe Edition. BP 4.xx.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/007-first-light/",
       "dlcAvailable": false,
@@ -76,7 +76,8 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "coverSource": "Official PlayStation artwork"
+      "coverSource": "Official PlayStation artwork",
+      "directUrl": "https://akirabox.to/2WVGrdePB3kx/file"
     },
     {
       "title": "Marvel’s Wolverine",
