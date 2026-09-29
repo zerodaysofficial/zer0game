@@ -343,6 +343,7 @@ function render() {
 
     if (game.ps5Frame) {
       coverWrap.classList.add('ps5-case-card');
+      if (game.coverFit === 'cover') coverWrap.classList.add('cover-fit-cover');
       coverWrap.insertAdjacentHTML('afterbegin', ps5CaseHeaderMarkup());
     }
 
@@ -440,7 +441,7 @@ function openModal(game) {
 
   const cover = game.cover
     ? (game.ps5Frame
-      ? `<div class="ps5-modal-case">${ps5CaseHeaderMarkup()}<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover"></div>`
+      ? `<div class="ps5-modal-case${game.coverFit === 'cover' ? ' cover-fit-cover' : ''}">${ps5CaseHeaderMarkup()}<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover"></div>`
       : `<img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)} cover">`)
     : '';
 
