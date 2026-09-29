@@ -2,6 +2,83 @@
   "updated": "2026-09-29",
   "games": [
     {
+      "title": "Assassin's Creed Black Flag Resynced",
+      "titleId": "",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-29",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202603/1215/30972495c4d1b567dcd015b80c0d3af9c946efc8822944d7.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Assassin's Creed Black Flag Resynced. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/assassins-creed-black-flag-resynced/",
+      "dlcAvailable": false,
+      "languageSource": "",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Open World"
+      ],
+      "ps5Frame": true,
+      "coverSource": "Official PlayStation artwork"
+    },
+    {
+      "title": "Dying Light: The Beast",
+      "titleId": "",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-29",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1710/26e75f643bc78640a664c75dcc9f920469f7ce141cec9120.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "Dying Light: The Beast. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/dying-light-the-beast/",
+      "dlcAvailable": false,
+      "languageSource": "",
+      "genres": [
+        "Action",
+        "Horror",
+        "Open World"
+      ],
+      "ps5Frame": true,
+      "coverSource": "Official PlayStation artwork"
+    },
+    {
+      "title": "007 First Light",
+      "titleId": "",
+      "version": "",
+      "firmware": "",
+      "size": "",
+      "status": "soon",
+      "date": "2026-09-29",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2216/6d18d35a8bdbc6614a47b5e2d661e9f959afabb8af7011f9.jpg",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "notes": "007 First Light. Added without a PPSA / Title ID. FPKG availability: coming soon.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/007-first-light/",
+      "dlcAvailable": false,
+      "languageSource": "",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "coverSource": "Official PlayStation artwork"
+    },
+    {
       "title": "Marvel’s Wolverine",
       "titleId": "",
       "version": "",
