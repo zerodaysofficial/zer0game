@@ -19,13 +19,14 @@
 .admin-field input[type=file]{padding:9px;color:#aab3c3}
 .admin-field input[type=file]::file-selector-button{margin-right:12px;padding:8px 11px;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#e8eaf0;background:#151a27;cursor:pointer}
 .admin-help{color:#7f899b;font-size:12px;line-height:1.5}
-.cover-preview{width:150px;max-height:210px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#080b12}
+.cover-preview{width:150px;height:200px;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line);border-radius:10px;background:#080b12}
 .cover-preview[hidden],.admin-card[hidden]{display:none}
 .admin-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
 .admin-button{min-height:44px;padding:0 19px;border:1px solid rgba(124,92,255,.5);border-radius:12px;color:#fff;font-weight:800;background:linear-gradient(135deg,#6848eb,#2d98c5);cursor:pointer}
 .admin-button:hover{filter:brightness(1.12)}
 .admin-button:disabled{opacity:.56;cursor:wait}
 .admin-button-quiet{border-color:var(--line);background:#111522}
+.admin-button-search{align-self:flex-start;min-height:40px;padding:0 14px}
 .admin-status{min-height:20px;margin:0;color:#aeb8ca;font-size:13px;line-height:1.55}
 .admin-status[data-kind=error]{color:#ff9d9d}
 .admin-status[data-kind=success]{color:#75e5b1}
