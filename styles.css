@@ -526,6 +526,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   color:#9ba6b9;
   line-height:1.7;
   font-size:13px;
+  white-space:pre-line;
 }
 .modal-actions{
   display:flex;
