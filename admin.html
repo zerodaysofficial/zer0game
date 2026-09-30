@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#090a16" />
+  <title>Admin · ZER0GAME</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <a class="admin-back" href="index.html">← Torna a ZER0GAME</a>
+
+    <section class="admin-card" id="loginPanel">
+      <div class="admin-kicker">AREA PROPRIETARIO</div>
+      <h1>Gestione catalogo</h1>
+      <p class="admin-lead">Accedi con un token GitHub personale con accesso ai contenuti del solo repository ZER0GAME.</p>
+      <form id="loginForm" autocomplete="off">
+        <label for="githubToken">Token GitHub</label>
+        <input id="githubToken" name="githubToken" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_…" />
+        <p class="admin-help">Il token resta solo in memoria in questa scheda e viene cancellato quando esci o ricarichi la pagina.</p>
+        <button class="admin-button" type="submit">Accedi</button>
+      </form>
+      <p class="admin-status" id="loginStatus" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="admin-card" id="editorPanel" hidden>
+      <div class="admin-head">
+        <div>
+          <div class="admin-kicker">ZER0GAME · OWNER</div>
+          <h1>Carica una scheda</h1>
+        </div>
+        <button class="admin-button admin-button-quiet" id="logoutButton" type="button">Esci</button>
+      </div>
+      <p class="admin-lead">Aggiunge una scheda al catalogo, carica la cover e salva il LINK che inserisci.</p>
+
+      <form id="entryForm">
+        <div class="admin-grid">
+          <div class="admin-field admin-span-2">
+            <label for="title">Titolo</label>
+            <input id="title" name="title" maxlength="160" required />
+          </div>
+          <div class="admin-field">
+            <label for="titleId">Codice disco / Title ID</label>
+            <input id="titleId" name="titleId" maxlength="40" placeholder="PPSA00000" />
+          </div>
+          <div class="admin-field">
+            <label for="version">Versione</label>
+            <input id="version" name="version" maxlength="40" placeholder="v01.000.000" />
+          </div>
+          <div class="admin-field">
+            <label for="firmware">Firmware</label>
+            <input id="firmware" name="firmware" maxlength="60" />
+          </div>
+          <div class="admin-field">
+            <label for="size">Dimensione</label>
+            <input id="size" name="size" maxlength="40" placeholder="7,23 GB" />
+          </div>
+          <div class="admin-field">
+            <label for="status">Stato</label>
+            <select id="status" name="status">
+              <option value="soon">Soon</option>
+              <option value="released">Released</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="genres">Generi</label>
+            <input id="genres" name="genres" maxlength="160" placeholder="Action, Adventure" />
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="link">LINK</label>
+            <input id="link" name="link" type="url" inputmode="url" required placeholder="https://…" />
+            <span class="admin-help">Inserisci un URL HTTPS.</span>
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="coverFile">Cover</label>
+            <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" required />
+            <span class="admin-help">PNG, JPG o WebP · massimo 8 MB.</span>
+            <img class="cover-preview" id="coverPreview" alt="Anteprima cover" hidden />
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="technicalInfo">Informazioni tecniche</label>
+            <textarea id="technicalInfo" name="technicalInfo" rows="8" maxlength="8000" placeholder="Developer, publisher, regione, edizione, multiplayer…"></textarea>
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="credit">Credit</label>
+            <input id="credit" name="credit" maxlength="240" placeholder="Nome o gruppo da accreditare" />
+          </div>
+        </div>
+        <div class="admin-actions">
+          <button class="admin-button" id="uploadButton" type="submit">Upload</button>
+          <p class="admin-status" id="saveStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
