@@ -16,11 +16,11 @@
     <section class="admin-card" id="loginPanel">
       <div class="admin-kicker">AREA PROPRIETARIO</div>
       <h1>Gestione catalogo</h1>
-      <p class="admin-lead">Accedi con un token GitHub personale con accesso ai contenuti del solo repository ZER0GAME.</p>
+      <p class="admin-lead">Accedi con un token fine-grained di GitHub limitato a ZER0GAME e con permesso Repository permissions → Contents → Read and write.</p>
       <form id="loginForm" autocomplete="off">
         <label for="githubToken">Token GitHub</label>
         <input id="githubToken" name="githubToken" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_…" />
-        <p class="admin-help">Il token resta solo in memoria in questa scheda e viene cancellato quando esci o ricarichi la pagina.</p>
+        <p class="admin-help">Il token resta solo in memoria in questa scheda e viene cancellato quando esci o ricarichi la pagina. In GitHub seleziona il repository zer0game e imposta Contents su Read and write.</p>
         <button class="admin-button" type="submit">Accedi</button>
       </form>
       <p class="admin-status" id="loginStatus" role="status" aria-live="polite"></p>
@@ -34,7 +34,7 @@
         </div>
         <button class="admin-button admin-button-quiet" id="logoutButton" type="button">Esci</button>
       </div>
-      <p class="admin-lead">Aggiunge una scheda al catalogo, carica la cover e salva il LINK che inserisci.</p>
+      <p class="admin-lead">Aggiunge una scheda al catalogo, cerca la cover nel PlayStation Store tramite PPSA oppure usa un file caricato da te, e salva il LINK inserito.</p>
 
       <form id="entryForm">
         <div class="admin-grid">
@@ -45,6 +45,8 @@
           <div class="admin-field">
             <label for="titleId">Codice disco / Title ID</label>
             <input id="titleId" name="titleId" maxlength="40" placeholder="PPSA00000" />
+            <button class="admin-button admin-button-search" id="coverSearchButton" type="button">Cerca cover con PPSA</button>
+            <p class="admin-status" id="coverSearchStatus" role="status" aria-live="polite"></p>
           </div>
           <div class="admin-field">
             <label for="version">Versione</label>
@@ -76,8 +78,8 @@
           </div>
           <div class="admin-field admin-span-2">
             <label for="coverFile">Cover</label>
-            <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" required />
-            <span class="admin-help">PNG, JPG o WebP · massimo 8 MB.</span>
+            <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" />
+            <span class="admin-help">Cerca la cover con il PPSA oppure carica un file PNG, JPG o WebP fino a 8 MB.</span>
             <img class="cover-preview" id="coverPreview" alt="Anteprima cover" hidden />
           </div>
           <div class="admin-field admin-span-2">

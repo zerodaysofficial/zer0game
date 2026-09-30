@@ -1,6 +1,9 @@
 import {
   buildGameRecord,
+  buildPsStoreCoverSearchUrls,
   coverFilePath,
+  extractPsStoreCover,
+  formatGithubError,
   isOwnerLogin,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
@@ -24,11 +27,23 @@ const tokenInput = byId('githubToken');
 const loginStatus = byId('loginStatus');
 const saveStatus = byId('saveStatus');
 const uploadButton = byId('uploadButton');
+const coverSearchButton = byId('coverSearchButton');
 const coverInput = byId('coverFile');
 const coverPreview = byId('coverPreview');
+const coverSearchStatus = byId('coverSearchStatus');
 
 let tokenInMemory = '';
 let previewUrl = '';
+let selectedCoverUrl = '';
+let selectedCoverTitleId = '';
+
+coverPreview.addEventListener('error', () => {
+  if (!selectedCoverUrl || coverPreview.src !== selectedCoverUrl) return;
+  selectedCoverUrl = '';
+  selectedCoverTitleId = '';
+  clearCoverPreview();
+  setStatus(coverSearchStatus, 'La cover trovata non si carica. Puoi caricarla manualmente.', 'warning');
+});
 
 function setStatus(element, message, kind = '') {
   element.textContent = message;
@@ -41,6 +56,7 @@ function apiUrl(path) {
 }
 
 async function githubRequest(path, options = {}) {
+  const method = String(options.method || 'GET').toUpperCase();
   const response = await fetch(apiUrl(path), {
     ...options,
     cache: 'no-store',
@@ -55,8 +71,7 @@ async function githubRequest(path, options = {}) {
 
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
-    const detail = payload.message || `GitHub returned HTTP ${response.status}.`;
-    throw new Error(detail);
+    throw new Error(formatGithubError(response.status, method, path, payload.message));
   }
   return payload;
 }
@@ -117,6 +132,23 @@ function validateCover(file) {
   if (!file) throw new Error('Seleziona una cover.');
   if (!MIME_EXTENSIONS[file.type]) throw new Error('La cover deve essere PNG, JPG o WebP.');
   if (file.size > MAX_COVER_BYTES) throw new Error('La cover supera il limite di 8 MB.');
+}
+
+function normalizedTitleId(value) {
+  return String(value || '').trim().toUpperCase().replace(/_00$/, '');
+}
+
+function clearCoverPreview() {
+  if (previewUrl.startsWith('blob:')) URL.revokeObjectURL(previewUrl);
+  previewUrl = '';
+  coverPreview.removeAttribute('src');
+  coverPreview.hidden = true;
+}
+
+function showCoverPreview(src) {
+  clearCoverPreview();
+  coverPreview.src = src;
+  coverPreview.hidden = false;
 }
 
 function readFormRecord(coverPath) {
@@ -197,11 +229,70 @@ byId('logoutButton').addEventListener('click', () => {
   entryForm.reset();
   editorPanel.hidden = true;
   loginPanel.hidden = false;
-  if (previewUrl) URL.revokeObjectURL(previewUrl);
-  previewUrl = '';
-  coverPreview.removeAttribute('src');
-  coverPreview.hidden = true;
+  selectedCoverUrl = '';
+  selectedCoverTitleId = '';
+  clearCoverPreview();
+  setStatus(coverSearchStatus, '');
   setStatus(saveStatus, '');
+});
+
+byId('titleId').addEventListener('input', () => {
+  if (selectedCoverUrl && normalizedTitleId(byId('titleId').value) !== selectedCoverTitleId) {
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    clearCoverPreview();
+    setStatus(coverSearchStatus, 'Il PPSA è cambiato. Cerca di nuovo la cover.', 'warning');
+  }
+});
+
+coverSearchButton.addEventListener('click', async () => {
+  const titleId = normalizedTitleId(byId('titleId').value);
+  let searchUrls;
+  try {
+    searchUrls = buildPsStoreCoverSearchUrls(titleId);
+  } catch (error) {
+    setStatus(coverSearchStatus, error.message, 'error');
+    return;
+  }
+
+  coverSearchButton.disabled = true;
+  setStatus(coverSearchStatus, `Cerco la cover per ${titleId} nel PlayStation Store…`);
+  try {
+    let result = null;
+    let networkError = null;
+    for (const searchUrl of searchUrls) {
+      try {
+        const response = await fetch(searchUrl, {
+          cache: 'no-store',
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) continue;
+        result = extractPsStoreCover(await response.json());
+        if (result) break;
+      } catch (error) {
+        if (error instanceof TypeError) networkError = error;
+      }
+    }
+    if (!result && networkError) throw networkError;
+    if (!result) throw new Error(`Non ho trovato una cover per ${titleId}.`);
+
+    selectedCoverUrl = result.imageUrl;
+    selectedCoverTitleId = titleId;
+    coverInput.value = '';
+    showCoverPreview(result.imageUrl);
+    setStatus(coverSearchStatus, `Trovata: ${result.title}. La cover verrà adattata al riquadro 3:4 del sito.`, 'success');
+    setStatus(saveStatus, '');
+  } catch (error) {
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    if (error instanceof TypeError) {
+      setStatus(coverSearchStatus, 'La ricerca PS Store non è raggiungibile da questa pagina. Puoi caricare la cover manualmente.', 'warning');
+    } else {
+      setStatus(coverSearchStatus, `${error.message} Puoi caricare la cover manualmente.`, 'warning');
+    }
+  } finally {
+    coverSearchButton.disabled = false;
+  }
 });
 
 coverInput.addEventListener('change', () => {
@@ -209,14 +300,19 @@ coverInput.addEventListener('change', () => {
   if (!file) return;
   try {
     validateCover(file);
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    clearCoverPreview();
     previewUrl = URL.createObjectURL(file);
     coverPreview.src = previewUrl;
     coverPreview.hidden = false;
+    setStatus(coverSearchStatus, '');
     setStatus(saveStatus, '');
   } catch (error) {
     coverInput.value = '';
-    coverPreview.hidden = true;
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    clearCoverPreview();
     setStatus(saveStatus, error.message, 'error');
   }
 });
@@ -228,33 +324,42 @@ entryForm.addEventListener('submit', async event => {
     return;
   }
 
-  const cover = coverInput.files?.[0];
+  const coverFile = coverInput.files?.[0];
+  const coverUrl = selectedCoverTitleId === normalizedTitleId(byId('titleId').value)
+    ? selectedCoverUrl
+    : '';
   let coverUploaded = false;
   uploadButton.disabled = true;
   setStatus(saveStatus, 'Controllo i dati…');
 
   try {
-    validateCover(cover);
-    const ext = MIME_EXTENSIONS[cover.type];
-    const coverPath = coverFilePath(byId('title').value, `cover.${ext}`, String(Date.now()));
+    if (coverFile) validateCover(coverFile);
+    if (!coverFile && !coverUrl) throw new Error('Cerca la cover con il PPSA o carica un file.');
+
+    const ext = coverFile ? MIME_EXTENSIONS[coverFile.type] : '';
+    const coverPath = coverUrl || coverFilePath(byId('title').value, `cover.${ext}`, String(Date.now()));
     const record = readFormRecord(coverPath);
+    setStatus(saveStatus, 'Leggo il catalogo (GET /contents/games.json)…');
     const beforeUpload = await getCatalog();
     checkDuplicate(beforeUpload.catalog.games, record);
 
-    setStatus(saveStatus, 'Carico la cover…');
-    await uploadCover(cover, coverPath, record.title);
-    coverUploaded = true;
+    if (coverFile) {
+      setStatus(saveStatus, `Carico la cover (PUT /contents/${coverPath})…`);
+      await uploadCover(coverFile, coverPath, record.title);
+      coverUploaded = true;
+    }
 
-    setStatus(saveStatus, 'Salvo la scheda…');
+    setStatus(saveStatus, 'Rileggo il catalogo (GET /contents/games.json)…');
     const latest = await getCatalog();
     checkDuplicate(latest.catalog.games, record);
+    setStatus(saveStatus, 'Salvo la scheda (PUT /contents/games.json)…');
     await saveRecord(record, latest.sha, latest.catalog);
 
     entryForm.reset();
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
-    previewUrl = '';
-    coverPreview.removeAttribute('src');
-    coverPreview.hidden = true;
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    clearCoverPreview();
+    setStatus(coverSearchStatus, '');
     setStatus(saveStatus, `“${record.title}” è stato aggiunto al catalogo.`, 'success');
   } catch (error) {
     const partial = coverUploaded ? ' La cover è stata caricata, ma la scheda non è stata salvata.' : '';
