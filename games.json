@@ -57,13 +57,13 @@
     },
     {
       "title": "007 First Light Deluxe Edition",
-      "titleId": "",
+      "titleId": "PPSA11386",
       "version": "01.018",
       "firmware": "BP 4.xx",
       "size": "",
       "status": "released",
       "date": "2026-09-30",
-      "cover": "https://store-images.s-microsoft.com/image/apps.8071.14287567326939893.1fdb2217-3463-49e6-b44c-c16587b03bc8.d8033845-8141-4dc4-b49e-2a8e6749235d?h=265&q=90&w=177",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/007_First_Light_DE.jpg",
       "languages": {
         "text": [],
         "audio": []
@@ -78,9 +78,9 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "coverSource": "Xbox Store cover artwork",
+      "coverSource": "Pippo Library",
       "directUrl": "https://akirabox.to/2WVGrdePB3kx/file",
-      "coverFit": "cover"
+      "coverFit": "contain"
     },
     {
       "title": "Marvel’s Wolverine",
