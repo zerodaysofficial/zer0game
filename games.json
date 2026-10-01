@@ -9,7 +9,7 @@
       "size": "60",
       "status": "released",
       "date": "2026-09-29",
-      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202603/1215/30972495c4d1b567dcd015b80c0d3af9c946efc8822944d7.jpg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/AC_Black_Flag_Resynced_DE.avif",
       "languages": {
         "text": [],
         "audio": []
@@ -25,9 +25,10 @@
         "Open World"
       ],
       "ps5Frame": true,
-      "coverSource": "Official PlayStation artwork",
+      "coverSource": "Pippo Library",
       "directUrl": "https://akirabox.to/0PdzyXK5d3eA/file",
-      "dlcDirectUrl": "https://datanodes.to/download"
+      "dlcDirectUrl": "https://datanodes.to/download",
+      "coverFit": "contain"
     },
     {
       "title": "Dying Light: The Beast",
