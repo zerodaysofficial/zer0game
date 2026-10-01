@@ -2,8 +2,10 @@ import {
   buildGameRecord,
   buildPsStoreCoverSearchUrls,
   coverFilePath,
+  createCatalogUpdate,
   extractPsStoreCover,
   formatGithubError,
+  gameFormValues,
   isOwnerLogin,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
@@ -31,17 +33,31 @@ const coverSearchButton = byId('coverSearchButton');
 const coverInput = byId('coverFile');
 const coverPreview = byId('coverPreview');
 const coverSearchStatus = byId('coverSearchStatus');
+const catalogPanel = byId('catalogPanel');
+const catalogSearch = byId('catalogSearch');
+const catalogStatus = byId('catalogStatus');
+const gameList = byId('gameList');
+const refreshCatalogButton = byId('refreshCatalogButton');
+const newEntryButton = byId('newEntryButton');
+const cancelEditButton = byId('cancelEditButton');
+const logoutButton = byId('logoutButton');
 
 let tokenInMemory = '';
 let previewUrl = '';
 let selectedCoverUrl = '';
 let selectedCoverTitleId = '';
+let catalogGames = [];
+let editingGame = null;
+let saving = false;
+let loginPending = false;
+let coverSearchSequence = 0;
+let catalogLoadSequence = 0;
 
 coverPreview.addEventListener('error', () => {
   if (!selectedCoverUrl || coverPreview.src !== selectedCoverUrl) return;
   selectedCoverUrl = '';
   selectedCoverTitleId = '';
-  clearCoverPreview();
+  showExistingCover();
   setStatus(coverSearchStatus, 'La cover trovata non si carica. Puoi caricarla manualmente.', 'warning');
 });
 
@@ -118,16 +134,6 @@ async function getCatalog() {
   return { catalog, sha: file.sha };
 }
 
-function checkDuplicate(games, record) {
-  const title = record.title.trim().toLocaleLowerCase();
-  const titleId = record.titleId.trim().toLocaleUpperCase();
-  const duplicate = games.find(game =>
-    String(game.title || '').trim().toLocaleLowerCase() === title ||
-    (titleId && String(game.titleId || '').trim().toLocaleUpperCase() === titleId)
-  );
-  if (duplicate) throw new Error(`Esiste già una scheda per “${duplicate.title || duplicate.titleId}”.`);
-}
-
 function validateCover(file) {
   if (!file) throw new Error('Seleziona una cover.');
   if (!MIME_EXTENSIONS[file.type]) throw new Error('La cover deve essere PNG, JPG o WebP.');
@@ -151,7 +157,117 @@ function showCoverPreview(src) {
   coverPreview.hidden = false;
 }
 
-function readFormRecord(coverPath) {
+function showExistingCover() {
+  if (editingGame?.cover) showCoverPreview(editingGame.cover);
+  else clearCoverPreview();
+}
+
+function invalidateCoverSearch() {
+  coverSearchSequence++;
+  coverSearchButton.disabled = saving;
+}
+
+function resetCoverSelection() {
+  invalidateCoverSearch();
+  selectedCoverUrl = '';
+  selectedCoverTitleId = '';
+  clearCoverPreview();
+  setStatus(coverSearchStatus, '');
+}
+
+function isEditing(game) {
+  return editingGame && game.title === editingGame.title && String(game.titleId || '') === String(editingGame.titleId || '');
+}
+
+function renderCatalog() {
+  const query = catalogSearch.value.trim().toLowerCase();
+  const visibleGames = catalogGames.filter(game =>
+    String(game.title || '').toLowerCase().includes(query) || String(game.titleId || '').toLowerCase().includes(query)
+  );
+  byId('catalogCount').textContent = query
+    ? `${visibleGames.length} di ${catalogGames.length} schede`
+    : `${catalogGames.length} schede`;
+  const fragment = document.createDocumentFragment();
+  for (const game of visibleGames) {
+    const row = document.createElement('div');
+    row.className = 'admin-game-row';
+    row.setAttribute('role', 'listitem');
+    if (isEditing(game)) row.dataset.editing = 'true';
+    const image = document.createElement('img');
+    image.className = 'admin-game-cover';
+    image.alt = '';
+    image.loading = 'lazy';
+    if (game.cover) image.src = game.cover;
+    const details = document.createElement('div');
+    const title = document.createElement('p');
+    title.className = 'admin-game-title';
+    title.textContent = game.title || 'Senza titolo';
+    const metadata = document.createElement('p');
+    metadata.className = 'admin-game-details';
+    metadata.textContent = [game.titleId || 'Senza PPSA', game.version, game.status === 'released' ? 'Released' : 'Soon'].filter(Boolean).join(' · ');
+    details.append(title, metadata);
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.className = 'admin-button admin-button-quiet';
+    editButton.textContent = 'Modifica';
+    editButton.addEventListener('click', () => selectGame(game));
+    row.append(image, details, editButton);
+    fragment.append(row);
+  }
+  if (!visibleGames.length) {
+    const empty = document.createElement('p');
+    empty.className = 'admin-game-empty';
+    empty.textContent = catalogGames.length ? 'Nessuna scheda corrisponde alla ricerca.' : 'Il catalogo è vuoto. Aggiungi la prima scheda.';
+    fragment.append(empty);
+  }
+  gameList.replaceChildren(fragment);
+}
+
+function showNewEntry() {
+  if (saving) return;
+  editingGame = null;
+  entryForm.reset();
+  resetCoverSelection();
+  byId('entryHeading').textContent = 'Nuova scheda';
+  byId('editingStatus').textContent = 'Compila i dati e seleziona una cover per aggiungere un gioco.';
+  byId('link').required = true;
+  uploadButton.textContent = 'Upload';
+  cancelEditButton.hidden = true;
+  setStatus(saveStatus, '');
+  renderCatalog();
+}
+
+function selectGame(game, focus = true) {
+  if (saving) return;
+  entryForm.reset();
+  editingGame = structuredClone(game);
+  resetCoverSelection();
+  const values = gameFormValues(game);
+  for (const [field, value] of Object.entries(values)) byId(field).value = value;
+  byId('entryHeading').textContent = 'Modifica scheda';
+  byId('editingStatus').textContent = `Stai modificando “${game.title}”. Puoi mantenere la cover attuale oppure sostituirla.`;
+  byId('link').required = false;
+  uploadButton.textContent = 'Salva modifiche';
+  cancelEditButton.hidden = false;
+  showExistingCover();
+  setStatus(saveStatus, '');
+  renderCatalog();
+  if (focus) {
+    byId('entryHeading').focus({ preventScroll: true });
+    byId('entryHeading').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function setSaving(value) {
+  saving = value;
+  byId('entryFields').disabled = value;
+  catalogPanel.inert = value;
+  for (const button of [uploadButton, cancelEditButton, logoutButton, refreshCatalogButton, newEntryButton, coverSearchButton]) {
+    button.disabled = value;
+  }
+}
+
+function readFormRecord(coverPath, original) {
   return buildGameRecord({
     title: byId('title').value,
     titleId: byId('titleId').value,
@@ -161,10 +277,11 @@ function readFormRecord(coverPath) {
     status: byId('status').value,
     genres: byId('genres').value,
     link: byId('link').value,
+    dlcLink: byId('dlcLink').value,
     cover: coverPath,
     technicalInfo: byId('technicalInfo').value,
     credit: byId('credit').value
-  }, localDate());
+  }, localDate(), original);
 }
 
 async function uploadCover(file, path, title) {
@@ -181,27 +298,28 @@ async function uploadCover(file, path, title) {
   });
 }
 
-async function saveRecord(record, sha, catalog) {
-  const nextCatalog = {
-    ...catalog,
-    updated: localDate(),
-    games: [...catalog.games, record]
-  };
+async function saveRecord(record, sha, catalog, original) {
+  const nextCatalog = createCatalogUpdate(catalog, record, original, localDate());
   const body = {
-    message: `Add ${record.title} to catalog`,
+    message: `${original ? 'Update' : 'Add'} ${record.title} ${original ? 'in' : 'to'} catalog`,
     content: toBase64(new TextEncoder().encode(`${JSON.stringify(nextCatalog, null, 2)}\n`)),
     sha,
     branch: WRITE_BRANCH
   };
-  return githubRequest(`/repos/${REPOSITORY_OWNER}/${REPOSITORY_NAME}/contents/games.json`, {
+  await githubRequest(`/repos/${REPOSITORY_OWNER}/${REPOSITORY_NAME}/contents/games.json`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
+  return nextCatalog;
 }
 
 loginForm.addEventListener('submit', async event => {
   event.preventDefault();
+  if (loginPending) return;
+  loginPending = true;
+  const loginButton = loginForm.querySelector('button[type=submit]');
+  loginButton.disabled = true;
   tokenInMemory = tokenInput.value.trim();
   setStatus(loginStatus, 'Verifico l’account GitHub…');
 
@@ -212,7 +330,10 @@ loginForm.addEventListener('submit', async event => {
       throw new Error('Questo pannello è riservato al proprietario del repository.');
     }
 
-    await getCatalog();
+    const loaded = await getCatalog();
+    catalogGames = loaded.catalog.games;
+    catalogSearch.value = '';
+    showNewEntry();
     tokenInput.value = '';
     loginPanel.hidden = true;
     editorPanel.hidden = false;
@@ -221,31 +342,59 @@ loginForm.addEventListener('submit', async event => {
     tokenInMemory = '';
     tokenInput.value = '';
     setStatus(loginStatus, error.message || 'Accesso non riuscito.', 'error');
+  } finally {
+    loginPending = false;
+    loginButton.disabled = false;
   }
 });
 
-byId('logoutButton').addEventListener('click', () => {
+logoutButton.addEventListener('click', () => {
+  if (saving) return;
+  catalogLoadSequence++;
+  refreshCatalogButton.disabled = false;
   tokenInMemory = '';
-  entryForm.reset();
+  catalogGames = [];
+  catalogSearch.value = '';
+  showNewEntry();
   editorPanel.hidden = true;
   loginPanel.hidden = false;
-  selectedCoverUrl = '';
-  selectedCoverTitleId = '';
-  clearCoverPreview();
-  setStatus(coverSearchStatus, '');
-  setStatus(saveStatus, '');
+  setStatus(catalogStatus, '');
+});
+
+catalogSearch.addEventListener('input', renderCatalog);
+newEntryButton.addEventListener('click', showNewEntry);
+cancelEditButton.addEventListener('click', showNewEntry);
+
+refreshCatalogButton.addEventListener('click', async () => {
+  if (saving || !tokenInMemory) return;
+  const requestId = ++catalogLoadSequence;
+  refreshCatalogButton.disabled = true;
+  setStatus(catalogStatus, 'Aggiorno l’elenco…');
+  try {
+    const loaded = await getCatalog();
+    if (requestId !== catalogLoadSequence || !tokenInMemory) return;
+    catalogGames = loaded.catalog.games;
+    renderCatalog();
+    setStatus(catalogStatus, 'Elenco aggiornato. Seleziona Modifica per aprire i dati più recenti.', 'success');
+  } catch (error) {
+    if (requestId === catalogLoadSequence) setStatus(catalogStatus, error.message, 'error');
+  } finally {
+    if (requestId === catalogLoadSequence) refreshCatalogButton.disabled = saving;
+  }
 });
 
 byId('titleId').addEventListener('input', () => {
+  invalidateCoverSearch();
   if (selectedCoverUrl && normalizedTitleId(byId('titleId').value) !== selectedCoverTitleId) {
     selectedCoverUrl = '';
     selectedCoverTitleId = '';
-    clearCoverPreview();
+    showExistingCover();
     setStatus(coverSearchStatus, 'Il PPSA è cambiato. Cerca di nuovo la cover.', 'warning');
   }
 });
 
 coverSearchButton.addEventListener('click', async () => {
+  if (saving) return;
   const titleId = normalizedTitleId(byId('titleId').value);
   let searchUrls;
   try {
@@ -255,6 +404,7 @@ coverSearchButton.addEventListener('click', async () => {
     return;
   }
 
+  const requestId = ++coverSearchSequence;
   coverSearchButton.disabled = true;
   setStatus(coverSearchStatus, `Cerco la cover per ${titleId} nel PlayStation Store…`);
   try {
@@ -268,11 +418,13 @@ coverSearchButton.addEventListener('click', async () => {
         });
         if (!response.ok) continue;
         result = extractPsStoreCover(await response.json());
+        if (requestId !== coverSearchSequence) return;
         if (result) break;
       } catch (error) {
         if (error instanceof TypeError) networkError = error;
       }
     }
+    if (requestId !== coverSearchSequence) return;
     if (!result && networkError) throw networkError;
     if (!result) throw new Error(`Non ho trovato una cover per ${titleId}.`);
 
@@ -283,21 +435,27 @@ coverSearchButton.addEventListener('click', async () => {
     setStatus(coverSearchStatus, `Trovata: ${result.title}. La cover verrà adattata al riquadro 3:4 del sito.`, 'success');
     setStatus(saveStatus, '');
   } catch (error) {
-    selectedCoverUrl = '';
-    selectedCoverTitleId = '';
+    if (requestId !== coverSearchSequence) return;
     if (error instanceof TypeError) {
       setStatus(coverSearchStatus, 'La ricerca PS Store non è raggiungibile da questa pagina. Puoi caricare la cover manualmente.', 'warning');
     } else {
       setStatus(coverSearchStatus, `${error.message} Puoi caricare la cover manualmente.`, 'warning');
     }
   } finally {
-    coverSearchButton.disabled = false;
+    if (requestId === coverSearchSequence) coverSearchButton.disabled = saving;
   }
 });
 
 coverInput.addEventListener('change', () => {
+  if (saving) return;
+  invalidateCoverSearch();
   const file = coverInput.files?.[0];
-  if (!file) return;
+  if (!file) {
+    selectedCoverUrl = '';
+    selectedCoverTitleId = '';
+    showExistingCover();
+    return;
+  }
   try {
     validateCover(file);
     selectedCoverUrl = '';
@@ -312,59 +470,62 @@ coverInput.addEventListener('change', () => {
     coverInput.value = '';
     selectedCoverUrl = '';
     selectedCoverTitleId = '';
-    clearCoverPreview();
+    showExistingCover();
     setStatus(saveStatus, error.message, 'error');
   }
 });
 
 entryForm.addEventListener('submit', async event => {
   event.preventDefault();
+  if (saving) return;
   if (!tokenInMemory) {
     setStatus(saveStatus, 'Accedi di nuovo per continuare.', 'error');
     return;
   }
 
   const coverFile = coverInput.files?.[0];
+  const original = editingGame ? structuredClone(editingGame) : null;
   const coverUrl = selectedCoverTitleId === normalizedTitleId(byId('titleId').value)
     ? selectedCoverUrl
     : '';
   let coverUploaded = false;
-  uploadButton.disabled = true;
+  invalidateCoverSearch();
+  catalogLoadSequence++;
+  setSaving(true);
   setStatus(saveStatus, 'Controllo i dati…');
 
   try {
     if (coverFile) validateCover(coverFile);
-    if (!coverFile && !coverUrl) throw new Error('Cerca la cover con il PPSA o carica un file.');
+    if (!coverFile && !coverUrl && !original?.cover) throw new Error('Cerca la cover con il PPSA o carica un file.');
 
     const ext = coverFile ? MIME_EXTENSIONS[coverFile.type] : '';
-    const coverPath = coverUrl || coverFilePath(byId('title').value, `cover.${ext}`, String(Date.now()));
-    const record = readFormRecord(coverPath);
-    setStatus(saveStatus, 'Leggo il catalogo (GET /contents/games.json)…');
+    const coverPath = coverFile
+      ? coverFilePath(byId('title').value, `cover.${ext}`, String(Date.now()))
+      : coverUrl || original.cover;
+    const record = readFormRecord(coverPath, original);
+    setStatus(saveStatus, 'Leggo il catalogo…');
     const beforeUpload = await getCatalog();
-    checkDuplicate(beforeUpload.catalog.games, record);
+    createCatalogUpdate(beforeUpload.catalog, record, original, localDate());
 
     if (coverFile) {
-      setStatus(saveStatus, `Carico la cover (PUT /contents/${coverPath})…`);
+      setStatus(saveStatus, 'Carico la cover…');
       await uploadCover(coverFile, coverPath, record.title);
       coverUploaded = true;
     }
 
-    setStatus(saveStatus, 'Rileggo il catalogo (GET /contents/games.json)…');
+    setStatus(saveStatus, 'Verifico gli ultimi aggiornamenti…');
     const latest = await getCatalog();
-    checkDuplicate(latest.catalog.games, record);
-    setStatus(saveStatus, 'Salvo la scheda (PUT /contents/games.json)…');
-    await saveRecord(record, latest.sha, latest.catalog);
-
-    entryForm.reset();
-    selectedCoverUrl = '';
-    selectedCoverTitleId = '';
-    clearCoverPreview();
-    setStatus(coverSearchStatus, '');
-    setStatus(saveStatus, `“${record.title}” è stato aggiunto al catalogo.`, 'success');
+    setStatus(saveStatus, original ? 'Salvo le modifiche…' : 'Salvo la scheda…');
+    const savedCatalog = await saveRecord(record, latest.sha, latest.catalog, original);
+    catalogGames = savedCatalog.games;
+    setSaving(false);
+    if (original) selectGame(record, false);
+    else showNewEntry();
+    setStatus(saveStatus, `“${record.title}”: scheda ${original ? 'aggiornata' : 'aggiunta al catalogo'}.`, 'success');
   } catch (error) {
     const partial = coverUploaded ? ' La cover è stata caricata, ma la scheda non è stata salvata.' : '';
     setStatus(saveStatus, `${error.message || 'Salvataggio non riuscito.'}${partial}`, 'error');
   } finally {
-    uploadButton.disabled = false;
+    setSaving(false);
   }
 });

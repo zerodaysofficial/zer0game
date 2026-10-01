@@ -8,6 +8,22 @@
 .admin-card h1{margin:10px 0 12px;font:700 clamp(28px,5vw,42px)/1.05 "Space Grotesk",sans-serif;letter-spacing:-.04em}
 .admin-lead{max-width:680px;margin:0 0 26px;color:var(--muted);line-height:1.65}
 .admin-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.admin-card h2{margin:0 0 8px;font-size:20px;letter-spacing:-.02em}
+.admin-catalog{padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.admin-catalog-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}
+.admin-catalog-head .admin-help{margin:0}
+.admin-toolbar{display:flex;gap:10px;flex-wrap:wrap}
+.admin-game-list{display:grid;gap:10px;max-height:410px;overflow:auto;padding:4px 4px 4px 0;margin-top:12px;overscroll-behavior:contain}
+.admin-game-row{display:grid;grid-template-columns:50px minmax(0,1fr) auto;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#0a0d17}
+.admin-game-row[data-editing=true]{border-color:#9c8fff;background:rgba(104,72,235,.12)}
+.admin-game-cover{width:50px;height:66px;object-fit:cover;border-radius:6px;background:#171327}
+.admin-game-title{margin:0 0 5px;font-size:14px;font-weight:700;overflow-wrap:anywhere}
+.admin-game-details{margin:0;color:#8994a9;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.admin-game-empty{color:var(--muted);font-size:14px;padding:12px 0}
+.admin-entry-heading{margin-bottom:20px}
+.admin-entry-heading .admin-help{margin:0}
+.admin-entry-fields{border:0;padding:0;margin:0;min-width:0}
+.admin-page [hidden]{display:none}
 .admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .admin-field{display:flex;min-width:0;flex-direction:column;gap:8px}
 .admin-span-2{grid-column:1/-1}
@@ -39,4 +55,8 @@
   .admin-span-2{grid-column:auto}
   .admin-head{align-items:center}
   .admin-card{border-radius:18px}
+  .admin-catalog-head{flex-direction:column;align-items:flex-start}
+  .admin-game-row{grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:10px}
+  .admin-game-cover{width:42px;height:56px}
+  .admin-game-row .admin-button{min-height:40px;padding:0 11px;font-size:12px}
 }
