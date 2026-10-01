@@ -115,7 +115,25 @@ export function formatGithubError(status, method, path, detail = '') {
   return `${prefix}: ${message}`;
 }
 
-export function buildGameRecord(input, date = new Date().toISOString().slice(0, 10)) {
+export function gameFormValues(game = {}) {
+  const notes = String(game.notes ?? '');
+  const creditMatch = notes.match(/(?:^|\s+)Catalog credits:\s*([^\n]*)$/i);
+  return {
+    title: String(game.title ?? ''),
+    titleId: String(game.titleId ?? ''),
+    version: String(game.version ?? ''),
+    firmware: String(game.firmware ?? ''),
+    size: String(game.size ?? ''),
+    status: String(game.status ?? 'soon'),
+    genres: Array.isArray(game.genres) ? game.genres.join(', ') : '',
+    link: String(game.directUrl ?? ''),
+    dlcLink: String(game.dlcDirectUrl ?? ''),
+    technicalInfo: creditMatch ? notes.slice(0, creditMatch.index).trimEnd() : notes,
+    credit: creditMatch ? creditMatch[1].trim() : ''
+  };
+}
+
+export function buildGameRecord(input, date = new Date().toISOString().slice(0, 10), existing = null) {
   const title = cleanText(input?.title, 'Title', true);
   const status = String(input?.status ?? 'soon').trim().toLowerCase();
   if (!['soon', 'released'].includes(status)) throw new Error('Choose Soon or Released.');
@@ -125,33 +143,85 @@ export function buildGameRecord(input, date = new Date().toISOString().slice(0, 
     .split(',')
     .map(value => value.trim())
     .filter(Boolean);
-  const cover = cleanCoverPath(input?.cover);
+  const unchangedCover = existing && String(input?.cover ?? '').trim() === existing.cover;
+  const cover = unchangedCover ? existing.cover : cleanCoverPath(input?.cover);
   const technicalInfo = cleanText(input?.technicalInfo, 'Technical information');
   const credit = cleanText(input?.credit, 'Credits');
-  const notes = [
+  const originalForm = existing ? gameFormValues(existing) : null;
+  const unchangedNotes = originalForm && technicalInfo === originalForm.technicalInfo && credit === originalForm.credit;
+  const notes = unchangedNotes ? existing.notes : [
     technicalInfo,
     credit ? 'Catalog credits: ' + credit : ''
   ].filter(Boolean).join('\n');
 
-  return {
+  const defaults = {
+    date,
+    languages: { text: [], audio: [] },
+    dlcAvailable: false,
+    languageSource: ''
+  };
+  const record = {
+    ...(existing || defaults),
     title,
     titleId: cleanText(input?.titleId, 'Title ID'),
     version: cleanText(input?.version, 'Version'),
     firmware: cleanText(input?.firmware, 'Firmware'),
     size: cleanText(input?.size, 'Size'),
     status,
-    date,
     cover,
-    languages: { text: [], audio: [] },
     notes,
-    directUrl: cleanLink(input?.link),
-    dlcAvailable: false,
-    languageSource: '',
-    genres,
-    ps5Frame: true,
-    coverSource: /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover',
-    coverFit: 'cover'
+    genres
   };
+
+  const link = String(input?.link ?? '').trim();
+  if (!existing || link || Object.hasOwn(existing, 'directUrl')) {
+    record.directUrl = !link && existing ? '' : cleanLink(link);
+  }
+
+  if (Object.hasOwn(input, 'dlcLink')) {
+    const dlcLink = String(input.dlcLink ?? '').trim();
+    if (dlcLink || (existing && Object.hasOwn(existing, 'dlcDirectUrl'))) {
+      record.dlcDirectUrl = dlcLink ? cleanLink(dlcLink) : '';
+    }
+    if (dlcLink) record.dlcAvailable = true;
+  }
+
+  if (!unchangedCover) {
+    record.ps5Frame = true;
+    record.coverSource = /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover';
+    record.coverFit = 'cover';
+  }
+  return record;
+}
+
+export function createCatalogUpdate(catalog, record, original = null, date = new Date().toISOString().slice(0, 10)) {
+  const games = catalog.games;
+  let editIndex = -1;
+  const normalizedTitle = game => String(game.title ?? '').trim().toLowerCase();
+  const normalizedId = game => String(game.titleId ?? '').trim().toUpperCase();
+
+  if (original) {
+    const matches = games.map((game, index) => ({ game, index })).filter(({ game }) =>
+      game.title === original.title && String(game.titleId ?? '') === String(original.titleId ?? '')
+    );
+    if (!matches.length) throw new Error('La scheda non è più nel catalogo. Ricarica l’elenco e selezionala di nuovo.');
+    if (matches.length !== 1) throw new Error('Non è possibile identificare questa scheda in modo univoco.');
+    editIndex = matches[0].index;
+    if (JSON.stringify(matches[0].game) !== JSON.stringify(original)) {
+      throw new Error('La scheda è stata modificata nel frattempo. Ricarica l’elenco e selezionala di nuovo.');
+    }
+  }
+
+  const duplicate = games.find((game, index) => index !== editIndex && (
+    ((!original || normalizedTitle(record) !== normalizedTitle(original)) && normalizedTitle(game) === normalizedTitle(record)) ||
+    (normalizedId(record) && (!original || normalizedId(record) !== normalizedId(original)) && normalizedId(game) === normalizedId(record))
+  ));
+  if (duplicate) throw new Error(`Esiste già una scheda per “${duplicate.title || duplicate.titleId}”.`);
+
+  const nextGames = [...games];
+  if (original) nextGames[editIndex] = record;
+  else nextGames.push(record);
+  return { ...catalog, updated: date, games: nextGames };
 }
 
 export function coverFilePath(title, filename, stamp) {

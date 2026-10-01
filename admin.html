@@ -30,13 +30,38 @@
       <div class="admin-head">
         <div>
           <div class="admin-kicker">ZER0GAME · OWNER</div>
-          <h1>Carica una scheda</h1>
+          <h1>Gestione catalogo</h1>
         </div>
         <button class="admin-button admin-button-quiet" id="logoutButton" type="button">Esci</button>
       </div>
-      <p class="admin-lead">Aggiunge una scheda al catalogo, cerca la cover nel PlayStation Store tramite PPSA oppure usa un file caricato da te, e salva il LINK inserito.</p>
+      <p class="admin-lead">Carica una nuova scheda oppure modifica cover, link e dati di un gioco già presente.</p>
+
+      <section class="admin-catalog" id="catalogPanel" aria-labelledby="catalogHeading">
+        <div class="admin-catalog-head">
+          <div>
+            <h2 id="catalogHeading">Schede nel catalogo</h2>
+            <p class="admin-help" id="catalogCount"></p>
+          </div>
+          <div class="admin-toolbar">
+            <button class="admin-button admin-button-quiet" id="refreshCatalogButton" type="button">Ricarica elenco</button>
+            <button class="admin-button" id="newEntryButton" type="button">+ Nuova scheda</button>
+          </div>
+        </div>
+        <div class="admin-field">
+          <label for="catalogSearch">Cerca una scheda</label>
+          <input id="catalogSearch" type="search" placeholder="Titolo oppure PPSA…" autocomplete="off" />
+        </div>
+        <p class="admin-status" id="catalogStatus" role="status" aria-live="polite"></p>
+        <div class="admin-game-list" id="gameList" role="list"></div>
+      </section>
+
+      <div class="admin-entry-heading">
+        <h2 id="entryHeading" tabindex="-1">Nuova scheda</h2>
+        <p class="admin-help" id="editingStatus">Compila i dati e seleziona una cover per aggiungere un gioco.</p>
+      </div>
 
       <form id="entryForm">
+        <fieldset class="admin-entry-fields" id="entryFields">
         <div class="admin-grid">
           <div class="admin-field admin-span-2">
             <label for="title">Titolo</label>
@@ -77,9 +102,14 @@
             <span class="admin-help">Il link HTTPS apparirà nel pulsante DOWNLOAD GAME.</span>
           </div>
           <div class="admin-field admin-span-2">
+            <label for="dlcLink">LINK DLC <span class="admin-help">(facoltativo)</span></label>
+            <input id="dlcLink" name="dlcLink" type="url" inputmode="url" placeholder="https://…" />
+            <span class="admin-help">Un link separato per il pulsante DOWNLOAD DLC.</span>
+          </div>
+          <div class="admin-field admin-span-2">
             <label for="coverFile">Cover</label>
             <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" />
-            <span class="admin-help">Cerca la cover con il PPSA oppure carica un file PNG, JPG o WebP fino a 8 MB.</span>
+            <span class="admin-help">Cerca la cover con il PPSA oppure carica un file PNG, JPG o WebP fino a 8 MB. In modifica puoi mantenere quella attuale.</span>
             <img class="cover-preview" id="coverPreview" alt="Anteprima cover" hidden />
           </div>
           <div class="admin-field admin-span-2">
@@ -91,8 +121,10 @@
             <input id="credit" name="credit" maxlength="240" placeholder="Nome o gruppo da accreditare" />
           </div>
         </div>
+        </fieldset>
         <div class="admin-actions">
           <button class="admin-button" id="uploadButton" type="submit">Upload</button>
+          <button class="admin-button admin-button-quiet" id="cancelEditButton" type="button" hidden>Annulla modifica</button>
           <p class="admin-status" id="saveStatus" role="status" aria-live="polite"></p>
         </div>
       </form>
