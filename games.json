@@ -82,11 +82,11 @@
     },
     {
       "title": "Marvel’s Wolverine",
-      "titleId": "",
-      "version": "",
+      "titleId": "PPSA03671",
+      "version": "v01.001.005",
       "firmware": "4xx",
       "size": "94.8",
-      "status": "soon",
+      "status": "released",
       "date": "2026-09-29",
       "cover": "covers/marvel_wolverine_digital_deluxe.jpg",
       "languages": {
@@ -103,7 +103,8 @@
         "Adventure"
       ],
       "ps5Frame": false,
-      "coverSource": "User-provided Digital Deluxe Edition cover"
+      "coverSource": "User-provided Digital Deluxe Edition cover",
+      "directUrl": "https://akirabox.to/E9Qz9XelW3OL/file"
     },
     {
       "title": "SILENT HILL: The Short Message",
