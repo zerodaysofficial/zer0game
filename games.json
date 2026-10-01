@@ -3,11 +3,11 @@
   "games": [
     {
       "title": "Assassin's Creed Black Flag Resynced",
-      "titleId": "",
-      "version": "",
-      "firmware": "",
-      "size": "",
-      "status": "soon",
+      "titleId": "PPSA28183",
+      "version": "v01.006.038",
+      "firmware": "4.xx BackPort",
+      "size": "60",
+      "status": "released",
       "date": "2026-09-29",
       "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202603/1215/30972495c4d1b567dcd015b80c0d3af9c946efc8822944d7.jpg",
       "languages": {
@@ -17,7 +17,7 @@
       "notes": "Assassin's Creed Black Flag Resynced. Added without a PPSA / Title ID. FPKG availability: coming soon. Catalog credits: Pippo & DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/it-it/games/assassins-creed-black-flag-resynced/",
-      "dlcAvailable": false,
+      "dlcAvailable": true,
       "languageSource": "",
       "genres": [
         "Action",
@@ -25,7 +25,9 @@
         "Open World"
       ],
       "ps5Frame": true,
-      "coverSource": "Official PlayStation artwork"
+      "coverSource": "Official PlayStation artwork",
+      "directUrl": "https://akirabox.to/0PdzyXK5d3eA/file",
+      "dlcDirectUrl": "https://datanodes.to/download"
     },
     {
       "title": "Dying Light: The Beast",
