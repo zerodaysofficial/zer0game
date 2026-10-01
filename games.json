@@ -2377,6 +2377,30 @@
       "compatibilityNote": "FPKG works up to firmware 11.60; use exFAT above that.",
       "directUrl": "https://akirabox.to/vgKGxX256G8Q/file",
       "coverSource": "Pippo Library"
+    },
+    {
+      "date": "2026-10-01",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "dlcAvailable": false,
+      "languageSource": "",
+      "title": "God of War Sons of Sparta",
+      "titleId": "PPSA28997",
+      "version": "v01.008.001",
+      "firmware": "4.xx BackPort",
+      "size": "7",
+      "status": "released",
+      "cover": "covers/god-of-war-sons-of-sparta-1790861279849.png",
+      "notes": "Catalog credits: Pippo & DecKerr97.",
+      "genres": [
+        "Action"
+      ],
+      "directUrl": "https://akirabox.to/M2BGwPMPPmj4/file",
+      "ps5Frame": true,
+      "coverSource": "Owner-uploaded cover",
+      "coverFit": "cover"
     }
   ]
 }
