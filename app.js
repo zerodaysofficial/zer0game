@@ -449,7 +449,12 @@ function openModal(game) {
   const gameDownloadUrl = game.directUrl || '';
   const dlcDownloadUrl = game.dlcDirectUrl || '';
 
-  if (gameDownloadUrl) actions.push(`<a class="action game-download" href="${escapeHtml(zer0dayLockUrl(gameDownloadUrl))}"><span class="download-dot"></span>${escapeHtml(game.downloadLabel || 'DOWNLOAD GAME')}</a>`);
+  if (gameDownloadUrl) {
+    const downloadAction = `<a class="action game-download" href="${escapeHtml(zer0dayLockUrl(gameDownloadUrl))}"><span class="download-dot"></span>${escapeHtml(game.downloadLabel || 'DOWNLOAD GAME')}</a>`;
+    actions.push(game.debugMenuSoon
+      ? `<div class="game-download-group">${downloadAction}<span class="debug-menu-soon">DEBUG MENU SOON</span></div>`
+      : downloadAction);
+  }
   if (dlcDownloadUrl) actions.push(`<a class="action dlc-download" href="${escapeHtml(zer0dayLockUrl(dlcDownloadUrl))}">DOWNLOAD DLC</a>`);
   if (game.infoUrl) actions.push(`<a class="action" href="${escapeHtml(game.infoUrl)}" target="_blank" rel="noopener">Official info</a>`);
 

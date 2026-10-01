@@ -2501,6 +2501,32 @@ footer{
 .modal-actions .game-download{
   min-width:190px;
 }
+.game-download-group{
+  display:flex;
+  gap:12px;
+  flex:1 1 auto;
+  min-width:0;
+}
+.modal-actions .game-download-group .game-download{
+  flex:1 1 auto;
+  min-width:0;
+}
+.debug-menu-soon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 1 auto;
+  min-height:46px;
+  padding:0 12px;
+  border:1px solid rgba(255,193,107,.28);
+  border-radius:12px;
+  background:rgba(255,193,107,.08);
+  color:#ffc16b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-align:center;
+}
 @media(max-width:900px) and (min-width:681px){
   .modal-scroll{padding:38px 30px 24px}
   .modal-actions{padding-left:30px;padding-right:30px}
