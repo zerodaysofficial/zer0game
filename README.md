@@ -38,6 +38,10 @@ Search the existing catalog by title or PPSA, then select **Modifica** to open a
 
 **+ Nuova scheda** switches back to upload mode; **Annulla modifica** discards the edit form. **Ricarica elenco** fetches the latest catalog. If someone changed or removed the selected entry after you opened it, saving stops and asks you to reload the entry instead of overwriting their work.
 
+**Cerca cover con PPSA** matches the exact Title ID in Pippo Library, with a raw catalog mirror and PlayStation Store as fallbacks. It checks that the image loads before selecting it and accepts the Store's official `*.dl.playstation.net` image CDN. Store results prefer the full game over DLC. Searches time out and are cancelled when the PPSA or selected entry changes. Cover lookup never sends the GitHub token to external sources.
+
+Run the validation and cover search tests with `node --test`.
+
 GitHub Pages serves this static page publicly. It is not linked in site navigation and uses `noindex`, but those are not access controls. GitHub repository write permissions remain the security boundary; keep Contents write access limited to the intended accounts.
 
 ## GitHub Pages

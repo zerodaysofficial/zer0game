@@ -1,15 +1,14 @@
 import {
   buildGameRecord,
-  buildPsStoreCoverSearchUrls,
   coverFilePath,
   createCatalogUpdate,
-  extractPsStoreCover,
   formatGithubError,
   gameFormValues,
   isOwnerLogin,
+  searchCoverByPpsa,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
-} from './admin-core.mjs';
+} from './admin-core.mjs?v=20261001-cover-search';
 
 const API_ROOT = 'https://api.github.com';
 const WRITE_BRANCH = 'main';
@@ -51,6 +50,7 @@ let editingGame = null;
 let saving = false;
 let loginPending = false;
 let coverSearchSequence = 0;
+let coverSearchController = null;
 let catalogLoadSequence = 0;
 
 coverPreview.addEventListener('error', () => {
@@ -164,7 +164,32 @@ function showExistingCover() {
 
 function invalidateCoverSearch() {
   coverSearchSequence++;
+  coverSearchController?.abort();
+  coverSearchController = null;
   coverSearchButton.disabled = saving;
+}
+
+function canLoadCover(url, signal) {
+  return new Promise(resolve => {
+    const image = new Image();
+    let timer;
+    const finish = valid => {
+      clearTimeout(timer);
+      signal.removeEventListener('abort', abort);
+      image.onload = null;
+      image.onerror = null;
+      image.removeAttribute('src');
+      resolve(valid);
+    };
+    const abort = () => finish(false);
+    image.onload = () => finish(image.naturalWidth > 0 && image.naturalHeight > 0);
+    image.onerror = () => finish(false);
+    image.referrerPolicy = 'no-referrer';
+    signal.addEventListener('abort', abort, { once: true });
+    if (signal.aborted) return abort();
+    timer = setTimeout(abort, 8000);
+    image.src = url;
+  });
 }
 
 function resetCoverSelection() {
@@ -385,6 +410,7 @@ refreshCatalogButton.addEventListener('click', async () => {
 
 byId('titleId').addEventListener('input', () => {
   invalidateCoverSearch();
+  setStatus(coverSearchStatus, '');
   if (selectedCoverUrl && normalizedTitleId(byId('titleId').value) !== selectedCoverTitleId) {
     selectedCoverUrl = '';
     selectedCoverTitleId = '';
@@ -396,37 +422,19 @@ byId('titleId').addEventListener('input', () => {
 coverSearchButton.addEventListener('click', async () => {
   if (saving) return;
   const titleId = normalizedTitleId(byId('titleId').value);
-  let searchUrls;
-  try {
-    searchUrls = buildPsStoreCoverSearchUrls(titleId);
-  } catch (error) {
-    setStatus(coverSearchStatus, error.message, 'error');
-    return;
-  }
-
-  const requestId = ++coverSearchSequence;
+  invalidateCoverSearch();
+  const requestId = coverSearchSequence;
+  const controller = new AbortController();
+  coverSearchController = controller;
   coverSearchButton.disabled = true;
-  setStatus(coverSearchStatus, `Cerco la cover per ${titleId} nel PlayStation Store…`);
+  setStatus(coverSearchStatus, `Cerco la cover per ${titleId}…`);
   try {
-    let result = null;
-    let networkError = null;
-    for (const searchUrl of searchUrls) {
-      try {
-        const response = await fetch(searchUrl, {
-          cache: 'no-store',
-          headers: { Accept: 'application/json' }
-        });
-        if (!response.ok) continue;
-        result = extractPsStoreCover(await response.json());
-        if (requestId !== coverSearchSequence) return;
-        if (result) break;
-      } catch (error) {
-        if (error instanceof TypeError) networkError = error;
-      }
-    }
+    const result = await searchCoverByPpsa(titleId, {
+      signal: controller.signal,
+      verifyImage: url => canLoadCover(url, controller.signal)
+    });
     if (requestId !== coverSearchSequence) return;
-    if (!result && networkError) throw networkError;
-    if (!result) throw new Error(`Non ho trovato una cover per ${titleId}.`);
+    if (!result) throw new Error(`Non ho trovato una cover caricabile per ${titleId}.`);
 
     selectedCoverUrl = result.imageUrl;
     selectedCoverTitleId = titleId;
@@ -436,13 +444,13 @@ coverSearchButton.addEventListener('click', async () => {
     setStatus(saveStatus, '');
   } catch (error) {
     if (requestId !== coverSearchSequence) return;
-    if (error instanceof TypeError) {
-      setStatus(coverSearchStatus, 'La ricerca PS Store non è raggiungibile da questa pagina. Puoi caricare la cover manualmente.', 'warning');
-    } else {
-      setStatus(coverSearchStatus, `${error.message} Puoi caricare la cover manualmente.`, 'warning');
-    }
+    const invalidId = !/^PPSA\d{5}$/.test(titleId);
+    setStatus(coverSearchStatus, invalidId ? error.message : `${error.message} Puoi anche caricare un file.`, invalidId ? 'error' : 'warning');
   } finally {
-    if (requestId === coverSearchSequence) coverSearchButton.disabled = saving;
+    if (requestId === coverSearchSequence) {
+      coverSearchController = null;
+      coverSearchButton.disabled = saving;
+    }
   }
 });
 

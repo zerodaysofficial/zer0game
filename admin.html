@@ -110,7 +110,7 @@
             <label for="coverFile">Cover</label>
             <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" />
             <span class="admin-help">Cerca la cover con il PPSA oppure carica un file PNG, JPG o WebP fino a 8 MB. In modifica puoi mantenere quella attuale.</span>
-            <img class="cover-preview" id="coverPreview" alt="Anteprima cover" hidden />
+            <img class="cover-preview" id="coverPreview" alt="Anteprima cover" referrerpolicy="no-referrer" hidden />
           </div>
           <div class="admin-field admin-span-2">
             <label for="technicalInfo">Informazioni tecniche</label>
@@ -130,6 +130,6 @@
       </form>
     </section>
   </main>
-  <script type="module" src="admin.js"></script>
+  <script type="module" src="admin.js?v=20261001-cover-search"></script>
 </body>
 </html>

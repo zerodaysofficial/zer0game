@@ -3,6 +3,11 @@ export const REPOSITORY_NAME = 'zer0game';
 
 const MAX_TEXT_LENGTH = 8000;
 const PLAYSTATION_STORE_API = 'https://store.playstation.com/store/api/chihiro/00_09_000';
+const LIBRARY_IMAGE_HOST = 'pub-ce6b40c14d144a128552570bcf6bb628.r2.dev';
+const COVER_LIBRARY_URLS = [
+  'https://pippo26442999.github.io/.exFAT/exFAT.json',
+  'https://raw.githubusercontent.com/Pippo26442999/.exFAT/main/exFAT.json'
+];
 
 function cleanText(value, field, required = false) {
   const text = String(value ?? '').trim();
@@ -29,16 +34,10 @@ function cleanCoverPath(value) {
   const path = String(value ?? '').trim();
   if (/^covers\/[a-z0-9][a-z0-9._-]*\.(png|jpe?g|webp)$/i.test(path)) return path;
 
-  try {
-    const url = new URL(path);
-    const hostname = url.hostname.toLowerCase();
-    const isPlayStationHost = hostname === 'playstation.com' || hostname.endsWith('.playstation.com');
-    if (url.protocol === 'https:' && isPlayStationHost && !url.username && !url.password) return url.href;
-  } catch {
-    // A non-URL value is valid only when it matches the local cover path above.
-  }
+  const remoteCover = safePlayStationImageUrl(path) || safeLibraryImageUrl(path);
+  if (remoteCover) return remoteCover;
 
-  throw new Error('Upload a PNG, JPEG or WebP cover, or use a PlayStation Store cover.');
+  throw new Error('Upload a PNG, JPEG or WebP cover, or use a cover found by PPSA.');
 }
 
 function normalizePpsa(value) {
@@ -51,13 +50,40 @@ function safePlayStationImageUrl(value) {
   try {
     const url = new URL(String(value ?? '').trim());
     const hostname = url.hostname.toLowerCase();
-    const isPlayStationHost = hostname === 'playstation.com' || hostname.endsWith('.playstation.com');
+    const isPlayStationHost = hostname === 'playstation.com' || hostname.endsWith('.playstation.com')
+      || hostname.endsWith('.dl.playstation.net');
     return url.protocol === 'https:' && isPlayStationHost && !url.username && !url.password
       ? url.href
       : '';
   } catch {
     return '';
   }
+}
+
+function safeLibraryImageUrl(value) {
+  try {
+    const url = new URL(String(value ?? '').trim());
+    return url.protocol === 'https:' && url.hostname.toLowerCase() === LIBRARY_IMAGE_HOST
+      && url.pathname.startsWith('/exFAT/') && /\.(avif|png|jpe?g|webp)$/i.test(url.pathname)
+      && !url.username && !url.password ? url.href : '';
+  } catch {
+    return '';
+  }
+}
+
+export function extractLibraryCover(payload, titleId) {
+  const ppsa = normalizePpsa(titleId);
+  if (!Array.isArray(payload)) return null;
+  for (const game of payload) {
+    const tags = Array.isArray(game?.tags) ? game.tags : [];
+    const identifiers = [game?.titleId, ...tags].flatMap(value =>
+      String(value ?? '').toUpperCase().match(/\bPPSA\d{5}(?:_00)?\b/g) ?? []
+    );
+    if (!identifiers.some(value => value.replace(/_00$/, '') === ppsa)) continue;
+    const imageUrl = safeLibraryImageUrl(game.image);
+    if (imageUrl) return { title: String(game.title ?? 'Gioco trovato').trim(), imageUrl };
+  }
+  return null;
 }
 
 export function buildPsStoreCoverSearchUrls(titleId) {
@@ -78,7 +104,14 @@ export function extractPsStoreCover(payload) {
         ? [payload]
         : [];
 
-  for (const product of products) {
+  const productRank = product => {
+    const types = Array.isArray(product?.gameContentTypesList) ? product.gameContentTypesList : [];
+    if (types.some(type => type?.key === 'FULL_GAME')) return 0;
+    if (types.some(type => type?.key === 'BUNDLE')) return 1;
+    return types.length ? 3 : 2;
+  };
+  for (const product of [...products].sort((a, b) => productRank(a) - productRank(b))) {
+    if (productRank(product) === 3) continue;
     const rawImages = product?.images ?? product?.media?.images ?? product?.coverImages ?? [];
     const images = Array.isArray(rawImages) ? rawImages : [rawImages];
     const orderedImages = [...images].sort((a, b) => {
@@ -98,6 +131,45 @@ export function extractPsStoreCover(payload) {
     }
   }
 
+  return null;
+}
+
+export async function searchCoverByPpsa(titleId, {
+  fetchImpl = globalThis.fetch,
+  verifyImage = async () => true,
+  signal
+} = {}) {
+  const storeUrls = buildPsStoreCoverSearchUrls(titleId);
+  const sources = [
+    ...COVER_LIBRARY_URLS.map(url => ({ url, extract: payload => extractLibraryCover(payload, titleId) })),
+    ...storeUrls.map(url => ({ url, extract: extractPsStoreCover }))
+  ];
+  let reachable = false;
+  for (const source of sources) {
+    signal?.throwIfAborted();
+    try {
+      const timeout = AbortSignal.timeout(8000);
+      const response = await fetchImpl(source.url, {
+        cache: 'no-store',
+        credentials: 'omit',
+        headers: { Accept: 'application/json' },
+        signal: signal ? AbortSignal.any([signal, timeout]) : timeout
+      });
+      if (!response.ok) continue;
+      const payload = await response.json();
+      reachable = true;
+      const result = source.extract(payload);
+      if (result && await verifyImage(result.imageUrl)) {
+        signal?.throwIfAborted();
+        return result;
+      }
+    } catch {
+      signal?.throwIfAborted();
+      // A failed catalog or image must not prevent trying the next source.
+    }
+  }
+  signal?.throwIfAborted();
+  if (!reachable) throw new Error('Impossibile raggiungere i cataloghi delle cover. Riprova tra poco.');
   return null;
 }
 
@@ -187,9 +259,11 @@ export function buildGameRecord(input, date = new Date().toISOString().slice(0, 
   }
 
   if (!unchangedCover) {
+    const libraryCover = Boolean(safeLibraryImageUrl(cover));
     record.ps5Frame = true;
-    record.coverSource = /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover';
-    record.coverFit = 'cover';
+    record.coverSource = libraryCover ? 'Pippo Library'
+      : /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover';
+    record.coverFit = libraryCover ? 'contain' : 'cover';
   }
   return record;
 }
