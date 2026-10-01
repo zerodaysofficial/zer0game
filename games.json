@@ -2401,6 +2401,30 @@
       "directUrl": "https://akirabox.to/M2BGwPMPPmj4/file",
       "ps5Frame": false,
       "coverSource": "Owner-uploaded cover"
+    },
+    {
+      "date": "2026-10-01",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "dlcAvailable": false,
+      "languageSource": "",
+      "title": "Ready or Not Deluxe Edition",
+      "titleId": "PPSA18605",
+      "version": "v01.001.008",
+      "firmware": "4.xx BackPort",
+      "size": "26",
+      "status": "released",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Ready_or_Not_DE.avif",
+      "notes": "Catalog credits: Pippo & DecKerr97.",
+      "genres": [
+        "action"
+      ],
+      "directUrl": "https://akirabox.to/E9Qz9X7R23OL/file",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library",
+      "coverFit": "contain"
     }
   ]
 }
