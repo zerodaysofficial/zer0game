@@ -2399,9 +2399,8 @@
         "Action"
       ],
       "directUrl": "https://akirabox.to/M2BGwPMPPmj4/file",
-      "ps5Frame": true,
-      "coverSource": "Owner-uploaded cover",
-      "coverFit": "cover"
+      "ps5Frame": false,
+      "coverSource": "Owner-uploaded cover"
     }
   ]
 }
