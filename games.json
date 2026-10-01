@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "games": [
     {
       "title": "Assassin's Creed Black Flag Resynced",
@@ -84,8 +84,8 @@
       "title": "Marvel’s Wolverine",
       "titleId": "",
       "version": "",
-      "firmware": "",
-      "size": "",
+      "firmware": "4xx",
+      "size": "94.8",
       "status": "soon",
       "date": "2026-09-29",
       "cover": "covers/marvel_wolverine_digital_deluxe.jpg",
