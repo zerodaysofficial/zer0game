@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01",
+  "updated": "2026-10-03",
   "games": [
     {
       "title": "Assassin's Creed Black Flag Resynced",
@@ -96,7 +96,7 @@
         "text": [],
         "audio": []
       },
-      "notes": "Marvel’s Wolverine. Digital Deluxe Edition cover. Added without a PPSA / Title ID. FPKG availability: coming soon. Catalog credits: Pippo & DecKerr97.",
+      "notes": "Marvel’s Wolverine. Digital Deluxe Edition cover. Added without a PPSA / Title ID. FPKG availability: coming soon.\n\nCHEAT BY ZER0DAY\nCatalog credits: Pippo & DecKerr97.",
       "releaseUrl": "",
       "infoUrl": "https://www.playstation.com/en-ca/games/marvels-wolverine/",
       "dlcAvailable": false,
@@ -108,7 +108,9 @@
       "ps5Frame": false,
       "coverSource": "User-provided Digital Deluxe Edition cover",
       "directUrl": "https://akirabox.to/E9Qz9XelW3OL/file",
-      "debugMenuSoon": true
+      "debugMenuSoon": true,
+      "cheatEnabled": true,
+      "cheatDirectUrl": "https://www.mediafire.com/file/4melubwa28nw7qc/PPSA03671_01.001.005.json/file"
     },
     {
       "title": "SILENT HILL: The Short Message",
