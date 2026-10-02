@@ -34,6 +34,10 @@
 .admin-field input::placeholder,.admin-field textarea::placeholder{color:#667187}
 .admin-field input[type=file]{padding:9px;color:#aab3c3}
 .admin-field input[type=file]::file-selector-button{margin-right:12px;padding:8px 11px;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#e8eaf0;background:#151a27;cursor:pointer}
+.admin-cheat-field{padding:14px 16px;border:1px solid rgba(124,92,255,.26);border-radius:14px;background:rgba(104,72,235,.08)}
+.admin-toggle{display:flex;align-items:center;gap:12px;cursor:pointer}
+.admin-field .admin-toggle input[type=checkbox]{width:20px;min-height:20px;height:20px;margin:0;padding:0;accent-color:#7c5cff;box-shadow:none}
+.admin-toggle span{font-size:14px;font-weight:800}
 .admin-help{color:#7f899b;font-size:12px;line-height:1.5}
 .cover-preview{width:150px;height:200px;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line);border-radius:10px;background:#080b12}
 .cover-preview[hidden],.admin-card[hidden]{display:none}
