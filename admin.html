@@ -106,6 +106,18 @@
             <input id="dlcLink" name="dlcLink" type="url" inputmode="url" placeholder="https://…" />
             <span class="admin-help">Un link separato per il pulsante DOWNLOAD DLC.</span>
           </div>
+          <div class="admin-field admin-span-2 admin-cheat-field">
+            <label class="admin-toggle" for="cheatEnabled">
+              <input id="cheatEnabled" name="cheatEnabled" type="checkbox" />
+              <span>Enable Cheats</span>
+            </label>
+            <span class="admin-help">Se attivo, sul sito comparirà il pulsante DOWNLOAD CHEAT per questo gioco.</span>
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="cheatLink">CHEAT LINK <span class="admin-help">(manuale)</span></label>
+            <input id="cheatLink" name="cheatLink" type="url" inputmode="url" placeholder="https://…" />
+            <span class="admin-help">Il link viene conservato anche se disabiliti temporaneamente i cheat.</span>
+          </div>
           <div class="admin-field admin-span-2">
             <label for="coverFile">Cover</label>
             <input id="coverFile" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" />
@@ -130,6 +142,6 @@
       </form>
     </section>
   </main>
-  <script type="module" src="admin.js?v=20261001-cover-search"></script>
+  <script type="module" src="admin.js?v=20261003-cheat-download"></script>
 </body>
 </html>
