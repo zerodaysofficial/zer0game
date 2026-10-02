@@ -319,6 +319,7 @@ function render() {
     const fullSize = node.querySelector('.card-full-size');
     const quickAkia = node.querySelector('.quick-akia');
     const quickDlc = node.querySelector('.quick-dlc');
+    const quickActions = node.querySelector('.quick-actions');
     const downloadBlock = node.querySelector('.card-download-block');
     const downloadLabel = node.querySelector('.download-section-label');
 
@@ -374,6 +375,7 @@ function render() {
       badges.appendChild(categoryBadge);
     }
     if (game.dlcDirectUrl) badges.appendChild(badge('DLC'));
+    if (game.cheatEnabled && game.cheatDirectUrl) badges.appendChild(badge('CHEAT'));
     if (game.languages?.audio?.includes('ITA')) badges.appendChild(badge('ITA AUDIO'));
     else if (game.languages?.text?.includes('ITA')) badges.appendChild(badge('ITA TEXT'));
 
@@ -398,7 +400,16 @@ function render() {
       quickDlc.hidden = true;
     }
 
-    if (!game.directUrl && !game.dlcDirectUrl) {
+    if (game.cheatEnabled && game.cheatDirectUrl) {
+      const quickCheat = document.createElement('a');
+      quickCheat.className = 'quick-download quick-cheat';
+      quickCheat.textContent = 'CHEAT';
+      quickCheat.setAttribute('aria-label', 'Download cheat');
+      quickCheat.href = zer0dayLockUrl(game.cheatDirectUrl);
+      quickActions.appendChild(quickCheat);
+    }
+
+    if (!game.directUrl && !game.dlcDirectUrl && !(game.cheatEnabled && game.cheatDirectUrl)) {
       downloadBlock.hidden = true;
     }
 
@@ -448,6 +459,7 @@ function openModal(game) {
   const actions = [];
   const gameDownloadUrl = game.directUrl || '';
   const dlcDownloadUrl = game.dlcDirectUrl || '';
+  const cheatDownloadUrl = game.cheatEnabled ? (game.cheatDirectUrl || '') : '';
 
   if (gameDownloadUrl) {
     const downloadAction = `<a class="action game-download" href="${escapeHtml(zer0dayLockUrl(gameDownloadUrl))}"><span class="download-dot"></span>${escapeHtml(game.downloadLabel || 'DOWNLOAD GAME')}</a>`;
@@ -456,6 +468,7 @@ function openModal(game) {
       : downloadAction);
   }
   if (dlcDownloadUrl) actions.push(`<a class="action dlc-download" href="${escapeHtml(zer0dayLockUrl(dlcDownloadUrl))}">DOWNLOAD DLC</a>`);
+  if (cheatDownloadUrl) actions.push(`<a class="action cheat-download" href="${escapeHtml(zer0dayLockUrl(cheatDownloadUrl))}">DOWNLOAD CHEAT</a>`);
   if (game.infoUrl) actions.push(`<a class="action" href="${escapeHtml(game.infoUrl)}" target="_blank" rel="noopener">Official info</a>`);
 
   els.modalContent.innerHTML = `
