@@ -8,7 +8,7 @@ import {
   searchCoverByPpsa,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
-} from './admin-core.mjs?v=20261001-cover-search';
+} from './admin-core.mjs?v=20261003-cheat-download';
 
 const API_ROOT = 'https://api.github.com';
 const WRITE_BRANCH = 'main';
@@ -268,7 +268,12 @@ function selectGame(game, focus = true) {
   editingGame = structuredClone(game);
   resetCoverSelection();
   const values = gameFormValues(game);
-  for (const [field, value] of Object.entries(values)) byId(field).value = value;
+  for (const [field, value] of Object.entries(values)) {
+    const input = byId(field);
+    if (!input) continue;
+    if (input.type === 'checkbox') input.checked = Boolean(value);
+    else input.value = value;
+  }
   byId('entryHeading').textContent = 'Modifica scheda';
   byId('editingStatus').textContent = `Stai modificando “${game.title}”. Puoi mantenere la cover attuale oppure sostituirla.`;
   byId('link').required = false;
@@ -303,6 +308,8 @@ function readFormRecord(coverPath, original) {
     genres: byId('genres').value,
     link: byId('link').value,
     dlcLink: byId('dlcLink').value,
+    cheatEnabled: byId('cheatEnabled').checked,
+    cheatLink: byId('cheatLink').value,
     cover: coverPath,
     technicalInfo: byId('technicalInfo').value,
     credit: byId('credit').value
