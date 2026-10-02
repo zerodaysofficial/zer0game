@@ -200,6 +200,8 @@ export function gameFormValues(game = {}) {
     genres: Array.isArray(game.genres) ? game.genres.join(', ') : '',
     link: String(game.directUrl ?? ''),
     dlcLink: String(game.dlcDirectUrl ?? ''),
+    cheatEnabled: Boolean(game.cheatEnabled),
+    cheatLink: String(game.cheatDirectUrl ?? ''),
     technicalInfo: creditMatch ? notes.slice(0, creditMatch.index).trimEnd() : notes,
     credit: creditMatch ? creditMatch[1].trim() : ''
   };
@@ -256,6 +258,20 @@ export function buildGameRecord(input, date = new Date().toISOString().slice(0, 
       record.dlcDirectUrl = dlcLink ? cleanLink(dlcLink) : '';
     }
     if (dlcLink) record.dlcAvailable = true;
+  }
+
+  if (Object.hasOwn(input, 'cheatEnabled') || Object.hasOwn(input, 'cheatLink')) {
+    const cheatEnabled = Boolean(input.cheatEnabled);
+    const cheatLink = String(input.cheatLink ?? '').trim();
+    const storedCheatLink = String(existing?.cheatDirectUrl ?? '').trim();
+    const resolvedCheatLink = cheatLink || storedCheatLink;
+
+    if (cheatEnabled && !resolvedCheatLink) {
+      throw new Error('Add a valid HTTPS cheat link before enabling cheats.');
+    }
+
+    record.cheatEnabled = cheatEnabled;
+    if (resolvedCheatLink) record.cheatDirectUrl = cleanLink(resolvedCheatLink);
   }
 
   if (!unchangedCover) {
