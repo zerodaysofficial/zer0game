@@ -30,7 +30,7 @@ export function counterUrl(operation, key) {
 export function formatDownloadCount(value) {
   const count = Number.isFinite(Number(value)) ? Math.max(0, Math.trunc(Number(value))) : 0;
   const formatted = new Intl.NumberFormat('en-US').format(count);
-  return `${formatted} ${count === 1 ? 'download' : 'downloads'}`;
+  return `${formatted} ${count === 1 ? 'click' : 'clicks'}`;
 }
 
 export function classifyDownloadTarget(classNames = []) {
@@ -144,7 +144,7 @@ async function attachCounterBadge(action, identity, kind) {
   badge.className = 'download-count-badge';
   badge.dataset.counterKey = key;
   badge.dataset.counterKind = kind;
-  badge.textContent = '… downloads';
+  badge.textContent = '… clicks';
   badge.setAttribute('aria-live', 'polite');
   action.insertAdjacentElement('afterend', badge);
 
@@ -153,7 +153,7 @@ async function attachCounterBadge(action, identity, kind) {
     updateVisibleBadges(key, value);
   } catch (error) {
     console.warn('[ZER0GAME] Could not load download counter', error);
-    badge.textContent = '— downloads';
+    badge.textContent = '— clicks';
   }
 }
 
