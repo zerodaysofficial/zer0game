@@ -70,7 +70,8 @@
           <div class="admin-field">
             <label for="titleId">Codice disco / Title ID</label>
             <input id="titleId" name="titleId" maxlength="40" placeholder="PPSA00000" />
-            <button class="admin-button admin-button-search" id="coverSearchButton" type="button">Cerca cover con PPSA</button>
+            <button class="admin-button admin-button-search" id="coverSearchButton" type="button">Cerca cover + dati con PPSA</button>
+            <p class="admin-help">Dopo la ricerca PPSA, il titolo viene compilato automaticamente se vuoto. Le lingue disponibili vengono aggiunte alle informazioni tecniche e restano modificabili.</p>
             <p class="admin-status" id="coverSearchStatus" role="status" aria-live="polite"></p>
           </div>
           <div class="admin-field">
@@ -126,7 +127,7 @@
           </div>
           <div class="admin-field admin-span-2">
             <label for="technicalInfo">Informazioni tecniche</label>
-            <textarea id="technicalInfo" name="technicalInfo" rows="8" maxlength="8000" placeholder="Developer, publisher, regione, edizione, multiplayer…"></textarea>
+            <textarea id="technicalInfo" name="technicalInfo" rows="8" maxlength="8000" placeholder="Voices ⇛ English, French…&#10;Screen Languages ⇛ English, Italian…&#10;Developer, publisher, regione, edizione…"></textarea>
           </div>
           <div class="admin-field admin-span-2">
             <label for="credit">Credit</label>
@@ -142,6 +143,6 @@
       </form>
     </section>
   </main>
-  <script type="module" src="admin.js?v=20261003-cheat-download"></script>
+  <script type="module" src="admin.js?v=20261009-ppsa-metadata"></script>
 </body>
 </html>
