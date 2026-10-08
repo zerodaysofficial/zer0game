@@ -3,7 +3,7 @@ import {counterKey,readCounter,incrementCounter,formatDownloadCount} from './dow
 
 const $=selector=>document.querySelector(selector);
 const $$=selector=>Array.from(document.querySelectorAll(selector));
-const state={games:[],search:'',filter:'all',fw:'',genre:'',lang:'',sort:'newest',shown:15,hero:0,user:null,profile:null,favorites:[],activity:[],selected:null};
+const state={games:[],search:'',filter:'all',fw:'',genre:'',lang:'',sort:'newest',shown:5,hero:0,user:null,profile:null,favorites:[],activity:[],selected:null};
 const esc=value=>String(value??'').replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const lower=value=>String(value||'').toLocaleLowerCase();
 const titleKey=g=>String(g.titleId||g.title||'unknown').toLowerCase()+'|'+String(g.version||'').toLowerCase();
