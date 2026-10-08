@@ -36,7 +36,7 @@ test('Private user data require authenticated user and SQL RLS policies',()=>{
 test('Each ID queried by the dashboard script exists in HTML',()=>{
  const pattern=/\$\('#([A-Za-z][A-Za-z0-9_-]*)'\)/g;
  for(const match of script.matchAll(pattern)){
-  assert.ok(html.includes('id="'+match[1]+'"'),'Missing HTML id: '+match[1]);
+  assert.ok(html.includes('id="'+match[1]+'"')||script.includes('id="'+match[1]+'"'),'Missing HTML or dynamically rendered id: '+match[1]);
  }
 });
 test('JavaScript files are parseable',()=>{
