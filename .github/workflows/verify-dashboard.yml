@@ -1,0 +1,25 @@
+name: Verify dashboard
+on:
+  push:
+    branches: [feature/neon-dashboard-auth]
+  pull_request:
+    paths:
+      - "index.html"
+      - "dashboard.js"
+      - "dashboard.css"
+      - "auth-config.js"
+      - "auth-service.js"
+      - "supabase/schema.sql"
+      - "tests/dashboard.test.mjs"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run tests
+        run: node --test tests/*.test.mjs
