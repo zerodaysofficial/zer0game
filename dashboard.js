@@ -1,4 +1,4 @@
-import * as auth from './auth-service.js';
+import * as auth from './guest-data.js';
 import {counterKey,readCounter,incrementCounter,formatDownloadCount} from './download-counters.mjs';
 
 const $=selector=>document.querySelector(selector);
@@ -82,7 +82,7 @@ function renderCollection(){
  const userSaved=state.favorites.map(item=>state.games.find(g=>titleKey(g)===item.game_key)).filter(Boolean);
  const chosen=userSaved.length?userSaved:featuredGames().slice(0,4);
  $('#collectionHeading').textContent=userSaved.length?'MY COLLECTION':'FEATURED COLLECTION';
- $('#collectionHint').textContent=userSaved.length?'Your saved games':'Sign in and tap ♡ to keep a personal collection.';
+ $('#collectionHint').textContent=userSaved.length?'Your saved games':'Tap ♡ to save games on this device.';
  $('#collectionList').innerHTML=chosen.slice(0,4).map(g=>{
   const src=coverUrl(g);return '<button class="collection-item" data-open="'+esc(titleKey(g))+'">'+
   (src?'<img loading="lazy" src="'+esc(src)+'" alt="">':'')+'<div class="cinfo"><strong>'+esc(g.title)+'</strong><small>'+esc(g.titleId||'No PPSA')+' · '+esc(g.version||'—')+'</small><small>'+[downloads(g).game?'GAME':'',downloads(g).dlc?'DLC':'',downloads(g).cheat?'CHEAT':''].filter(Boolean).join(' · ')+'</small><div class="meter"></div></div></button>';
@@ -130,7 +130,7 @@ async function loadAccount(user){
   catch(e){console.warn('Account data:',e.message);}
  }
  const name=state.profile?.display_name?.trim()||user?.email?.split('@')[0]||'Player';
- $('#welcomeName').textContent=name;$('#accountLabel').textContent=user?'Profile':'Sign in';
+ $('#welcomeName').textContent=name;$('#accountLabel').textContent='My Profile';
  const path=state.profile?.avatar_path;const image=auth.avatarUrl(path);
  $('#topAvatar').innerHTML=image?'<img alt="Your avatar" src="'+esc(image)+'">':'Z0';
  renderCollection();renderActivity();renderLibrary();
@@ -146,7 +146,7 @@ function showAuth(){
 }
 async function openProfile(){
  if(!auth.user()){showAuth();return;}
- $('#profileEmail').textContent=auth.user().email||'Signed in';
+ $('#profileEmail').textContent='Only on this device';
  $('#profileName').value=state.profile?.display_name||'';
  $('#profileAvatar').innerHTML=auth.avatarUrl(state.profile?.avatar_path)?'<img src="'+esc(auth.avatarUrl(state.profile.avatar_path))+'" alt="">':'Z0';
  $('#profileMessage').textContent='';
@@ -199,7 +199,7 @@ function eventHandlers(){
  });
  $('#verifyOtpForm').addEventListener('submit',async e=>{
   e.preventDefault();const msg=$('#authMessage');const btn=e.target.querySelector('[type=submit]');btn.disabled=true;
-  try{await auth.verifyCode(emailForOtp,$('#authCode').value.trim());$('#authDialog').close();$('#authCode').value='';toast('Email verified. Welcome to ZER0GAME!');}
+  try{await auth.verifyCode(emailForOtp,$('#authCode').value.trim());$('#authDialog').close();$('#authCode').value='';toast('Welcome to ZER0GAME!');}
   catch(error){msg.textContent=error.message;}finally{btn.disabled=false;}
  });
  $('#resendOtp').addEventListener('click',async()=>{const msg=$('#authMessage');if(Date.now()-lastOtpAt<60000){msg.textContent='Please wait 60 seconds before requesting another code.';return;}try{await auth.sendCode(emailForOtp);lastOtpAt=Date.now();msg.textContent='A new code has been requested.';}catch(e){msg.textContent=e.message;}});
@@ -209,7 +209,7 @@ function eventHandlers(){
   catch(error){msg.textContent=error.message;}finally{btn.disabled=false;}
  });
  $('#clearActivity').addEventListener('click',async()=>{if(!auth.user())return;if(!confirm('Permanently delete your search and download history?'))return;try{await auth.clearActivities();state.activity=[];renderActivity();toast('Your activity history has been cleared.');}catch(e){toast(e.message);}});
- $('#signOut').addEventListener('click',async()=>{try{await auth.signOut();$('#profileDialog').close();await loadAccount(null);toast('Signed out.');}catch(e){toast(e.message);}});
+ $('#signOut').addEventListener('click',async()=>{try{await auth.signOut();$('#profileDialog').close();await loadAccount(auth.user());toast('Local profile reset.');}catch(e){toast(e.message);}});
 }
 let searchTimer,lastSearch='';
 function scheduleSearchEvent(){
