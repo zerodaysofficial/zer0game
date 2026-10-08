@@ -1,6 +1,6 @@
 /* Zer0Game visual experience and client-side personalization.
    Never represents off-site links as downloaded files. No account or admin authority. */
-import './dashboard.js';
+import './dashboard.js?v=20261009';
 const api=window.Zer0Dashboard;
 if(!api)throw new Error('Zer0Game dashboard must load before the experience layer');
 const {state,auth,titleKey,downloads,coverUrl,gameByKey}=api;
