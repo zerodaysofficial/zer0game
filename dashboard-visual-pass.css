@@ -33,7 +33,7 @@
  inset:0 127px 0 auto;width:53%;
  display:flex;align-items:center;justify-content:center;
  pointer-events:none;z-index:0;
- opacity:0;transition:opacity .5s ease;
+ opacity:0;transform:translate3d(var(--hero-x,0px),var(--hero-y,0px),0);transition:opacity .5s ease,transform .3s ease;
 }
 .hero-keyart.has-art{opacity:1}
 .hero-keyart img{
@@ -187,7 +187,8 @@
  .card-actions button{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){
- .hero-keyart,.widget-art,.page-progress{transition:none}
+ .hero-keyart,.widget-art,.page-progress{transition:none!important;transform:none!important}
  .page-progress{will-change:auto}
 }
-body.no-motion .widget-art{transition:none!important}
+body.no-motion .widget-art,body.no-motion .hero-keyart{transition:none!important}
+body.no-motion .hero-keyart{transform:none!important}
