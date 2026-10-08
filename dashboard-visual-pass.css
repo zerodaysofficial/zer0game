@@ -192,3 +192,55 @@
 }
 body.no-motion .widget-art,body.no-motion .hero-keyart{transition:none!important}
 body.no-motion .hero-keyart{transform:none!important}
+
+
+/* Larger game covers: more room for full-size PS5 posters, fewer games per row.
+   Intentionally at the end to override historical compact grid breakpoints. */
+.library .game-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.library .game-card{
+  border-radius:13px;
+}
+.library .game-cover{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center top;
+  background:linear-gradient(155deg,#17254a,#110e28);
+}
+.library .game-data{padding:12px 11px 11px}
+.library .game-data h3{font-size:13px;line-height:1.35;min-height:36px}
+.library .game-data p{font-size:10.5px}
+.library .card-actions button{min-height:37px}
+.collection-item img{
+  width:106px;
+  height:88px;
+  object-fit:cover;
+}
+.compact-mode .library .game-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.compact-mode .library .game-cover{height:auto;aspect-ratio:4/5}
+@media(max-width:1440px){
+  .library .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .compact-mode .library .game-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:1190px){
+  .library .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .compact-mode .library .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:1000px){
+  .library .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .compact-mode .library .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .collection-item img{width:100%;height:130px;object-fit:cover}
+}
+@media(max-width:700px){
+  .library .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .library .game-cover{aspect-ratio:3/4}
+  .compact-mode .library .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .library .game-data{padding:9px 8px}
+  .library .game-data h3{font-size:11.5px;min-height:33px}
+  .collection-item img{height:112px}
+}
