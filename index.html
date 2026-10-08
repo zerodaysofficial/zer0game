@@ -1,301 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#070910" />
-  <meta name="description" content="ZER0GAME — PS5 FPKG Library" />
-  <title>ZER0GAME — PS5 FPKG Library</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261001-wolverine-debug-soon1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080717">
+<meta name="description" content="ZER0GAME — PS5 library, cheats, DLC and your personal dashboard.">
+<title>ZER0GAME — Gaming Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css?v=2">
+<script type="module" src="dashboard.js?v=2"></script>
 </head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="ZER0GAME home">
-      <span class="brand-mark">Z0</span>
-      <span class="brand-copy">
-        <strong>ZER0GAME</strong>
-        <small>PS5 FPKG LIBRARY</small>
-      </span>
-    </a>
-
-    <div class="topbar-social">
-      <span class="support-label">SUPPORT</span>
-      <div class="social-support" aria-label="ZER0GAME social links">
-        <span class="support-pointer" aria-hidden="true">👉</span>
-
-        <a class="social-icon social-kofi" href="https://ko-fi.com/zzer0dayyy" target="_blank" rel="noopener noreferrer" aria-label="Support zer0day on Ko-fi">
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M12 18h32v22c0 9-7 16-16 16S12 49 12 40V18Z"></path>
-            <path d="M44 23h5c7 0 11 4 11 10s-4 10-11 10h-5"></path>
-            <path class="kofi-heart" d="M24 35c-6-5-10-8-10-13 0-4 3-7 7-7 3 0 6 2 7 4 2-2 4-4 8-4 4 0 7 3 7 7 0 5-4 8-11 13l-4 3-4-3Z"></path>
-          </svg>
-        </a>
-
-        <a class="social-icon social-x" href="https://x.com/_zer0day__" target="_blank" rel="noopener noreferrer" aria-label="Follow zer0day on X">
-          <span aria-hidden="true">𝕏</span>
-        </a>
-      </div>
+<div class="backglow" aria-hidden="true"></div>
+<div class="shell">
+<aside class="sidebar">
+  <a class="logo" href="./"><span class="logo-icon">Z0</span><span>ZER0GAME<small>BY ZER0DAY</small></span></a>
+  <div class="nav-caption">NAVIGATION</div>
+  <nav class="sidebar-menu" aria-label="Site sections">
+    <button data-nav="dashboard" class="navitem active"><span>⌂</span> Dashboard</button>
+    <button data-nav="library" class="navitem"><span>▦</span> Game Library</button>
+    <button data-nav="cheat" class="navitem"><span>ϟ</span> Cheat Hub <b class="new-pill">NEW</b></button>
+    <button data-nav="released" class="navitem"><span>▣</span> Released</button>
+    <button data-nav="soon" class="navitem"><span>◷</span> Coming Soon</button>
+    <button data-nav="dlc" class="navitem"><span>⬡</span> DLC Library</button>
+  </nav>
+  <div class="nav-caption">YOUR SPACE</div>
+  <nav class="sidebar-menu">
+    <button data-action="profile" class="navitem"><span>◉</span> My Profile</button>
+    <button data-action="activity" class="navitem"><span>▤</span> My Activity</button>
+    <a class="navitem" href="builder.html"><span>⚡</span> PKG Builder</a>
+    <a class="navitem" href="classic.html"><span>↗</span> Classic Site</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="intelligence"><div class="kicker">✦ ZER0 INTELLIGENCE</div><p>Live library search, firmware filters and your own activity.</p><div class="wave" aria-hidden="true"></div></div>
+    <a href="admin.html" class="owner-link" title="Requires separate GitHub owner authorization">⚙ Owner Tools ↗</a>
+    <small>© ZER0DAY <span class="online-dot"></span> Catalog online</small>
+  </div>
+</aside>
+<main class="content">
+ <header class="topbar">
+  <div class="welcome"><small>WELCOME TO YOUR LIBRARY</small><h1>Welcome, <span id="welcomeName">Player</span> <span class="greeting-star">✦</span></h1></div>
+  <label class="global-search"><span>⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Search games, PPSA, firmware, cheats, DLC..." aria-label="Search catalog"><kbd>/</kbd></label>
+  <button class="icon-button" type="button" data-action="favorites" title="My collection" aria-label="My collection">♡</button>
+  <button class="user-button" type="button" data-action="account"><span id="topAvatar" class="avatar-mark">Z0</span><span id="accountLabel">Sign in</span><span>⌄</span></button>
+ </header>
+ <section class="upper-grid">
+  <div class="hero panel" id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero-main">
+      <span class="hero-label">✦ FEATURED GAME</span>
+      <span class="platform">PLAYSTATION 5 / ZER0GAME</span>
+      <h2 id="featuredTitle">Discover your next game.</h2>
+      <p id="featuredDescription">Browse the latest releases and community additions.</p>
+      <div class="specs"><span id="featuredPpsa">PPSA —</span><span id="featuredVersion">Version —</span><span id="featuredFw">FW —</span><span id="featuredCheat">Cheats —</span></div>
+      <div class="hero-actions"><button class="primary-btn" id="featuredDownload" type="button">↓ DOWNLOAD GAME</button><button class="ghost-btn" id="featuredDetails" type="button">VIEW DETAILS →</button></div>
     </div>
-
-    <nav class="topnav" aria-label="Primary">
-      <a href="#library">Library</a>
-      <a href="#about">About</a>
-      <a href="builder.html">Builder</a>
-      <button class="nav-link-button" id="dmcaOpen" type="button">DMCA</button>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="eyebrow">CURATED PS5 FPKG CATALOG</div>
-      <h1 class="hero-typewriter" aria-label="Your library. Zero clutter.">
-        <span class="type-line type-line-one">
-          <span id="heroTypeLine1" class="type-slot" aria-hidden="true">Your library.</span>
-          <span id="heroCursor1" class="type-cursor" aria-hidden="true"></span>
-        </span>
-        <span class="type-line type-line-two">
-          <span id="heroTypeLine2" class="type-slot" aria-hidden="true">Zero clutter.</span>
-          <span id="heroCursor2" class="type-cursor" aria-hidden="true"></span>
-        </span>
-      </h1>
-      <p class="hero-copy">
-        Browse releases by title, Title ID, firmware and language from one clean, fast interface.
-      </p>
-
-      <div class="search-shell">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg>
-        <input id="searchInput" type="search" placeholder="Search title or PPSA..." autocomplete="off" />
-        <kbd>/</kbd>
-      </div>
-
-      <div class="hero-meta">
-        <span><strong id="totalCount">0</strong> titles</span>
-        <span><strong id="releasedCount">0</strong> released</span>
-        <span>Updated <strong id="updatedAt">—</strong></span>
-      </div>
-
-    </section>
-
-    <section id="library" class="library">
-      <div class="toolbar">
-        <div class="filter-group" id="statusFilters" aria-label="Status filters">
-          <button class="chip active" data-status="all">All</button>
-          <button class="chip" data-status="released">Released</button>
-          <button class="chip" data-status="soon">Soon</button>
-        </div>
-
-        <div class="toolbar-right">
-          <label class="select-wrap">
-            <span>Category</span>
-            <select id="categoryFilter">
-              <option value="all">All categories</option>
-            </select>
-          </label>
-
-          <label class="select-wrap">
-            <span>FW</span>
-            <select id="firmwareFilter">
-              <option value="all">All firmware</option>
-            </select>
-          </label>
-
-          <label class="select-wrap">
-            <span>Language</span>
-            <select id="languageFilter">
-              <option value="all">All languages</option>
-            </select>
-          </label>
-
-          <label class="select-wrap">
-            <span>Sort</span>
-            <select id="sortFilter">
-              <option value="newest">Newest</option>
-              <option value="az">A–Z</option>
-              <option value="za">Z–A</option>
-            </select>
-          </label>
-        </div>
-      </div>
-
-      <div id="activeSummary" class="active-summary"></div>
-      <div id="gameGrid" class="game-grid" aria-live="polite"></div>
-
-      <div id="emptyState" class="empty-state" hidden>
-        <div class="empty-icon">0</div>
-        <h2>No games found</h2>
-        <p>Try a different search or filter.</p>
-      </div>
-
-      <nav id="pagination" class="pagination" aria-label="Game library pages" hidden>
-        <button id="prevPage" class="page-nav" type="button" aria-label="Previous page">◀ PREV</button>
-        <div id="pageNumbers" class="page-numbers" aria-label="Page numbers"></div>
-        <span id="pageInfo" class="page-info">Page 1 of 1</span>
-        <button id="nextPage" class="page-nav" type="button" aria-label="Next page">NEXT ▶</button>
-      </nav>
-    </section>
-
-    <section id="about" class="about tool-showcase">
-      <div>
-        <div class="eyebrow">ZER0DAY TOOL</div>
-        <h2>PS5 exFAT PKG Builder</h2>
-      </div>
-
-      <div class="tool-showcase-content">
-        <p>
-          Our companion tool for PS5 FPKG workflows: import package formats, inspect metadata,
-          manage exFAT content, apply compatibility fixes and prepare packages from one streamlined interface.
-        </p>
-
-        <div class="tool-mini-tags" aria-label="Builder highlights">
-          <span>exFAT / PFS import</span>
-          <span>Metadata preview</span>
-          <span>PlayGo fix</span>
-          <span>Backport engine</span>
-        </div>
-
-        <a class="builder-cta" href="builder.html">
-          <span class="builder-cta-icon">⚡</span>
-          <span>
-            <strong>EXPLORE THE BUILDER</strong>
-            <small>Features, compatibility and GitHub access</small>
-          </span>
-          <span class="builder-cta-arrow">→</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="brand footer-brand">
-      <span class="brand-mark">Z0</span>
-      <span class="brand-copy"><strong>ZER0GAME</strong><small>by zer0day</small></span>
-    </div>
-    <p>
-      Metadata and compatibility information only. Use release links only for content you are authorized to access.
-      <button class="footer-dmca" id="dmcaOpenFooter" type="button">Copyright / DMCA</button>
-    </p>
-  </footer>
-
-  <dialog id="dmcaModal" class="dmca-modal">
-    <button class="modal-close dmca-close" id="dmcaClose" aria-label="Close">×</button>
-    <div class="dmca-shell">
-      <div class="dmca-eyebrow">COPYRIGHT / DMCA</div>
-      <h2>Copyright &amp; Takedown Notice</h2>
-      <p class="dmca-lead">
-        ZER0GAME is a catalog and index. It does not store game files on GitHub Pages.
-        Some entries may point to third-party services that are operated independently from this website.
-      </p>
-
-      <div class="dmca-grid">
-        <section>
-          <h3>Community content</h3>
-          <p>
-            Entries may reference community-created dumps, demos, test builds or other material shared by third parties.
-            These are not presented as official releases from the original developer or publisher unless explicitly stated.
-          </p>
-        </section>
-
-        <section>
-          <h3>Testing &amp; evaluation</h3>
-          <p>
-            Information on this site is intended for testing, compatibility research, preservation and evaluation.
-            Users are responsible for making sure they have the legal right to access or use any linked content.
-          </p>
-        </section>
-
-        <section>
-          <h3>Modified consoles</h3>
-          <p>
-            Some content may require a modified or jailbroken console to test. Any modification of hardware or software
-            is performed voluntarily and at the user's own risk.
-          </p>
-        </section>
-
-        <section>
-          <h3>Third-party links</h3>
-          <p>
-            External links are provided for convenience. ZER0GAME does not control third-party hosts and does not claim
-            ownership of files stored on those services.
-          </p>
-        </section>
-
-        <section>
-          <h3>Support original creators</h3>
-          <p>
-            We encourage users to purchase games and related content from official stores, developers and publishers
-            whenever possible to support the people who created them.
-          </p>
-        </section>
-
-        <section>
-          <h3>Takedown requests</h3>
-          <p>
-            If you believe a link or listing on this site infringes your copyright, send a clear takedown request identifying
-            the copyrighted work, the exact page or link in question, and a way to contact you.
-          </p>
-        </section>
-      </div>
-
-      <div class="dmca-contact">
-        <span>Copyright contact</span>
-        <a href="mailto:zer0daysofficial@proton.me">zer0daysofficial@proton.me</a>
-      </div>
-
-      <p class="dmca-small">
-        ZER0GAME intends to review properly submitted copyright notices and remove or update links when appropriate.
-      </p>
-    </div>
-  </dialog>
-
-  <dialog id="gameModal" class="game-modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-    <div id="modalContent"></div>
-  </dialog>
-
-  <template id="gameCardTemplate">
-    <article class="game-card premium-card">
-      <h3 class="game-title"></h3>
-
-      <button class="card-open" type="button" aria-label="Open game details">
-        <div class="cover-wrap">
-          <img class="cover" alt="" loading="lazy" />
-          <div class="cover-fallback" aria-hidden="true"></div>
-          <div class="card-overlay"></div>
-          <div class="status-badge"></div>
-
-          <div class="cover-meta">
-            <div class="meta-stack">
-              <span class="meta-pill card-titleid"></span>
-              <span class="meta-pill card-version"></span>
-              <span class="meta-pill card-region"></span>
-            </div>
-            <div class="size-stack">
-              <span class="size-pill card-fpkg-size"></span>
-              <span class="size-pill secondary card-full-size"></span>
-            </div>
-          </div>
-        </div>
-      </button>
-
-      <div class="badges"></div>
-
-      <div class="card-download-block">
-        <div class="download-section-label">FPKG BACKPORT:</div>
-        <div class="quick-actions">
-          <a class="quick-download quick-akia" href="#" aria-label="Download from Akia">AKIA</a>
-          <a class="quick-download quick-dlc" href="#" aria-label="Download DLC">DLC</a>
-        </div>
-      </div>
-    </article>
-  </template>
-
-  <script src="app.js?v=20261003-cheat-download" defer></script>
-  <script type="module" src="download-counters.mjs?v=20261004-download-counts1"></script>
-</body>
-</html>
+    <div class="compat panel"><small>CATALOG DETAILS</small><div class="compat-ring"><span id="heroRing">PS5</span></div><div id="heroChecks" class="compat-list"></div><div class="hero-controls"><button id="heroPrev" aria-label="Previous featured game">‹</button><span id="heroPages">● ○ ○</span><button id="heroNext" aria-label="Next featured game">›</button></div></div>
+  </div>
+  <section class="collection panel" aria-labelledby="collectionHeading"><div class="section-heading"><h2 id="collectionHeading">MY COLLECTION</h2><button class="text-link" data-action="favorites">VIEW ALL →</button></div><p class="micro" id="collectionHint">Sign in to save your favourite games.</p><div id="collectionList" class="collection-list"></div></section>
+ </section>
+ <section class="quick-widgets" aria-label="Quick actions">
+  <button data-nav="released" class="widget teal"><span>▣</span><strong>NEW RELEASES</strong><small>Latest entries in the catalog.</small><em>BROWSE GAMES →</em></button>
+  <button data-nav="cheat" class="widget purple"><span>ϟ</span><strong>CHEAT HUB</strong><small>Games with enabled cheat links.</small><em>VIEW CHEATS →</em></button>
+  <button data-nav="dlc" class="widget blue"><span>⬡</span><strong>DLC READY</strong><small>Browse available DLC links.</small><em>EXPLORE DLC →</em></button>
+  <button data-action="focus-search" class="widget indigo"><span>⌕</span><strong>SMART SEARCH</strong><small>Search by title, PPSA, firmware.</small><em>OPEN SEARCH →</em></button>
+  <button data-nav="soon" class="widget amber"><span>◷</span><strong>COMING SOON</strong><small>Explore upcoming catalog entries.</small><em>EXPLORE →</em></button>
+  <a href="admin.html" class="widget pink"><span>⚙</span><strong>OWNER TOOLS</strong><small>Separate GitHub authorization required.</small><em>ADMIN PANEL →</em></a>
+ </section>
+ <div class="lower-grid">
+  <section class="library panel" id="library" aria-labelledby="libraryHeading">
+   <div class="section-heading"><div><small class="kicker">EXPLORE ZER0GAME</small><h2 id="libraryHeading">EXPLORE THE LIBRARY <span>✦</span></h2><p>Browse PS5 entries, versions, firmware and available links.</p></div><span class="count-label" id="resultCount">Loading…</span></div>
+   <div class="library-filters">
+     <div class="filter-pills" role="group" aria-label="Catalog filters">
+       <button class="pill selected" data-filter="all">All Games</button>
+       <button class="pill" data-filter="released">✓ Released</button>
+       <button class="pill" data-filter="soon">◷ Coming Soon</button>
+       <button class="pill" data-filter="cheat">ϟ Cheats Available</button>
+       <button class="pill" data-filter="dlc">⬡ DLC Available</button>
+     </div>
+     <div class="select-filters">
+       <label>Firmware <select id="firmwareFilter"><option value="">Any firmware</option></select></label>
+       <label>Genre <select id="categoryFilter"><option value="">All genres</option></select></label>
+       <label>Language <select id="languageFilter"><option value="">All languages</option></select></label>
+       <label>Sort <select id="sortFilter"><option value="newest">Newest</option><option value="az">A to Z</option><option value="za">Z to A</option></select></label>
+     </div>
+   </div>
+   <div id="gameGrid" class="game-grid" aria-live="polite"><p>Loading game library…</p></div>
+   <div class="load-more-wrap"><button type="button" id="loadMore" class="ghost-btn" hidden>LOAD MORE GAMES ↓</button></div>
+  </section>
+  <aside class="right-lower">
+   <section class="panel stats"><div class="section-heading"><h2>ZER0 INTELLIGENCE</h2><span class="micro">LIVE CATALOG</span></div><div class="stats-grid"><div><span>▣</span><strong id="statGames">—</strong><small>Total titles</small></div><div><span>ϟ</span><strong id="statCheats">—</strong><small>Cheat ready</small></div><div><span>⬡</span><strong id="statDlc">—</strong><small>DLC links</small></div><div><span>✓</span><strong id="statReleases">—</strong><small>Released</small></div></div></section>
+   <section class="panel activity" id="activity"><div class="section-heading"><h2>MY RECENT ACTIVITY</h2><button data-action="activity" class="text-link">VIEW ALL →</button></div><p class="micro">Your searches and download clicks are saved to your account after sign-in.</p><div id="activityList"><p class="empty-hint">Sign in to see your history.</p></div></section>
+  </aside>
+ </div>
+ <footer class="footer"><div>ZER0GAME © ZER0DAY — Catalog interface</div><div><a href="classic.html#about">About / DMCA</a> · <a href="https://ko-fi.com/zzer0dayyy" target="_blank" rel="noopener noreferrer">Support</a> · <a href="https://x.com/_zer0day__" target="_blank" rel="noopener noreferrer">X</a></div></footer>
+</main>
+</div>
+<dialog id="gameDialog" class="dialog"><button class="dialog-close" type="button" data-action="close-game" aria-label="Close">×</button><div id="gameDialogContent"></div></dialog>
+<dialog id="authDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-auth" aria-label="Close">×</button><div class="auth-header"><span class="logo-icon">Z0</span><h2>YOUR ZER0GAME ACCOUNT</h2><p>Access your private history, saved games and avatar. Verification codes are sent by email.</p></div><div id="authDisabled" class="auth-disabled" hidden>Secure email sign-in will be available when the site owner connects the authentication service.</div><form id="sendOtpForm"><label>Email address<input id="authEmail" type="email" maxlength="254" autocomplete="email" required placeholder="name@example.com"></label><button class="primary-btn" type="submit">SEND EMAIL CODE →</button></form><form id="verifyOtpForm" hidden><label>6-digit code from your email<input id="authCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required placeholder="000000"></label><button class="primary-btn" type="submit">VERIFY & SIGN IN →</button><button class="text-link" type="button" id="resendOtp">Resend code</button></form><p class="micro">OTP verification happens on the authentication server, never in this page. Your account cannot grant GitHub admin permissions.</p><p id="authMessage" class="form-message" role="status" aria-live="polite"></p></dialog>
+<dialog id="profileDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-profile" aria-label="Close">×</button><h2>MY PLAYER PROFILE</h2><div class="profile-hero"><span id="profileAvatar" class="profile-avatar">Z0</span><div><strong id="profileEmail">Guest</strong><small>Your games. Your activity.</small></div></div><form id="profileForm"><label>Display name<input id="profileName" type="text" maxlength="32" autocomplete="nickname" placeholder="Your nickname"></label><label>Avatar (JPG, PNG, WebP · up to 2MB)<input id="avatarFile" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="primary-btn" type="submit">SAVE PROFILE</button></form><div class="profile-actions"><button type="button" id="signOut" class="ghost-btn">SIGN OUT</button></div><p id="profileMessage" class="form-message" role="status"></p></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
