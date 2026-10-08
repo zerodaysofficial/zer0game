@@ -112,8 +112,7 @@ function handleDownload(g,kind){
  const url=downloads(g)[kind];
  if(!url){toast('No '+kind+' link is available for this game.');return;}
  // Open immediately on a trusted user click, before any asynchronous requests.
- const opened=window.open(lockLink(url),'_blank','noopener,noreferrer');
- if(!opened)toast('Your browser may have blocked the new download tab.');
+ const anchor=document.createElement('a');anchor.href=lockLink(url);anchor.target='_blank';anchor.rel='noopener noreferrer';anchor.click();
  void auth.recordActivity('download_'+kind,g).then(()=>loadActivities());
  if(kind==='game'||kind==='cheat')void incrementCounter(counterKey(g,kind)).catch(()=>{});
 }
