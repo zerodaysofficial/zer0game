@@ -3,13 +3,13 @@
   "games": [
     {
       "title": "Resonance: A Plague Tale Legacy",
-      "titleId": "",
+      "titleId": "PPSA30601",
       "version": "v01.002.000",
       "firmware": "4.xx BackPort",
       "size": "60",
       "status": "released",
       "date": "2026-10-09",
-      "cover": "https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/resonance-a-plague-tale-legacy/images/07062026_a1f7c25082af427e91762091dab30f07.jpeg",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Resonance_A_Plague_Tale_Legacy.avif",
       "languages": {
         "text": [
           "Arabic",
@@ -48,9 +48,10 @@
         "Adventure"
       ],
       "ps5Frame": true,
-      "coverSource": "Focus Entertainment official artwork",
+      "coverSource": "Pippo Library",
       "directUrl": "https://gofile.io/d/GXu1inZL",
-      "coverFit": "contain"
+      "coverFit": "contain",
+      "cheatEnabled": false
     },
     {
       "title": "Assassin's Creed Black Flag Resynced",
