@@ -2,6 +2,57 @@
   "updated": "2026-10-09",
   "games": [
     {
+      "title": "Resonance: A Plague Tale Legacy",
+      "titleId": "",
+      "version": "v01.002.000",
+      "firmware": "4.xx BackPort",
+      "size": "60",
+      "status": "released",
+      "date": "2026-10-09",
+      "cover": "https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/resonance-a-plague-tale-legacy/images/07062026_a1f7c25082af427e91762091dab30f07.jpeg",
+      "languages": {
+        "text": [
+          "Arabic",
+          "Chinese (Simplified)",
+          "Chinese (Traditional)",
+          "Czech",
+          "English",
+          "French (France)",
+          "German",
+          "Italian",
+          "Japanese",
+          "Korean",
+          "Polish",
+          "Portuguese (Brazil)",
+          "Russian",
+          "Spanish",
+          "Spanish (Mexico)",
+          "Turkish",
+          "Ukrainian"
+        ],
+        "audio": [
+          "Chinese",
+          "English",
+          "French (France)",
+          "German",
+          "Spanish"
+        ]
+      },
+      "notes": "60 GB | v01.002.000 | FW 4.xx BackPort\nPassword sito per sblocco link: ilovezer0day\nArchivio: nessuna password.",
+      "releaseUrl": "",
+      "infoUrl": "https://www.playstation.com/it-it/games/resonance-a-plague-tale-legacy/",
+      "dlcAvailable": false,
+      "languageSource": "PlayStation Store",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "ps5Frame": true,
+      "coverSource": "Focus Entertainment official artwork",
+      "directUrl": "https://gofile.io/d/GXu1inZL",
+      "coverFit": "contain"
+    },
+    {
       "title": "Assassin's Creed Black Flag Resynced",
       "titleId": "PPSA28183",
       "version": "v01.006.038",
