@@ -1,0 +1,108 @@
+/* ZER0GAME — cinematic interaction layer.
+ * Decorative animations only. All functions work with motion reduced or disabled.
+ */
+:root{--cinematic-ease:cubic-bezier(.22,1,.36,1);--cinematic-glow:rgba(151,65,255,.33)}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{overflow-x:hidden}
+::selection{background:#7b31ff;color:#fff}
+::-webkit-scrollbar{width:9px;height:8px}
+::-webkit-scrollbar-track{background:#08091a}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#8134ed,#2d4fa7);border-radius:12px;border:2px solid #08091a}
+.sidebar{box-shadow:inset -1px 0 #472a7b5e}
+.sidebar .logo-icon{min-width:48px;min-height:48px;font-size:23px;box-shadow:0 0 27px #8a27ffaa,0 0 65px #4d20a855}
+.sidebar-menu{gap:10px}
+.navitem{gap:14px;min-height:49px;padding:12px 11px;font-size:12.5px;font-weight:650;transition:background .3s,box-shadow .3s,border-color .3s,color .3s}
+.navitem>span{width:31px;min-width:31px;font-size:28px;display:inline-grid;place-items:center;line-height:1}
+.navitem>span svg{width:25px;height:25px;stroke-width:2.05;filter:drop-shadow(0 0 4px #724ce550);transition:transform .3s var(--cinematic-ease),filter .3s}
+.navitem:hover>span svg,.navitem.active>span svg{transform:scale(1.13);filter:drop-shadow(0 0 7px #bd60ff)}
+.navitem.active{border-color:#a052ff}
+.sidebar .intelligence{box-shadow:inset 0 0 35px #6630fd18,0 0 20px #5321ec21}
+.widget{padding:14px 14px;min-height:145px;transition:transform .38s var(--cinematic-ease),box-shadow .38s,border-color .38s;transform-style:preserve-3d;will-change:auto}
+.widget>span{font-size:38px;min-height:45px;line-height:1;display:inline-flex;align-items:center;filter:drop-shadow(0 0 11px currentColor);transform:translateZ(21px)}
+.widget>span svg{height:37px;width:37px;stroke-width:2}
+.widget strong{font-size:11px;margin:8px 0 6px;transform:translateZ(13px)}
+.widget small{font-size:10.5px;transform:translateZ(8px)}
+.widget em{font-size:10px;letter-spacing:.03em;transform:translateZ(10px)}
+.quick-widgets{perspective:1100px;gap:10px}
+.game-grid{perspective:1300px}
+.collection-list{perspective:1100px}
+.game-card{transform-style:preserve-3d;position:relative;transition:transform .35s var(--cinematic-ease),border-color .32s,box-shadow .32s;will-change:auto}
+.game-card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;background:radial-gradient(ellipse 170px 170px at var(--spot-x,50%) var(--spot-y,30%),rgba(150,88,255,.25),transparent 80%);transition:opacity .22s ease}
+.game-card:hover::after,.game-card.is-tilting::after{opacity:1}
+.game-card .cover-button img{backface-visibility:hidden;transition:transform .5s var(--cinematic-ease),filter .5s}
+.game-card:hover .cover-button img{transform:scale(1.055) translateZ(5px);filter:saturate(1.17)}
+.game-card:hover,.game-card.is-tilting{transform:perspective(900px) translateY(-7px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) scale(1.016);border-color:#a257ff;box-shadow:0 16px 38px #0009,0 0 28px #8627ff55}
+.widget:hover,.widget.is-tilting{transform:translateY(-5px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) scale(1.015);box-shadow:0 18px 36px #0008,0 0 20px #822aff4c;border-color:currentColor}
+.collection-item{transform-style:preserve-3d;transition:transform .35s var(--cinematic-ease),border-color .35s,box-shadow .35s}
+.collection-item:hover,.collection-item.is-tilting{transform:perspective(900px) translateY(-3px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));box-shadow:0 12px 28px #0008,0 0 19px #6f44ff30;border-color:#9953ff}
+.game-data{position:relative;z-index:1}
+.game-card .card-actions button:hover{background:#7043ed}
+.icon-button,.user-button,.primary-btn,.ghost-btn,.pill,.card-actions button{transition:transform .28s var(--cinematic-ease),box-shadow .28s,filter .28s,border-color .28s,background .28s}
+.primary-btn:hover:not(:disabled){box-shadow:0 0 24px #9f4bffc7,0 11px 32px #7518ff70;transform:translateY(-2px) scale(1.025)}
+.ghost-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 0 16px #4d45c64f}
+.hero{overflow:hidden;isolation:isolate}
+.hero-bg{animation:cinematicPan 23s ease-in-out infinite alternate;transform-origin:52% 48%;will-change:transform}
+.hero:before{animation:heroAura 10s ease-in-out infinite alternate}
+@keyframes cinematicPan{
+  0%{transform:translate3d(calc(var(--hero-x,0px) - 7px),calc(var(--hero-y,0px) + 2px),0) scale(1.06)}
+  100%{transform:translate3d(calc(var(--hero-x,0px) + 8px),calc(var(--hero-y,0px) - 7px),0) scale(1.16)}
+}
+@keyframes heroAura{from{opacity:.48}to{opacity:1}}
+.hero .hero-label{animation:labelPulse 4s ease-in-out infinite}
+@keyframes labelPulse{0%,100%{box-shadow:0 0 10px #5420ed60}50%{box-shadow:0 0 22px #a143ffb0}}
+.compat-ring{filter:drop-shadow(0 0 12px #6734e590)}
+.compat-ring span{color:#f4edff;text-shadow:0 0 12px #a87affaa}
+.panel:not(.hero){transition:border-color .3s,box-shadow .3s}
+.panel:not(.hero):hover{border-color:#57419b}
+@media (prefers-reduced-motion:no-preference){
+  body.cinematic-ready .cinematic-reveal:not(.is-visible){opacity:0;transform:translate3d(0,32px,0) scale(.988)}
+  body.cinematic-ready .cinematic-reveal{transition:opacity .7s var(--cinematic-ease),transform .78s var(--cinematic-ease),border-color .3s,box-shadow .3s}
+  body.cinematic-ready .cinematic-reveal.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+  .game-card.card-arriving{animation:cardStagger .48s var(--cinematic-ease) backwards;animation-delay:var(--stagger-delay,0ms)}
+  @keyframes cardStagger{from{opacity:.5;transform:translate3d(0,20px,0) rotateX(5deg) scale(.965)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+  .dialog[open]{transform-origin:50% 25%;animation:dialog3DIn .48s var(--cinematic-ease) both}
+  .dialog[open]::backdrop{animation:dialogBackdropIn .35s ease both}
+  .dialog[open] .game-dialog-grid>img{transform-origin:center 70%;animation:cover3DReveal .72s var(--cinematic-ease) backwards}
+  .dialog[open] .game-dialog-grid>div{animation:modalTextReveal .65s var(--cinematic-ease) backwards}
+  @keyframes dialog3DIn{from{opacity:0;transform:perspective(1300px) translate3d(0,45px,-125px) rotateX(-13deg) scale(.9);filter:blur(5px)}to{opacity:1;transform:perspective(1300px) translate3d(0,0,0) rotateX(0deg) scale(1);filter:blur(0)}}
+  @keyframes dialogBackdropIn{from{background:#02041100;backdrop-filter:blur(0)}to{background:#020411d9;backdrop-filter:blur(10px)}}
+  @keyframes cover3DReveal{from{opacity:0;transform:perspective(900px) rotateY(-16deg) translateX(-24px) scale(.94)}to{opacity:1;transform:perspective(900px) rotateY(0) translateX(0) scale(1)}}
+  @keyframes modalTextReveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+}
+.dialog[open]{box-shadow:0 30px 90px #000e,0 0 0 1px #9546ffa0,0 0 85px #692dff54}
+.dialog[open]::backdrop{background:#020411d9;backdrop-filter:blur(10px)}
+.dialog.motion-closing{pointer-events:none}
+.navitem:focus-visible,.widget:focus-visible,.game-card button:focus-visible{outline:2px solid #c593ff;outline-offset:3px}
+@media(max-width:1000px){
+  .sidebar .navitem{font-size:0;gap:0;padding:10px 4px;justify-content:center}
+  .sidebar .navitem>span{width:39px;min-width:39px}
+  .sidebar .navitem>span svg{width:28px;height:28px}
+}
+@media(max-width:700px){
+  .sidebar .navitem>span svg{width:25px;height:25px}
+  .sidebar-menu{gap:5px}
+  .widget{padding:12px;min-height:125px}
+  .widget>span svg{width:32px;height:32px}
+  .widget>span{min-height:36px}
+  .game-grid,.quick-widgets,.collection-list{perspective:none}
+  .game-card:hover,.collection-item:hover,.widget:hover{transform:translateY(-3px);box-shadow:0 10px 21px #0007}
+  .hero-bg{animation:none;transform:scale(1.08)}
+}
+@media(pointer:coarse){
+  .game-card:hover,.collection-item:hover,.widget:hover{transform:none}
+  .game-card .cover-button:hover .game-cover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-bg{animation:none;will-change:auto;transform:none}
+  .hero:before,.hero .hero-label{animation:none}
+  .cinematic-reveal{opacity:1!important;transform:none!important}
+  .dialog[open],.dialog[open]::backdrop,.dialog[open] .game-dialog-grid>img{animation:none!important}
+  .game-card,.widget,.collection-item{will-change:auto}
+}
+body.no-motion html,body.no-motion *{scroll-behavior:auto!important}
+body.no-motion .hero-bg{animation:none!important;transform:none!important;will-change:auto!important}
+body.no-motion .hero:before,body.no-motion .hero .hero-label{animation:none!important}
+body.no-motion .cinematic-reveal{opacity:1!important;transform:none!important}
+body.no-motion .dialog[open],body.no-motion .dialog[open]::backdrop,body.no-motion .dialog[open] .game-dialog-grid>img{animation:none!important}
+body.no-motion .game-card:hover,body.no-motion .collection-item:hover,body.no-motion .widget:hover{transform:none!important}
