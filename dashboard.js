@@ -7,10 +7,10 @@ const state={games:[],search:'',filter:'all',fw:'',genre:'',lang:'',sort:'newest
 const esc=value=>String(value??'').replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const lower=value=>String(value||'').toLocaleLowerCase();
 const titleKey=g=>String(g.titleId||g.title||'unknown').toLowerCase()+'|'+String(g.version||'').toLowerCase();
-const isCheat=g=>Boolean(g.cheatEnabled&&g.cheatDirectUrl);
-const isDlc=g=>Boolean(g.dlcDirectUrl);
+const isCheat=g=>Boolean(g.cheatEnabled&&validUrl(g.cheatDirectUrl));
+const isDlc=g=>Boolean(validUrl(g.dlcDirectUrl));
 function validUrl(url,relative=false){
- try{const parsed=new URL(String(url||''),location.href);if(!['https:','http:'].includes(parsed.protocol))return '';if(!relative && parsed.protocol!=='https:')return '';return parsed.href;}catch{return '';}
+ try{const original=String(url||'').trim();if(!relative&&!/^https:\/\//i.test(original))return '';const parsed=new URL(original,location.href);if(!['https:','http:'].includes(parsed.protocol))return '';if(!relative && parsed.protocol!=='https:')return '';return parsed.href;}catch{return '';}
 }
 function coverUrl(g){return validUrl(g.cover,true);}
 function downloads(g){return {game:validUrl(g.directUrl),dlc:validUrl(g.dlcDirectUrl),cheat:isCheat(g)?validUrl(g.cheatDirectUrl):''};}
@@ -53,7 +53,7 @@ function renderHero(){
  $('#heroRing').textContent=count+' / 3';$('#heroGauge').style.setProperty('--link-angle',Math.round(count*120)+'deg');
  $('#heroChecks').innerHTML='<div class="'+(links.game?'yes':'no')+'">'+(links.game?'Game link available':'No game link')+'</div><div class="'+(links.cheat?'yes':'no')+'">'+(links.cheat?'Cheat link available':'No cheat link')+'</div><div class="'+(links.dlc?'yes':'no')+'">'+(links.dlc?'DLC link available':'No DLC link')+'</div>';
  $('#heroPages').textContent=picks.map((_,i)=>i===state.hero?'●':'○').join(' ');
- $('#featuredDownload').disabled=!links.game;$('#featuredDownload').textContent=links.game?'↓ DOWNLOAD GAME':'COMING SOON';
+ $('#featuredDownload').hidden=!links.game;$('#featuredDownload').disabled=!links.game;$('#featuredDownload').textContent='↓ DOWNLOAD GAME';
  $('#featuredDownload').onclick=()=>handleDownload(g,'game');
  $('#featuredDetails').onclick=()=>openGame(g);
 }
@@ -66,12 +66,13 @@ function setStats(){
 }
 function cardMarkup(g){
  const src=coverUrl(g);const id=esc(titleKey(g));const saved=state.favorites.some(f=>f.game_key===titleKey(g));const links=downloads(g);
+ const linkTags=[links.game?'<span class="tag available">Game</span>':'',links.dlc?'<span class="tag available">DLC</span>':'',links.cheat?'<span class="tag available">Cheat</span>':''].filter(Boolean).join('');
  return '<article class="game-card">'+
   '<button class="cover-button" data-open="'+id+'" aria-label="Details for '+esc(g.title)+'">'+
    (src?'<img class="game-cover" loading="lazy" src="'+esc(src)+'" alt="'+esc(g.title)+' cover">':'<div class="game-cover"></div>')+
    '<span class="ps5-strip">PS5 <span style="float:right;letter-spacing:0">ZER0GAME</span></span><span class="status-badge '+(g.status==='soon'?'soon':'')+'">'+(g.status==='soon'?'COMING SOON':'RELEASED')+'</span></button>'+
   '<div class="game-data"><h3 title="'+esc(g.title)+'">'+esc(g.title)+'</h3><p>'+esc(g.titleId||'No PPSA')+' · '+esc(g.version||'—')+'</p><p>FW '+esc(g.firmware||'—')+'</p>'+
-  '<div class="tags"><span class="tag '+(links.game?'available':'')+'">Game</span><span class="tag '+(links.dlc?'available':'')+'">DLC</span><span class="tag '+(links.cheat?'available':'')+'">Cheat</span></div>'+
+  (linkTags?'<div class="tags">'+linkTags+'</div>':'')+
   '<div class="card-actions"><button data-open="'+id+'">VIEW DETAILS →</button><button data-favorite="'+id+'" class="heart '+(saved?'saved':'')+'" title="Save game" aria-label="Add or remove favourite">'+(saved?'♥':'♡')+'</button></div></div></article>';
 }
 function renderLibrary(){
@@ -108,7 +109,7 @@ function openGame(g){
  void auth.recordActivity('view_game',g).then(()=>loadActivities());
  const labels=[];if(links.game)labels.push({kind:'game',label:'Game'});if(links.cheat)labels.push({kind:'cheat',label:'Cheat'});
  if(labels.length){Promise.all(labels.map(async item=>{try{return item.label+': '+formatDownloadCount(await readCounter(counterKey(g,item.kind)));}catch{return item.label+': unavailable';}})).then(parts=>{if(state.selected===g&&$('#modalCounter'))$('#modalCounter').textContent=parts.join(' · ');});}
- else $('#modalCounter').textContent='No game or cheat download links';
+ else $('#modalCounter').textContent=links.dlc?'DLC link available':'No download links available';
 }
 function handleDownload(g,kind){
  const url=downloads(g)[kind];
