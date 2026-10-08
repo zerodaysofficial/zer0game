@@ -4,14 +4,15 @@ import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 const root=join(import.meta.dirname,'..');
 const read=name=>readFileSync(join(root,name),'utf8');
-const html=read('index.html'),script=read('dashboard.js'),experience=read('dashboard-experience.js'),guest=read('guest-data.js'),auth=read('auth-service.js'),motion=read('dashboard-cinematic.js'),motionCSS=read('dashboard-cinematic.css');
+const html=read('index.html'),script=read('dashboard.js'),experience=read('dashboard-experience.js'),guest=read('guest-data.js'),auth=read('auth-service.js'),motion=read('dashboard-cinematic.js'),motionCSS=read('dashboard-cinematic.css'),visualJS=read('dashboard-visual-pass.js'),visualCSS=read('dashboard-visual-pass.css');
 test('Dashboard preserves public catalog, all action buttons and classic routes',()=>{
- for(const item of ['games.json','classic.html','admin.html','builder.html','dashboard.css','dashboard-cinematic.js','authDialog','profileDialog','gameDialog','firmwareFilter','categoryFilter','languageFilter','clearActivity'])
+ for(const item of ['games.json','classic.html','admin.html','builder.html','dashboard.css','dashboard-visual-pass.js','authDialog','profileDialog','gameDialog','firmwareFilter','categoryFilter','languageFilter','clearActivity'])
    assert.ok(html.includes(item)||script.includes(item),'Missing feature: '+item);
  for(const action of ['download_','search_game','search_cheat','view_game','counterKey','lock.html'])
    assert.ok(script.includes(action),'Missing action: '+action);
  assert.ok(experience.includes("import './dashboard.js'"),'Dashboard experience must initialize core');
  assert.ok(motion.includes("import './dashboard-experience.js'"),'Motion layer must initialize dashboard experience');
+ assert.ok(visualJS.includes("import './dashboard-cinematic.js'"),'Visual layer must initialize cinematic effects');
  assert.ok(script.includes("import * as auth from './guest-data.js'"),'Phase 1 must not activate email registration');
 });
 test('All stat numbers are derived from the real catalog',()=>{
@@ -43,7 +44,7 @@ test('Each ID queried by the dashboard script exists in HTML',()=>{
  }
 });
 test('JavaScript files are parseable',()=>{
- for(const path of ['dashboard.js','dashboard-experience.js','dashboard-cinematic.js','guest-data.js','auth-service.js','auth-config.js']){
+ for(const path of ['dashboard.js','dashboard-experience.js','dashboard-cinematic.js','dashboard-visual-pass.js','guest-data.js','auth-service.js','auth-config.js']){
   const source=read(path).replace(/^import .*;\s*$/mg,'').replace(/^export /mg,'');
   assert.doesNotThrow(()=>new Function(source),'Syntax error in '+path);
  }
@@ -58,4 +59,16 @@ test('Cinematic polish respects user motion settings and accessibility',()=>{
  assert.ok(motionCSS.includes('dialog3DIn'),'3D dialog opening effect');
  assert.ok(motion.includes('closeDialogAnimated'),'Animated dialog close effect');
  assert.ok(motion.includes("upgradeIcons()"),'Sidebar and shortcut icons are upgraded');
+});
+
+test('Reference screenshot readability and visual composition',()=>{
+ assert.ok(html.includes('dashboard-visual-pass.css')&&html.includes('dashboard-visual-pass.js'),'Polish assets linked');
+ assert.ok(visualJS.includes("api.state.games"),'Artwork must come from the real catalog');
+ assert.ok(visualJS.includes('hero-keyart'),'Featured artwork uses a separate contained layer');
+ assert.ok(visualJS.includes('widget-art'),'Shortcut tiles show actual catalog artwork');
+ assert.ok(visualJS.includes('page-progress'),'Scroll position indicator exists');
+ assert.ok(visualCSS.includes('background-image:radial-gradient'),'Hero avoids poster-as-cover zoom');
+ assert.ok(visualCSS.includes('font-size:12px'),'Game information is legible');
+ assert.ok(visualCSS.includes('prefers-reduced-motion'),'Reduced motion still supported');
+ assert.ok(!visualJS.includes('service_role'),'No secret or server-side account access introduced');
 });
