@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-09",
   "games": [
     {
       "title": "Assassin's Creed Black Flag Resynced",
@@ -2425,6 +2425,31 @@
         "action"
       ],
       "directUrl": "https://akirabox.to/E9Qz9X7R23OL/file",
+      "ps5Frame": true,
+      "coverSource": "Pippo Library",
+      "coverFit": "contain"
+    },
+    {
+      "date": "2026-10-09",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "dlcAvailable": false,
+      "languageSource": "",
+      "title": "Silent Hill Townfall",
+      "titleId": "PPSA33286",
+      "version": "02.003",
+      "firmware": "4xx",
+      "size": "50.75 GB",
+      "status": "released",
+      "cover": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Silent_Hill_Townfall_DE.avif",
+      "notes": "Chinese (Simplified), Chinese (Traditional), English, French (France), German, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Russian, Spanish, Spanish (Mexico)\n\nPASSWORD WEBSITE ilovezer0day\nPASSWORD ARCHIVE SuperPSX",
+      "genres": [
+        "Horror"
+      ],
+      "directUrl": "https://gofile.io/d/wHKG7OSi",
+      "cheatEnabled": false,
       "ps5Frame": true,
       "coverSource": "Pippo Library",
       "coverFit": "contain"
