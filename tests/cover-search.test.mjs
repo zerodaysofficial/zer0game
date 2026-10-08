@@ -135,3 +135,83 @@ test('missing covers and unreachable sources produce distinct outcomes', async (
   }), /raggiungere/i);
   await assert.rejects(core.searchCoverByPpsa('CUSA12345'), /PPSA/i);
 });
+
+
+test('PPSA-matched cover metadata fills title and language arrays without inventing a language',()=>{
+  const languages={audio:['English','French (France)'],text:['English','Italian','German']};
+  const source=[{...libraryPayload[0],languages}];
+  assert.deepEqual(core.extractLibraryCover(source,'PPSA28997'),{
+    title:'God of War Sons of Sparta',imageUrl:libraryCover,
+    languages,languageSource:'Pippo Library'
+  });
+  assert.deepEqual(core.extractLibraryCover(libraryPayload,'PPSA28997'),{
+    title:'God of War Sons of Sparta',imageUrl:libraryCover
+  });
+  assert.equal(core.extractLibraryCover([{...source[0],tags:['PPSA28998']}],'PPSA28997'),null);
+});
+
+test('PlayStation Store voice/text metadata is extracted only from the base game',()=>{
+  const enriched={...storePayload,links:[
+    {name:'DLC',gameContentTypesList:[{key:'ADD_ON'}],
+      VoiceLang:['Russian'],SubtitleLang:['Russian'],
+      images:[{url:storeCover}]},
+    {...storePayload.links[0],VoiceLang:['en','fr'],SubtitleLang:['en','it']}
+  ]};
+  const result=core.extractPsStoreCover(enriched);
+  assert.deepEqual(result,{
+    title:'God of War Sons of Sparta',imageUrl:storeCover,
+    languages:{audio:['en','fr'],text:['en','it']},
+    languageSource:'PlayStation Store'
+  });
+  assert.deepEqual(core.extractPsStoreLanguages(enriched),{
+    audio:['en','fr'],text:['en','it']
+  });
+});
+
+test('metadata from local catalog requires an exact PPSA match and returns the saved languages',()=>{
+  const games=[
+    {title:'Misleading',titleId:'PPSA289970',languages:{audio:['Wrong'],text:[]}},
+    {title:'God of War',titleId:'PPSA28997',languageSource:'Catalogo',languages:{audio:['English'],text:['Italian']}}
+  ];
+  assert.deepEqual(core.metadataFromCatalog(games,'ppsa28997_00'),{
+    title:'God of War',
+    languages:{audio:['English'],text:['Italian']},
+    languageSource:'Catalogo'
+  });
+  assert.equal(core.metadataFromCatalog(games,'PPSA00001'),null);
+});
+
+test('language description adds separate Voices and Screen Languages without losing existing notes',()=>{
+  const lang={audio:['English','French (France)'],text:['English','Italian']};
+  const old='Firmware 4.xx BackPort\nPassword Website: example';
+  const first=core.mergeLanguageDescription(old,lang);
+  assert.match(first.text,/Firmware 4\.xx BackPort/);
+  assert.match(first.text,/Password Website: example/);
+  assert.match(first.text,/Voices ⇛ English, French \(France\)/);
+  assert.match(first.text,/Screen Languages ⇛ English, Italian/);
+  assert.equal(core.mergeLanguageDescription(first.text,lang,first.block).text,first.text);
+  const newLang={audio:['German'],text:['German','English']};
+  const second=core.mergeLanguageDescription(first.text,newLang,first.block);
+  assert.match(second.text,/Voices ⇛ German/);
+  assert.doesNotMatch(second.text,/Voices ⇛ English/);
+  assert.match(second.text,/Firmware 4\.xx BackPort/);
+  assert.equal(core.mergeLanguageDescription(old,{audio:[],text:[]}).text,old);
+});
+
+test('PlayStation metadata language lookup is best-effort, read-only and does not require a GitHub token',async()=>{
+  const result=await core.searchLanguagesByPpsa('PPSA28997',{
+    fetchImpl:async(_url,options)=>{
+      assert.equal(options.credentials,'omit');
+      assert.equal(options.headers.Authorization,undefined);
+      return {ok:true,json:async()=>({
+        links:[{name:'Game',VoiceLangByPlatform:{PS5:['English']},
+          SubtitleLangByPlatform:{PS5:['Italian']},gameContentTypesList:[{key:'FULL_GAME'}]}]
+      })};
+    }
+  });
+  assert.deepEqual(result,{audio:['English'],text:['Italian']});
+  const unavailable=await core.searchLanguagesByPpsa('PPSA28997',{
+    fetchImpl:async()=>{throw new TypeError('CORS blocked');}
+  });
+  assert.deepEqual(unavailable,{audio:[],text:[]});
+});

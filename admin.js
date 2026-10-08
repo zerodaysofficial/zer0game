@@ -5,10 +5,14 @@ import {
   formatGithubError,
   gameFormValues,
   isOwnerLogin,
+  extractLanguageMetadata,
+  metadataFromCatalog,
+  mergeLanguageDescription,
+  searchLanguagesByPpsa,
   searchCoverByPpsa,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
-} from './admin-core.mjs?v=20261003-cheat-download';
+} from './admin-core.mjs?v=20261009-ppsa-metadata';
 
 const API_ROOT = 'https://api.github.com';
 const WRITE_BRANCH = 'main';
@@ -52,6 +56,11 @@ let loginPending = false;
 let coverSearchSequence = 0;
 let coverSearchController = null;
 let catalogLoadSequence = 0;
+let autoLanguageBlock = '';
+let autoLanguages = null;
+let autoLanguagesTitleId = '';
+let autoLanguageSource = '';
+let autoFilledTitle = '';
 
 coverPreview.addEventListener('error', () => {
   if (!selectedCoverUrl || coverPreview.src !== selectedCoverUrl) return;
@@ -194,10 +203,41 @@ function canLoadCover(url, signal) {
 
 function resetCoverSelection() {
   invalidateCoverSearch();
+  autoLanguageBlock = '';
+  autoLanguages = null;
+  autoLanguagesTitleId = '';
+  autoLanguageSource = '';
+  autoFilledTitle = '';
   selectedCoverUrl = '';
   selectedCoverTitleId = '';
   clearCoverPreview();
   setStatus(coverSearchStatus, '');
+}
+
+function clearAutoMetadataForChangedPpsa() {
+  const title=byId('title');
+  const technicalInfo=byId('technicalInfo');
+  if(autoLanguageBlock && technicalInfo.value.includes(autoLanguageBlock)) {
+    technicalInfo.value=technicalInfo.value.replace(autoLanguageBlock,'').trim();
+  }
+  if(autoFilledTitle && title.value.trim()===autoFilledTitle)title.value='';
+  autoLanguageBlock='';
+  autoLanguages=null;
+  autoLanguagesTitleId='';
+  autoLanguageSource='';
+  autoFilledTitle='';
+}
+
+function combineKnownLanguages(cover,store,catalog) {
+  const fromCover=extractLanguageMetadata(cover);
+  const fromCatalog=extractLanguageMetadata(catalog);
+  const fromStore=extractLanguageMetadata(store);
+  const audio=fromCover.audio.length?fromCover.audio:fromCatalog.audio.length?fromCatalog.audio:fromStore.audio;
+  const text=fromCover.text.length?fromCover.text:fromCatalog.text.length?fromCatalog.text:fromStore.text;
+  const source=[fromCover.audio.length||fromCover.text.length?cover.languageSource||'Libreria cover':'',
+    fromCatalog.audio.length||fromCatalog.text.length?catalog.languageSource||'Catalogo ZER0GAME':'',
+    fromStore.audio.length||fromStore.text.length?'PlayStation Store':''].filter(Boolean).join(' + ');
+  return {languages:{audio,text},source};
 }
 
 function isEditing(game) {
@@ -298,7 +338,7 @@ function setSaving(value) {
 }
 
 function readFormRecord(coverPath, original) {
-  return buildGameRecord({
+  const record = buildGameRecord({
     title: byId('title').value,
     titleId: byId('titleId').value,
     version: byId('version').value,
@@ -314,6 +354,11 @@ function readFormRecord(coverPath, original) {
     technicalInfo: byId('technicalInfo').value,
     credit: byId('credit').value
   }, localDate(), original);
+  if(autoLanguages && autoLanguagesTitleId===normalizedTitleId(byId('titleId').value)) {
+    record.languages={audio:[...autoLanguages.audio],text:[...autoLanguages.text]};
+    record.languageSource=autoLanguageSource;
+  }
+  return record;
 }
 
 async function uploadCover(file, path, title) {
@@ -417,6 +462,9 @@ refreshCatalogButton.addEventListener('click', async () => {
 
 byId('titleId').addEventListener('input', () => {
   invalidateCoverSearch();
+  if(autoLanguagesTitleId && normalizedTitleId(byId('titleId').value)!==autoLanguagesTitleId) {
+    clearAutoMetadataForChangedPpsa();
+  }
   setStatus(coverSearchStatus, '');
   if (selectedCoverUrl && normalizedTitleId(byId('titleId').value) !== selectedCoverTitleId) {
     selectedCoverUrl = '';
@@ -445,9 +493,44 @@ coverSearchButton.addEventListener('click', async () => {
 
     selectedCoverUrl = result.imageUrl;
     selectedCoverTitleId = titleId;
+    autoLanguagesTitleId = titleId;
     coverInput.value = '';
     showCoverPreview(result.imageUrl);
-    setStatus(coverSearchStatus, `Trovata: ${result.title}. La cover verrà adattata al riquadro 3:4 del sito.`, 'success');
+
+    const titleField=byId('title');
+    const suggestedTitle=String(result.title||'').trim();
+    const canAutoFillTitle=!titleField.value.trim() || titleField.value.trim()===autoFilledTitle;
+    if(suggestedTitle && suggestedTitle!=='Gioco trovato' && canAutoFillTitle) {
+      titleField.value=suggestedTitle;
+      autoFilledTitle=suggestedTitle;
+    }
+
+    const existingMetadata=metadataFromCatalog(catalogGames,titleId);
+    const primary=combineKnownLanguages(result,{},existingMetadata||{});
+    let storeLanguages={audio:[],text:[]};
+    if(!primary.languages.audio.length || !primary.languages.text.length) {
+      setStatus(coverSearchStatus, `Cover trovata: ${result.title}. Recupero le lingue associate a ${titleId}…`);
+      storeLanguages=await searchLanguagesByPpsa(titleId,{signal:controller.signal});
+      if(requestId!==coverSearchSequence)return;
+    }
+    const combined=combineKnownLanguages(result,storeLanguages,existingMetadata||{});
+    const {audio,text}=combined.languages;
+    if(audio.length||text.length) {
+      const technicalInfo=byId('technicalInfo');
+      const merge=mergeLanguageDescription(technicalInfo.value,combined.languages,autoLanguageBlock);
+      if(merge.text.length<=technicalInfo.maxLength) {
+        technicalInfo.value=merge.text;
+        autoLanguageBlock=merge.block;
+        autoLanguages=combined.languages;
+        autoLanguagesTitleId=titleId;
+        autoLanguageSource=combined.source;
+        setStatus(coverSearchStatus, `Trovata: ${result.title}. Titolo e lingue disponibili compilati automaticamente (${audio.length} audio, ${text.length} testo). Controlla i campi prima del salvataggio.`, 'success');
+      } else {
+        setStatus(coverSearchStatus, 'Cover e titolo trovati, ma il campo descrizione è troppo lungo per aggiungere le lingue.', 'warning');
+      }
+    } else {
+      setStatus(coverSearchStatus, `Trovata: ${result.title}. Titolo compilato se il campo era vuoto. Lingue non disponibili nelle fonti per ${titleId}: inseriscile manualmente.`, 'warning');
+    }
     setStatus(saveStatus, '');
   } catch (error) {
     if (requestId !== coverSearchSequence) return;
