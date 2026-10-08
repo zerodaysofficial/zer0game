@@ -49,7 +49,9 @@ function renderHero(){
  $('#featuredFw').textContent='FW '+(g.firmware||'—');
  $('#featuredCheat').textContent=isCheat(g)?'ϟ CHEAT READY':'CHEAT —';
  $('#heroBg').style.backgroundImage=src?'linear-gradient(90deg,#080b18ab,#09112644),url("'+src.replace(/["\\]/g,'')+'")':'';
- $('#heroChecks').innerHTML='<div>'+(links.game?'Game link available':'No game link')+'</div><div>'+(links.cheat?'Cheat link available':'No cheat link')+'</div><div>'+(links.dlc?'DLC link available':'No DLC link')+'</div>';
+ const count=[links.game,links.cheat,links.dlc].filter(Boolean).length;
+ $('#heroRing').textContent=count+' / 3';$('#heroGauge').style.setProperty('--link-angle',Math.round(count*120)+'deg');
+ $('#heroChecks').innerHTML='<div class="'+(links.game?'yes':'no')+'">'+(links.game?'Game link available':'No game link')+'</div><div class="'+(links.cheat?'yes':'no')+'">'+(links.cheat?'Cheat link available':'No cheat link')+'</div><div class="'+(links.dlc?'yes':'no')+'">'+(links.dlc?'DLC link available':'No DLC link')+'</div>';
  $('#heroPages').textContent=picks.map((_,i)=>i===state.hero?'●':'○').join(' ');
  $('#featuredDownload').disabled=!links.game;$('#featuredDownload').textContent=links.game?'↓ DOWNLOAD GAME':'COMING SOON';
  $('#featuredDownload').onclick=()=>handleDownload(g,'game');
@@ -102,7 +104,7 @@ function openGame(g){
   '<div class="dialog-actions">'+(links.game?'<button class="primary-btn" data-download="game">↓ DOWNLOAD GAME</button>':'')+(links.dlc?'<button class="ghost-btn" data-download="dlc">↓ DOWNLOAD DLC</button>':'')+(links.cheat?'<button class="ghost-btn" data-download="cheat">ϟ DOWNLOAD CHEAT</button>':'')+'</div>'+
   (g.debugMenuSoon?'<p class="micro">DEBUG MENU SOON</p>':'')+'<div id="modalCounter" class="counter-label">Game and cheat counters loading…</div>'+
   '<p class="notes">'+esc(g.notes||'')+'</p>'+langMarkup+(g.infoUrl&&validUrl(g.infoUrl)?'<p><a class="text-link" href="'+esc(validUrl(g.infoUrl))+'" target="_blank" rel="noopener noreferrer">OFFICIAL INFORMATION ↗</a></p>':'')+'</div></div>';
- $('#gameDialog').showModal();
+ $('#gameDialog').showModal();window.dispatchEvent(new CustomEvent('zer0:game-open',{detail:{game:g}}));
  void auth.recordActivity('view_game',g).then(()=>loadActivities());
  const labels=[];if(links.game)labels.push({kind:'game',label:'Game'});if(links.cheat)labels.push({kind:'cheat',label:'Cheat'});
  if(labels.length){Promise.all(labels.map(async item=>{try{return item.label+': '+formatDownloadCount(await readCounter(counterKey(g,item.kind)));}catch{return item.label+': unavailable';}})).then(parts=>{if(state.selected===g&&$('#modalCounter'))$('#modalCounter').textContent=parts.join(' · ');});}
@@ -113,6 +115,7 @@ function handleDownload(g,kind){
  if(!url){toast('No '+kind+' link is available for this game.');return;}
  // Open immediately on a trusted user click, before any asynchronous requests.
  const anchor=document.createElement('a');anchor.href=lockLink(url);anchor.target='_blank';anchor.rel='noopener noreferrer';anchor.click();
+ window.dispatchEvent(new CustomEvent('zer0:download-open',{detail:{game:g,kind}}));
  void auth.recordActivity('download_'+kind,g).then(()=>loadActivities());
  if(kind==='game'||kind==='cheat')void incrementCounter(counterKey(g,kind)).catch(()=>{});
 }
@@ -122,18 +125,18 @@ async function toggleFavorite(g){
  try{await auth.setFavorite(key,g.title,!saved);state.favorites=await auth.listFavorites();renderCollection();renderLibrary();toast(saved?'Removed from your collection.':'Saved to your collection.');}
  catch(e){toast(e.message);}
 }
-async function loadActivities(){if(!auth.user())return;try{state.activity=await auth.listActivities(30);renderActivity();}catch(e){console.warn(e.message);}}
+async function loadActivities(){if(!auth.user())return;try{state.activity=await auth.listActivities(60);renderActivity();window.dispatchEvent(new Event('zer0:updated'));}catch(e){console.warn(e.message);}}
 async function loadAccount(user){
  state.user=user;state.profile=null;state.favorites=[];state.activity=[];
  if(user){
-  try{const [profile,favorites,activities]=await Promise.all([auth.getProfile(),auth.listFavorites(),auth.listActivities(30)]);if(auth.user()?.id!==user.id)return;state.profile=profile;state.favorites=favorites;state.activity=activities;}
+  try{const [profile,favorites,activities]=await Promise.all([auth.getProfile(),auth.listFavorites(),auth.listActivities(60)]);if(auth.user()?.id!==user.id)return;state.profile=profile;state.favorites=favorites;state.activity=activities;}
   catch(e){console.warn('Account data:',e.message);}
  }
  const name=state.profile?.display_name?.trim()||user?.email?.split('@')[0]||'Player';
  $('#welcomeName').textContent=name;$('#accountLabel').textContent='My Profile';
  const path=state.profile?.avatar_path;const image=auth.avatarUrl(path);
  $('#topAvatar').innerHTML=image?'<img alt="Your avatar" src="'+esc(image)+'">':'Z0';
- renderCollection();renderActivity();renderLibrary();
+ renderCollection();renderActivity();renderLibrary();window.dispatchEvent(new Event('zer0:updated'));
 }
 let emailForOtp='',lastOtpAt=0;
 function showAuth(){
@@ -224,8 +227,9 @@ async function loadCatalog(){
   populateSelect($('#firmwareFilter'),state.games.map(g=>g.firmware));
   populateSelect($('#categoryFilter'),state.games.flatMap(g=>g.genres||[]));
   populateSelect($('#languageFilter'),state.games.flatMap(g=>[...(g.languages?.text||[]),...(g.languages?.audio||[])]));
-  setStats();refresh();
+  setStats();refresh();window.dispatchEvent(new Event('zer0:updated'));
  }catch(error){console.error(error);$('#gameGrid').innerHTML='<p class="empty-hint">Unable to load the catalog. Please retry later.</p>';toast('Could not fetch games.json');}
 }
+window.Zer0Dashboard={state,auth,downloads,coverUrl,titleKey,gameByKey,openGame,handleDownload,renderLibrary,renderCollection,renderHero,renderActivity};
 eventHandlers();void loadCatalog();
 auth.initializeAuth(loadAccount).catch(error=>{console.warn(error);$('#authDisabled').hidden=false;$('#sendOtpForm').hidden=true;$('#authDisabled').textContent='Authentication service could not load. Please try later.';});
