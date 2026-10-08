@@ -4,13 +4,14 @@ import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 const root=join(import.meta.dirname,'..');
 const read=name=>readFileSync(join(root,name),'utf8');
-const html=read('index.html'),script=read('dashboard.js'),experience=read('dashboard-experience.js'),guest=read('guest-data.js'),auth=read('auth-service.js');
+const html=read('index.html'),script=read('dashboard.js'),experience=read('dashboard-experience.js'),guest=read('guest-data.js'),auth=read('auth-service.js'),motion=read('dashboard-cinematic.js'),motionCSS=read('dashboard-cinematic.css');
 test('Dashboard preserves public catalog, all action buttons and classic routes',()=>{
- for(const item of ['games.json','classic.html','admin.html','builder.html','dashboard.css','dashboard-experience.js','authDialog','profileDialog','gameDialog','firmwareFilter','categoryFilter','languageFilter','clearActivity'])
+ for(const item of ['games.json','classic.html','admin.html','builder.html','dashboard.css','dashboard-cinematic.js','authDialog','profileDialog','gameDialog','firmwareFilter','categoryFilter','languageFilter','clearActivity'])
    assert.ok(html.includes(item)||script.includes(item),'Missing feature: '+item);
  for(const action of ['download_','search_game','search_cheat','view_game','counterKey','lock.html'])
    assert.ok(script.includes(action),'Missing action: '+action);
  assert.ok(experience.includes("import './dashboard.js'"),'Dashboard experience must initialize core');
+ assert.ok(motion.includes("import './dashboard-experience.js'"),'Motion layer must initialize dashboard experience');
  assert.ok(script.includes("import * as auth from './guest-data.js'"),'Phase 1 must not activate email registration');
 });
 test('All stat numbers are derived from the real catalog',()=>{
@@ -42,8 +43,19 @@ test('Each ID queried by the dashboard script exists in HTML',()=>{
  }
 });
 test('JavaScript files are parseable',()=>{
- for(const path of ['dashboard.js','dashboard-experience.js','guest-data.js','auth-service.js','auth-config.js']){
+ for(const path of ['dashboard.js','dashboard-experience.js','dashboard-cinematic.js','guest-data.js','auth-service.js','auth-config.js']){
   const source=read(path).replace(/^import .*;\s*$/mg,'').replace(/^export /mg,'');
   assert.doesNotThrow(()=>new Function(source),'Syntax error in '+path);
  }
+});
+test('Cinematic polish respects user motion settings and accessibility',()=>{
+ assert.ok(html.includes('dashboard-cinematic.css'),'Cinematic stylesheet linked');
+ assert.ok(motion.includes('prefers-reduced-motion: reduce'),'Reduced-motion media query used');
+ assert.ok(motion.includes("document.body.classList.contains('no-motion')"),'User motion setting used');
+ assert.ok(motion.includes("('IntersectionObserver' in window)"),'Visibility animations are progressive');
+ assert.ok(motion.includes('requestAnimationFrame'),'Pointer effects must be scheduled efficiently');
+ assert.ok(motionCSS.includes('@media(prefers-reduced-motion:reduce)'),'Reduced motion CSS fallback');
+ assert.ok(motionCSS.includes('dialog3DIn'),'3D dialog opening effect');
+ assert.ok(motion.includes('closeDialogAnimated'),'Animated dialog close effect');
+ assert.ok(motion.includes("upgradeIcons()"),'Sidebar and shortcut icons are upgraded');
 });
