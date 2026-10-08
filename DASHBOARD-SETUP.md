@@ -1,6 +1,18 @@
-# ZER0GAME Neon Dashboard + Email Accounts
+# ZER0GAME Neon Dashboard — Phase 1 (No Registration Yet)
 
-This branch contains a responsive dashboard based on the requested purple gaming UI. The original site stays accessible at classic.html. The owner admin panel, PKG builder, games.json, cover links, Game/DLC/Cheat URLs, lock.html, and download counters remain available.
+This branch contains the full purple gaming-dashboard layout requested by the owner. The original site is preserved as classic.html. The GitHub-owner admin panel, PKG builder, games.json, cover links, Game/DLC/Cheat URLs, lock.html, and real game/cheat click counters remain available.
+
+## Phase 1 — Active, no email login
+
+- index.html uses dashboard-experience.css, dashboard-experience.js and the real catalog (59 titles as of Oct 4, 2026).
+- All visitors can browse the catalog, filter by game/release status/FW/category/language, search PPSA, open details, follow existing Game/DLC/Cheat links, and inspect counts when the external counter service responds.
+- Browser-local player nickname, avatar, favourites, history and site achievement badges use guest-data.js and localStorage. They are not shared across devices and are not authenticated.
+- The new UI adds real recent-addition notifications, six dashboard shortcut widgets, profile statistics, a persistent link queue and display settings.
+- The bottom activity panel records external link openings only. Real file-transfer progress and PSN achievements are NOT available from GitHub Pages and are never simulated.
+- The admin editor is separate and still requires an authenticated GitHub owner/token; the local browser profile has no admin powers.
+
+Do NOT enable email registration in this phase. The standalone future-account integration exists as inactive scaffolding and is not loaded by the live UI.
+
 
 ## Enable real registrations and OTP emails
 
@@ -30,7 +42,7 @@ New registrations NEVER grant admin access. There is no admin field in the accou
 - [ ] Desktop, mobile, keyboard navigation and dialogs work.
 - [ ] Privacy notice is reviewed for any jurisdiction-specific obligations before inviting sign-ups.
 
-**Progress**: the UI and secure-auth integration code are ready for review; no Supabase project has yet been configured, and no live email delivery or end-to-end signup tests have been performed.
+**Progress**: phase 1 UI code is on the feature branch; automatic static syntax and binding checks passed. Live browser/visual checks and public deployment still require verification. No Supabase project is configured, and OTP/signup is NOT enabled.
 
 Note: external download hosts do not provide real progress data to GitHub Pages. The concept's Downloading percentage was intentionally replaced with an authentic recent-activity panel.
 
