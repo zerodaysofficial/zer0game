@@ -71,6 +71,111 @@ function safeLibraryImageUrl(value) {
   }
 }
 
+// Metadata is never inferred from the cover pixels. Only explicit, PPSA-matched
+// catalogue fields or product metadata are accepted.
+function cleanLanguages(value) {
+  let list=value;
+  if(typeof list==='string') {
+    const raw=list.trim();
+    if(raw.startsWith('[')) {
+      try{list=JSON.parse(raw);}catch{list=[];}
+    } else list=raw.split(/[;,\n|]/);
+  }
+  if(!Array.isArray(list))return [];
+  const values=[];
+  for(const item of list.slice(0,60)){
+    if(typeof item!=='string')continue;
+    const name=item.trim();
+    if(!name||name.length>60||/[<>{}]/.test(name))continue;
+    if(!values.some(previous=>previous.toLocaleLowerCase()===name.toLocaleLowerCase()))values.push(name);
+  }
+  return values.slice(0,40);
+}
+function firstLanguageList(...candidates){
+  for(const value of candidates){
+    const languages=cleanLanguages(value);
+    if(languages.length)return languages;
+  }
+  return [];
+}
+export function extractLanguageMetadata(item){
+  if(!item||typeof item!=='object')return {audio:[],text:[]};
+  const languageData=item.languages && typeof item.languages==='object'&&!Array.isArray(item.languages) ? item.languages : {};
+  return {
+    audio:firstLanguageList(
+      item.VoiceLangByPlatform?.PS5,
+      languageData.audio,languageData.voices,languageData.voice,
+      item.voiceLanguages,item.audioLanguages,item.VoiceLang,item.voices
+    ),
+    text:firstLanguageList(
+      item.SubtitleLangByPlatform?.PS5,
+      languageData.text,languageData.screen,languageData.subtitles,
+      item.screenLanguages,item.textLanguages,item.subtitleLanguages,item.SubtitleLang
+    )
+  };
+}
+function addLanguagesIfFound(cover,record,source){
+  const languages=extractLanguageMetadata(record);
+  return languages.audio.length||languages.text.length
+    ? {...cover,languages,languageSource:source}
+    : cover;
+}
+// Generated section is only replaced when the preceding auto-population is still intact.
+export function mergeLanguageDescription(existing,languages,previousAutoBlock=''){
+  const lines=[];
+  if(languages?.audio?.length)lines.push('Voices ⇛ '+languages.audio.join(', '));
+  if(languages?.text?.length)lines.push('Screen Languages ⇛ '+languages.text.join(', '));
+  const block=lines.join('\n');
+  let description=String(existing??'');
+  if(previousAutoBlock&&description.includes(previousAutoBlock)) {
+    description=description.replace(previousAutoBlock,'').trim();
+  }
+  if(!block||description.includes(block))return {text:description,block};
+  return {text:[description.trim(),block].filter(Boolean).join('\n\n'),block};
+}
+export function metadataFromCatalog(games,titleId){
+  const ppsa=normalizePpsa(titleId);
+  if(!Array.isArray(games))return null;
+  const entry=games.find(game=>String(game?.titleId??'').trim().toUpperCase().replace(/_00$/,'')===ppsa);
+  if(!entry)return null;
+  const languages=extractLanguageMetadata(entry);
+  return {title:String(entry.title??'').trim(),languages,
+    languageSource:String(entry.languageSource||'Catalogo ZER0GAME')};
+}
+function storeProducts(payload){
+  return Array.isArray(payload?.links)?payload.links
+    :Array.isArray(payload?.results)?payload.results
+    :payload && typeof payload==='object'?[payload]:[];
+}
+export function extractPsStoreLanguages(payload){
+  const products=storeProducts(payload);
+  const candidate=products.find(product=>{
+    const types=Array.isArray(product?.gameContentTypesList)?product.gameContentTypesList:[];
+    return types.some(type=>type?.key==='FULL_GAME');
+  }) ?? products.find(product=>{
+    const types=Array.isArray(product?.gameContentTypesList)?product.gameContentTypesList:[];
+    return !types.length || types.some(type=>type?.key==='BUNDLE');
+  });
+  return extractLanguageMetadata(candidate);
+}
+export async function searchLanguagesByPpsa(titleId,{fetchImpl=globalThis.fetch,signal}={}){
+  for(const url of buildPsStoreCoverSearchUrls(titleId)){
+    signal?.throwIfAborted();
+    try{
+      const timeout=AbortSignal.timeout(5000);
+      const response=await fetchImpl(url,{
+        cache:'no-store',credentials:'omit',headers:{Accept:'application/json'},
+        signal:signal?AbortSignal.any([signal,timeout]):timeout
+      });
+      if(!response.ok)continue;
+      const data=extractPsStoreLanguages(await response.json());
+      if(data.audio.length||data.text.length)return data;
+    }catch{signal?.throwIfAborted();}
+  }
+  signal?.throwIfAborted();
+  return {audio:[],text:[]};
+}
+
 export function extractLibraryCover(payload, titleId) {
   const ppsa = normalizePpsa(titleId);
   if (!Array.isArray(payload)) return null;
@@ -81,7 +186,7 @@ export function extractLibraryCover(payload, titleId) {
     );
     if (!identifiers.some(value => value.replace(/_00$/, '') === ppsa)) continue;
     const imageUrl = safeLibraryImageUrl(game.image);
-    if (imageUrl) return { title: String(game.title ?? 'Gioco trovato').trim(), imageUrl };
+    if (imageUrl) return addLanguagesIfFound({ title: String(game.title ?? 'Gioco trovato').trim(), imageUrl },game,'Pippo Library');
   }
   return null;
 }
@@ -124,10 +229,10 @@ export function extractPsStoreCover(payload) {
       .find(Boolean);
 
     if (imageUrl) {
-      return {
+      return addLanguagesIfFound({
         title: String(product?.name ?? product?.title ?? product?.localizedName ?? 'Gioco trovato').trim(),
         imageUrl
-      };
+      },product,'PlayStation Store');
     }
   }
 
