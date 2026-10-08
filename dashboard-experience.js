@@ -63,7 +63,7 @@ function renderSummary(){
   {icon:'♡',title:'Collector',desc:'Save at least one game',unlocked:state.favorites.length>=1},
   {icon:'⚡',title:'Cheat Hunter',desc:'Open a cheat link',unlocked:cheatLinks>=1},
   {icon:'✦',title:'Curious',desc:'View 5 game pages',unlocked:views>=5},
-  {icon:'⇩',title:'Downloader',desc:'Open a game link',unlocked:gameLinks>=1}
+  {icon:'⇩',title:'Link Opener',desc:'Open a game link',unlocked:gameLinks>=1}
  ];
  $('#achievementRow').innerHTML=milestones.map(x=>'<div class="achievement '+(x.unlocked?'unlocked':'locked')+'" title="'+esc(x.title+': '+x.desc)+'"><span>'+x.icon+'</span><small>'+esc(x.title)+'</small></div>').join('');
 }
@@ -138,6 +138,7 @@ function sync(){
  updateBars();
 }
 function onGameOpen(e){
+ if($('#notificationDialog').open)$('#notificationDialog').close();
  const game=e.detail?.game;if(!game)return;
  const links=downloads(game);
  const content=$('#gameDialogContent');
