@@ -122,7 +122,7 @@ function handleDownload(g,kind){
 async function toggleFavorite(g){
  if(!auth.user()){showAuth();return;}
  const key=titleKey(g),saved=state.favorites.some(f=>f.game_key===key);
- try{await auth.setFavorite(key,g.title,!saved);state.favorites=await auth.listFavorites();renderCollection();renderLibrary();toast(saved?'Removed from your collection.':'Saved to your collection.');}
+ try{await auth.setFavorite(key,g.title,!saved);state.favorites=await auth.listFavorites();renderCollection();renderLibrary();window.dispatchEvent(new Event('zer0:updated'));toast(saved?'Removed from your collection.':'Saved to your collection.');}
  catch(e){toast(e.message);}
 }
 async function loadActivities(){if(!auth.user())return;try{state.activity=await auth.listActivities(60);renderActivity();window.dispatchEvent(new Event('zer0:updated'));}catch(e){console.warn(e.message);}}
