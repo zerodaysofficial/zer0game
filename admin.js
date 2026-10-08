@@ -493,6 +493,7 @@ coverSearchButton.addEventListener('click', async () => {
 
     selectedCoverUrl = result.imageUrl;
     selectedCoverTitleId = titleId;
+    autoLanguagesTitleId = titleId;
     coverInput.value = '';
     showCoverPreview(result.imageUrl);
 
