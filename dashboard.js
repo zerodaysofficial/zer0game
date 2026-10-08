@@ -208,6 +208,7 @@ function eventHandlers(){
   try{let path=state.profile?.avatar_path||'';const file=$('#avatarFile').files?.[0];if(file)path=await auth.uploadAvatar(file);await auth.saveProfile($('#profileName').value,path);await loadAccount(auth.user());$('#profileAvatar').innerHTML=auth.avatarUrl(path)?'<img src="'+esc(auth.avatarUrl(path))+'" alt="">':'Z0';msg.textContent='Profile saved!';toast('Your profile has been saved.');}
   catch(error){msg.textContent=error.message;}finally{btn.disabled=false;}
  });
+ $('#clearActivity').addEventListener('click',async()=>{if(!auth.user())return;if(!confirm('Permanently delete your search and download history?'))return;try{await auth.clearActivities();state.activity=[];renderActivity();toast('Your activity history has been cleared.');}catch(e){toast(e.message);}});
  $('#signOut').addEventListener('click',async()=>{try{await auth.signOut();$('#profileDialog').close();await loadAccount(null);toast('Signed out.');}catch(e){toast(e.message);}});
 }
 let searchTimer,lastSearch='';
