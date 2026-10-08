@@ -10,7 +10,7 @@ test('Dashboard preserves public catalog, all action buttons and classic routes'
    assert.ok(html.includes(item)||script.includes(item),'Missing feature: '+item);
  for(const action of ['download_','search_game','search_cheat','view_game','counterKey','lock.html'])
    assert.ok(script.includes(action),'Missing action: '+action);
- assert.ok(experience.includes("import './dashboard.js'"),'Dashboard experience must initialize core');
+ assert.ok(experience.includes("import './dashboard.js"),'Dashboard experience must initialize core');
  assert.ok(motion.includes("import './dashboard-experience.js'"),'Motion layer must initialize dashboard experience');
  assert.ok(visualJS.includes("import './dashboard-cinematic.js'"),'Visual layer must initialize cinematic effects');
  assert.ok(script.includes("import * as auth from './guest-data.js'"),'Phase 1 must not activate email registration');
@@ -71,4 +71,15 @@ test('Reference screenshot readability and visual composition',()=>{
  assert.ok(visualCSS.includes('font-size:12px'),'Game information is legible');
  assert.ok(visualCSS.includes('prefers-reduced-motion'),'Reduced motion still supported');
  assert.ok(!visualJS.includes('service_role'),'No secret or server-side account access introduced');
+});
+
+test('No link means no download control or misleading link badges',()=>{
+ assert.ok(html.includes('id="featuredDownload" type="button" hidden'),'Featured button starts hidden while catalog loads');
+ assert.ok(script.includes("$('#featuredDownload').hidden=!links.game"),'Featured button must be hidden without a game link');
+ assert.ok(script.includes("const linkTags=[links.game?"),'Only real link badges should render');
+ assert.ok(script.includes("(linkTags?'<div class=\"tags\">'+linkTags+'</div>':'')"),'Empty tags should not be shown');
+ assert.ok(script.includes("links.game?'<button class=\"primary-btn\" data-download=\"game\">"),'Details download buttons conditional');
+ assert.ok(script.includes("links.dlc?'<button class=\"ghost-btn\" data-download=\"dlc\">"),'DLC buttons conditional');
+ assert.ok(script.includes("links.cheat?'<button class=\"ghost-btn\" data-download=\"cheat\">"),'Cheat buttons conditional');
+ assert.ok(script.includes("!/^https:\\/\\//i.test(original)"),'Download URLs must be actual HTTPS links, not placeholder text');
 });
