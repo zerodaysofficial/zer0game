@@ -2505,6 +2505,31 @@
       "ps5Frame": true,
       "coverSource": "Pippo Library",
       "coverFit": "contain"
+    },
+    {
+      "date": "2026-10-09",
+      "languages": {
+        "text": [],
+        "audio": []
+      },
+      "dlcAvailable": false,
+      "languageSource": "",
+      "title": "Phasmophobia",
+      "titleId": "PPSA09030",
+      "version": "v01.000.048",
+      "firmware": "9.xx",
+      "size": "",
+      "status": "released",
+      "cover": "covers/phasmophobia-1791575835439.jpg",
+      "notes": "English, French (France), German, Italian, Japanese, Portuguese (Brazil), Spanish",
+      "genres": [
+        "Horror"
+      ],
+      "directUrl": "https://link-vault.org/c/qnIrMj3I",
+      "cheatEnabled": false,
+      "ps5Frame": true,
+      "coverSource": "Owner-uploaded cover",
+      "coverFit": "cover"
     }
   ]
 }
