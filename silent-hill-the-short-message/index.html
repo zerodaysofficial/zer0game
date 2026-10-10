@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<base href="/zer0game/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080717">
+<meta name="description" content="ZER0GAME — PS5 library, cheats, DLC and your personal dashboard.">
+<title>SILENT HILL: The Short Message | ZER0GAME</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css?v=2">
+<link rel="stylesheet" href="dashboard-experience.css?v=4">
+<link rel="stylesheet" href="dashboard-cinematic.css?v=20261008">
+<link rel="stylesheet" href="dashboard-visual-pass.css?v=20261008c">
+<link rel="stylesheet" href="dashboard-mobile-fix.css?v=20261010">
+<link rel="stylesheet" href="dashboard-routes.css?v=20261010">
+<script type="module" src="dashboard-routes.js?v=20261010"></script>
+<script type="module" src="dashboard-mobile-nav.js?v=20261010"></script>
+<meta name="generator" content="zer0game-routes">
+<meta property="og:title" content="SILENT HILL: The Short Message | ZER0GAME">
+<meta property="og:url" content="https://zerodaysofficial.github.io/zer0game/silent-hill-the-short-message/">
+</head>
+<body>
+<div class="backglow" aria-hidden="true"></div>
+<div class="shell">
+<aside class="sidebar">
+  <a class="logo" href="./"><span class="logo-icon">Z0</span><span>ZER0GAME<small>BY ZER0DAY</small></span></a>
+  <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-controls="primaryNav secondaryNav" aria-expanded="false" aria-label="Open navigation menu"><span class="mobile-menu-icon" aria-hidden="true">☰</span><span class="mobile-menu-label">Menu</span></button>
+  <div class="nav-caption">NAVIGATION</div>
+  <nav id="primaryNav" class="sidebar-menu" aria-label="Site sections">
+    <button data-nav="dashboard" class="navitem active"><span>⌂</span> Dashboard</button>
+    <button data-nav="library" class="navitem"><span>▦</span> Game Library</button>
+    <button data-nav="cheat" class="navitem"><span>ϟ</span> Cheat Hub <b class="new-pill">NEW</b></button>
+    <button data-nav="released" class="navitem"><span>▣</span> Released</button>
+    <button data-nav="soon" class="navitem"><span>◷</span> Coming Soon</button>
+    <button data-nav="dlc" class="navitem"><span>⬡</span> DLC Library</button>
+  </nav>
+  <div class="nav-caption">YOUR SPACE</div>
+  <nav id="secondaryNav" class="sidebar-menu" aria-label="Your space">
+    <button data-action="profile" class="navitem"><span>◉</span> My Profile</button>
+    <button data-action="activity" class="navitem"><span>▤</span> My Activity</button>
+    <button data-action="queue" class="navitem"><span>⇩</span> Download Queue</button>
+    <a class="navitem" href="https://x.com/_zer0day__" target="_blank" rel="noopener noreferrer"><span>☻</span> Community</a>
+    <button data-action="settings" class="navitem"><span>⚙</span> Settings</button>
+    <a class="navitem" href="builder.html"><span>⚡</span> PKG Builder</a>
+    <a class="navitem" href="classic.html"><span>↗</span> Classic Site</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="intelligence"><div class="kicker">✦ ZER0 INTELLIGENCE</div><p>Live library search, firmware filters and your own activity.</p><div class="wave" aria-hidden="true"></div></div>
+    <a href="admin.html" class="owner-link" title="Requires separate GitHub owner authorization">⚙ Owner Tools ↗</a>
+    <small>© ZER0DAY <span class="online-dot"></span> Catalog online</small>
+  </div>
+</aside>
+<main class="content">
+ <header class="topbar">
+  <div class="welcome"><small>WELCOME BACK,</small><h1><span id="welcomeName">Player</span> <span class="member-pill">✦ LOCAL MEMBER</span></h1></div>
+  <label class="global-search"><span>⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Search games, PPSA, firmware, cheats, DLC..." aria-label="Search catalog"><kbd>/</kbd></label>
+  <button class="icon-button" type="button" data-nav="library" title="Explore library" aria-label="Explore library">🎮</button>
+  <button class="icon-button notice-trigger" type="button" data-action="notifications" title="Recent additions" aria-label="Recent additions"><span>🔔</span><i class="notification-dot" id="notificationDot"></i></button>
+  <button class="user-button" type="button" data-action="account" aria-label="Open account or profile"><span id="topAvatar" class="avatar-mark">Z0</span><span id="accountLabel">Profile</span><span>⌄</span></button>
+ </header>
+ <section class="upper-grid">
+  <div class="hero panel" id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero-main">
+      <span class="hero-label">✦ FEATURED GAME</span>
+      <span class="platform">✧ PLAYSTATION 5 · FEATURED RELEASE</span>
+      <h2 id="featuredTitle">Discover your next game.</h2>
+      <p id="featuredDescription">Browse the latest releases and community additions.</p>
+      <div class="specs"><span id="featuredPpsa">PPSA —</span><span id="featuredVersion">Version —</span><span id="featuredFw">FW —</span><span id="featuredCheat">Cheats —</span></div>
+      <div class="hero-actions"><button class="primary-btn" id="featuredDownload" type="button" hidden>↓ DOWNLOAD GAME</button><button class="ghost-btn" id="featuredDetails" type="button">VIEW DETAILS →</button></div>
+    </div>
+    <div class="compat panel"><small>AVAILABLE LINKS</small><div class="compat-ring" id="heroGauge"><span id="heroRing">0 / 3</span></div><div id="heroChecks" class="compat-list"></div><div class="hero-controls"><button id="heroPrev" aria-label="Previous featured game">‹</button><span id="heroPages">● ○ ○</span><button id="heroNext" aria-label="Next featured game">›</button></div></div>
+  </div>
+  <section class="collection panel" aria-labelledby="collectionHeading"><div class="section-heading"><h2 id="collectionHeading">MY COLLECTION</h2><button class="text-link" data-action="favorites">VIEW ALL →</button></div><p class="micro" id="collectionHint">Sign in to save your favourite games.</p><div id="collectionList" class="collection-list"></div></section>
+ </section>
+ <section class="quick-widgets" aria-label="Quick actions">
+  <button data-nav="released" class="widget teal"><span>▣</span><strong>NEW RELEASES</strong><small>Latest entries in the catalog.</small><em>BROWSE GAMES →</em></button>
+  <button data-nav="cheat" class="widget purple"><span>ϟ</span><strong>CHEAT HUB</strong><small>Games with enabled cheat links.</small><em>VIEW CHEATS →</em></button>
+  <button data-nav="dlc" class="widget blue"><span>⬡</span><strong>DLC READY</strong><small>Browse available DLC links.</small><em>EXPLORE DLC →</em></button>
+  <button data-action="focus-search" class="widget indigo"><span>⌕</span><strong>SMART SEARCH</strong><small>Search by title, PPSA, firmware.</small><em>OPEN SEARCH →</em></button>
+  <button data-action="recent" class="widget amber"><span>◷</span><strong>RECENTLY UPDATED</strong><small>Latest changes to the game library.</small><em>VIEW UPDATES →</em></button>
+  <a href="admin.html" class="widget pink"><span>⚙</span><strong>OWNER TOOLS</strong><small>Separate GitHub authorization required.</small><em>ADMIN PANEL →</em></a>
+ </section>
+ <div class="lower-grid">
+  <section class="library panel" id="library" aria-labelledby="libraryHeading">
+   <div class="section-heading"><div><small class="kicker">EXPLORE ZER0GAME</small><h2 id="libraryHeading">EXPLORE THE LIBRARY <span>✦</span></h2><p>Browse PS5 entries, versions, firmware and available links.</p></div><span class="count-label" id="resultCount">Loading…</span></div>
+   <div class="library-filters">
+     <div class="filter-pills" role="group" aria-label="Catalog filters">
+       <button class="pill selected" data-filter="all">All Games</button>
+       <button class="pill" data-filter="released">✓ Released</button>
+       <button class="pill" data-filter="soon">◷ Coming Soon</button>
+       <button class="pill" data-filter="cheat">ϟ Cheats Available</button>
+       <button class="pill" data-filter="dlc">⬡ DLC Available</button>
+     </div>
+     <div class="select-filters">
+       <label>Firmware <select id="firmwareFilter"><option value="">Any firmware</option></select></label>
+       <label>Genre <select id="categoryFilter"><option value="">All genres</option></select></label>
+       <label>Language <select id="languageFilter"><option value="">All languages</option></select></label>
+       <label>Sort <select id="sortFilter"><option value="newest">Newest</option><option value="az">A to Z</option><option value="za">Z to A</option></select></label>
+     </div>
+   </div>
+   <div id="gameGrid" class="game-grid" aria-live="polite"><p>Loading game library…</p></div>
+   <div class="load-more-wrap"><button type="button" id="loadMore" class="ghost-btn" hidden>LOAD MORE GAMES ↓</button></div>
+  </section>
+  <aside class="right-lower">
+   <section class="panel stats"><div class="section-heading"><h2>ZER0 INTELLIGENCE</h2><span class="micro">LIVE CATALOG</span></div><div class="stats-grid"><div><span>▣</span><strong id="statGames">—</strong><small>Total titles</small></div><div><span>ϟ</span><strong id="statCheats">—</strong><small>Cheat ready</small></div><div><span>⬡</span><strong id="statDlc">—</strong><small>DLC links</small></div><div><span>✓</span><strong id="statReleases">—</strong><small>Released</small></div></div></section>
+   <section class="panel profile-summary" id="profileSummary"><div class="section-heading"><h2>PLAYER PROFILE</h2><button class="text-link" data-action="profile">EDIT PROFILE →</button></div><div class="profile-overview"><span class="profile-badge" id="summaryAvatar">Z0</span><div><strong id="summaryName">Player</strong><small>Local player · browser profile</small></div></div><div class="mini-stats"><div><strong id="profileSaved">0</strong><small>Saved games</small></div><div><strong id="profileViews">0</strong><small>Games viewed</small></div><div><strong id="profileLinks">0</strong><small>Link opens</small></div></div><div class="achievement-row" id="achievementRow" aria-label="Earned site achievements"></div></section>
+   <section class="panel recent-additions" id="recentAdditions"><div class="section-heading"><h2>RECENT ADDITIONS</h2><button class="text-link" data-action="recent">VIEW ALL →</button></div><div id="recentList" class="recent-list"></div></section>
+   <section class="panel activity" id="activity"><div class="section-heading"><h2>MY RECENT ACTIVITY</h2><button data-action="activity" class="text-link">VIEW ALL →</button></div><p class="micro">Your recent searches and link clicks on this device. No email login required.</p><div id="activityList"><p class="empty-hint">Sign in to see your history.</p></div></section>
+  </aside>
+ </div>
+ <section class="download-panel panel" id="downloadPanel" aria-label="Recent link activity and queue"><div class="download-activity"><div class="section-heading"><h2><span class="down-symbol">⇩</span> RECENT LINK ACTIVITY</h2><button data-action="activity" class="text-link">FULL HISTORY →</button></div><p class="micro">Tracks clicks on external links — not actual file transfer progress.</p><div id="lastDownload" class="last-download"><p class="empty-hint">No links opened yet.</p></div></div><div class="link-queue"><div class="section-heading"><h2>MY LINK QUEUE <span id="queueCount">(0)</span></h2><button data-action="queue" class="text-link">VIEW ALL →</button></div><div id="queueList" class="queue-list"><p class="empty-hint">Save a game to your queue from its details.</p></div></div></section>
+ <footer class="footer"><div>ZER0GAME © ZER0DAY — Catalog interface</div><div><a href="classic.html#about">About / DMCA</a> · <a href="privacy.html">Privacy</a> · <a href="https://ko-fi.com/zzer0dayyy" target="_blank" rel="noopener noreferrer">Support</a> · <a href="https://x.com/_zer0day__" target="_blank" rel="noopener noreferrer">X</a></div></footer>
+</main>
+</div>
+<dialog id="settingsDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-settings" aria-label="Close">×</button><div class="auth-header"><span class="logo-icon">⚙</span><h2>DASHBOARD SETTINGS</h2><p>Personalize your ZER0GAME experience. Settings are saved on this device.</p></div><div class="settings-list"><label><span><strong>Motion &amp; effects</strong><small>Animate highlights, cards and backgrounds</small></span><input id="settingMotion" type="checkbox" checked></label><label><span><strong>Compact layout</strong><small>Fit more game cards on your screen</small></span><input id="settingCompact" type="checkbox"></label><label><span><strong>Remember filters</strong><small>Keep your search and filters after reloading</small></span><input id="settingRemember" type="checkbox"></label></div><button class="ghost-btn" id="resetSettings" type="button">RESET SETTINGS</button></dialog>
+<dialog id="notificationDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-notifications" aria-label="Close">×</button><h2>LIBRARY NOTIFICATIONS</h2><p class="micro">New and recently updated entries from the real catalog.</p><div id="notificationList" class="recent-list"></div><button type="button" data-action="recent" class="ghost-btn">BROWSE RECENT GAMES →</button></dialog>
+<dialog id="queueDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-queue" aria-label="Close">×</button><h2>MY LINK QUEUE</h2><p class="micro">A personal shortlist of game links. Links open on external hosts; no files are downloaded within ZER0GAME.</p><div id="queueDialogList" class="queue-list"></div><button type="button" id="clearQueue" class="ghost-btn">CLEAR QUEUE</button></dialog>
+<dialog id="gameDialog" class="dialog"><button class="dialog-close" type="button" data-action="close-game" aria-label="Close">×</button><div id="gameDialogContent"></div></dialog>
+<dialog id="authDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-auth" aria-label="Close">×</button><div class="auth-header"><span class="logo-icon">Z0</span><h2>YOUR ZER0GAME ACCOUNT</h2><p>Email registration will be added later. For now, your nickname, avatar, saved games and activity work locally on this browser.</p></div><div id="authDisabled" class="auth-disabled" hidden>Secure email sign-in will be available when the site owner connects the authentication service.</div><form id="sendOtpForm"><label>Email address<input id="authEmail" type="email" maxlength="254" autocomplete="email" required placeholder="name@example.com"></label><button class="primary-btn" type="submit">SEND EMAIL CODE →</button></form><form id="verifyOtpForm" hidden><label>6-digit code from your email<input id="authCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required placeholder="000000"></label><button class="primary-btn" type="submit">VERIFY & SIGN IN →</button><button class="text-link" type="button" id="resendOtp">Resend code</button></form><p class="micro">OTP verification happens on the authentication server, never in this page. Signing in saves your personal searches and download clicks. <a href="privacy.html" target="_blank" rel="noopener">Privacy details ↗</a>. Your account cannot grant GitHub admin permissions.</p><p id="authMessage" class="form-message" role="status" aria-live="polite"></p></dialog>
+<dialog id="profileDialog" class="dialog account-dialog"><button class="dialog-close" type="button" data-action="close-profile" aria-label="Close">×</button><h2>MY PLAYER PROFILE</h2><div class="profile-hero"><span id="profileAvatar" class="profile-avatar">Z0</span><div><strong id="profileEmail">Guest</strong><small>Your games. Your activity.</small></div></div><form id="profileForm"><label>Display name<input id="profileName" type="text" maxlength="32" autocomplete="nickname" placeholder="Your nickname"></label><label>Avatar (JPG, PNG, WebP · up to 2MB)<input id="avatarFile" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="primary-btn" type="submit">SAVE PROFILE</button></form><div class="profile-actions"><button type="button" id="clearActivity" class="ghost-btn">CLEAR MY ACTIVITY</button> <button type="button" id="signOut" class="ghost-btn">SIGN OUT</button><p class="micro">Your profile, favourites and history currently live only in this browser. Reset clears them from this device. <a href="privacy.html">Privacy details ↗</a></p></div><p id="profileMessage" class="form-message" role="status"></p></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
