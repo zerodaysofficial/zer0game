@@ -391,6 +391,38 @@ async function saveRecord(record, sha, catalog, original) {
   return nextCatalog;
 }
 
+const gameSlug = title => String(title || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const escapePageText = text => String(text).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+async function saveGamePage(record) {
+  const slug = gameSlug(record.title);
+  if (!slug) throw new Error('Il titolo non genera un indirizzo valido.');
+  const prefix = '/repos/' + REPOSITORY_OWNER + '/' + REPOSITORY_NAME + '/contents/';
+  const index = await githubRequest(prefix + 'index.html?ref=' + encodeURIComponent(WRITE_BRANCH));
+  const rootHtml = decodeBase64Utf8(index.content);
+  const title = escapePageText(record.title);
+  const page = rootHtml.replace(/<title>[\s\S]*?<\/title>/, '<title>' + title + ' | ZER0GAME</title>')
+    .replace('</head>', '<meta name="generator" content="zer0game-routes">\n<meta property="og:title" content="' + title + ' | ZER0GAME">\n<meta property="og:url" content="https://zerodaysofficial.github.io/zer0game/' + slug + '/">\n</head>');
+  const path = prefix + contentsPath(slug + '/index.html');
+  let previous;
+  try {
+    previous = await githubRequest(path + '?ref=' + encodeURIComponent(WRITE_BRANCH));
+  } catch (error) {
+    if (!/\b404\b|not found|non trovato/i.test(String(error.message))) throw error;
+  }
+  if (previous?.content && decodeBase64Utf8(previous.content) === page) return;
+  const body = {
+    message: 'Publish page for ' + record.title,
+    content: toBase64(new TextEncoder().encode(page)),
+    branch: WRITE_BRANCH
+  };
+  if (previous?.sha) body.sha = previous.sha;
+  await githubRequest(path, {
+    method: 'PUT',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+}
+
 loginForm.addEventListener('submit', async event => {
   event.preventDefault();
   if (loginPending) return;
@@ -616,10 +648,20 @@ entryForm.addEventListener('submit', async event => {
     setStatus(saveStatus, original ? 'Salvo le modifiche…' : 'Salvo la scheda…');
     const savedCatalog = await saveRecord(record, latest.sha, latest.catalog, original);
     catalogGames = savedCatalog.games;
+    let routeError = '';
+    try {
+      setStatus(saveStatus, 'Creo la pagina del gioco…');
+      await saveGamePage(record);
+    } catch (error) {
+      routeError = error.message || 'Pagina non pubblicata.';
+    }
     setSaving(false);
     if (original) selectGame(record, false);
     else showNewEntry();
-    setStatus(saveStatus, `“${record.title}”: scheda ${original ? 'aggiornata' : 'aggiunta al catalogo'}.`, 'success');
+    const statusText = routeError
+      ? '“' + record.title + '”: scheda salvata, ma pagina non aggiornata: ' + routeError
+      : '“' + record.title + '”: scheda salvata e pagina pubblicata.';
+    setStatus(saveStatus, statusText, routeError ? 'warning' : 'success');
   } catch (error) {
     const partial = coverUploaded ? ' La cover è stata caricata, ma la scheda non è stata salvata.' : '';
     setStatus(saveStatus, `${error.message || 'Salvataggio non riuscito.'}${partial}`, 'error');
