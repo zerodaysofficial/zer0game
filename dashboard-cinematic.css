@@ -1,6 +1,6 @@
-/* ZER0GAME — cinematic interaction layer.
- * Decorative animations only. All functions work with motion reduced or disabled.
- */
+
+
+
 :root{--cinematic-ease:cubic-bezier(.22,1,.36,1);--cinematic-glow:rgba(151,65,255,.33)}
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 body{overflow-x:hidden}

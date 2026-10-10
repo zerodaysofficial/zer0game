@@ -1,4 +1,4 @@
-/* ZER0GAME dashboard visual pass — high-readability interface and true-size cover compositions. */
+ 
 :root{--readable-text:#eaf0ff}
 .topbar{
  position:sticky;top:8px;z-index:65;
@@ -194,8 +194,8 @@ body.no-motion .widget-art,body.no-motion .hero-keyart{transition:none!important
 body.no-motion .hero-keyart{transform:none!important}
 
 
-/* Larger game covers: more room for full-size PS5 posters, fewer games per row.
-   Intentionally at the end to override historical compact grid breakpoints. */
+
+
 .library .game-grid{
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:14px;

@@ -167,9 +167,9 @@ def build_new_game(item, title_id, overrides, direct_url="", download_label="FPK
     language_override = language_override_for(overrides, title_id, title)
     source_image = clean(item.get("image"))
 
-    # No source download URL is copied into the destination catalog.
-    # New covers may use the source image only when creating a brand-new entry;
-    # existing covers are never overwritten by this synchronizer.
+    
+    
+    
     game = {
         "title": title,
         "titleId": title_id,
@@ -220,8 +220,8 @@ def merge():
         if not has_fpkg(item):
             continue
 
-        # Detect a direct Akirabox mirror when the source publishes one.
-        # Wrapped Link Lock URLs are never copied or decoded.
+        
+        
         direct_url, download_label = preferred_direct_akia(item)
 
         title_id = title_id_from_tags(item)
@@ -252,7 +252,7 @@ def merge():
 
         before = json.dumps(current, sort_keys=True, ensure_ascii=False)
 
-        # Existing cover is intentionally never touched.
+        
         current["version"] = version_from_item(item) or current.get("version", "")
         current["firmware"] = firmware_from_item(item) or current.get("firmware", "")
         current["size"] = clean(item.get("fpkg_size")) or current.get("size", "")

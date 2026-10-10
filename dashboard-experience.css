@@ -1,5 +1,5 @@
 
-/* ZER0GAME concept-match layer. Real data, accessible native controls and responsive layout. */
+ 
 :root{--panel:#080d1f;--edge:#222d54;--purple:#9435ff;--blue:#4685ff}
 body{background:#060818;letter-spacing:.005em}
 .backglow{background:radial-gradient(ellipse at 35% 1%,#42118375 0,transparent 44%),radial-gradient(ellipse at 110% 77%,#18206c99 0,transparent 42%),#060818}

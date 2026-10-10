@@ -1,6 +1,6 @@
--- Execute once in the Supabase SQL Editor. Never execute SQL from the browser.
--- OTP verification, expiration, replay checks and rate limits are handled by Supabase Auth.
--- Configure an EMAIL OTP template containing {{ .Token }} and verified SMTP.
+
+
+
 create table if not exists public.profiles (
  id uuid primary key references auth.users(id) on delete cascade,
  display_name text not null default '' check (char_length(display_name)<=32),
@@ -55,7 +55,7 @@ drop policy if exists "Own activity insert" on public.activity_events;
 create policy "Own activity insert" on public.activity_events for insert to authenticated with check (user_id=(select auth.uid()));
 drop policy if exists "Own activity delete" on public.activity_events;
 create policy "Own activity delete" on public.activity_events for delete to authenticated using (user_id=(select auth.uid()));
--- No anonymous profile/activity/favorites access, no admin role columns, no broad policies.
+
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
  values ('avatars','avatars',true,2097152,array['image/jpeg','image/png','image/webp'])
  on conflict(id) do update set file_size_limit=excluded.file_size_limit,
@@ -66,4 +66,4 @@ create policy "Upload avatar into own folder" on storage.objects for insert to a
 drop policy if exists "Delete own avatars" on storage.objects;
 create policy "Delete own avatars" on storage.objects for delete to authenticated
  using (bucket_id='avatars' and (storage.foldername(name))[1]=(select auth.uid())::text);
--- Public read is intentional for displayable avatars; only authenticated users can upload.
+

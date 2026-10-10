@@ -632,7 +632,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 
 
-/* Mobile modal: large full cover + scrollable content + always reachable actions */
+ 
 @media(max-width:680px){
   .game-modal{
     width:calc(100% - 12px);
@@ -726,8 +726,8 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 
 
-/* Desktop cards: artwork fills the whole cover frame, no inner spacing.
-   Mobile remains unchanged. */
+
+
 @media(min-width:681px){
   .cover{
     padding:0;
@@ -745,7 +745,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 
 
-/* Desktop modal: make the full cover much larger without cropping it. */
+ 
 @media(min-width:681px){
   .game-modal{
     width:min(1120px,calc(100% - 40px));
@@ -776,7 +776,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 
 
-/* Mobile cards: no inner cover gap, artwork fills the card frame. */
+ 
 @media(max-width:680px){
   .cover{
     padding:0 !important;
@@ -792,7 +792,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
     opacity:.22;
   }
 
-  /* Opened game: keep the full cover visible and large, never crop it. */
+   
   .modal-art{
     padding:0 !important;
   }
@@ -809,7 +809,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   }
 }
 
-/* DMCA modal */
+ 
 .nav-link-button,
 .footer-dmca{
   padding:0;
@@ -944,7 +944,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   }
 }
 
-/* Homepage social icons */
+ 
 .social-support{
   display:flex;
   align-items:center;
@@ -1078,7 +1078,7 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
   }
 }
 
-/* Centered header socials */
+ 
 .topbar{
   position:relative;
 }
@@ -1146,10 +1146,10 @@ footer p{max-width:620px;text-align:right;line-height:1.6}
 }
 
 
-/* =========================================================
-   ZER0GAME VIBRANT NEON THEME
-   Dark gaming UI, but warmer, friendlier and more colorful.
-   ========================================================= */
+
+
+
+
 
 :root{
   --bg:#070711;
@@ -1193,7 +1193,7 @@ body{
   background:linear-gradient(135deg,#18dcff,#35f2c2);
 }
 
-/* HEADER */
+ 
 .topbar{
   height:92px;
   padding:0 18px;
@@ -1245,7 +1245,7 @@ body{
     0 0 30px rgba(24,220,255,.25);
 }
 
-/* HERO */
+ 
 .hero{
   min-height:560px;
   padding:74px 0 64px;
@@ -1276,7 +1276,7 @@ body{
   color:#aeb5c9;
 }
 
-/* SEARCH */
+ 
 .search-shell{
   position:relative;
   height:68px;
@@ -1325,7 +1325,7 @@ body{
 .hero-meta span:nth-child(2) strong{color:#62efb4}
 .hero-meta span:nth-child(3) strong{color:#c8a8ff}
 
-/* TOOLBAR / FILTERS */
+ 
 .toolbar{
   top:8px;
   padding:12px;
@@ -1371,7 +1371,7 @@ body{
   box-shadow:0 0 18px rgba(24,220,255,.08);
 }
 
-/* GAME GRID / CARDS */
+ 
 .game-grid{
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:24px;
@@ -1511,7 +1511,7 @@ body{
   box-shadow:0 0 20px rgba(255,200,90,.17);
 }
 
-/* MODAL - more vivid while preserving full covers */
+ 
 .game-modal{
   background:
     radial-gradient(circle at 78% 10%,rgba(139,92,255,.11),transparent 28%),
@@ -1576,7 +1576,7 @@ body{
   box-shadow:0 0 22px rgba(139,92,255,.22);
 }
 
-/* ABOUT / FOOTER */
+ 
 .about{
   margin-top:30px;
   padding:70px 36px;
@@ -1591,7 +1591,7 @@ footer{
   margin-top:42px;
 }
 
-/* RESPONSIVE */
+ 
 @media(max-width:1200px){
   .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -1654,9 +1654,9 @@ footer{
 }
 
 
-/* =========================
-   BUILDER SHOWCASE + PAGE
-   ========================= */
+
+
+
 .tool-showcase{
   align-items:center;
 }
@@ -2012,7 +2012,7 @@ footer{
   .tool-showcase-content{margin-top:28px}
 }
 
-/* Language flags in all game modals */
+ 
 .lang-badge{
   display:inline-flex;
   align-items:center;
@@ -2031,7 +2031,7 @@ footer{
   letter-spacing:.03em;
 }
 
-/* 3D Taz-style game-card click animation — strong version */
+ 
 .game-card{
   perspective:1400px;
   transform-style:preserve-3d;
@@ -2153,7 +2153,7 @@ footer{
   100%{opacity:0;transform:translate(-50%,-50%) rotate(720deg) scale(1.34)}
 }
 
-/* Accessibility: reduced-motion users still get clear click feedback without the spin. */
+ 
 @media(prefers-reduced-motion:reduce){
   .game-card.card-launching .cover-wrap{
     animation:tazReducedPulse .35s ease-out both !important;
@@ -2169,7 +2169,7 @@ footer{
   50%{transform:scale(1.06);filter:brightness(1.18)}
 }
 
-/* Game category system */
+ 
 .badge-category,
 .genre-badge{
   border-color:rgba(53,242,194,.36);
@@ -2195,7 +2195,7 @@ footer{
 }
 
 
-/* Apple-inspired cinematic hero typewriter */
+ 
 .hero-typewriter{
   min-height:1.92em;
   display:flex;
@@ -2289,7 +2289,7 @@ footer{
 }
 
 
-/* Typewriter reliability / replay */
+ 
 .hero-typewriter{
   transition:opacity .42s ease,filter .42s ease,transform .42s ease;
 }
@@ -2320,7 +2320,7 @@ footer{
   }
 }
 
-/* PS5 normalized case frame — v2 */
+ 
 .ps5-case-header{
   position:absolute;
   z-index:20;
@@ -2400,7 +2400,7 @@ footer{
   transform:scale(1.01);
 }
 
-/* PS5 case in the detail modal */
+ 
 .ps5-modal-case{
   position:absolute;
   z-index:2;
@@ -2465,7 +2465,7 @@ footer{
 }
 
 
-/* Modal download visibility hardening — 2026-09-27 */
+ 
 .game-modal{
   max-height:90dvh;
 }
@@ -2567,7 +2567,7 @@ footer{
 }
 
 
-/* Library pagination */
+ 
 .pagination {
   margin: 34px auto 4px;
   display: flex;
@@ -2666,7 +2666,7 @@ footer{
 }
 
 
-/* === ZER0DAY PREMIUM VERTICAL CARDS === */
+ 
 .game-grid{
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:24px;
@@ -3031,7 +3031,7 @@ footer{
 }
 
 
-/* ZER0DAY card differentiation: firmware stays outside artwork */
+ 
 .premium-card .badges .badge:first-child{
   color:#dff8ff;
   background:linear-gradient(135deg,rgba(24,102,173,.34),rgba(81,54,151,.34));
@@ -3050,9 +3050,9 @@ footer{
   .premium-card .meta-stack{max-width:70%}
 }
 
-/* === ZER0DAY COVER-FIRST CARD OVERRIDES v4 === */
+ 
 
-/* Larger cards, artwork-first layout */
+ 
 .game-grid{
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:26px;
@@ -3137,7 +3137,7 @@ footer{
   backdrop-filter:blur(9px);
 }
 
-/* Cover only carries ID/version/region/size. Firmware stays below in badges. */
+ 
 .premium-card .cover-meta{
   left:12px;
   right:12px;
@@ -3191,7 +3191,7 @@ footer{
   box-shadow:none;
 }
 
-/* Metadata clearly separated from artwork */
+ 
 .premium-card .badges{
   margin:14px 2px 0;
   gap:8px;
@@ -3247,7 +3247,7 @@ footer{
   border-color:rgba(164,137,255,.42);
 }
 
-/* Tablet */
+ 
 @media(max-width:1180px){
   .game-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -3255,7 +3255,7 @@ footer{
   }
 }
 
-/* Mobile: one large readable cover per row */
+ 
 @media(max-width:650px){
   .game-grid{
     grid-template-columns:1fr;
@@ -3313,7 +3313,7 @@ footer{
   }
 }
 
-/* === ZER0DAY LARGE SHOWCASE CARDS v5 === */
+ 
 
 .game-grid{
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -3448,7 +3448,7 @@ footer{
   border-color:rgba(161,145,255,.46);
 }
 
-/* Keep hidden DLC controls truly absent from layout. */
+ 
 .quick-dlc[hidden]{
   display:none!important;
 }
@@ -3504,7 +3504,7 @@ footer{
   }
 }
 
-/* === ZER0DAY PHYSICAL PS5 COVER FRAME v6 === */
+ 
 
 .premium-card .ps5-case-card{
   background:#fff;
@@ -3566,9 +3566,9 @@ footer{
   }
 }
 
-/* === ZER0DAY PS5 CASE FIX v7 === */
+ 
 
-/* Final authoritative PS5 case rules: fixes stretched status badge and white gap */
+ 
 .premium-card .cover-wrap.ps5-case-card{
   position:relative;
   overflow:hidden;
@@ -3678,7 +3678,7 @@ footer{
   pointer-events:none;
 }
 
-/* Keep modal case consistent too */
+ 
 .ps5-modal-case .ps5-case-header{
   top:5px;
   left:5px;
@@ -3721,7 +3721,7 @@ footer{
   }
 }
 
-/* Fit 007 First Light artwork into the nearly square case window. */
+ 
 .premium-card .cover-wrap.ps5-case-card.cover-fit-cover .cover{
   object-fit:cover;
   object-position:center 43%;
