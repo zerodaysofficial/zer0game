@@ -1,5 +1,6 @@
 /* ZER0GAME responsive recovery (2026-10-10).
    Loaded after visual-pass so desktop styling remains unchanged. */
+.mobile-menu-toggle{display:none}
 @media (min-width:701px) and (max-width:1000px) {
   /* Visual pass re-introduced labels into the 75px collapsed sidebar. */
   .sidebar .navitem{font-size:0;gap:0;justify-content:center;padding:10px 4px}
