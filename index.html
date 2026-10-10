@@ -13,15 +13,18 @@
 <link rel="stylesheet" href="dashboard-experience.css?v=4">
 <link rel="stylesheet" href="dashboard-cinematic.css?v=20261008">
 <link rel="stylesheet" href="dashboard-visual-pass.css?v=20261008c">
+<link rel="stylesheet" href="dashboard-mobile-fix.css?v=20261010">
 <script type="module" src="dashboard-visual-pass.js?v=20261009"></script>
+<script type="module" src="dashboard-mobile-nav.js?v=20261010"></script>
 </head>
 <body>
 <div class="backglow" aria-hidden="true"></div>
 <div class="shell">
 <aside class="sidebar">
   <a class="logo" href="./"><span class="logo-icon">Z0</span><span>ZER0GAME<small>BY ZER0DAY</small></span></a>
+  <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-controls="primaryNav secondaryNav" aria-expanded="false" aria-label="Open navigation menu"><span class="mobile-menu-icon" aria-hidden="true">☰</span><span class="mobile-menu-label">Menu</span></button>
   <div class="nav-caption">NAVIGATION</div>
-  <nav class="sidebar-menu" aria-label="Site sections">
+  <nav id="primaryNav" class="sidebar-menu" aria-label="Site sections">
     <button data-nav="dashboard" class="navitem active"><span>⌂</span> Dashboard</button>
     <button data-nav="library" class="navitem"><span>▦</span> Game Library</button>
     <button data-nav="cheat" class="navitem"><span>ϟ</span> Cheat Hub <b class="new-pill">NEW</b></button>
@@ -30,7 +33,7 @@
     <button data-nav="dlc" class="navitem"><span>⬡</span> DLC Library</button>
   </nav>
   <div class="nav-caption">YOUR SPACE</div>
-  <nav class="sidebar-menu">
+  <nav id="secondaryNav" class="sidebar-menu" aria-label="Your space">
     <button data-action="profile" class="navitem"><span>◉</span> My Profile</button>
     <button data-action="activity" class="navitem"><span>▤</span> My Activity</button>
     <button data-action="queue" class="navitem"><span>⇩</span> Download Queue</button>
@@ -51,7 +54,7 @@
   <label class="global-search"><span>⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Search games, PPSA, firmware, cheats, DLC..." aria-label="Search catalog"><kbd>/</kbd></label>
   <button class="icon-button" type="button" data-nav="library" title="Explore library" aria-label="Explore library">🎮</button>
   <button class="icon-button notice-trigger" type="button" data-action="notifications" title="Recent additions" aria-label="Recent additions"><span>🔔</span><i class="notification-dot" id="notificationDot"></i></button>
-  <button class="user-button" type="button" data-action="account"><span id="topAvatar" class="avatar-mark">Z0</span><span id="accountLabel">Profile</span><span>⌄</span></button>
+  <button class="user-button" type="button" data-action="account" aria-label="Open account or profile"><span id="topAvatar" class="avatar-mark">Z0</span><span id="accountLabel">Profile</span><span>⌄</span></button>
  </header>
  <section class="upper-grid">
   <div class="hero panel" id="hero">
