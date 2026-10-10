@@ -1,0 +1,187 @@
+/* ZER0GAME responsive recovery (2026-10-10).
+   Loaded after visual-pass so desktop styling remains unchanged. */
+@media (min-width:701px) and (max-width:1000px) {
+  /* Visual pass re-introduced labels into the 75px collapsed sidebar. */
+  .sidebar .navitem{font-size:0;gap:0;justify-content:center;padding:10px 4px}
+  .sidebar .navitem .new-pill{display:none}
+  .sidebar .logo>span:last-child{display:none}
+}
+@media (max-width:700px) {
+  html,body{max-width:100%;overflow-x:clip}
+  .shell{display:block;width:100%;max-width:100%;min-width:0;overflow:clip}
+  .content{width:100%;min-width:0;padding:12px 12px 24px}
+  .upper-grid,.lower-grid,.right-lower{grid-template-columns:minmax(0,1fr);min-width:0}
+  .panel,.collection,.library,.download-panel{min-width:0;max-width:100%}
+
+  /* Compact header and accessible, collapsible mobile menu. */
+  .sidebar{
+    position:relative;top:auto;display:flex;flex-direction:row;flex-wrap:wrap;
+    align-items:center;justify-content:space-between;gap:0;
+    width:100%;height:auto;min-height:0;padding:12px 14px;
+    overflow:visible;border-right:0;border-bottom:1px solid #29234c;
+    background:linear-gradient(110deg,#0a0b25,#0b0c20);
+  }
+  .sidebar .logo{
+    display:flex;align-items:center;justify-content:flex-start;
+    gap:10px;min-width:0;max-width:calc(100% - 102px);
+    margin:0;font-size:15px;line-height:1.15;letter-spacing:-.35px;
+  }
+  .sidebar .logo>span:last-child{display:block;font-size:15px;line-height:1.15}
+  .sidebar .logo small{font-size:8px;letter-spacing:1.7px;line-height:1.4}
+  .sidebar .logo-icon{
+    width:43px;height:43px;min-width:43px;min-height:43px;
+    font-size:19px;border-radius:12px;
+  }
+  .mobile-menu-toggle{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    flex:none;min-width:86px;min-height:41px;margin:0;padding:8px 11px;
+    color:#ebe5ff;background:#24154a;border:1px solid #6945ac;
+    border-radius:12px;font-size:12px;font-weight:800;
+  }
+  .mobile-menu-icon{font-size:20px;line-height:1}
+  .sidebar .nav-caption,.sidebar .sidebar-bottom{display:none}
+  .sidebar .sidebar-menu{
+    display:none;flex:0 0 100%;width:100%;min-width:0;
+    margin:12px 0 0;padding:0;overflow:visible;
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
+  }
+  .sidebar.mobile-open .sidebar-menu{display:grid}
+  .sidebar.mobile-open .sidebar-menu + .nav-caption + .sidebar-menu{
+    margin-top:8px;padding-top:10px;border-top:1px solid #30284e;
+  }
+  .sidebar .navitem{
+    display:flex;align-items:center;justify-content:flex-start;
+    gap:8px;width:100%;min-width:0;height:auto;min-height:45px;
+    padding:9px 10px;font-size:12px;font-weight:700;
+    line-height:1.25;text-align:left;white-space:normal;
+    border-radius:10px;
+  }
+  .sidebar .navitem>span{width:22px;min-width:22px;font-size:20px}
+  .sidebar .navitem>span svg{width:21px;height:21px}
+  .sidebar .new-pill{display:none}
+
+  /* Welcome, actions and search fit the viewport without shrinking text. */
+  .topbar{
+    position:relative;top:auto;display:grid;
+    grid-template-columns:minmax(0,1fr) 40px 40px 40px;
+    grid-template-areas:"welcome library notices profile" "search search search search";
+    align-items:center;gap:11px 7px;width:100%;max-width:100%;
+    margin:0 0 14px;padding:13px 12px;overflow:hidden;border-radius:16px;
+  }
+  .topbar .welcome{grid-area:welcome;min-width:0;max-width:100%}
+  .topbar .welcome small{display:block;font-size:9px;letter-spacing:1.3px}
+  .topbar .welcome h1{
+    font-size:clamp(18px,5.2vw,23px);line-height:1.12;margin-top:6px;
+    overflow-wrap:anywhere;letter-spacing:-.5px;
+  }
+  .topbar > .icon-button[data-nav="library"]{grid-area:library}
+  .topbar > .notice-trigger{grid-area:notices}
+  .topbar > .user-button{grid-area:profile}
+  .topbar .icon-button{
+    display:grid;place-items:center;width:40px;height:40px;
+    padding:0;font-size:19px;min-width:0;
+  }
+  .topbar .user-button{
+    justify-content:center;width:40px;height:40px;
+    min-width:0;padding:3px;gap:0;border-radius:50%;
+  }
+  .topbar .user-button>span:not(.avatar-mark){display:none}
+  .topbar .user-button .avatar-mark{width:32px;height:32px;flex:none}
+  .topbar .global-search{
+    grid-area:search;order:unset;width:100%;max-width:none;min-width:0;
+    flex:none;height:46px;margin:0;padding:0 11px;
+  }
+  .topbar .global-search input{min-width:0;font-size:12px}
+  .topbar .global-search kbd{flex:none}
+
+  /* No single-line headline or metadata chip can escape the hero. */
+  .hero{display:block;min-height:0;padding:21px 16px 22px;overflow:hidden}
+  .hero-main{
+    position:relative;display:flex;width:100%;max-width:100%;
+    min-width:0;align-items:flex-start;justify-content:flex-start;z-index:4;
+  }
+  .hero .hero-label{font-size:10px;padding:8px 11px}
+  .hero .platform{
+    display:block;max-width:100%;font-size:9px;
+    letter-spacing:.08em;line-height:1.5;margin-top:15px;
+    white-space:normal;overflow-wrap:anywhere;
+  }
+  .hero h2{
+    display:block;max-width:100%;width:100%;margin:15px 0 9px;
+    font-size:clamp(25px,7.4vw,34px);line-height:1.07;
+    letter-spacing:-1.15px;white-space:normal;
+    overflow-wrap:anywhere;word-break:normal;text-wrap:balance;
+  }
+  .hero-main>p{max-width:100%;font-size:12px;line-height:1.55}
+  .hero-keyart{inset:0 -22% 0 auto;width:89%;opacity:.25}
+  .hero-keyart.has-art{opacity:.32}
+  .hero-keyart img{object-fit:cover;object-position:center top}
+  .hero:after{
+    background:linear-gradient(90deg,#060918f9 0%,#070b1ae8 55%,#070a19b6 100%);
+  }
+  .hero .compat{display:none}
+  .specs{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;width:100%;max-width:100%;margin:15px 0;
+  }
+  .specs span{
+    display:flex;align-items:center;max-width:100%;min-width:0;
+    min-height:38px;font-size:10px;line-height:1.35;
+    padding:8px 9px;white-space:normal;overflow-wrap:anywhere;
+  }
+  .hero-actions{
+    display:grid;grid-template-columns:minmax(0,1fr);
+    width:100%;max-width:100%;gap:9px;margin-top:3px;
+  }
+  .hero-actions>.primary-btn,.hero-actions>.ghost-btn{
+    display:block;width:100%;min-height:45px;padding:12px;
+    font-size:12px;line-height:1.3;white-space:normal;text-align:center;
+  }
+
+  /* Collection, widgets and library should reflow, never enlarge the page. */
+  .collection{padding:14px}
+  .section-heading{flex-wrap:wrap}
+  .collection-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .collection-item{min-width:0}
+  .quick-widgets{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;margin:12px 0;
+  }
+  .widget{min-width:0;min-height:138px;padding:12px;overflow:hidden}
+  .widget strong,.widget small,.widget em{overflow-wrap:anywhere}
+  .library{padding:13px 11px}
+  .library .section-heading h2{font-size:16px}
+  .filter-pills{
+    display:flex;flex-wrap:nowrap;gap:7px;width:100%;
+    max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;
+    padding:3px 1px 10px;scrollbar-width:thin;
+  }
+  .filter-pills .pill{flex:0 0 auto;white-space:nowrap}
+  .select-filters{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;margin-top:12px;
+  }
+  .select-filters label{
+    display:flex;flex-direction:column;align-items:stretch;
+    min-width:0;gap:5px;font-size:11px;
+  }
+  .select-filters select{width:100%;max-width:100%;min-width:0}
+  .library .game-grid,.compact-mode .library .game-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
+  }
+  .library .game-card,.library .game-data{min-width:0}
+  .library .game-data h3{overflow-wrap:anywhere}
+  .download-panel{grid-template-columns:minmax(0,1fr)}
+  .footer{line-height:1.6}
+}
+@media (max-width:365px) {
+  .content{padding-inline:10px}
+  .sidebar{padding-inline:11px}
+  .sidebar .logo>span:last-child{font-size:13px}
+  .topbar{grid-template-columns:minmax(0,1fr) 36px 36px 36px;gap:8px 5px}
+  .topbar .icon-button,.topbar .user-button{width:36px;height:36px}
+  .hero{padding-inline:13px}
+  .hero h2{font-size:clamp(24px,7vw,30px)}
+  .specs span{font-size:9px}
+  .library .game-grid{gap:8px}
+}
