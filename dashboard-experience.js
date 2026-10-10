@@ -179,7 +179,7 @@ function configureActions(){
   if(!queue.length)return;if(!confirm('Clear your saved link queue?'))return;
   queue=[];save(QUEUE,queue);renderQueue();notify('Queue cleared.');
  });
- // Filter choices are stored only if the visitor expressly opts in.
+
  document.addEventListener('click',event=>{
   if(event.target.closest('[data-filter],[data-nav]'))setTimeout(saveFilters,0);
   if(event.target.closest('[data-favorite]'))setTimeout(sync,160);
