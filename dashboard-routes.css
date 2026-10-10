@@ -1,0 +1,36 @@
+body.route-game .content>.upper-grid,
+body.route-game .content>.quick-widgets,
+body.route-game .content>.lower-grid,
+body.route-game .content>.download-panel,
+body.route-game .content>.footer,
+body.route-section .content>.upper-grid,
+body.route-section .content>.quick-widgets,
+body.route-section .content>.download-panel{display:none!important}
+body.route-section .lower-grid{display:block}
+body.route-section .lower-grid>.right-lower{display:none!important}
+body.route-section .library{width:100%;max-width:100%}
+body.route-game #gameDialog[open]{
+ display:block;position:relative;inset:auto;margin:0;width:100%;max-width:100%;
+ max-height:none;overflow:visible;border-radius:20px;padding:35px 27px 28px;
+ animation:none!important;transform:none!important;filter:none!important;
+}
+body.route-game .content{min-width:0}
+body.route-game .game-dialog-grid{grid-template-columns:minmax(170px,320px) minmax(0,1fr);gap:28px}
+body.route-game .game-dialog-grid>img{width:100%;max-height:560px;object-fit:contain;object-position:center top}
+body.route-game #gameDialog .dialog-close{
+ position:relative;top:auto;right:auto;display:flex;align-items:center;justify-content:center;
+ width:auto;height:auto;min-height:39px;margin:0 0 21px;padding:8px 14px;
+ font-size:12px;font-weight:800;border-radius:9px;white-space:nowrap;
+}
+body.route-game #gameDialog h2{font-size:clamp(24px,3.5vw,42px);margin:9px 0 15px;overflow-wrap:anywhere}
+body.route-game #gameDialog .notes{overflow-wrap:anywhere}
+body.route-game #gameDialog .dialog-actions{display:flex;flex-wrap:wrap}
+@media(max-width:700px){
+ body.route-game #gameDialog[open]{padding:20px 15px;border-radius:15px}
+ body.route-game .game-dialog-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+ body.route-game .game-dialog-grid>img{max-height:min(55vh,430px);max-width:100%;object-fit:contain}
+ body.route-game #gameDialog h2{font-size:clamp(24px,7vw,32px)}
+ body.route-game #gameDialog .dialog-actions{display:grid;grid-template-columns:minmax(0,1fr)}
+ body.route-game #gameDialog .dialog-actions button{width:100%;min-height:43px}
+ body.route-section .library{padding:14px 11px}
+}

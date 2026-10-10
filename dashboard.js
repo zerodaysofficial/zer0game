@@ -10,7 +10,7 @@ const titleKey=g=>String(g.titleId||g.title||'unknown').toLowerCase()+'|'+String
 const isCheat=g=>Boolean(g.cheatEnabled&&validUrl(g.cheatDirectUrl));
 const isDlc=g=>Boolean(validUrl(g.dlcDirectUrl));
 function validUrl(url,relative=false){
- try{const original=String(url||'').trim();if(!relative&&!/^https:\/\//i.test(original))return '';const parsed=new URL(original,location.href);if(!['https:','http:'].includes(parsed.protocol))return '';if(!relative && parsed.protocol!=='https:')return '';return parsed.href;}catch{return '';}
+ try{const original=String(url||'').trim();if(!relative&&!/^https:\/\//i.test(original))return '';const parsed=new URL(original,document.baseURI);if(!['https:','http:'].includes(parsed.protocol))return '';if(!relative && parsed.protocol!=='https:')return '';return parsed.href;}catch{return '';}
 }
 function coverUrl(g){return validUrl(g.cover,true);}
 function downloads(g){return {game:validUrl(g.directUrl),dlc:validUrl(g.dlcDirectUrl),cheat:isCheat(g)?validUrl(g.cheatDirectUrl):''};}
