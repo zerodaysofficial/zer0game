@@ -1,7 +1,7 @@
-/* ZER0GAME visitor profile: temporary on-device personalization.
- * No email, login, admin rights, or network requests. Can be replaced with
- * auth-service.js when server-side email OTP is launched and tested.
- */
+
+
+
+
 const STORAGE_KEY='zer0game-local-v1';
 const visitor=Object.freeze({id:'local-device',email:'Local profile · this browser'});
 const blank=()=>({display_name:'Player',avatar_path:'',favorites:[],activities:[]});
@@ -76,7 +76,7 @@ export async function recordActivity(action,game={},query=''){
 }
 export async function clearActivities(){memory.activities=[];persist();}
 export async function signOut(){
- // There is no session: on-device "sign out" resets the local profile instead.
+ 
  memory=blank();
  try{localStorage.removeItem(STORAGE_KEY);}catch{}
 }

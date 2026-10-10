@@ -1,6 +1,6 @@
-/* ZER0GAME cinematic motion: no external services and no access to account/admin data.
-   GPU-friendly reveal / tilt, inline icons, and native dialog transitions.
- */
+
+
+
 import './dashboard-experience.js';
 
 const paths={
@@ -173,7 +173,7 @@ function enableDialog3D(){
   });
   dialog.addEventListener('close',()=>dialog.classList.remove('motion-closing'));
  }
- // Intercept only the existing modal-close controls: other buttons and native behaviours stay intact.
+ 
  document.addEventListener('click',event=>{
   const button=event.target.closest('button[data-action^="close-"]');
   const dialog=button?.closest('dialog.dialog');

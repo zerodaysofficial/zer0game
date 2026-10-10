@@ -1,6 +1,6 @@
-/* ZER0GAME visual refinements.
- * Uses the existing real game catalog; does not change Game, Cheat or DLC destinations.
- */
+
+
+
 import './dashboard-cinematic.js';
 const api=window.Zer0Dashboard;
 const $=selector=>document.querySelector(selector);

@@ -1,4 +1,4 @@
-/* Mobile navigation for the ZER0GAME dashboard; desktop remains untouched. */
+ 
 (() => {
   const sidebar = document.querySelector('.sidebar');
   const toggle = document.getElementById('mobileMenuToggle');

@@ -71,8 +71,8 @@ function safeLibraryImageUrl(value) {
   }
 }
 
-// Metadata is never inferred from the cover pixels. Only explicit, PPSA-matched
-// catalogue fields or product metadata are accepted.
+
+
 function cleanLanguages(value) {
   let list=value;
   if(typeof list==='string') {
@@ -120,7 +120,7 @@ function addLanguagesIfFound(cover,record,source){
     ? {...cover,languages,languageSource:source}
     : cover;
 }
-// Generated section is only replaced when the preceding auto-population is still intact.
+
 export function mergeLanguageDescription(existing,languages,previousAutoBlock=''){
   const lines=[];
   if(languages?.audio?.length)lines.push('Voices ⇛ '+languages.audio.join(', '));
@@ -270,7 +270,7 @@ export async function searchCoverByPpsa(titleId, {
       }
     } catch {
       signal?.throwIfAborted();
-      // A failed catalog or image must not prevent trying the next source.
+      
     }
   }
   signal?.throwIfAborted();
@@ -383,7 +383,7 @@ export function buildGameRecord(input, date = new Date().toISOString().slice(0, 
     const libraryCover = Boolean(safeLibraryImageUrl(cover));
     record.ps5Frame = true;
     record.coverSource = libraryCover ? 'Pippo Library'
-      : /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover';
+      : /^https:\/\
     record.coverFit = libraryCover ? 'contain' : 'cover';
   }
   return record;
