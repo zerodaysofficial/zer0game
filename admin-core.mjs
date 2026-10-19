@@ -383,7 +383,7 @@ export function buildGameRecord(input, date = new Date().toISOString().slice(0, 
     const libraryCover = Boolean(safeLibraryImageUrl(cover));
     record.ps5Frame = true;
     record.coverSource = libraryCover ? 'Pippo Library'
-      : /^https:\/\
+      : /^https:\/\//i.test(cover) ? 'PlayStation Store' : 'Owner-uploaded cover';
     record.coverFit = libraryCover ? 'contain' : 'cover';
   }
   return record;
