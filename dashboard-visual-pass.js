@@ -1,7 +1,7 @@
 
 
 
-import './dashboard-cinematic.js';
+import './dashboard-cinematic.js?v=20261019-coverfix';
 const api=window.Zer0Dashboard;
 const $=selector=>document.querySelector(selector);
 const arts={};
