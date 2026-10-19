@@ -286,7 +286,7 @@ export function formatGithubError(status, method, path, detail = '') {
   const prefix = `GitHub ha rifiutato ${verb} ${route} (HTTP ${code})`;
 
   if (code === 403 && /resource not accessible by personal access token|forbidden/i.test(message)) {
-    return `${prefix}: il token non ha accesso alla scrittura. Nel token fine-grained seleziona il repository zer0game e imposta Contents: Read and write.`;
+    return `${prefix}: GitHub ha negato la scrittura con questo token. Controlla Resource owner: zerodaysofficial, Repository access: zer0game e Contents: Read and write. Se hai modificato le autorizzazioni, verifica di usare il token aggiornato.`;
   }
 
   return `${prefix}: ${message}`;
