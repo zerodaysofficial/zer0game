@@ -1,8 +1,10 @@
 (() => {
   const selectors = '.game-cover, .collection-item img, .recent-game img, .game-dialog-grid > img, .last-cover, .queue-entry img';
   const normalize = value => {
+    const source = String(value || '').trim();
+    if (!source) return '';
     try {
-      const url = new URL(String(value || ''), document.baseURI);
+      const url = new URL(source, document.baseURI);
       return url.protocol === 'https:' ? url.href : '';
     } catch {
       return '';
