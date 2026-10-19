@@ -62,7 +62,7 @@
       "size": "60",
       "status": "released",
       "date": "2026-09-29",
-      "cover": "https://mopsgames.ru/assets/images/products/113440/lg/866aea007130d2610c97731cd33f6c725181924cbc8154dd.webp",
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202603/2314/786bbd7f2dace30b7b4034496aa2c0361e7e9edd4429295b.png",
       "languages": {
         "text": [],
         "audio": []
@@ -78,13 +78,17 @@
         "Open World"
       ],
       "ps5Frame": true,
-      "coverSource": "Catalog artwork (alternative image source)",
+      "coverSource": "PlayStation Store (Deluxe Edition)",
       "directUrl": "https://akirabox.to/0PdzyXK5d3eA/file",
       "dlcDirectUrl": "https://datanodes.to/download",
       "coverFit": "contain",
       "cheatEnabled": true,
       "cheatDirectUrl": "https://www.mediafire.com/file/o5txvy9p7mylm6k/PPSA28183_01.006.038.json/file",
-      "coverFallback": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/AC_Black_Flag_Resynced_DE.avif"
+      "coverFallback": "https://mopsgames.ru/assets/images/products/113440/lg/866aea007130d2610c97731cd33f6c725181924cbc8154dd.webp",
+      "coverFallbacks": [
+        "https://mopsgames.ru/assets/images/products/113440/lg/866aea007130d2610c97731cd33f6c725181924cbc8154dd.webp",
+        "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/AC_Black_Flag_Resynced_DE.avif"
+      ]
     },
     {
       "title": "Dying Light: The Beast",
