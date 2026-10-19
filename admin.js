@@ -12,7 +12,7 @@ import {
   searchCoverByPpsa,
   REPOSITORY_NAME,
   REPOSITORY_OWNER
-} from './admin-core.mjs?v=20261009-ppsa-metadata';
+} from './admin-core.mjs?v=20261019-adminfix';
 
 const API_ROOT = 'https://api.github.com';
 const WRITE_BRANCH = 'main';
