@@ -1,4 +1,4 @@
-import './dashboard-visual-pass.js?v=20261010';
+import './dashboard-visual-pass.js?v=20261019-coverfix';
 const api=window.Zer0Dashboard;
 const root=new URL('.',import.meta.url).pathname;
 const $=selector=>document.querySelector(selector);
