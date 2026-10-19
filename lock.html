@@ -248,7 +248,7 @@
     }
 
     .lockwrap{
-      position:absolute;left:22%;right:22%;top:49.2%;height:43%;
+      position:absolute;left:22%;right:22%;top:47%;height:40%;
       text-align:center;
     }
     .lockicon{
@@ -286,7 +286,7 @@
     }
 
     .inputbox{
-      position:absolute;left:2%;right:2%;top:35.3%;height:18.6%;
+      position:absolute;left:2%;right:2%;top:32%;height:18%;
       display:flex;align-items:center;
       border:1px solid rgba(100,157,215,.68);
       border-radius:15px;background:rgba(5,16,29,.82);
@@ -318,7 +318,7 @@
     .eye svg{width:38%;min-width:17px;stroke:#84a5ce;fill:none;stroke-width:2}
 
     .unlock-btn{
-      position:absolute;left:10.5%;right:10.5%;top:57.7%;height:17%;
+      position:absolute;left:10.5%;right:10.5%;top:55%;height:16%;
       border:0;border-radius:15px;cursor:pointer;
       background:linear-gradient(90deg,#20efbb 0%,#1cd7e3 55%,#19b9ff 100%);
       color:#00191d;
@@ -329,14 +329,41 @@
       transition:transform .16s ease,filter .16s ease;
     }
     .unlock-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-    .hint{
-      position:absolute;left:0;right:0;top:80.7%;
-      font-family:Arial,sans-serif;
-      font-size:clamp(10px,1vw,15px);color:#8fa7ca;
+    .password-actions{
+      position:absolute;left:2%;right:2%;top:76%;height:18%;
+      display:flex;gap:9px;
     }
+    .password-open,.copy-password{
+      display:flex;align-items:center;justify-content:center;gap:9px;
+      min-width:0;border-radius:12px;cursor:pointer;
+      font-family:"Orbitron",sans-serif;font-weight:900;
+      transition:transform .17s ease,box-shadow .17s ease,filter .17s ease;
+    }
+    .password-open{
+      flex:1;padding:8px 12px;
+      border:1px solid #7d8cff;
+      background:linear-gradient(110deg,#2430ab,#6540e6 56%,#ac45ef);
+      box-shadow:0 8px 28px rgba(86,65,245,.30),inset 0 1px rgba(255,255,255,.17);
+      color:#fff;
+      font-size:clamp(10px,1.05vw,15px);
+      letter-spacing:.035em;
+    }
+    .password-open svg{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .password-open span{overflow-wrap:anywhere}
+    .copy-password{
+      flex:0 0 32%;padding:8px 9px;
+      border:1px solid #20d9f0;
+      background:rgba(12,57,86,.8);
+      color:#bbfaff;
+      font-size:clamp(9px,.86vw,12px);
+      letter-spacing:.045em;
+    }
+    .password-open:hover,.copy-password:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .password-open:focus-visible,.copy-password:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .password-open:disabled,.copy-password:disabled{cursor:wait;filter:grayscale(.45);opacity:.75}
     .msg{
-      position:absolute;left:0;right:0;top:94%;
-      font-family:Arial,sans-serif;font-size:clamp(8px,.8vw,12px);
+      position:absolute;left:0;right:0;top:96%;
+      font-family:Arial,sans-serif;font-size:clamp(9px,.82vw,12px);
       color:#ff8097;letter-spacing:.04em;
     }
     .msg.ok{color:#48f0bd}
@@ -373,13 +400,16 @@
       .nav,.tag{font-size:9px;gap:10px;letter-spacing:.16em}
       .cards{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 18px 0}
       .social{min-height:128px}
-      .lockwrap{margin:26px 18px 0;height:330px}
+      .lockwrap{margin:26px 18px 0;height:420px}
       .lockicon{width:42px}
       .unlock-title{font-size:14px;white-space:normal}
-      .inputbox{top:36%}
-      .unlock-btn{top:58%}
-      .hint{top:80%}
-      .footerline{margin:12px 28px 0}
+      .inputbox{top:31%;height:16%}
+      .unlock-btn{top:51%;height:14%}
+      .password-actions{top:70%;height:auto;flex-direction:column;gap:9px}
+      .password-open{flex:none;min-height:56px;font-size:clamp(12px,3.2vw,16px)}
+      .copy-password{flex:none;min-height:44px;font-size:12px}
+      .msg{top:99%;font-size:11px}
+      .footerline{margin:24px 28px 0}
       .footerlinks{margin:20px 32px 0;font-size:8px}
       .powered{margin:18px 0 20px}
     }
@@ -394,6 +424,7 @@
   (() => {
     const h = React.createElement;
     const PASSWORD_SHA256 = "6fac255cd8b8a48872bc15838607a084823cf332edf7d5bda6323335eb608774";
+    const PUBLIC_PASSWORD = "ilovezer0day";
 
     function DonationIcon(){
       return h("svg",{viewBox:"0 0 120 100","aria-hidden":"true"},
@@ -411,6 +442,13 @@
       return h("svg",{viewBox:"0 0 24 24","aria-hidden":"true"},
         h("path",{d:"M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"}),
         h("circle",{cx:"12",cy:"12",r:"2.8"})
+      );
+    }
+    function LockIcon(){
+      return h("svg",{viewBox:"0 0 24 24","aria-hidden":"true"},
+        h("rect",{x:5,y:10,width:14,height:11,rx:2}),
+        h("path",{d:"M8 10V7a4 4 0 0 1 8 0v3"}),
+        h("circle",{cx:12,cy:15.5,r:1})
       );
     }
 
@@ -464,19 +502,45 @@
       const [ok,setOk] = React.useState(false);
       const [busy,setBusy] = React.useState(false);
 
-      const unlock = async () => {
+      const unlock = async supplied => {
         if(busy) return;
-        if(!password.trim()){setOk(false);setMessage("Enter the password.");return;}
+        const candidate = String(supplied ?? password).trim();
+        if(!candidate){setOk(false);setMessage("Enter the password.");return;}
         setBusy(true);
-        const valid = await sha256(password.trim()) === PASSWORD_SHA256;
-        if(!valid){
-          setBusy(false);setOk(false);setMessage("Wrong password.");
-          return;
+        try {
+          const valid = await sha256(candidate) === PASSWORD_SHA256;
+          if(!valid){
+            setOk(false);setMessage("Wrong password.");
+            return;
+          }
+          const target = decodeTarget();
+          setOk(true);
+          setMessage(target ? "Access unlocked. Opening link…" : "Password accepted. No link supplied.");
+          if(target){
+            setTimeout(()=>location.assign(target),380);
+            return;
+          }
+        } catch {
+          setOk(false);setMessage("Unable to verify the password. Try again.");
         }
-        const target = decodeTarget();
-        setOk(true);setMessage("Access unlocked.");
-        if(target) setTimeout(()=>location.assign(target),380);
-        else setBusy(false);
+        setBusy(false);
+      };
+      const usePublicPassword = () => {
+        setPassword(PUBLIC_PASSWORD);
+        setVisible(true);
+        setMessage("");
+        void unlock(PUBLIC_PASSWORD);
+      };
+      const copyPublicPassword = async () => {
+        setPassword(PUBLIC_PASSWORD);
+        setVisible(true);
+        setOk(false);
+        try{
+          await navigator.clipboard.writeText(PUBLIC_PASSWORD);
+          setMessage("Password copied and inserted.");
+        }catch{
+          setMessage("Password inserted. Copy it from the field above.");
+        }
       };
 
       return h("main",{className:"app"},
@@ -514,14 +578,19 @@
                 placeholder:"Type password...",
                 autoComplete:"off",
                 onChange:e=>{setPassword(e.target.value);if(message){setMessage("");setOk(false)}},
-                onKeyDown:e=>{if(e.key==="Enter") unlock()}
+                onKeyDown:e=>{if(e.key==="Enter") void unlock()}
               }),
               h("button",{className:"eye",type:"button","aria-label":"Show or hide password",onClick:()=>setVisible(v=>!v)},h(EyeIcon))
             ),
 
-            h("button",{className:"unlock-btn",type:"button",disabled:busy,onClick:unlock},busy?"OPENING…":"UNLOCK  →"),
-            h("div",{className:"hint"},"Hint: ilovezer0day"),
-            h("div",{className:"msg"+(ok?" ok":"")},message)
+            h("button",{className:"unlock-btn",type:"button",disabled:busy,onClick:()=>void unlock()},busy?"OPENING…":"UNLOCK  →"),
+            h("div",{className:"password-actions"},
+              h("button",{className:"password-open",type:"button",disabled:busy,onClick:usePublicPassword,"aria-label":"Use password ilovezer0day and automatically open the link"},
+                h(LockIcon),h("span",null,"PASSWORD : ilovezer0day"),h("span",{"aria-hidden":"true"},"→")
+              ),
+              h("button",{className:"copy-password",type:"button",disabled:busy,onClick:()=>void copyPublicPassword(),"aria-label":"Copy password ilovezer0day"},"COPIA PASSWORD")
+            ),
+            h("div",{className:"msg"+(ok?" ok":"") ,role:"status","aria-live":"polite"},message)
           ),
 
           h("div",{className:"footerline"}),
