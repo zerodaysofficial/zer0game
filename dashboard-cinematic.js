@@ -1,7 +1,7 @@
 
 
 
-import './dashboard-experience.js';
+import './dashboard-experience.js?v=20261019-coverfix';
 
 const paths={
  house:'<path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9"/><path d="M9 21v-8h6v8"/>',
