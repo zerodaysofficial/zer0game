@@ -69,7 +69,7 @@ function cardMarkup(g){
  const linkTags=[links.game?'<span class="tag available">Game</span>':'',links.dlc?'<span class="tag available">DLC</span>':'',links.cheat?'<span class="tag available">Cheat</span>':''].filter(Boolean).join('');
  return '<article class="game-card">'+
   '<button class="cover-button" data-open="'+id+'" aria-label="Details for '+esc(g.title)+'">'+
-   (src?'<img class="game-cover" loading="lazy" src="'+esc(src)+'" alt="'+esc(g.title)+' cover">':'<div class="game-cover"></div>')+
+   (src?'<img class="game-cover" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+esc(src)+'" alt="'+esc(g.title)+' cover">':'<div class="game-cover"></div>')+
    '<span class="ps5-strip">PS5 <span style="float:right;letter-spacing:0">ZER0GAME</span></span><span class="status-badge '+(g.status==='soon'?'soon':'')+'">'+(g.status==='soon'?'COMING SOON':'RELEASED')+'</span></button>'+
   '<div class="game-data"><h3 title="'+esc(g.title)+'">'+esc(g.title)+'</h3><p>'+esc(g.titleId||'No PPSA')+' · '+esc(g.version||'—')+'</p><p>FW '+esc(g.firmware||'—')+'</p>'+
   (linkTags?'<div class="tags">'+linkTags+'</div>':'')+
@@ -88,7 +88,7 @@ function renderCollection(){
  $('#collectionHint').textContent=userSaved.length?'Your saved games':'Tap ♡ to save games on this device.';
  $('#collectionList').innerHTML=chosen.slice(0,4).map(g=>{
   const src=coverUrl(g);return '<button class="collection-item" data-open="'+esc(titleKey(g))+'">'+
-  (src?'<img loading="lazy" src="'+esc(src)+'" alt="">':'')+'<div class="cinfo"><strong>'+esc(g.title)+'</strong><small>'+esc(g.titleId||'No PPSA')+' · '+esc(g.version||'—')+'</small><small>'+[downloads(g).game?'GAME':'',downloads(g).dlc?'DLC':'',downloads(g).cheat?'CHEAT':''].filter(Boolean).join(' · ')+'</small><div class="meter"></div></div></button>';
+  (src?'<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+esc(src)+'" alt="">':'')+'<div class="cinfo"><strong>'+esc(g.title)+'</strong><small>'+esc(g.titleId||'No PPSA')+' · '+esc(g.version||'—')+'</small><small>'+[downloads(g).game?'GAME':'',downloads(g).dlc?'DLC':'',downloads(g).cheat?'CHEAT':''].filter(Boolean).join(' · ')+'</small><div class="meter"></div></div></button>';
  }).join('');
 }
 function renderActivity(){
@@ -100,7 +100,7 @@ function gameByKey(key){return state.games.find(g=>titleKey(g)===key);}
 function openGame(g){
  if(!g)return;state.selected=g;const links=downloads(g),src=coverUrl(g),langs=[...(g.languages?.text||[])];
  const langMarkup=langs.length?'<h3>Text languages</h3><div class="language-chips">'+langs.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'';
- $('#gameDialogContent').innerHTML='<div class="game-dialog-grid">'+(src?'<img src="'+esc(src)+'" alt="'+esc(g.title)+' cover">':'<div></div>')+
+ $('#gameDialogContent').innerHTML='<div class="game-dialog-grid">'+(src?'<img referrerpolicy="no-referrer" src="'+esc(src)+'" alt="'+esc(g.title)+' cover">':'<div></div>')+
   '<div><span class="kicker">ZER0GAME / GAME DETAILS</span><h2>'+esc(g.title)+'</h2><p class="game-meta">Title ID: '+esc(g.titleId||'—')+'<br>Version: '+esc(g.version||'—')+'<br>Firmware: '+esc(g.firmware||'—')+'<br>Status: '+esc(g.status||'—')+'<br>Size: '+esc(g.size||'—')+'</p>'+
   '<div class="dialog-actions">'+(links.game?'<button class="primary-btn" data-download="game">↓ DOWNLOAD GAME</button>':'')+(links.dlc?'<button class="ghost-btn" data-download="dlc">↓ DOWNLOAD DLC</button>':'')+(links.cheat?'<button class="ghost-btn" data-download="cheat">ϟ DOWNLOAD CHEAT</button>':'')+'</div>'+
   (g.debugMenuSoon?'<p class="micro">DEBUG MENU SOON</p>':'')+'<div id="modalCounter" class="counter-label">Game and cheat counters loading…</div>'+
@@ -152,7 +152,7 @@ async function openProfile(){
  if(!auth.user()){showAuth();return;}
  $('#profileEmail').textContent='Only on this device';
  $('#profileName').value=state.profile?.display_name||'';
- $('#profileAvatar').innerHTML=auth.avatarUrl(state.profile?.avatar_path)?'<img src="'+esc(auth.avatarUrl(state.profile.avatar_path))+'" alt="">':'Z0';
+ $('#profileAvatar').innerHTML=auth.avatarUrl(state.profile?.avatar_path)?'<img referrerpolicy="no-referrer" src="'+esc(auth.avatarUrl(state.profile.avatar_path))+'" alt="">':'Z0';
  $('#profileMessage').textContent='';
  $('#profileDialog').showModal();
 }
@@ -209,7 +209,7 @@ function eventHandlers(){
  $('#resendOtp').addEventListener('click',async()=>{const msg=$('#authMessage');if(Date.now()-lastOtpAt<60000){msg.textContent='Please wait 60 seconds before requesting another code.';return;}try{await auth.sendCode(emailForOtp);lastOtpAt=Date.now();msg.textContent='A new code has been requested.';}catch(e){msg.textContent=e.message;}});
  $('#profileForm').addEventListener('submit',async e=>{
   e.preventDefault();const btn=e.target.querySelector('[type=submit]'),msg=$('#profileMessage');btn.disabled=true;msg.textContent='';
-  try{let path=state.profile?.avatar_path||'';const file=$('#avatarFile').files?.[0];if(file)path=await auth.uploadAvatar(file);await auth.saveProfile($('#profileName').value,path);await loadAccount(auth.user());$('#profileAvatar').innerHTML=auth.avatarUrl(path)?'<img src="'+esc(auth.avatarUrl(path))+'" alt="">':'Z0';msg.textContent='Profile saved!';toast('Your profile has been saved.');}
+  try{let path=state.profile?.avatar_path||'';const file=$('#avatarFile').files?.[0];if(file)path=await auth.uploadAvatar(file);await auth.saveProfile($('#profileName').value,path);await loadAccount(auth.user());$('#profileAvatar').innerHTML=auth.avatarUrl(path)?'<img referrerpolicy="no-referrer" src="'+esc(auth.avatarUrl(path))+'" alt="">':'Z0';msg.textContent='Profile saved!';toast('Your profile has been saved.');}
   catch(error){msg.textContent=error.message;}finally{btn.disabled=false;}
  });
  $('#clearActivity').addEventListener('click',async()=>{if(!auth.user())return;if(!confirm('Permanently delete your search and download history?'))return;try{await auth.clearActivities();state.activity=[];renderActivity();window.dispatchEvent(new Event('zer0:updated'));toast('Your activity history has been cleared.');}catch(e){toast(e.message);}});
