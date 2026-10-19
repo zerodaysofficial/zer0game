@@ -2288,7 +2288,8 @@
       "genres": [],
       "ps5Frame": true,
       "directUrl": "https://akirabox.to/2bJG8bZWg3OB/file",
-      "coverSource": "Pippo Library"
+      "coverSource": "Pippo Library",
+      "coverFallback": "https://s.pacn.ws/1/p/1ea/pragmata-deluxe-edition-multilanguage-905113.6.jpg?v=t7ehzh&width=1199"
     },
     {
       "title": "NBA 2K26",
