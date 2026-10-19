@@ -1,0 +1,35 @@
+name: Verify admin
+on:
+  push:
+    branches: [main]
+    paths:
+      - "admin.html"
+      - "admin.js"
+      - "admin-core.mjs"
+      - "tests/admin-core.test.mjs"
+      - "tests/cover-search.test.mjs"
+      - ".github/workflows/verify-admin.yml"
+  pull_request:
+    paths:
+      - "admin.html"
+      - "admin.js"
+      - "admin-core.mjs"
+      - "tests/admin-core.test.mjs"
+      - "tests/cover-search.test.mjs"
+      - ".github/workflows/verify-admin.yml"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check JavaScript syntax
+        run: |
+          node --check admin-core.mjs
+          node --check admin.js
+      - name: Run admin tests
+        run: node --test tests/admin-core.test.mjs tests/cover-search.test.mjs
