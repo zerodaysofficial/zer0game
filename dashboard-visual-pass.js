@@ -26,7 +26,7 @@ function syncHero(){
  if(!game||!art){if(arts.hero){arts.hero.classList.remove('has-art');}return;}
  if(!arts.hero){
   const frame=document.createElement('div');frame.className='hero-keyart';frame.setAttribute('aria-hidden','true');
-  const img=document.createElement('img');img.decoding='async';img.alt='';
+  const img=document.createElement('img');img.decoding='async';img.referrerPolicy='no-referrer';img.alt='';
   img.addEventListener('load',()=>frame.classList.add('has-art'));
   img.addEventListener('error',()=>frame.classList.remove('has-art'));
   frame.append(img);
@@ -69,7 +69,7 @@ function syncTiles(){
   if(!image){
    image=document.createElement('img');
    image.alt='';image.setAttribute('aria-hidden','true');
-   image.loading='lazy';image.decoding='async';image.className='widget-art';
+   image.loading='lazy';image.decoding='async';image.referrerPolicy='no-referrer';image.className='widget-art';
    image.addEventListener('error',()=>{image.hidden=true;});
    el.insertBefore(image,el.firstChild);
   }
