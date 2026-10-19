@@ -439,6 +439,11 @@ loginForm.addEventListener('submit', async event => {
       throw new Error('Questo pannello è riservato al proprietario del repository.');
     }
 
+    const repository = await githubRequest(`/repos/${REPOSITORY_OWNER}/${REPOSITORY_NAME}`);
+    if (repository.permissions?.push === false) {
+      throw new Error('Il token identifica il proprietario ma non risulta autorizzato a scrivere su zer0game. Controlla Resource owner: zerodaysofficial, repository zer0game e Contents: Read and write nelle impostazioni del token GitHub.');
+    }
+
     const loaded = await getCatalog();
     catalogGames = loaded.catalog.games;
     catalogSearch.value = '';
