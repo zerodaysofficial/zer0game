@@ -27,7 +27,7 @@ function timeLabel(date){try{return new Intl.DateTimeFormat('en',{month:'short',
 function recentGames(){return [...state.games].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,7);}
 function recentEntry(g){
  const cover=coverUrl(g);
- return '<button class="recent-game" type="button" data-open="'+esc(titleKey(g))+'">'+(cover?'<img loading="lazy" src="'+esc(cover)+'" alt="">':'')+
+ return '<button class="recent-game" type="button" data-open="'+esc(titleKey(g))+'">'+(cover?'<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+esc(cover)+'" alt="">':'')+
  '<span><strong>'+esc(g.title)+'</strong><small>'+esc(g.titleId||'No PPSA')+' · '+esc(dateLabel(g.date))+'</small></span><span class="recent-arrow">⋮</span></button>';
 }
 function renderRecent(){
@@ -72,14 +72,14 @@ function renderLastLink(){
  if(!event){$('#lastDownload').innerHTML='<p class="empty-hint">No external links opened yet. Choose DOWNLOAD from a game page to start your history.</p>';return;}
  const game=state.games.find(x=>x.title===event.game_title&&(!event.title_id||x.titleId===event.title_id))||state.games.find(x=>x.title===event.game_title);
  const cover=game&&coverUrl(game);
- $('#lastDownload').innerHTML=(cover?'<img class="last-cover" src="'+esc(cover)+'" alt="">':'')+
+ $('#lastDownload').innerHTML=(cover?'<img class="last-cover" referrerpolicy="no-referrer" src="'+esc(cover)+'" alt="">':'')+
  '<div class="last-info"><strong>'+esc(event.game_title||'Game')+'</strong><small>'+esc(event.action.replace('download_','').toUpperCase())+' LINK OPENED · '+esc(timeLabel(event.created_at))+'</small><div class="external-explain">↗ Opened on external host · no file progress data</div></div>'+
  (game?'<button type="button" data-open="'+esc(titleKey(game))+'" class="ghost-btn">DETAILS →</button>':'');
 }
 function queueEntry(item,index,removable){
  const game=gameByKey(item.key);if(!game)return '';
  const cover=coverUrl(game);
- return '<div class="queue-entry">'+(cover?'<img loading="lazy" src="'+esc(cover)+'" alt="">':'')+
+ return '<div class="queue-entry">'+(cover?'<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+esc(cover)+'" alt="">':'')+
  '<span><strong>'+esc(game.title)+'</strong><small>'+esc(item.kind.toUpperCase())+' · ready to open</small></span>'+
  '<button type="button" data-queue-open="'+index+'" aria-label="Open queued '+esc(item.kind)+' link" title="Open link">↗</button>'+
  (removable?'<button type="button" data-queue-remove="'+index+'" aria-label="Remove queued link" title="Remove">×</button>':'')+'</div>';
