@@ -1,6 +1,6 @@
 
 
-import './dashboard.js?v=20261009';
+import './dashboard.js?v=20261019-coverfix';
 const api=window.Zer0Dashboard;
 if(!api)throw new Error('Zer0Game dashboard must load before the experience layer');
 const {state,auth,titleKey,downloads,coverUrl,gameByKey}=api;
