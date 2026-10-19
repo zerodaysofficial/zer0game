@@ -36,10 +36,13 @@
     const image = event.target;
     if (!(image instanceof HTMLImageElement) || !image.matches(selectors)) return;
     const game = entryFor(image);
-    const alternative = normalize(game?.coverFallback);
-    if (alternative && !image.dataset.coverBackupTried && alternative !== image.src) {
+    const backups = Array.isArray(game?.coverFallbacks) ? game.coverFallbacks : [game?.coverFallback];
+    const nextIndex = Number(image.dataset.coverFallbackIndex || 0);
+    for (let index = nextIndex; index < backups.length; index++) {
+      const alternative = normalize(backups[index]);
+      if (!alternative || alternative === image.src || alternative === normalize(game.cover)) continue;
       image.dataset.coverOriginal = normalize(game.cover);
-      image.dataset.coverBackupTried = 'true';
+      image.dataset.coverFallbackIndex = String(index + 1);
       image.referrerPolicy = 'no-referrer';
       image.src = alternative;
       return;
