@@ -20,7 +20,7 @@
       <form id="loginForm" autocomplete="off">
         <label for="githubToken">Token GitHub</label>
         <input id="githubToken" name="githubToken" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_…" />
-        <p class="admin-help">Il token resta solo in memoria in questa scheda e viene cancellato quando esci o ricarichi la pagina. In GitHub seleziona il repository zer0game e imposta Contents su Read and write.</p>
+        <p class="admin-help">Il token resta solo in memoria in questa scheda e viene cancellato quando esci o ricarichi la pagina. Verifica che il token sia intestato a zerodaysofficial, abbia accesso a zer0game e che Contents sia impostato su Read and write. <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">Gestisci i token GitHub</a>.</p>
         <button class="admin-button" type="submit">Accedi</button>
       </form>
       <p class="admin-status" id="loginStatus" role="status" aria-live="polite"></p>
@@ -143,6 +143,6 @@
       </form>
     </section>
   </main>
-  <script type="module" src="admin.js?v=20261019-adminfix"></script>
+  <script type="module" src="admin.js?v=20261019-permissions"></script>
 </body>
 </html>
