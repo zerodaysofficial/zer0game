@@ -1,0 +1,59 @@
+.game-cover-fallback {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  height:155px;
+  min-width:0;
+  width:100%;
+  padding:24px 12px 14px;
+  overflow:hidden;
+  text-align:center;
+  color:#f0eaff;
+  background:
+    radial-gradient(circle at 75% 10%,rgba(142,75,255,.34),transparent 48%),
+    linear-gradient(150deg,#172752 0%,#160f37 58%,#0d1532 100%);
+  border-bottom:1px solid rgba(158,130,255,.25);
+}
+.cover-fallback-mark {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:-1px;
+  color:#fff;
+  background:linear-gradient(130deg,#675bff,#b53cf6);
+  box-shadow:0 3px 22px rgba(106,72,255,.3);
+}
+.cover-fallback-title {
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  max-width:100%;
+  font-size:11px;
+  line-height:1.35;
+  font-weight:800;
+  overflow-wrap:anywhere;
+}
+.cover-fallback-note {
+  color:#aaa7ce;
+  font-size:9px;
+  letter-spacing:.2px;
+}
+.game-dialog-grid > .dialog-cover-fallback {
+  min-height:280px;
+  height:auto;
+  max-height:380px;
+  border:1px solid rgba(151,111,252,.28);
+  border-radius:13px;
+}
+@media(max-width:700px) {
+  .game-cover-fallback {height:160px}
+  .game-dialog-grid > .dialog-cover-fallback {min-height:190px;max-height:230px}
+}
