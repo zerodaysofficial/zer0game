@@ -17,6 +17,7 @@ import {
 const API_ROOT = 'https://api.github.com';
 const WRITE_BRANCH = 'main';
 const MAX_COVER_BYTES = 8 * 1024 * 1024;
+const MAX_CHEAT_BYTES = 5 * 1024 * 1024;
 const MIME_EXTENSIONS = {
   'image/png': 'png',
   'image/jpeg': 'jpg',
@@ -34,6 +35,8 @@ const saveStatus = byId('saveStatus');
 const uploadButton = byId('uploadButton');
 const coverSearchButton = byId('coverSearchButton');
 const coverInput = byId('coverFile');
+const cheatInput = byId('cheatFile');
+const cheatFileStatus = byId('cheatFileStatus');
 const coverPreview = byId('coverPreview');
 const coverSearchStatus = byId('coverSearchStatus');
 const catalogPanel = byId('catalogPanel');
@@ -293,6 +296,7 @@ function showNewEntry() {
   editingGame = null;
   entryForm.reset();
   resetCoverSelection();
+  setStatus(cheatFileStatus, '');
   byId('entryHeading').textContent = 'Nuova scheda';
   byId('editingStatus').textContent = 'Compila i dati e seleziona una cover per aggiungere un gioco.';
   byId('link').required = true;
@@ -307,6 +311,7 @@ function selectGame(game, focus = true) {
   entryForm.reset();
   editingGame = structuredClone(game);
   resetCoverSelection();
+  setStatus(cheatFileStatus, '');
   const values = gameFormValues(game);
   for (const [field, value] of Object.entries(values)) {
     const input = byId(field);
@@ -337,7 +342,7 @@ function setSaving(value) {
   }
 }
 
-function readFormRecord(coverPath, original) {
+function readFormRecord(coverPath, original, cheatLinkOverride = null) {
   const record = buildGameRecord({
     title: byId('title').value,
     titleId: byId('titleId').value,
@@ -349,7 +354,7 @@ function readFormRecord(coverPath, original) {
     link: byId('link').value,
     dlcLink: byId('dlcLink').value,
     cheatEnabled: byId('cheatEnabled').checked,
-    cheatLink: byId('cheatLink').value,
+    cheatLink: cheatLinkOverride ?? byId('cheatLink').value,
     cover: coverPath,
     technicalInfo: byId('technicalInfo').value,
     credit: byId('credit').value
@@ -369,6 +374,57 @@ async function uploadCover(file, path, title) {
     branch: WRITE_BRANCH
   };
   return githubRequest(`/repos/${REPOSITORY_OWNER}/${REPOSITORY_NAME}/contents/${contentsPath(path)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+}
+
+
+async function validateCheatFile(file) {
+  if (!file || !/\.json$/i.test(file.name)) throw new Error('Seleziona un file con estensione .json.');
+  if (file.size === 0) throw new Error('Il file JSON è vuoto.');
+  if (file.size > MAX_CHEAT_BYTES) throw new Error('Il file JSON supera il limite di 5 MB.');
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  try {
+    const content = new TextDecoder('utf-8', { fatal: true }).decode(bytes).replace(/^\uFEFF/, '');
+    const parsed = JSON.parse(content);
+    if (parsed === null || typeof parsed !== 'object') throw new Error('La radice JSON deve essere un oggetto o una lista.');
+  } catch {
+    throw new Error('Il file non contiene un JSON valido in UTF-8.');
+  }
+  return bytes;
+}
+
+function cheatDestination(file) {
+  const titleId = normalizedTitleId(byId('titleId').value).replace(/[^A-Z0-9_-]/g, '');
+  const title = gameSlug(byId('title').value);
+  const folder = titleId || title;
+  if (!folder) throw new Error('Inserisci un titolo o PPSA per caricare il JSON.');
+  const version = String(byId('version').value || 'unknown-version').replace(/^v/i, '').replace(/[^A-Za-z0-9._-]/g, '_').slice(0, 60) || 'unknown-version';
+  const name = file.name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9._()-]/g, '_').replace(/^\.+/, '').slice(0, 150);
+  if (!name || !/\.json$/i.test(name)) throw new Error('Nome del JSON non valido.');
+  const path = 'cheats/' + folder + '/' + version + '/' + name;
+  const url = 'https://' + REPOSITORY_OWNER + '.github.io/' + REPOSITORY_NAME + '/' + contentsPath(path);
+  return { path, url };
+}
+
+async function uploadCheat(bytes, destination, title) {
+  const url = '/repos/' + REPOSITORY_OWNER + '/' + REPOSITORY_NAME + '/contents/' + contentsPath(destination.path);
+  let sha = '';
+  try {
+    const existing = await githubRequest(url + '?ref=' + encodeURIComponent(WRITE_BRANCH));
+    sha = existing.sha || '';
+  } catch (error) {
+    if (!/\b404\b|not found|non trovato/i.test(String(error.message))) throw error;
+  }
+  const body = {
+    message: (sha ? 'Update' : 'Add') + ' cheat JSON for ' + title,
+    content: toBase64(bytes),
+    branch: WRITE_BRANCH
+  };
+  if (sha) body.sha = sha;
+  await githubRequest(url, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
@@ -610,6 +666,22 @@ coverInput.addEventListener('change', () => {
   }
 });
 
+cheatInput.addEventListener('change', async () => {
+  const file = cheatInput.files?.[0];
+  if (!file) {
+    setStatus(cheatFileStatus, '');
+    return;
+  }
+  setStatus(cheatFileStatus, 'Controllo il JSON…');
+  try {
+    await validateCheatFile(file);
+    byId('cheatEnabled').checked = true;
+    setStatus(cheatFileStatus, 'Pronto: ' + file.name + '. Il link verrà creato quando salvi la scheda.', 'success');
+  } catch (error) {
+    setStatus(cheatFileStatus, error.message || 'JSON non valido.', 'error');
+  }
+});
+
 entryForm.addEventListener('submit', async event => {
   event.preventDefault();
   if (saving) return;
@@ -619,11 +691,13 @@ entryForm.addEventListener('submit', async event => {
   }
 
   const coverFile = coverInput.files?.[0];
+  const cheatFile = cheatInput.files?.[0];
   const original = editingGame ? structuredClone(editingGame) : null;
   const coverUrl = selectedCoverTitleId === normalizedTitleId(byId('titleId').value)
     ? selectedCoverUrl
     : '';
   let coverUploaded = false;
+  let cheatUploaded = false;
   invalidateCoverSearch();
   catalogLoadSequence++;
   setSaving(true);
@@ -632,12 +706,14 @@ entryForm.addEventListener('submit', async event => {
   try {
     if (coverFile) validateCover(coverFile);
     if (!coverFile && !coverUrl && !original?.cover) throw new Error('Cerca la cover con il PPSA o carica un file.');
+    const cheatBytes = cheatFile ? await validateCheatFile(cheatFile) : null;
+    const cheatTarget = cheatFile ? cheatDestination(cheatFile) : null;
 
     const ext = coverFile ? MIME_EXTENSIONS[coverFile.type] : '';
     const coverPath = coverFile
       ? coverFilePath(byId('title').value, `cover.${ext}`, String(Date.now()))
       : coverUrl || original.cover;
-    const record = readFormRecord(coverPath, original);
+    const record = readFormRecord(coverPath, original, cheatTarget?.url);
     setStatus(saveStatus, 'Leggo il catalogo…');
     const beforeUpload = await getCatalog();
     createCatalogUpdate(beforeUpload.catalog, record, original, localDate());
@@ -646,6 +722,11 @@ entryForm.addEventListener('submit', async event => {
       setStatus(saveStatus, 'Carico la cover…');
       await uploadCover(coverFile, coverPath, record.title);
       coverUploaded = true;
+    }
+    if (cheatFile && cheatTarget) {
+      setStatus(saveStatus, 'Carico il cheat JSON su GitHub…');
+      await uploadCheat(cheatBytes, cheatTarget, record.title);
+      cheatUploaded = true;
     }
 
     setStatus(saveStatus, 'Verifico gli ultimi aggiornamenti…');
@@ -665,10 +746,10 @@ entryForm.addEventListener('submit', async event => {
     else showNewEntry();
     const statusText = routeError
       ? '“' + record.title + '”: scheda salvata, ma pagina non aggiornata: ' + routeError
-      : '“' + record.title + '”: scheda salvata e pagina pubblicata.';
+      : '“' + record.title + '”: scheda salvata e pagina pubblicata.' + (cheatUploaded ? ' Cheat JSON caricato e link generato.' : '');
     setStatus(saveStatus, statusText, routeError ? 'warning' : 'success');
   } catch (error) {
-    const partial = coverUploaded ? ' La cover è stata caricata, ma la scheda non è stata salvata.' : '';
+    const partial = (coverUploaded ? ' Cover caricata.' : '') + (cheatUploaded ? ' Cheat JSON caricato, ma scheda non aggiornata.' : '');
     setStatus(saveStatus, `${error.message || 'Salvataggio non riuscito.'}${partial}`, 'error');
   } finally {
     setSaving(false);
