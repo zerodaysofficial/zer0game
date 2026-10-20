@@ -115,9 +115,15 @@
             <span class="admin-help">Se attivo, sul sito comparirà il pulsante DOWNLOAD CHEAT per questo gioco.</span>
           </div>
           <div class="admin-field admin-span-2">
-            <label for="cheatLink">CHEAT LINK <span class="admin-help">(manuale)</span></label>
+            <label for="cheatFile">UPLOAD CHEAT JSON <span class="admin-help">(automatico)</span></label>
+            <input id="cheatFile" name="cheatFile" type="file" accept=".json,application/json" />
+            <span class="admin-help">Carica un file JSON fino a 5 MB. Al salvataggio viene pubblicato nel repository GitHub e il link DOWNLOAD CHEAT viene creato automaticamente. Il nome del file rimane riconoscibile.</span>
+            <p class="admin-status" id="cheatFileStatus" role="status" aria-live="polite"></p>
+          </div>
+          <div class="admin-field admin-span-2">
+            <label for="cheatLink">CHEAT LINK <span class="admin-help">(manuale o automatico)</span></label>
             <input id="cheatLink" name="cheatLink" type="url" inputmode="url" placeholder="https://…" />
-            <span class="admin-help">Il link viene conservato anche se disabiliti temporaneamente i cheat.</span>
+            <span class="admin-help">In alternativa inserisci un link HTTPS. Se carichi un JSON, prevale il nuovo link GitHub. Il link rimane salvato anche disabilitando i cheat.</span>
           </div>
           <div class="admin-field admin-span-2">
             <label for="coverFile">Cover</label>
@@ -143,6 +149,6 @@
       </form>
     </section>
   </main>
-  <script type="module" src="admin.js?v=20261019-permissions"></script>
+  <script type="module" src="admin.js?v=20261020-cheat-upload"></script>
 </body>
 </html>
