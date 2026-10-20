@@ -489,6 +489,25 @@
       return "";
     }
 
+    function hostedCheatUrl(target){
+      try{
+        const url = new URL(target,location.href);
+        const prefix = "/" + "zer0game" + "/cheats/";
+        return url.origin === location.origin && url.pathname.startsWith(prefix) && url.pathname.toLowerCase().endsWith(".json") ? url : null;
+      }catch{return null;}
+    }
+
+    function openUnlockedTarget(target){
+      const cheat = hostedCheatUrl(target);
+      if(!cheat){location.assign(target);return;}
+      const link = document.createElement("a");
+      link.href = cheat.href;
+      link.download = decodeURIComponent(cheat.pathname.split("/").pop() || "cheat.json");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
     async function sha256(text){
       const bytes = new TextEncoder().encode(text);
       const digest = await crypto.subtle.digest("SHA-256",bytes);
@@ -515,9 +534,9 @@
           }
           const target = decodeTarget();
           setOk(true);
-          setMessage(target ? "Access unlocked. Opening link…" : "Password accepted. No link supplied.");
+          setMessage(target ? (hostedCheatUrl(target) ? "Access unlocked. Downloading cheat JSON…" : "Access unlocked. Opening link…") : "Password accepted. No link supplied.");
           if(target){
-            setTimeout(()=>location.assign(target),380);
+            setTimeout(()=>openUnlockedTarget(target),380);
             return;
           }
         } catch {
