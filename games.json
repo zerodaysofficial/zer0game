@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22",
+  "updated": "2026-10-24",
   "games": [
     {
       "title": "Resonance: A Plague Tale Legacy",
@@ -142,7 +142,9 @@
       "coverSource": "Catalog artwork (alternative image source)",
       "directUrl": "https://akirabox.to/2WVGrdePB3kx/file",
       "coverFit": "contain",
-      "coverFallback": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/007_First_Light_DE.jpg"
+      "coverFallback": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/007_First_Light_DE.jpg",
+      "cheatEnabled": true,
+      "cheatDirectUrl": "https://zerodaysofficial.github.io/zer0game/cheats/PPSA11386/01.018/PPSA11386_01.018.001.json"
     },
     {
       "title": "Marvel’s Wolverine",
