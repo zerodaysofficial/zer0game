@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-29",
   "games": [
     {
       "title": "Resonance: A Plague Tale Legacy",
@@ -487,7 +487,9 @@
       "ps5Frame": true,
       "coverSource": "Previous catalog image",
       "coverFallback": "https://pub-ce6b40c14d144a128552570bcf6bb628.r2.dev/exFAT/Assassins_Creed_Shadows.avif",
-      "coverFit": "contain"
+      "coverFit": "contain",
+      "cheatEnabled": true,
+      "cheatDirectUrl": "https://zerodaysofficial.github.io/zer0game/cheats/PPSA20397/01.019.076/PPSA20397_01.019.076.json"
     },
     {
       "title": "Resident Evil 4 — Gold Edition",
